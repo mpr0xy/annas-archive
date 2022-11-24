@@ -1,0 +1,127 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+  <h2 class="mt-4 mb-1 text-3xl font-bold">About</h2>
+
+  <p class="mb-4">
+    This website was created by <a href="http://annas-blog.org">Anna</a>, the person behind the <a href="http://pilimi.org">Pirate Library Mirror</a>, which is a backup of the Z-Library shadow library.
+    She felt that there was a need for a central place to search for books, papers, comics, magazines, and other documents.
+  </p>
+
+  <p class="mb-4">
+    We strongly believe in the free flow of information, and preservation of knowledge and culture.
+    With this search engine, we build on the shoulders of giants.
+    We deeply respect the hard work of the people who have created the various shadow libraries, and we hope that this search engine will broaden their reach.
+  </p>
+
+  <p class="mb-4">
+    This is very much a "v0".
+    In its current state this website has many, many flaws.
+    Since Z-Library was <a href="https://www.reddit.com/r/DataHoarder/comments/ymiwzs/zlibrary_isnt_really_gone_but_that_maybe_up_to_you/">taken down</a>, we rushed to get this up and running so we can add links to the Z-Library data on IPFS as soon as possible (which is still in progress).
+  </p>
+
+  <p class="mb-4">
+    To stay updated on our progress, follow Anna on <a href="https://twitter.com/AnnaArchivist">Twitter</a> or <a href="https://www.reddit.com/user/AnnaArchivist">Reddit</a>.
+  </p>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Progress bar</h2>
+
+  <p class="mb-4">
+    The progress bar at the top of the page is currently not meaningful.
+    We don't know how many unique editions we actually have in shadow libraries (vs how many duplicates), nor do we know <a href="http://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html">how many books</a> there are in the world.
+    And humanity’s written heritage extends beyond just books — especially nowadays.
+    But we aspire to figure out those numbers, as well as expand beyond books.
+    Hopefully we can fill in this progress bar with real data in the future.
+  </p>
+
+  <p class="mb-4">
+    For now, the progress bar highlights our ambition and philosophy. We hope to inspire you to join us on this mission.
+  </p>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Donations</h2>
+
+  <p class="mb-4">
+    Anna’s Archive is a non-profit project. We take donations to cover our costs, which include hosting, domain names, development, and other expenses. For now we take donations via various cryptocurrencies, until we have more payment processors set up. If you prefer donating by credit card, use one of these merchants with our BTC address as the wallet address: <a href="https://buy.coingate.com/" rel="noopener noreferrer" target="_blank">Coingate</a>, <a href="https://buy.bitcoin.com/" rel="noopener noreferrer" target="_blank">Bitcoin.com</a>, <a href="https://www.sendwyre.com/buy/btc" rel="noopener noreferrer" target="_blank">Sendwyre</a>.
+  </p>
+
+  <ul class="list-inside mb-4">
+    <li class="list-disc">BTC: <a style="word-break: break-all;" rel="payment" href="bitcoin:15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o">15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o</a> (also works for BCH)</li>
+    <li class="list-disc">ETH: <a style="word-break: break-all;" rel="payment" href="ethereum:0x4a47880518eD21937e7d44251bd87054c1be022E">0x4a47880518eD21937e7d44251bd87054c1be022E</a></li>
+    <li class="list-disc">XMR: <a style="word-break: break-all;" rel="payment" href="monero:445v3zW24nBbdJDAUeRG4aWmGBwqL3ctHE9DuV42d2K7KbaWeUjn13N3f9MNnfSKpFUCkiQ9RoJ1U66CG7HPhBSDQdSdi7t">445v3zW24nBbdJDAUeRG4aWmGBwqL3ctHE9DuV42d2K7KbaWeUjn13N3f9MNnfSKpFUCkiQ9RoJ1U66CG7HPhBSDQdSdi7t</a></li>
+    <li class="list-disc">SOL: <a style="word-break: break-all;" rel="payment" href="solana:HDMUSnfFYiKNc9r2ktJ1rsmQhS8kJitKjRZtVGMVy1DP">HDMUSnfFYiKNc9r2ktJ1rsmQhS8kJitKjRZtVGMVy1DP</a></li>
+    <li class="list-disc">Thanks everyone for your generous support so far!</li>
+  </ul>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Further reading</h2>
+
+  <p class="mb-4">
+    Anna regularly puts out blog posts, which you can find on <a href="http://annas-blog.org">Anna’s Blog</a>:
+  </p>
+
+  <ul class="list-inside mb-4">
+    <li class="list-disc">2022-11-22 <a href="http://annas-blog.org/help-seed-zlibrary-on-ipfs.html">Help seed Z-Library on IPFS</a></li>
+    <li class="list-disc">2022-11-19 <a href="http://annas-blog.org/putting-5,998,794-books-on-ipfs.html">Putting 5,998,794 books on IPFS</a></li>
+    <li class="list-disc">2022-10-31 <a href="http://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html">ISBNdb dump, or How Many Books Are Preserved Forever?</a></li>
+    <li class="list-disc">2022-10-17 <a href="http://annas-blog.org/blog-how-to-become-a-pirate-archivist.html">How to become a pirate archivist</a></li>
+    <li class="list-disc">2022-09-25 <a href="http://annas-blog.org/blog-3x-new-books.html">3x new books added to the Pirate Library Mirror (+24TB, 3.8 million books)</a></li>
+    <li class="list-disc">2022-07-01 <a href="http://annas-blog.org/blog-introducing.html">Introducing the Pirate Library Mirror: Preserving 7TB of books (that are not in Libgen)</a></li>
+  </ul>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Metadata downloads</h2>
+
+  <p class="mb-4">
+    All the data on this website comes from publicly available metadata:
+  </p>
+
+  <ul class="list-inside mb-4">
+    <li class="list-disc"><a href="https://libgen.rs/dbdumps/">Library Genesis ".rs-fork" Data Dump (Fiction and Non-Fiction)</a></li>
+    <li class="list-disc"><a href="https://libgen.li/dirlist.php?dir=dbdumps">Library Genesis ".li-fork" Data Dump</a></li>
+    <li class="list-disc"><a href="http://pilimi.org/zlib.html">Pirate Library Mirror Z-Library Collection</a></li>
+    <li class="list-disc"><a href="https://www.isbn-international.org/range_file_generation">International ISBN Agency Ranges XML</a></li>
+    <li class="list-disc"><a href="http://pilimi.org/isbndb.html">Pirate Library Mirror ISBNdb Collection</a></li>
+    <li class="list-disc"><a href="https://openlibrary.org/developers/dumps">Open Library Data Dump</a></li>
+  </ul>
+
+  <p class="mb-4">
+    For more details on exactly the data that we use, see the <a href="/datasets">Datasets</a> page.
+  </p>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Bulk torrent downloads</h2>
+
+  <p class="mb-4">
+    Most (but currently not all) of the content linked to from here can be downloaded in bulk. If you have spare storage and bandwidth, you can help our preservation efforts by seeding these torrents:
+  </p>
+
+  <ul class="list-inside mb-4">
+    <li class="list-disc"><a href="https://libgen.rs/repository_torrent/">Library Genesis ".rs-fork" Non-Fiction</a></li>
+    <li class="list-disc"><a href="https://libgen.rs/fiction/repository_torrent/">Library Genesis ".rs-fork" Fiction</a></li>
+    <li class="list-disc"><a href="https://libgen.rs/scimag/repository_torrent/">Library Genesis / Sci-Hub "scimag" Papers</a></li>
+    <li class="list-disc"><a href="https://libgen.gs/torrents/">Library Genesis ".li-fork"</a> (mostly the same as ".rs-fork", and does not currently include comics, magazines, and standard documents)</li>
+    <li class="list-disc"><a href="http://pilimi.org/zlib.html">Pirate Library Mirror Z-Library Collection</a></li>
+    <li class="list-disc"><a href="http://pilimi.org/isbndb.html">Pirate Library Mirror ISBNdb Collection</a></li>
+  </ul>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Content complaints</h2>
+
+  <p class="mb-4">
+    We do not host any copyrighted materials here. We are a search engine, and as such only index metadata that is already publicly available.
+    Books, papers, and so on can only be downloaded either through the original websites, through IPFS proxies (like <a href="https://ipfs.io">IPFS.io</a>), or directly from other people through torrents — we do not host such content on here ourselves.
+    When downloading from these sources, we would suggest to check the laws in your jurisdiction with respect to what is allowed.
+    We are not responsible for content hosted by others.
+  </p>
+
+  <p class="mb-4">
+    If you have complaints about what you see on here, your best bet is to contact the original website.
+    We regularly pull their changes into our database.
+    If you really do think you have a valid complaint we should respond to, you can reach us at <a href="mailto:annas_archive_complaints@proton.me">annas_&#8203;archive_&#8203;complaints@&#8203;proton.&#8203;me</a>.
+    We take your complaints seriously, and will get back to you as soon as possible.
+  </p>
+
+  <h2 class="mt-12 mb-1 text-3xl font-bold">Contact</h2>
+
+  <p class="mb-4">
+    For messages other than complaints, please contact Anna on <a href="https://twitter.com/AnnaArchivist">Twitter</a> or <a href="https://www.reddit.com/user/AnnaArchivist">Reddit</a> (or if you are uncomfortable using either, feel free to use the complaints address above, for now).
+  </p>
+{% endblock %}

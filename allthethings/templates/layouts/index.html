@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}Anna’s Archive</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <meta name="description" content="Search engine of shadow libraries: books, papers, comics, magazines." />
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:creator" content="@AnnaArchivist"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:,">
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-inner">
+        <div class="header-inner-top">
+          <a href="/" class="custom-a" style="color: black"><h1>Anna’s Archive</h1></a>
+        </div>
+
+        <div>Search engine of shadow libraries: books, papers, comics, magazines.</div>
+
+        <div style="position: relative; height: 16px; margin-top: 16px">
+          <div style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: white; overflow: hidden; border-radius: 16px; box-shadow: 0px 2px 4px 0px #00000038">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 5%; background: #0095ff"></div>
+          </div>
+          <div style="position: absolute; left: 5%; top: 50%; width: 16px; height: 16px; transform: translate(-50%, -50%)">
+            <div style="position: absolute; left: 0; top: 0; width: 16px; height: 16px; background: #0095ff66; border-radius: 100%; animation: header-ping 1.5s cubic-bezier(0,0,.2,1) infinite"></div>
+            <div style="position: absolute; left: 0; top: 0; width: 16px; height: 16px; background: white; border-radius: 100%; box-shadow: 0 0 3px #00000069;"></div>
+          </div>
+        </div>
+
+        <div style="position: relative; padding-bottom: 20px">
+          <div style="width: 14px; height: 14px; border-left: 1px solid gray; border-bottom: 1px solid gray; position: absolute; top: 5px; left: calc(5% - 1px)"></div>
+          <div style="position: relative; left: calc(5% + 20px); width: calc(90% - 20px); top: 8px; font-size: 90%; color: #555">5% of humanity’s written heritage preserved forever <a href="/about" style="text-decoration: none !important;">ⓘ</a></div>
+        </div>
+        <div class="header-bar">
+          <div class="header-links">
+            <a href="/" class="custom-a {{ 'header-link-active' if header_active == 'home' }}"><span class="header-link-normal">Home</span><span class="header-link-bold">Home</span></a>
+            <a href="/about" class="custom-a {{ 'header-link-active' if header_active == 'about' }}"><span class="header-link-normal">About</span><span class="header-link-bold">About</span></a>
+            <a href="/datasets" class="custom-a {{ 'header-link-active' if header_active == 'datasets' }}"><span class="header-link-normal">Datasets</span><span class="header-link-bold">Datasets</span></a>
+            <a href="/search" class="custom-a {{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">Search</span><span class="header-link-bold">Search</span></a>
+          </div>
+          <form class="header-search" action="/search" method="get">
+            <!-- <select>
+              <option>Any field</option>
+              <optgroup label="Metadata">
+                <option>Title</option>
+                <option>Author</option>
+                <option>Description</option>
+              </optgroup>
+              <optgroup label="International IDs">
+                <option>ISBN</option>
+                <option>Open Library ID</option>
+                <option>Amazon ID (ASIN)</option>
+                <option>OCLC / Worldcat number</option>
+              </optgroup>
+              <optgroup label="Shadow Libraries">
+                <option>Library Genesis non-fiction ID (sci-tech)</option>
+                <option>Z-Library ID</option>
+                <option>Scanned/digital file MD5 hash</option>
+              </optgroup>
+            </select> -->
+            <input name="q" type="text" placeholder="Search title, author, ISBN, MD5, …" value="{{search_input}}">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="main">{% block body %}{% endblock %}</div>
+  </body>
+</html>
