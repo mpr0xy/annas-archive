@@ -10,7 +10,7 @@ select, input, a {
 outline-color: #00000055;
 }
 .main {
-max-width: 800px;
+max-width: 850px;
 margin: 0 auto;
 padding: 20px 10px;
 }
@@ -19,7 +19,7 @@ background: #0000000d;
 box-shadow: 0px 0px 7px rgb(0 0 0 / 30%);
 }
 .header-inner {
-max-width: 800px;
+max-width: 850px;
 margin: 0 auto;
 padding: 12px;
 }

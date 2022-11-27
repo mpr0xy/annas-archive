@@ -242,7 +242,11 @@ def about_page():
 
 @page.get("/datasets")
 def datasets_page():
-    return render_template("page/datasets.html", header_active="datasets")
+    return render_template("page/datasets.html", header_active="about")
+
+@page.get("/donate")
+def donate_page():
+    return render_template("page/donate.html", header_active="donate")
 
 
 def get_zlib_book_dicts(session, key, values):
