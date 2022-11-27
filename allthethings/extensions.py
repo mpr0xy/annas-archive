@@ -4,11 +4,13 @@ from flask_static_digest import FlaskStaticDigest
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy.ext.declarative import DeferredReflection
+from flask_elasticsearch import FlaskElasticsearch
 
 debug_toolbar = DebugToolbarExtension()
 flask_static_digest = FlaskStaticDigest()
 db = SQLAlchemy()
 Base = declarative_base()
+es = FlaskElasticsearch()
 
 class Reflected(DeferredReflection):
     __abstract__ = True

@@ -28,3 +28,5 @@ CELERY_CONFIG = {
     "result_backend": REDIS_URL,
     "include": [],
 }
+
+ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://elasticsearch:9200")

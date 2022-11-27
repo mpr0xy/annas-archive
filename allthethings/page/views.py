@@ -19,9 +19,10 @@ import langdetect
 import gc
 import random
 import slugify
+import elasticsearch.helpers
 
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
-from allthethings.extensions import db, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s, ComputedSearchMd5Objs
+from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s, ComputedSearchMd5Objs
 from sqlalchemy import select, func, text
 from sqlalchemy.dialects.mysql import match
 
@@ -1438,67 +1439,55 @@ def search_page():
 
     # file_search_cols = [ComputedFileSearchIndex.search_text_combined,  ComputedFileSearchIndex.sanitized_isbns,  ComputedFileSearchIndex.asin_multiple,  ComputedFileSearchIndex.googlebookid_multiple,  ComputedFileSearchIndex.openlibraryid_multiple,  ComputedFileSearchIndex.doi_multiple]
 
-    with db.session.connection() as conn:
-        with db.engine.connect() as conn2:
-            if conn == conn2:
-                raise Exception("conn should be different than conn2 here")
+    try:
+        search_results = 1000
+        max_display_results = 200
+        search_md5_objs = []
+        max_search_md5_objs_reached = False
+        max_additional_search_md5_objs_reached = False
 
-            # For some fulltext searches it mysteriously takes a long, long time to resolve.. E.g. "seeing science"
-            # We really need to switch to a proper search engine.
-            # For now, this super hacky workaround to at least kill the query after a few seconds.
-            # From https://stackoverflow.com/a/60216991
-            timeout_seconds = 10
-            timeout_thread_id = conn.connection.thread_id()
-            timeout_thread = threading.Timer(timeout_seconds, lambda: conn2.execute("KILL QUERY {}".format(timeout_thread_id)))
-            timeout_thread.start()
+        if not bool(re.findall(r'[+|\-"*]', search_input)):
+            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'match_phrase': {'json': search_input}})
+            search_md5_objs = sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits']], language_codes_probs)
 
-            total_results = 100
-            remaining_results = total_results
-            search_md5_objs = []
-            seen_md5s = set()
-            search_terms = search_input.split(' ')
-            max_search_md5_objs_reached = False
-            max_additional_search_md5_objs_reached = False
-            if '"' not in search_input and not any(term.startswith('-') for term in search_terms):
-                search_md5_objs_raw = conn.execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(match(ComputedSearchMd5Objs.json, against=f'"{search_input}"').in_boolean_mode()).limit(remaining_results)).all()
-                search_md5_objs = sort_search_md5_objs([SearchMd5Obj(search_md5_obj_raw.md5, *orjson.loads(search_md5_obj_raw.json)) for search_md5_obj_raw in search_md5_objs_raw], language_codes_probs)
-                seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
-                remaining_results = total_results - len(seen_md5s)
-
-            if remaining_results > 0:
-                # Add "+" to search terms that don't already have "+" or "-" in them:
-                processed_search_input = ' '.join([f'+{search_term}' if not (search_term.startswith('+') or search_term.startswith('-')) else search_term for search_term in search_terms])
-                search_md5_objs_raw = conn.execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(match(ComputedSearchMd5Objs.json, against=processed_search_input).in_boolean_mode()).limit(remaining_results)).all()
-                if len(search_md5_objs_raw) >= remaining_results:
-                    max_search_md5_objs_reached = True
-                search_md5_objs += sort_search_md5_objs([SearchMd5Obj(search_md5_obj_raw.md5, *orjson.loads(search_md5_obj_raw.json)) for search_md5_obj_raw in search_md5_objs_raw if search_md5_obj_raw.md5 not in seen_md5s], language_codes_probs)
-                seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
-                remaining_results = total_results - len(seen_md5s)
-            else:
+        if len(search_md5_objs) < max_display_results:
+            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'simple_query_string': {'query': search_input, 'fields': ['json'], 'default_operator': 'and'}})
+            if len(search_md5_objs)+len(search_results_raw['hits']['hits']) >= max_display_results:
                 max_search_md5_objs_reached = True
+            seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
+            search_md5_objs += sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s], language_codes_probs)
+        else:
+            max_search_md5_objs_reached = True
 
-            additional_search_md5_objs = []
-            if remaining_results > 0:
-                search_md5_objs_raw = conn.execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(match(ComputedSearchMd5Objs.json, against=search_input).in_natural_language_mode()).limit(remaining_results)).all()
-                if len(search_md5_objs_raw) >= remaining_results:
-                    max_additional_search_md5_objs_reached = True
-                # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
-                additional_search_md5_objs = sort_search_md5_objs([SearchMd5Obj(search_md5_obj_raw.md5, *orjson.loads(search_md5_obj_raw.json)) for search_md5_obj_raw in search_md5_objs_raw if search_md5_obj_raw.md5 not in seen_md5s], language_codes_probs)
+        additional_search_md5_objs = []
+        if len(search_md5_objs) < max_display_results:
+            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'match': {'json': {'query': search_input}}})
+            if len(search_md5_objs)+len(search_results_raw['hits']['hits']) >= max_display_results:
+                max_additional_search_md5_objs_reached = True
+            seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
 
-            timeout_thread.cancel()
+            # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
+            additional_search_md5_objs = [SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s]
 
-            search_dict = {}
-            search_dict['search_md5_objs'] = search_md5_objs
-            search_dict['additional_search_md5_objs'] = additional_search_md5_objs
-            search_dict['max_search_md5_objs_reached'] = max_search_md5_objs_reached
-            search_dict['max_additional_search_md5_objs_reached'] = max_additional_search_md5_objs_reached
+        search_dict = {}
+        search_dict['search_md5_objs'] = search_md5_objs[0:max_display_results]
+        search_dict['additional_search_md5_objs'] = additional_search_md5_objs[0:max_display_results]
+        search_dict['max_search_md5_objs_reached'] = max_search_md5_objs_reached
+        search_dict['max_additional_search_md5_objs_reached'] = max_additional_search_md5_objs_reached
 
-            return render_template(
-                "page/search.html",
-                header_active="search",
-                search_input=search_input,
-                search_dict=search_dict,
-            )
+        return render_template(
+            "page/search.html",
+            header_active="search",
+            search_input=search_input,
+            search_dict=search_dict,
+        )
+    except:
+        return render_template(
+            "page/search.html",
+            header_active="search",
+            search_input=search_input,
+            search_dict=None,
+        ), 500
 
 
 
@@ -1617,3 +1606,140 @@ def generate_computed_file_info():
     yappi.stop()
     stats = yappi.get_func_stats()
     stats.save("profile.prof", type="pstat")
+
+
+
+
+### Build ES computed_search_md5_objs index from scratch
+
+# PUT /computed_search_md5_objs
+# {
+#   "mappings": {
+#     "properties": {
+#       "json":   { "type": "text"  }     
+#     }
+#   },
+#   "settings": {
+#     "index": { 
+#       "number_of_replicas": 0,
+#       "index.search.slowlog.threshold.query.warn": "2s",
+#       "index.store.preload": ["nvd", "dvd"]
+#     }
+#   }
+# }
+
+def elastic_generate_computed_file_info_process_md5s(canonical_md5s):
+    with db.Session(db.engine) as session:
+        search_md5_objs = get_search_md5_objs(session, canonical_md5s)
+
+        data = []
+        for search_md5_obj in search_md5_objs:
+            data.append({
+                '_op_type': 'index',
+                '_index': 'computed_search_md5_objs',
+                '_id': search_md5_obj.md5,
+                'doc': { 'json': orjson.dumps(search_md5_obj[1:]).decode('utf-8') }
+            })
+
+        elasticsearch.helpers.bulk(es, data, request_timeout=30)
+
+        # resp = elasticsearch.helpers.bulk(es, data, raise_on_error=False)
+        # print(resp)
+
+        # session.connection().execute(text("INSERT INTO computed_file_info (md5, json) VALUES (:md5, :json)"), data)
+        # print(f"Processed {len(data)} md5s")
+        del search_md5_objs
+
+
+# ./run flask page elastic_generate_computed_file_info
+@page.cli.command('elastic_generate_computed_file_info')
+def elastic_generate_computed_file_info():
+    # print(es.get(index="computed_search_md5_objs", id="0001859729bdcf82e64dea0222f5e2f1"))
+
+    THREADS = 100
+    CHUNK_SIZE = 150
+    BATCH_SIZE = 100000
+    # BATCH_SIZE = 320000
+
+    # THREADS = 10
+    # CHUNK_SIZE = 100
+    # BATCH_SIZE = 5000
+
+    # BATCH_SIZE = 100
+
+    first_md5 = ''
+    # first_md5 = '03f5fda962bf419e836b8e8c7e652e7b'
+
+    with db.engine.connect() as conn:
+        # total = conn.execute(select([func.count()]).where(ComputedAllMd5s.md5 >= first_md5)).scalar()
+        # total = 103476508
+        total = conn.execute(select([func.count(ComputedAllMd5s.md5)])).scalar()
+        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
+            for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
+                # print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
+                # elastic_generate_computed_file_info_process_md5s([item[0] for item in batch])
+                # pbar.update(len(batch))
+
+                with multiprocessing.Pool(THREADS) as executor:
+                    print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
+                    executor.map(elastic_generate_computed_file_info_process_md5s, chunks([item[0] for item in batch], CHUNK_SIZE))
+                    pbar.update(len(batch))
+
+            print(f"Done!")
+
+
+
+
+
+### Temporary migration from MySQL computed_search_md5_objs table
+
+def elastic_load_existing_computed_file_info_process_md5s(canonical_md5s):
+    with db.Session(db.engine) as session:
+        search_md5_objs_raw = session.connection().execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(ComputedSearchMd5Objs.md5.in_(canonical_md5s))).all()
+
+        data = []
+        for search_md5_obj_raw in search_md5_objs_raw:
+            data.append({
+                '_op_type': 'index',
+                '_index': 'computed_search_md5_objs',
+                '_id': search_md5_obj_raw.md5,
+                'json': search_md5_obj_raw.json
+            })
+
+        elasticsearch.helpers.bulk(es, data, request_timeout=30)
+
+# ./run flask page elastic_load_existing_computed_file_info
+@page.cli.command('elastic_load_existing_computed_file_info')
+def elastic_load_existing_computed_file_info():
+    # print(es.get(index="computed_search_md5_objs", id="0001859729bdcf82e64dea0222f5e2f1"))
+
+    THREADS = 100
+    CHUNK_SIZE = 150
+    BATCH_SIZE = 100000
+    # BATCH_SIZE = 320000
+
+    # THREADS = 10
+    # CHUNK_SIZE = 100
+    # BATCH_SIZE = 5000
+
+    # BATCH_SIZE = 100
+
+    first_md5 = ''
+    # first_md5 = '03f5fda962bf419e836b8e8c7e652e7b'
+
+    with db.engine.connect() as conn:
+        # total = conn.execute(select([func.count()]).where(ComputedAllMd5s.md5 >= first_md5)).scalar()
+        # total = 103476508
+        total = conn.execute(select([func.count(ComputedAllMd5s.md5)])).scalar()
+        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
+            for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
+                # print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
+                # elastic_load_existing_computed_file_info_process_md5s([item[0] for item in batch])
+                # pbar.update(len(batch))
+
+                with multiprocessing.Pool(THREADS) as executor:
+                    print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
+                    executor.map(elastic_load_existing_computed_file_info_process_md5s, chunks([item[0] for item in batch], CHUNK_SIZE))
+                    pbar.update(len(batch))
+
+            print(f"Done!")

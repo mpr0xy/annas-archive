@@ -6,7 +6,11 @@
 
 {% block body %}
   {% if (search_input | length) > 0 %}
-    <div class="mb-4">Search ▶ {{search_dict.search_md5_objs | length}}{% if search_dict.max_search_md5_objs_reached %}+{% endif %} results for <span class="italic">{{search_input}}</span> (in shadow library metadata)</div>
+    {% if search_dict %}
+      <div class="mb-4">Search ▶ {{search_dict.search_md5_objs | length}}{% if search_dict.max_search_md5_objs_reached %}+{% endif %} results for <span class="italic">{{search_input}}</span> (in shadow library metadata)</div>
+    {% else %}
+      <div class="mb-4">Search ▶ Search error for <span class="italic">{{search_input}}</span></div>
+    {% endif %}
   {% else %}
     <div class="mb-4">Search ▶ New search</div>
   {% endif %}
@@ -19,35 +23,41 @@
   </form>
 
   {% if (search_input | length) > 0 %}
-    {% if (search_dict.search_md5_objs | length) == 0 %}
-      <div class="mt-4"><span class="font-bold">No files found.</span> Try fewer or different search terms.</div>
+    {% if not search_dict %}
+      <p class="mt-4 font-bold">Error during search.</p>
 
-      {% if (search_dict.additional_search_md5_objs | length) > 0 %}
-        <div class="italic mt-4">{{search_dict.additional_search_md5_objs | length}}{% if search_dict.max_additional_search_md5_objs_reached %}+{% endif %} partial matches</div>
-      {% endif %}
-    {% endif %}
+      <p class="mt-4">Try <a href="javascript:location.reload()">reloading the page</a>. If the problem persists, please let us know on <a href="https://twitter.com/AnnaArchivist">Twitter</a> or <a href="https://www.reddit.com/user/AnnaArchivist">Reddit</a>.</p>
+    {% else %}
+      {% if (search_dict.search_md5_objs | length) == 0 %}
+        <div class="mt-4"><span class="font-bold">No files found.</span> Try fewer or different search terms.</div>
 
-    <div class="mb-4">
-      {% for search_md5_obj in (search_dict.search_md5_objs + search_dict.additional_search_md5_objs) %}
-        <a href="/md5/{{search_md5_obj.md5}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011]">
-          <div class="flex-none">
-            <div class="overflow-hidden w-[72] h-[108] flex flex-col justify-center">
-              <img class="inline-block" src="{{search_md5_obj.cover_url_best if 'zlibcdn2' not in search_md5_obj.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
-              <div id="placeholder-img-{{loop.index0}}" class="w-[100%] h-[90] bg-[#00000033]" style="display: none"></div>
-            </div>
-          </div>
-          <div class="relative top-[-1] pl-4 grow overflow-hidden">
-            <div class="truncate text-xs text-gray-500">{{search_md5_obj.languages_and_codes[0][0] + ", " if search_md5_obj.languages_and_codes | length > 0}}{{search_md5_obj.extension_best}}, {% if search_md5_obj.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{search_md5_obj.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + search_md5_obj.original_filename_best_name_only + '"' if search_md5_obj.original_filename_best_name_only}}</div>
-            <div class="truncate text-xl font-bold">{{search_md5_obj.title_best}}</div>
-            <div class="truncate text-sm">{{search_md5_obj.publisher_best}}{% if search_md5_obj.publisher_best and search_md5_obj.edition_varia_best %}, {% endif %}{{search_md5_obj.edition_varia_best}}</div>
-            <div class="truncate italic">{{search_md5_obj.author_best}}</div>
-          </div>
-        </a>
-
-        {% if (loop.index == (search_dict.search_md5_objs | length)) and (search_dict.additional_search_md5_objs | length > 0) %}
-        <div class="italic mt-8">{{search_dict.additional_search_md5_objs | length}}{% if search_dict.max_additional_search_md5_objs_reached %}+{% endif %} partial matches</div>
+        {% if (search_dict.additional_search_md5_objs | length) > 0 %}
+          <div class="italic mt-4">{{search_dict.additional_search_md5_objs | length}}{% if search_dict.max_additional_search_md5_objs_reached %}+{% endif %} partial matches</div>
         {% endif %}
-      {% endfor %}
-    </div>
+      {% endif %}
+
+      <div class="mb-4">
+        {% for search_md5_obj in (search_dict.search_md5_objs + search_dict.additional_search_md5_objs) %}
+          <a href="/md5/{{search_md5_obj.md5}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011]">
+            <div class="flex-none">
+              <div class="overflow-hidden w-[72] h-[108] flex flex-col justify-center">
+                <img class="inline-block" src="{{search_md5_obj.cover_url_best if 'zlibcdn2' not in search_md5_obj.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
+                <div id="placeholder-img-{{loop.index0}}" class="w-[100%] h-[90] bg-[#00000033]" style="display: none"></div>
+              </div>
+            </div>
+            <div class="relative top-[-1] pl-4 grow overflow-hidden">
+              <div class="truncate text-xs text-gray-500">{{search_md5_obj.languages_and_codes[0][0] + ", " if search_md5_obj.languages_and_codes | length > 0}}{{search_md5_obj.extension_best}}, {% if search_md5_obj.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{search_md5_obj.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + search_md5_obj.original_filename_best_name_only + '"' if search_md5_obj.original_filename_best_name_only}}</div>
+              <div class="truncate text-xl font-bold">{{search_md5_obj.title_best}}</div>
+              <div class="truncate text-sm">{{search_md5_obj.publisher_best}}{% if search_md5_obj.publisher_best and search_md5_obj.edition_varia_best %}, {% endif %}{{search_md5_obj.edition_varia_best}}</div>
+              <div class="truncate italic">{{search_md5_obj.author_best}}</div>
+            </div>
+          </a>
+
+          {% if (loop.index == (search_dict.search_md5_objs | length)) and (search_dict.additional_search_md5_objs | length > 0) %}
+          <div class="italic mt-8">{{search_dict.additional_search_md5_objs | length}}{% if search_dict.max_additional_search_md5_objs_reached %}+{% endif %} partial matches</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
 {% endblock %}

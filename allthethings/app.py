@@ -9,7 +9,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from allthethings.page.views import page
 from allthethings.up.views import up
-from allthethings.extensions import db, debug_toolbar, flask_static_digest, Base, Reflected
+from allthethings.extensions import db, es, debug_toolbar, flask_static_digest, Base, Reflected
 
 def create_celery_app(app=None):
     """
@@ -73,6 +73,7 @@ def extensions(app):
     flask_static_digest.init_app(app)
     with app.app_context():
         Reflected.prepare(db.engine)
+    es.init_app(app)
 
     # https://stackoverflow.com/a/18095320
     hash_cache = {}

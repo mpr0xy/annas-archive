@@ -6,6 +6,8 @@ This is the code hosts annas-archive.org, the search engine for books, papers, c
 
 [TODO](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/3)
 
+This repo is based on [docker-flask-example](https://github.com/nickjj/docker-flask-example).
+
 ## Contribute
 
 To report bugs or suggest new ideas, please file an ["issue"](https://annas-software.org/AnnaArchivist/annas-archive/-/issues).
