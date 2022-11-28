@@ -23,6 +23,7 @@ Common issues:
 * Funky permissions on ElasticSearch data: `sudo chmod 0777 -R ../allthethings-elastic-data/`
 * MariaDB wants too much RAM: comment out `key_buffer_size` in `mariadb-conf/my.cnf`
 * Note that the example data is pretty funky / weird because of some joined tables not lining up nicely when only exporting a small number of records.
+* You might need to adjust the size of ElasticSearch's heap size, by changing `ES_JAVA_OPTS` in `docker-compose.yml`.
 
 TODO:
 * [Importing actual data](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/4)
