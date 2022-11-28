@@ -28,6 +28,11 @@ from sqlalchemy.dialects.mysql import match
 
 page = Blueprint("page", __name__, template_folder="templates")
 
+# Per https://annas-software.org/AnnaArchivist/annas-archive/-/issues/37
+search_filtered_bad_md5s = [
+    "b0647953a182171074873b61200c71dd",
+]
+
 # Retrieved from https://openlibrary.org/config/edition.json on 2022-10-11
 ol_edition_json = json.load(open(os.path.dirname(os.path.realpath(__file__)) + '/ol_edition.json'))
 ol_classifications = {}
@@ -1451,14 +1456,14 @@ def search_page():
 
         if not bool(re.findall(r'[+|\-"*]', search_input)):
             search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'match_phrase': {'json': search_input}})
-            search_md5_objs = sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits']], language_codes_probs)
+            search_md5_objs = sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in search_filtered_bad_md5s], language_codes_probs)
 
         if len(search_md5_objs) < max_display_results:
             search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'simple_query_string': {'query': search_input, 'fields': ['json'], 'default_operator': 'and'}})
             if len(search_md5_objs)+len(search_results_raw['hits']['hits']) >= max_display_results:
                 max_search_md5_objs_reached = True
             seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
-            search_md5_objs += sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s], language_codes_probs)
+            search_md5_objs += sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s and obj['_id'] not in search_filtered_bad_md5s], language_codes_probs)
         else:
             max_search_md5_objs_reached = True
 
@@ -1470,7 +1475,7 @@ def search_page():
             seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
 
             # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
-            additional_search_md5_objs = [SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s]
+            additional_search_md5_objs = [SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s and obj['_id'] not in search_filtered_bad_md5s]
 
         search_dict = {}
         search_dict['search_md5_objs'] = search_md5_objs[0:max_display_results]
