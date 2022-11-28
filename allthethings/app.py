@@ -9,6 +9,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from allthethings.page.views import page
 from allthethings.up.views import up
+from allthethings.cli.views import cli
 from allthethings.extensions import db, es, debug_toolbar, flask_static_digest, Base, Reflected
 
 def create_celery_app(app=None):
@@ -55,6 +56,7 @@ def create_app(settings_override=None):
 
     app.register_blueprint(up)
     app.register_blueprint(page)
+    app.register_blueprint(cli)
 
     extensions(app)
 
@@ -72,7 +74,10 @@ def extensions(app):
     db.init_app(app)
     flask_static_digest.init_app(app)
     with app.app_context():
-        Reflected.prepare(db.engine)
+        try:
+            Reflected.prepare(db.engine)
+        except:
+            print("Error in loading tables; reset using './run flask cli dbreset'")
     es.init_app(app)
 
     # https://stackoverflow.com/a/18095320

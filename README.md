@@ -4,9 +4,29 @@ This is the code hosts annas-archive.org, the search engine for books, papers, c
 
 ## Running locally
 
-[TODO](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/3)
+In one terminal window, run:
 
-This repo is based on [docker-flask-example](https://github.com/nickjj/docker-flask-example).
+```bash
+cp .env.dev .env
+docker-compose up --build
+```
+
+Now open http://localhost:8000. It should give you an error, since MySQL is not yet initialized. In another terminal window, run:
+
+```bash
+./run flask cli dbreset
+```
+
+Common issues:
+* Funky permissions on ElasticSearch data: `sudo chmod 0777 -R ../allthethings-elastic-data/`
+* MariaDB wants too much RAM: comment out `key_buffer_size` in `mariadb-conf/my.cnf`
+
+TODO:
+* [Example data](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/3)
+* [Importing actual data](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/4)
+
+Notes:
+* This repo is based on [docker-flask-example](https://github.com/nickjj/docker-flask-example).
 
 ## Contribute
 
