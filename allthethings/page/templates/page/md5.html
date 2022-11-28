@@ -28,14 +28,6 @@
       {% endif %}
     </div>
 
-    {% if (md5_dict.ipfs_infos | length) > 0 and ((md5_dict.file_unified_data.extension_best | lower) in ['pdf', 'html', 'htm', 'txt', 'jpeg', 'jpg', 'gif']) %}
-      <h2 class="mt-12 mb-1"><span class="text-3xl font-bold">Preview</span> <span class="italic">from Cloudflare</span></h2>
-
-      <div class="mb-4">
-        <iframe width="300" class="w-[100%] h-[40vh] p-1 bg-[#0000000d]" src="https://cloudflare-ipfs.com/ipfs/{{md5_dict.ipfs_infos[0][0] | lower}}?filename={{md5_dict.ipfs_infos[0][1]}}#view=fitH&navpanes=0&pagemode=none" referrerpolicy="no-referrer" allowtransparency="true"></iframe>
-      </div>
-    {% endif %}
-
     <button class="bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
 
     <div class="js-technical-details hidden">
