@@ -1302,8 +1302,7 @@ def md5_page(md5_input):
     if len(md5_dict['ipfs_infos']) > 0:
         md5_dict['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", "(you might need to try multiple times with IPFS)"))
         md5_dict['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
-        md5_dict['download_urls'].append(('IPFS Gateway #3', f"https://crustwebsites.net/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
-        md5_dict['download_urls'].append(('IPFS Gateway #4', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
+        md5_dict['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
     shown_click_get = False
     if md5_dict['lgrsnf_book'] != None:
         md5_dict['download_urls'].append(('Library Genesis ".rs-fork" Non-Fiction', f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
