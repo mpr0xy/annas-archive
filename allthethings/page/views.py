@@ -1641,7 +1641,7 @@ def elastic_generate_computed_file_info_process_md5s(canonical_md5s):
                 '_op_type': 'index',
                 '_index': 'computed_search_md5_objs',
                 '_id': search_md5_obj.md5,
-                'doc': { 'json': orjson.dumps(search_md5_obj[1:]).decode('utf-8') }
+                'json': orjson.dumps(search_md5_obj[1:]).decode('utf-8')
             })
 
         elasticsearch.helpers.bulk(es, data, request_timeout=30)
@@ -1653,10 +1653,7 @@ def elastic_generate_computed_file_info_process_md5s(canonical_md5s):
         # print(f"Processed {len(data)} md5s")
         del search_md5_objs
 
-
-# ./run flask page elastic_generate_computed_file_info
-@page.cli.command('elastic_generate_computed_file_info')
-def elastic_generate_computed_file_info():
+def elastic_generate_computed_file_info_internal():
     # print(es.get(index="computed_search_md5_objs", id="0001859729bdcf82e64dea0222f5e2f1"))
 
     THREADS = 100
@@ -1690,7 +1687,10 @@ def elastic_generate_computed_file_info():
 
             print(f"Done!")
 
-
+# ./run flask page elastic_generate_computed_file_info
+@page.cli.command('elastic_generate_computed_file_info')
+def elastic_generate_computed_file_info():
+    elastic_generate_computed_file_info_internal()
 
 
 

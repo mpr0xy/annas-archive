@@ -17,12 +17,14 @@ Now open http://localhost:8000. It should give you an error, since MySQL is not 
 ./run flask cli dbreset
 ```
 
+Now restart the `docker-compose up` from above, and things should work.
+
 Common issues:
 * Funky permissions on ElasticSearch data: `sudo chmod 0777 -R ../allthethings-elastic-data/`
 * MariaDB wants too much RAM: comment out `key_buffer_size` in `mariadb-conf/my.cnf`
+* Note that the example data is pretty funky / weird because of some joined tables not lining up nicely when only exporting a small number of records.
 
 TODO:
-* [Example data](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/3)
 * [Importing actual data](https://annas-software.org/AnnaArchivist/annas-archive/-/issues/4)
 
 Notes:
