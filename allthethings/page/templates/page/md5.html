@@ -249,6 +249,24 @@
           </div>
           <div></div>
         </div>
+        {% if md5_dict.file_unified_data.problems | length == 0 %}
+          <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
+            <div class="flex-none w-[150] px-2 py-1">File problems</div>
+            <div class="px-2 py-1 grow break-words line-clamp-[8]">-</div>
+            <div></div>
+          </div>
+        {% endif %}
+        {% for type, descr in md5_dict.file_unified_data.problems %}
+          <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
+            <div class="flex-none w-[150] px-2 py-1">{{ 'File problems' if loop.index0 == 0 else ' ' }}&nbsp;</div>
+            <div class="px-2 py-1 grow break-words line-clamp-[8]">❌ {{ { "lgrsnf_visible": 'Not visible in Library Genesis ".rs-fork" Non-Fiction', "lgrsfic_visible": 'Not visible in Library Genesis ".rs-fork" Fiction', "lgli_visible": 'Not visible in Library Genesis ".li-fork"', "lgli_broken": 'Marked broken in Library Genesis ".li-fork"' }[type] }} ("{{descr}}")</div>
+            <div class="px-2 py-1 whitespace-nowrap text-right">
+              {% if type=='lgrsnf_visible' and md5_dict.lgrsnf_book %}<a href="/lgrs/nf/{{md5_dict.lgrsnf_book.id}}" class="anna">anna</a>{% endif %}
+              {% if type=='lgrsfic_visible' and md5_dict.lgrsfic_book %}<a href="/lgrs/fic/{{md5_dict.lgrsfic_book.id}}" class="anna">anna</a>{% endif %}
+              {% if type in ['lgli_visible', 'lgli_broken'] and md5_dict.lgli_file %}<a href="/lgli/file/{{md5_dict.lgli_file.f_id}}" class="anna">anna</a>{% endif %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
 
       <h2 class="mt-12 mb-1 text-3xl font-bold">Shadow libraries</h2>

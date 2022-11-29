@@ -441,6 +441,7 @@ def ol_book_page(ol_book_id):
         )
 
 
+# See https://wiki.mhut.org/content:bibliographic_data for some more information.
 def get_lgrsnf_book_dicts(session, key, values):
     # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
     lgrsnf_books = session.connection().execute(
@@ -730,6 +731,7 @@ lgli_classifications = {
     "lbc_multiple": { "label": "LBC", "url": "https://libgen.li/biblioservice.php?value=%s&type=bbc", "description": "Library-Bibliographical Classification", "website": "https://www.isko.org/cyclo/lbc" },
 }
 
+# See https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix
 def get_lgli_file_dicts(session, key, values):
     description_metadata = libgenli_elem_descr(session.connection())
 
@@ -1255,6 +1257,17 @@ def get_md5_dicts(session, canonical_md5s):
             (md5_dict['lgrsnf_book'] or {}).get('doi', '').strip(),
             *[item[1] for edition in lgli_all_editions for item in edition['identifiers_normalized'] if item[0] == 'doi'],
         ] if item != ''))
+
+        md5_dict['file_unified_data']['problems'] = []
+        if ((md5_dict['lgrsnf_book'] or {}).get('visible') or '') != '':
+            md5_dict['file_unified_data']['problems'].append(('lgrsnf_visible', ((md5_dict['lgrsnf_book'] or {}).get('visible') or '')))
+        if ((md5_dict['lgrsfic_book'] or {}).get('visible') or '') != '':
+            md5_dict['file_unified_data']['problems'].append(('lgrsfic_visible', ((md5_dict['lgrsfic_book'] or {}).get('visible') or '')))
+        if ((md5_dict['lgli_file'] or {}).get('visible') or '') != '':
+            md5_dict['file_unified_data']['problems'].append(('lgli_visible', ((md5_dict['lgli_file'] or {}).get('visible') or '')))
+        if ((md5_dict['lgli_file'] or {}).get('broken') or '') in [1, "1", "y", "Y"]:
+            md5_dict['file_unified_data']['problems'].append(('lgli_broken', ((md5_dict['lgli_file'] or {}).get('broken') or '')))
+
 
         if md5_dict['lgrsnf_book'] != None:
             md5_dict['lgrsnf_book'] = {
