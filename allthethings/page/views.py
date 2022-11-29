@@ -1189,6 +1189,21 @@ def get_md5_dicts(session, canonical_md5s):
             md5_dict['file_unified_data']['edition_varia_best'] = max(edition_varia_multiple, key=len)
         md5_dict['file_unified_data']['edition_varia_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(edition_varia_multiple)
 
+        year_multiple_raw = [
+            ((md5_dict['zlib_book'] or {}).get('year') or '').strip(),
+            ((md5_dict['lgrsnf_book'] or {}).get('year') or '').strip(),
+            ((md5_dict['lgrsfic_book'] or {}).get('year') or '').strip(),
+            ((lgli_single_edition or {}).get('year') or '').strip(),
+            ((lgli_single_edition or {}).get('issue_year_number') or '').strip(),
+        ]
+        # Filter out years in for which we surely don't have books (famous last words..)
+        year_multiple = [(year if year.isdigit() and int(year) >= 1600 and int(year) < 2100 else '') for year in year_multiple_raw]
+        md5_dict['file_unified_data']['year_best'] = max(year_multiple, key=len)
+        year_multiple += [(edition.get('year_normalized') or '').strip() for edition in lgli_all_editions]
+        if md5_dict['file_unified_data']['year_best'] == '':
+            md5_dict['file_unified_data']['year_best'] = max(year_multiple, key=len)
+        md5_dict['file_unified_data']['year_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(year_multiple)
+
         comments_multiple = [
             ((md5_dict['lgrsnf_book'] or {}).get('commentary') or '').strip(),
             ((md5_dict['lgrsfic_book'] or {}).get('commentary') or '').strip(),

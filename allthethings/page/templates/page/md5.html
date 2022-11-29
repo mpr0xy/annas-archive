@@ -134,6 +134,18 @@
           <div></div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
+          <div class="flex-none w-[150] px-2 py-1">Year</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+            {{md5_dict.file_unified_data.year_best | default('-', true)}}
+            {% for year in md5_dict.file_unified_data.year_multiple %}
+              {% if year != md5_dict.file_unified_data.year_best %}
+              <div class="text-sm text-gray-500">{{year}}</div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div></div>
+        </div>
+        <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Language</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {% if (md5_dict.file_unified_data.languages_and_codes | length) > 0 %}
