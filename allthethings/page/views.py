@@ -1283,6 +1283,28 @@ def get_md5_dicts(session, canonical_md5s):
         if ((md5_dict['lgli_file'] or {}).get('broken') or '') in [1, "1", "y", "Y"]:
             md5_dict['file_unified_data']['problems'].append(('lgli_broken', ((md5_dict['lgli_file'] or {}).get('broken') or '')))
 
+        md5_dict['file_unified_data']['content_type'] = 'book_unknown'
+        if md5_dict['lgli_file'] != None:
+            if md5_dict['lgli_file']['libgen_topic'] == 'l':
+                md5_dict['file_unified_data']['content_type'] = 'book_nonfiction'
+            if md5_dict['lgli_file']['libgen_topic'] == 'f':
+                md5_dict['file_unified_data']['content_type'] = 'book_fiction'
+            if md5_dict['lgli_file']['libgen_topic'] == 'r':
+                md5_dict['file_unified_data']['content_type'] = 'book_fiction'
+            if md5_dict['lgli_file']['libgen_topic'] == 'a':
+                md5_dict['file_unified_data']['content_type'] = 'journal_article'
+            if md5_dict['lgli_file']['libgen_topic'] == 's':
+                md5_dict['file_unified_data']['content_type'] = 'standards_document'
+            if md5_dict['lgli_file']['libgen_topic'] == 'm':
+                md5_dict['file_unified_data']['content_type'] = 'magazine'
+            if md5_dict['lgli_file']['libgen_topic'] == 'c':
+                md5_dict['file_unified_data']['content_type'] = 'book_comic'
+        if md5_dict['lgrsnf_book'] and (not md5_dict['lgrsfic_book']):
+            md5_dict['file_unified_data']['content_type'] = 'book_nonfiction'
+        if (not md5_dict['lgrsnf_book']) and md5_dict['lgrsfic_book']:
+            md5_dict['file_unified_data']['content_type'] = 'book_fiction'
+
+
 
         if md5_dict['lgrsnf_book'] != None:
             md5_dict['lgrsnf_book'] = {
@@ -1316,6 +1338,15 @@ def get_md5_dicts(session, canonical_md5s):
 
     return md5_dicts
 
+md5_content_type_mapping = {
+    "book_unknown": "Book (unknown classification)",
+    "book_nonfiction": "Book (non-fiction)",
+    "book_fiction": "Book (fiction)",
+    "journal_article": "Journal article",
+    "standards_document": "Standards document",
+    "magazine": "Magazine",
+    "book_comic": "Book (comic)",
+}
 
 @page.get("/md5/<string:md5_input>")
 def md5_page(md5_input):
@@ -1363,6 +1394,7 @@ def md5_page(md5_input):
         md5_input=md5_input,
         md5_dict=md5_dict,
         md5_dict_json=nice_json(md5_dict),
+        md5_content_type_mapping=md5_content_type_mapping,
     )
 
 
