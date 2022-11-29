@@ -31,6 +31,10 @@ TODO:
 Notes:
 * This repo is based on [docker-flask-example](https://github.com/nickjj/docker-flask-example).
 
+## Importing all data
+
+See [data-imports/README.md](data-imports/README.md).
+
 ## Contribute
 
 To report bugs or suggest new ideas, please file an ["issue"](https://annas-software.org/AnnaArchivist/annas-archive/-/issues).
