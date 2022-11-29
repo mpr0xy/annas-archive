@@ -1128,6 +1128,10 @@ def get_md5_dicts(session, canonical_md5s):
             (md5_dict['lgli_file'] or {}).get('filesize') or 0,
         ]
         md5_dict['file_unified_data']['filesize_best'] = max(filesize_multiple)
+        zlib_book_filesize = (md5_dict['zlib_book'] or {}).get('filesize') or 0
+        if zlib_book_filesize > 0:
+            # If we have a zlib_book with a `filesize`, then that is leading, since we measured it ourselves.
+            md5_dict['file_unified_data']['filesize_best'] = zlib_book_filesize
         md5_dict['file_unified_data']['filesize_multiple'] = list(dict.fromkeys(filter(lambda fz: fz > 0, filesize_multiple)))
 
         lgli_single_edition = md5_dict['lgli_file']['editions'][0] if len((md5_dict.get('lgli_file') or {}).get('editions') or []) == 1 else None
