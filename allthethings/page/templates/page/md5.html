@@ -13,7 +13,7 @@
   {% else %}
     <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
       <img class="float-right max-w-[25%] ml-4" src="{{md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer"/>
-      <div class="text-xs text-gray-500">{{md5_dict.file_unified_data.languages_and_codes[0][0] + ", " if md5_dict.file_unified_data.languages_and_codes | length > 0}}{{md5_dict.file_unified_data.extension_best}}, {% if md5_dict.file_unified_data.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{md5_dict.file_unified_data.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + md5_dict.file_unified_data.original_filename_best_name_only + '"' if md5_dict.file_unified_data.original_filename_best_name_only}}</div>
+      <div class="text-xs text-gray-500">{{md5_dict.file_unified_data.most_likely_language_name + ", " if md5_dict.file_unified_data.most_likely_language_name | length > 0}}{{md5_dict.file_unified_data.extension_best}}, {% if md5_dict.file_unified_data.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{md5_dict.file_unified_data.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + md5_dict.file_unified_data.original_filename_best_name_only + '"' if md5_dict.file_unified_data.original_filename_best_name_only}}</div>
       <div class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</div>
       <div class="text-sm">{{md5_dict.file_unified_data.publisher_best}}{% if md5_dict.file_unified_data.publisher_best and md5_dict.file_unified_data.edition_varia_best %},  {% endif %}{{md5_dict.file_unified_data.edition_varia_best}}</div>
       <div class="italic">{{md5_dict.file_unified_data.author_best}}</div>
@@ -155,6 +155,20 @@
             {% endif %}
           </div>
           <div class="px-2 py-1 whitespace-nowrap text-right">{% if (md5_dict.file_unified_data.languages_and_codes | length) > 0 %}<a href="https://r12a.github.io/app-subtags/index?check={{md5_dict.file_unified_data.languages_and_codes[0][1]}}">url</a>{% endif %}</div>
+        </div>
+        <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
+          <div class="flex-none w-[150] px-2 py-1">Detected languages</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+            {{ md5_dict.file_unified_data.detected_language_codes_probs }}
+          </div>
+          <div class="px-2 py-1 whitespace-nowrap text-right"></div>
+        </div>
+        <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
+          <div class="flex-none w-[150] px-2 py-1">Most likely language</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+            {{ md5_dict.file_unified_data.most_likely_language_name | default('Unknown', true) }}{% if md5_dict.file_unified_data.most_likely_language_code %} ({{ md5_dict.file_unified_data.most_likely_language_code }}){% endif %}
+          </div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.file_unified_data.most_likely_language_code %}<a href="https://r12a.github.io/app-subtags/index?check={{ md5_dict.file_unified_data.most_likely_language_code }}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Description</div>

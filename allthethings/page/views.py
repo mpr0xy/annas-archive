@@ -183,14 +183,14 @@ def nice_json(some_dict):
 
 @functools.cache
 def get_bcp47_lang_codes_parse_substr(substr):
-        lang = 'unk'
+        lang = ''
         try:
             lang = str(langcodes.get(substr))
         except:
             try:
                 lang = str(langcodes.find(substr))
             except:
-                lang = 'unk'
+                lang = ''
         # We have a bunch of weird data that gets interpreted as "Egyptian Sign Language" when it's
         # clearly all just Spanish..
         if lang == "esl":
@@ -203,7 +203,7 @@ def get_bcp47_lang_codes(string):
     potential_codes.add(get_bcp47_lang_codes_parse_substr(string))
     for substr in re.split(r'[-_,;/]', string):
         potential_codes.add(get_bcp47_lang_codes_parse_substr(substr.strip()))
-    potential_codes.discard('unk')
+    potential_codes.discard('')
     return list(potential_codes)
 
 def combine_bcp47_lang_codes(sets_of_codes):
@@ -1247,6 +1247,28 @@ def get_md5_dicts(session, canonical_md5s):
         if len(md5_dict['file_unified_data']['language_codes']) == 0:
             md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([(edition.get('language_codes') or []) for edition in lgli_all_editions])
         md5_dict['file_unified_data']['languages_and_codes'] = [(langcodes.get(lang_code).display_name(), lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
+
+        language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
+        md5_dict['file_unified_data']['detected_language_codes_probs'] = {}
+        language_detection = []
+        try:
+            language_detection = langdetect.detect_langs(language_detect_string)
+        except langdetect.lang_detect_exception.LangDetectException:
+            pass
+        for item in language_detection:
+            for code in get_bcp47_lang_codes(item.lang):
+                md5_dict['file_unified_data']['detected_language_codes_probs'][code] = item.prob
+
+        md5_dict['file_unified_data']['most_likely_language_code'] = ''
+        if len(md5_dict['file_unified_data']['language_codes']) > 0:
+            md5_dict['file_unified_data']['most_likely_language_code'] = md5_dict['file_unified_data']['language_codes'][0]
+        elif len(language_detection) > 0:
+            md5_dict['file_unified_data']['most_likely_language_code'] = get_bcp47_lang_codes(language_detection[0].lang)[0]
+
+        md5_dict['file_unified_data']['most_likely_language_name'] = ''
+        if md5_dict['file_unified_data']['most_likely_language_code'] != '':
+            md5_dict['file_unified_data']['most_likely_language_name'] = langcodes.get(md5_dict['file_unified_data']['most_likely_language_code']).display_name()
+ 
 
         md5_dict['file_unified_data']['sanitized_isbns'] = list(set([
             *((md5_dict['zlib_book'] or {}).get('sanitized_isbns') or []),
