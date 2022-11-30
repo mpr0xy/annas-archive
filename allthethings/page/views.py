@@ -1300,13 +1300,13 @@ def get_md5_dicts(session, canonical_md5s):
 
         md5_dict['file_unified_data']['problems'] = []
         if ((md5_dict['lgrsnf_book'] or {}).get('visible') or '') != '':
-            md5_dict['file_unified_data']['problems'].append(('lgrsnf_visible', ((md5_dict['lgrsnf_book'] or {}).get('visible') or '')))
+            md5_dict['file_unified_data']['problems'].append({ 'type': 'lgrsnf_visible', 'descr': ((md5_dict['lgrsnf_book'] or {}).get('visible') or '') })
         if ((md5_dict['lgrsfic_book'] or {}).get('visible') or '') != '':
-            md5_dict['file_unified_data']['problems'].append(('lgrsfic_visible', ((md5_dict['lgrsfic_book'] or {}).get('visible') or '')))
+            md5_dict['file_unified_data']['problems'].append({ 'type': 'lgrsfic_visible', 'descr': ((md5_dict['lgrsfic_book'] or {}).get('visible') or '') })
         if ((md5_dict['lgli_file'] or {}).get('visible') or '') != '':
-            md5_dict['file_unified_data']['problems'].append(('lgli_visible', ((md5_dict['lgli_file'] or {}).get('visible') or '')))
+            md5_dict['file_unified_data']['problems'].append({ 'type': 'lgli_visible', 'descr': ((md5_dict['lgli_file'] or {}).get('visible') or '') })
         if ((md5_dict['lgli_file'] or {}).get('broken') or '') in [1, "1", "y", "Y"]:
-            md5_dict['file_unified_data']['problems'].append(('lgli_broken', ((md5_dict['lgli_file'] or {}).get('broken') or '')))
+            md5_dict['file_unified_data']['problems'].append({ 'type': 'lgli_broken', 'descr': ((md5_dict['lgli_file'] or {}).get('broken') or '') })
 
         md5_dict['file_unified_data']['content_type'] = 'book_unknown'
         if md5_dict['lgli_file'] != None:
@@ -1346,7 +1346,6 @@ def get_md5_dicts(session, canonical_md5s):
                 'f_id': md5_dict['lgli_file']['f_id'],
                 'md5': md5_dict['lgli_file']['md5'],
                 'libgen_topic': md5_dict['lgli_file']['libgen_topic'],
-                'editions': [{'e_id': edition['e_id']} for edition in md5_dict['lgli_file']['editions']],
             }
         if md5_dict['zlib_book'] != None:
             md5_dict['zlib_book'] = {
