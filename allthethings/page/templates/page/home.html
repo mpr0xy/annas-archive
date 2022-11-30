@@ -24,17 +24,17 @@
     These are a combination of popular books, and books that carry special significance to the world of shadow libraries and digital preservation.
   </p>
 
-  {% for search_md5_obj in popular_search_md5_objs %}
-    <a href="/search?q={{search_md5_obj.title_best | urlencode}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011]">
+  {% for md5_dict in md5_dicts %}
+    <a href="/search?q={{md5_dict.file_unified_data.title_best | urlencode}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011]">
       <div class="flex-none">
         <div class="overflow-hidden w-[72] h-[108] flex flex-col justify-center">
-          <img class="inline-block" src="{{search_md5_obj.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
+          <img class="inline-block" src="{{md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
           <div id="placeholder-img-{{loop.index0}}" class="w-[100%] h-[90] bg-[#00000033]" style="display: none"></div>
         </div>
       </div>
       <div class="relative top-[-1] pl-4 grow overflow-hidden">
-        <div class="text-xl font-bold">{{search_md5_obj.title_best}}</div>
-        <div class="text-lg italic">{{search_md5_obj.author_best}}</div>
+        <div class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</div>
+        <div class="text-lg italic">{{md5_dict.file_unified_data.author_best}}</div>
       </div>
     </a>
   {% endfor %}

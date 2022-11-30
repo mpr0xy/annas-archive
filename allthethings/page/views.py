@@ -216,29 +216,27 @@ def combine_bcp47_lang_codes(sets_of_codes):
 
 @page.get("/")
 def home_page():
-    with db.session.connection() as conn:
-        popular_md5s = [
-            "8336332bf5877e3adbfb60ac70720cd5", # Against intellectual monopoly
-            "f0a0beca050610397b9a1c2604c1a472", # Harry Potter
-            "61a1797d76fc9a511fb4326f265c957b", # Cryptonomicon
-            "4b3cd128c0cc11c1223911336f948523", # Subtle art of not giving a f*ck
-            "6d6a96f761636b11f7e397b451c62506", # Game of thrones
-            "0d9b713d0dcda4c9832fcb056f3e4102", # Aaron Swartz
-            "45126b536bbdd32c0484bd3899e10d39", # Three-body problem
-            "6963187473f4f037a28e2fe1153ca793", # How music got free
-            "6db7e0c1efc227bc4a11fac3caff619b", # It ends with us
-            "7849ad74f44619db11c17b85f1a7f5c8", # Lord of the rings
-            "6ed2d768ec1668c73e4fa742e3df78d6", # Physics
-        ]
-        popular_search_md5_objs_raw = conn.execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(ComputedSearchMd5Objs.md5.in_(popular_md5s)).limit(1000)).all()
-        popular_search_md5_objs_raw.sort(key=lambda popular_search_md5_obj: popular_md5s.index(popular_search_md5_obj.md5))
-        popular_search_md5_objs = [SearchMd5Obj(search_md5_obj_raw.md5, *orjson.loads(search_md5_obj_raw.json)) for search_md5_obj_raw in popular_search_md5_objs_raw]
+    popular_md5s = [
+        "8336332bf5877e3adbfb60ac70720cd5", # Against intellectual monopoly
+        "f0a0beca050610397b9a1c2604c1a472", # Harry Potter
+        "61a1797d76fc9a511fb4326f265c957b", # Cryptonomicon
+        "4b3cd128c0cc11c1223911336f948523", # Subtle art of not giving a f*ck
+        "6d6a96f761636b11f7e397b451c62506", # Game of thrones
+        "0d9b713d0dcda4c9832fcb056f3e4102", # Aaron Swartz
+        "45126b536bbdd32c0484bd3899e10d39", # Three-body problem
+        "6963187473f4f037a28e2fe1153ca793", # How music got free
+        "6db7e0c1efc227bc4a11fac3caff619b", # It ends with us
+        "7849ad74f44619db11c17b85f1a7f5c8", # Lord of the rings
+        "6ed2d768ec1668c73e4fa742e3df78d6", # Physics
+    ]
+    md5_dicts = get_md5_dicts(db.session, popular_md5s)
+    md5_dicts.sort(key=lambda md5_dict: popular_md5s.index(md5_dict['md5']))
 
-        return render_template(
-            "page/home.html",
-            header_active="home",
-            popular_search_md5_objs=popular_search_md5_objs,
-        )
+    return render_template(
+        "page/home.html",
+        header_active="home",
+        md5_dicts=md5_dicts,
+    )
 
 
 @page.get("/about")
