@@ -1226,13 +1226,13 @@ def get_md5_dicts(session, canonical_md5s):
         md5_dict['file_unified_data']['comments_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(comments_multiple) if s != md5_dict['file_unified_data']['comments_best']]
 
         stripped_description_multiple = [
-            ((md5_dict['zlib_book'] or {}).get('stripped_description') or '').strip(),
-            ((md5_dict['lgrsnf_book'] or {}).get('stripped_description') or '').strip(),
-            ((md5_dict['lgrsfic_book'] or {}).get('stripped_description') or '').strip(),
-            ((lgli_single_edition or {}).get('stripped_description') or '').strip(),
+            ((md5_dict['zlib_book'] or {}).get('stripped_description') or '').strip()[0:5000],
+            ((md5_dict['lgrsnf_book'] or {}).get('stripped_description') or '').strip()[0:5000],
+            ((md5_dict['lgrsfic_book'] or {}).get('stripped_description') or '').strip()[0:5000],
+            ((lgli_single_edition or {}).get('stripped_description') or '').strip()[0:5000],
         ]
         md5_dict['file_unified_data']['stripped_description_best'] = max(stripped_description_multiple, key=len)
-        stripped_description_multiple += [(edition.get('stripped_description') or '').strip() for edition in lgli_all_editions]
+        stripped_description_multiple += [(edition.get('stripped_description') or '').strip()[0:5000] for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['stripped_description_best'] == '':
             md5_dict['file_unified_data']['stripped_description_best'] = max(stripped_description_multiple, key=len)
         md5_dict['file_unified_data']['stripped_description_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(stripped_description_multiple) if s != md5_dict['file_unified_data']['stripped_description_best']]
