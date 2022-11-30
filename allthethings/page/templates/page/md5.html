@@ -18,10 +18,10 @@
       <div class="text-sm">{{md5_dict.file_unified_data.publisher_best}}{% if md5_dict.file_unified_data.publisher_best and md5_dict.file_unified_data.edition_varia_best %},  {% endif %}{{md5_dict.file_unified_data.edition_varia_best}}</div>
       <div class="italic">{{md5_dict.file_unified_data.author_best}}</div>
       <div class="mt-4 line-clamp-[6] whitespace-pre-wrap">{% if md5_dict.file_unified_data.stripped_description_best %}“{{md5_dict.file_unified_data.stripped_description_best}}”{% endif %}</div>
-      {% if (md5_dict.download_urls | length) > 0 %}
+      {% if (md5_dict.additional.download_urls | length) > 0 %}
         <div class="mt-4 font-bold">Download free ebook/file{% if md5_dict.file_unified_data.extension_best | lower %} ({{md5_dict.file_unified_data.extension_best}}){% endif %} from:</div>
         <ul>
-          {% for label, url, extra in md5_dict.download_urls %}
+          {% for label, url, extra in md5_dict.additional.download_urls %}
             <li>- Mirror #{{loop.index}}: <a href="{{url}}" rel="noopener noreferrer">{{label}}</a> {{extra}}</li>
           {% endfor %}
         </ul>
@@ -51,10 +51,8 @@
           <div class="flex-none w-[150] px-2 py-1">Original filename</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.original_filename_best | default('-', true)}}
-            {% for original_filename in md5_dict.file_unified_data.original_filename_multiple %}
-              {% if original_filename != md5_dict.file_unified_data.original_filename_best %}
+            {% for original_filename in md5_dict.file_unified_data.original_filename_additional %}
               <div class="text-sm text-gray-500">{{original_filename}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -63,10 +61,8 @@
           <div class="flex-none w-[150] px-2 py-1">Extension</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.extension_best | default('-', true)}}
-            {% for extension in md5_dict.file_unified_data.extension_multiple %}
-              {% if extension != md5_dict.file_unified_data.extension_best %}
+            {% for extension in md5_dict.file_unified_data.extension_additional %}
               <div class="text-sm text-gray-500">{{extension}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -77,10 +73,8 @@
             {% if md5_dict.file_unified_data.filesize_best %}
             {{md5_dict.file_unified_data.filesize_best | filesizeformat}} / {{md5_dict.file_unified_data.filesize_best}} B
             {% endif %}
-            {% for filesize in md5_dict.file_unified_data.filesize_multiple %}
-              {% if filesize != md5_dict.file_unified_data.filesize_best %}
+            {% for filesize in md5_dict.file_unified_data.filesize_additional %}
               <div class="text-sm text-gray-500">{{filesize | filesizeformat}} / {{filesize}} B</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -89,10 +83,8 @@
           <div class="flex-none w-[150] px-2 py-1">Title</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.title_best | default('-', true)}}
-            {% for title in md5_dict.file_unified_data.title_multiple %}
-              {% if title != md5_dict.file_unified_data.title_best %}
+            {% for title in md5_dict.file_unified_data.title_additional %}
               <div class="text-sm text-gray-500">{{title}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -101,10 +93,8 @@
           <div class="flex-none w-[150] px-2 py-1">Author</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.author_best | default('-', true)}}
-            {% for author in md5_dict.file_unified_data.author_multiple %}
-              {% if author != md5_dict.file_unified_data.author_best %}
+            {% for author in md5_dict.file_unified_data.author_additional %}
               <div class="text-sm text-gray-500">{{author}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -113,10 +103,8 @@
           <div class="flex-none w-[150] px-2 py-1">Publisher</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.publisher_best | default('-', true)}}
-            {% for publisher in md5_dict.file_unified_data.publisher_multiple %}
-              {% if publisher != md5_dict.file_unified_data.publisher_best %}
+            {% for publisher in md5_dict.file_unified_data.publisher_additional %}
               <div class="text-sm text-gray-500">{{publisher}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -125,10 +113,8 @@
           <div class="flex-none w-[150] px-2 py-1">Edition/series info</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.edition_varia_best | default('-', true)}}
-            {% for edition_varia in md5_dict.file_unified_data.edition_varia_multiple %}
-              {% if edition_varia != md5_dict.file_unified_data.edition_varia_best %}
+            {% for edition_varia in md5_dict.file_unified_data.edition_varia_additional %}
               <div class="text-sm text-gray-500">{{edition_varia}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -137,10 +123,8 @@
           <div class="flex-none w-[150] px-2 py-1">Year</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.year_best | default('-', true)}}
-            {% for year in md5_dict.file_unified_data.year_multiple %}
-              {% if year != md5_dict.file_unified_data.year_best %}
+            {% for year in md5_dict.file_unified_data.year_additional %}
               <div class="text-sm text-gray-500">{{year}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>
@@ -172,7 +156,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Description</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[15] whitespace-pre-wrap">{{md5_dict.file_unified_data.stripped_description_best | default('-', true)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_multiple %}{% if stripped_description != md5_dict.file_unified_data.stripped_description_best %}<div class="text-sm text-gray-500">{{stripped_description}}</div>{% endif %}{% endfor %}</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[15] whitespace-pre-wrap">{{md5_dict.file_unified_data.stripped_description_best | default('-', true)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_additional %}<div class="text-sm text-gray-500">{{stripped_description}}</div>{% endfor %}</div>
           <div></div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
@@ -186,14 +170,14 @@
           </div>
           <div></div>
         </div>
-        {% if md5_dict.isbns_rich | length == 0 %}
+        {% if md5_dict.additional.isbns_rich | length == 0 %}
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">ISBNs</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">-</div>
             <div></div>
           </div>
         {% endif %}
-        {% for isbn in md5_dict.isbns_rich %}
+        {% for isbn in md5_dict.additional.isbns_rich %}
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'ISBNs' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">{{isbn[0]}} {{ " / " + isbn[1] if isbn[1] }}</div>
@@ -263,13 +247,11 @@
               <div class="px-2 grow truncate">{{md5_dict.file_unified_data.cover_url_best | default('-', true)}}</div>
               <div class="px-2 whitespace-nowrap text-right">{% if md5_dict.file_unified_data.cover_url_best %}<a href="{{md5_dict.file_unified_data.cover_url_best}}" rel="noopener noreferrer">url</a> <a href="https://www.google.com/searchbyimage?image_url={{md5_dict.file_unified_data.cover_url_best}}">goog</a>{% endif %}</div>
             </div>
-            {% for cover_url in md5_dict.file_unified_data.cover_url_multiple %}
-              {% if cover_url != md5_dict.file_unified_data.cover_url_best %}
-                <div class="flex text-sm text-gray-500">
-                  <div class="px-2 grow truncate">{{cover_url}}</div>
-                  <div class="px-2 whitespace-nowrap text-right"><a href="{{cover_url}}" rel="noopener noreferrer">url</a></div>
-                </div>
-              {% endif %}
+            {% for cover_url in md5_dict.file_unified_data.cover_url_additional %}
+              <div class="flex text-sm text-gray-500">
+                <div class="px-2 grow truncate">{{cover_url}}</div>
+                <div class="px-2 whitespace-nowrap text-right"><a href="{{cover_url}}" rel="noopener noreferrer">url</a></div>
+              </div>
             {% endfor %}
           </div>
           <div></div>
@@ -278,10 +260,8 @@
           <div class="flex-none w-[150] px-2 py-1">Comments</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {{md5_dict.file_unified_data.comments_best | default('-', true)}}
-            {% for comments in md5_dict.file_unified_data.comments_multiple %}
-              {% if comments != md5_dict.file_unified_data.comments_best %}
+            {% for comments in md5_dict.file_unified_data.comments_additional %}
               <div class="text-sm text-gray-500">{{comments}}</div>
-              {% endif %}
             {% endfor %}
           </div>
           <div></div>

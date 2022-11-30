@@ -1088,8 +1088,9 @@ def get_md5_dicts(session, canonical_md5s):
             (((md5_dict['lgli_file'] or {}).get('descriptions_mapped') or {}).get('library_filename_first') or '').strip(),
             ((md5_dict['lgli_file'] or {}).get('scimag_archive_path') or '').strip(),
         ]
-        md5_dict['file_unified_data']['original_filename_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(original_filename_multiple)
-        md5_dict['file_unified_data']['original_filename_best'] = min(md5_dict['file_unified_data']['original_filename_multiple'], key=len) if len(md5_dict['file_unified_data']['original_filename_multiple']) > 0 else ''
+        original_filename_multiple_processed = sort_by_length_and_filter_subsequences_with_longest_string(original_filename_multiple)
+        md5_dict['file_unified_data']['original_filename_best'] = min(original_filename_multiple_processed, key=len) if len(original_filename_multiple_processed) > 0 else ''
+        md5_dict['file_unified_data']['original_filename_additional'] = [s for s in original_filename_multiple_processed if s != md5_dict['file_unified_data']['original_filename_best']]
         md5_dict['file_unified_data']['original_filename_best_name_only'] =  re.split(r'[\\/]', md5_dict['file_unified_data']['original_filename_best'])[-1]
 
         # Select the cover_url_normalized in order of what is likely to be the best one: zlib, lgrsnf, lgrsfic, lgli.
@@ -1105,8 +1106,9 @@ def get_md5_dicts(session, canonical_md5s):
             # Temporarily always put it at the end because their servers are down.
             zlib_cover.strip()
         ]
-        md5_dict['file_unified_data']['cover_url_multiple'] = list(dict.fromkeys(filter(len, cover_url_multiple)))
-        md5_dict['file_unified_data']['cover_url_best'] = (md5_dict['file_unified_data']['cover_url_multiple'] + [''])[0]
+        cover_url_multiple_processed = list(dict.fromkeys(filter(len, cover_url_multiple)))
+        md5_dict['file_unified_data']['cover_url_best'] = (cover_url_multiple_processed + [''])[0]
+        md5_dict['file_unified_data']['cover_url_additional'] = [s for s in cover_url_multiple_processed if s != md5_dict['file_unified_data']['cover_url_best']]
 
         extension_multiple = [
             ((md5_dict['zlib_book'] or {}).get('extension') or '').strip(),
@@ -1120,7 +1122,7 @@ def get_md5_dicts(session, canonical_md5s):
             md5_dict['file_unified_data']['extension_best'] = "pdf"
         else:
             md5_dict['file_unified_data']['extension_best'] = max(extension_multiple, key=len)
-        md5_dict['file_unified_data']['extension_multiple'] = list(dict.fromkeys(filter(len, extension_multiple)))
+        md5_dict['file_unified_data']['extension_additional'] = [s for s in dict.fromkeys(filter(len, extension_multiple)) if s != md5_dict['file_unified_data']['extension_best']]
 
         filesize_multiple = [
             (md5_dict['zlib_book'] or {}).get('filesize_reported') or 0,
@@ -1134,7 +1136,7 @@ def get_md5_dicts(session, canonical_md5s):
         if zlib_book_filesize > 0:
             # If we have a zlib_book with a `filesize`, then that is leading, since we measured it ourselves.
             md5_dict['file_unified_data']['filesize_best'] = zlib_book_filesize
-        md5_dict['file_unified_data']['filesize_multiple'] = list(dict.fromkeys(filter(lambda fz: fz > 0, filesize_multiple)))
+        md5_dict['file_unified_data']['filesize_additional'] = [s for s in dict.fromkeys(filter(lambda fz: fz > 0, filesize_multiple)) if s != md5_dict['file_unified_data']['filesize_best']]
 
         lgli_single_edition = md5_dict['lgli_file']['editions'][0] if len((md5_dict.get('lgli_file') or {}).get('editions') or []) == 1 else None
         lgli_all_editions = md5_dict['lgli_file']['editions'] if md5_dict.get('lgli_file') else []
@@ -1151,7 +1153,7 @@ def get_md5_dicts(session, canonical_md5s):
         title_multiple += [(edition['descriptions_mapped'].get('maintitleonenglishtranslate_first') or '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['title_best'] == '':
             md5_dict['file_unified_data']['title_best'] = max(title_multiple, key=len)
-        md5_dict['file_unified_data']['title_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(title_multiple)
+        md5_dict['file_unified_data']['title_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(title_multiple) if s != md5_dict['file_unified_data']['title_best']]
 
         author_multiple = [
             (md5_dict['zlib_book'] or {}).get('author', '').strip(),
@@ -1163,7 +1165,7 @@ def get_md5_dicts(session, canonical_md5s):
         author_multiple += [edition.get('authors_normalized', '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['author_best'] == '':
             md5_dict['file_unified_data']['author_best'] = max(author_multiple, key=len)
-        md5_dict['file_unified_data']['author_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(author_multiple)
+        md5_dict['file_unified_data']['author_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(author_multiple) if s != md5_dict['file_unified_data']['author_best']]
 
         publisher_multiple = [
             ((md5_dict['zlib_book'] or {}).get('publisher') or '').strip(),
@@ -1175,7 +1177,7 @@ def get_md5_dicts(session, canonical_md5s):
         publisher_multiple += [(edition.get('publisher_normalized') or '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['publisher_best'] == '':
             md5_dict['file_unified_data']['publisher_best'] = max(publisher_multiple, key=len)
-        md5_dict['file_unified_data']['publisher_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(publisher_multiple)
+        md5_dict['file_unified_data']['publisher_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(publisher_multiple) if s != md5_dict['file_unified_data']['publisher_best']]
 
         edition_varia_multiple = [
             ((md5_dict['zlib_book'] or {}).get('edition_varia_normalized') or '').strip(),
@@ -1187,7 +1189,7 @@ def get_md5_dicts(session, canonical_md5s):
         edition_varia_multiple += [(edition.get('edition_varia_normalized') or '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['edition_varia_best'] == '':
             md5_dict['file_unified_data']['edition_varia_best'] = max(edition_varia_multiple, key=len)
-        md5_dict['file_unified_data']['edition_varia_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(edition_varia_multiple)
+        md5_dict['file_unified_data']['edition_varia_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(edition_varia_multiple) if s != md5_dict['file_unified_data']['edition_varia_best']]
 
         year_multiple_raw = [
             ((md5_dict['zlib_book'] or {}).get('year') or '').strip(),
@@ -1202,7 +1204,7 @@ def get_md5_dicts(session, canonical_md5s):
         year_multiple += [(edition.get('year_normalized') or '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['year_best'] == '':
             md5_dict['file_unified_data']['year_best'] = max(year_multiple, key=len)
-        md5_dict['file_unified_data']['year_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(year_multiple)
+        md5_dict['file_unified_data']['year_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(year_multiple) if s != md5_dict['file_unified_data']['year_best']]
 
         comments_multiple = [
             ((md5_dict['lgrsnf_book'] or {}).get('commentary') or '').strip(),
@@ -1224,7 +1226,7 @@ def get_md5_dicts(session, canonical_md5s):
                 comments_multiple.append(note.strip())
         if md5_dict['file_unified_data']['comments_best'] == '':
             md5_dict['file_unified_data']['comments_best'] = max(comments_multiple, key=len)
-        md5_dict['file_unified_data']['comments_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(comments_multiple)
+        md5_dict['file_unified_data']['comments_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(comments_multiple) if s != md5_dict['file_unified_data']['comments_best']]
 
         stripped_description_multiple = [
             ((md5_dict['zlib_book'] or {}).get('stripped_description') or '').strip(),
@@ -1236,7 +1238,7 @@ def get_md5_dicts(session, canonical_md5s):
         stripped_description_multiple += [(edition.get('stripped_description') or '').strip() for edition in lgli_all_editions]
         if md5_dict['file_unified_data']['stripped_description_best'] == '':
             md5_dict['file_unified_data']['stripped_description_best'] = max(stripped_description_multiple, key=len)
-        md5_dict['file_unified_data']['stripped_description_multiple'] = sort_by_length_and_filter_subsequences_with_longest_string(stripped_description_multiple)
+        md5_dict['file_unified_data']['stripped_description_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(stripped_description_multiple) if s != md5_dict['file_unified_data']['stripped_description_best']]
 
         md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([
             ((md5_dict['zlib_book'] or {}).get('language_codes') or []),
@@ -1387,28 +1389,29 @@ def md5_page(md5_input):
         return render_template("page/md5.html", header_active="datasets", md5_input=md5_input)
 
     md5_dict = md5_dicts[0]
-    md5_dict['isbns_rich'] = make_isbns_rich(md5_dict['file_unified_data']['sanitized_isbns'])
-    md5_dict['download_urls'] = []
+    md5_dict['additional'] = {}
+    md5_dict['additional']['isbns_rich'] = make_isbns_rich(md5_dict['file_unified_data']['sanitized_isbns'])
+    md5_dict['additional']['download_urls'] = []
     if len(md5_dict['ipfs_infos']) > 0:
-        md5_dict['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", "(you might need to try multiple times with IPFS)"))
-        md5_dict['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
-        md5_dict['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", "(you might need to try multiple times with IPFS)"))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
     shown_click_get = False
     if md5_dict['lgrsnf_book'] != None:
-        md5_dict['download_urls'].append(('Library Genesis ".rs-fork" Non-Fiction', f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append(('Library Genesis ".rs-fork" Non-Fiction', f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
         shown_click_get = True
     if md5_dict['lgrsfic_book'] != None:
-        md5_dict['download_urls'].append(('Library Genesis ".rs-fork" Fiction', f"http://library.lol/fiction/{md5_dict['lgrsfic_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append(('Library Genesis ".rs-fork" Fiction', f"http://library.lol/fiction/{md5_dict['lgrsfic_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
         shown_click_get = True
     if md5_dict['lgli_file'] != None:
-        md5_dict['download_urls'].append(('Library Genesis ".li-fork"', f"http://libgen.li/ads.php?md5={md5_dict['lgli_file']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append(('Library Genesis ".li-fork"', f"http://libgen.li/ads.php?md5={md5_dict['lgli_file']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
         shown_click_get = True
     for doi in md5_dict['file_unified_data']['doi_multiple']:
-        md5_dict['download_urls'].append((f"Sci-Hub: {doi}", f"https://sci-hub.se/{doi}", ""))
+        md5_dict['additional']['download_urls'].append((f"Sci-Hub: {doi}", f"https://sci-hub.se/{doi}", ""))
     if md5_dict['zlib_book'] != None:
-        if len(md5_dict['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0][2] == 'zlib'):
-            md5_dict['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
-            md5_dict['download_urls'].append((f"Z-Library TOR", f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", "(requires TOR browser)"))
+        if len(md5_dict['additional']['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0][2] == 'zlib'):
+            md5_dict['additional']['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+            md5_dict['additional']['download_urls'].append((f"Z-Library TOR", f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", "(requires TOR browser)"))
 
     return render_template(
         "page/md5.html",
