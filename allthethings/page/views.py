@@ -1070,14 +1070,13 @@ def get_md5_dicts(session, canonical_md5s):
             md5_dict['lgli_file']['editions'] = md5_dict['lgli_file']['editions'][0:5]
         md5_dict['zlib_book'] = zlib_book_dicts1.get(canonical_md5) or zlib_book_dicts2.get(canonical_md5)
 
-        ipfs_infos = set()
+        md5_dict['ipfs_infos'] = []
         if md5_dict['lgrsnf_book'] and len(md5_dict['lgrsnf_book'].get('ipfs_cid') or '') > 0:
-            ipfs_infos.add((md5_dict['lgrsnf_book']['ipfs_cid'].lower(), md5_dict['lgrsnf_book']['normalized_filename'], 'lgrsnf'))
+            md5_dict['ipfs_infos'].append({ 'ipfs_cid': md5_dict['lgrsnf_book']['ipfs_cid'].lower(), 'filename': md5_dict['lgrsnf_book']['normalized_filename'], 'from': 'lgrsnf' })
         if md5_dict['lgrsfic_book'] and len(md5_dict['lgrsfic_book'].get('ipfs_cid') or '') > 0:
-            ipfs_infos.add((md5_dict['lgrsfic_book']['ipfs_cid'].lower(), md5_dict['lgrsfic_book']['normalized_filename'], 'lgrsfic'))
+            md5_dict['ipfs_infos'].append({ 'ipfs_cid': md5_dict['lgrsfic_book']['ipfs_cid'].lower(), 'filename': md5_dict['lgrsfic_book']['normalized_filename'], 'from': 'lgrsfic' })
         if md5_dict['zlib_book'] and len(md5_dict['zlib_book'].get('ipfs_cid') or '') > 0:
-            ipfs_infos.add((md5_dict['zlib_book']['ipfs_cid'].lower(), md5_dict['zlib_book']['normalized_filename'], 'zlib'))
-        md5_dict['ipfs_infos'] = list(ipfs_infos)
+            md5_dict['ipfs_infos'].append({ 'ipfs_cid': md5_dict['zlib_book']['ipfs_cid'].lower(), 'filename': md5_dict['zlib_book']['normalized_filename'], 'from': 'zlib' })
 
         md5_dict['file_unified_data'] = {}
 
@@ -1248,18 +1247,20 @@ def get_md5_dicts(session, canonical_md5s):
         ])
         if len(md5_dict['file_unified_data']['language_codes']) == 0:
             md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([(edition.get('language_codes') or []) for edition in lgli_all_editions])
-        md5_dict['file_unified_data']['languages_and_codes'] = [(langcodes.get(lang_code).display_name(), lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
+        md5_dict['file_unified_data']['language_names'] = [langcodes.get(lang_code).display_name() for lang_code in md5_dict['file_unified_data']['language_codes']]
 
         language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
-        md5_dict['file_unified_data']['detected_language_codes_probs'] = {}
         language_detection = []
         try:
             language_detection = langdetect.detect_langs(language_detect_string)
         except langdetect.lang_detect_exception.LangDetectException:
             pass
-        for item in language_detection:
-            for code in get_bcp47_lang_codes(item.lang):
-                md5_dict['file_unified_data']['detected_language_codes_probs'][code] = item.prob
+
+        # detected_language_codes_probs = []
+        # for item in language_detection:
+        #     for code in get_bcp47_lang_codes(item.lang):
+        #         detected_language_codes_probs.append(f"{code}: {item.prob}")
+        # md5_dict['file_unified_data']['detected_language_codes_probs'] = ", ".join(detected_language_codes_probs)
 
         md5_dict['file_unified_data']['most_likely_language_code'] = ''
         if len(md5_dict['file_unified_data']['language_codes']) > 0:
@@ -1393,9 +1394,9 @@ def md5_page(md5_input):
     md5_dict['additional']['isbns_rich'] = make_isbns_rich(md5_dict['file_unified_data']['sanitized_isbns'])
     md5_dict['additional']['download_urls'] = []
     if len(md5_dict['ipfs_infos']) > 0:
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", "(you might need to try multiple times with IPFS)"))
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0][0].lower()}?filename={md5_dict['ipfs_infos'][0][1]}", ""))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", "(you might need to try multiple times with IPFS)"))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
+        md5_dict['additional']['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
     shown_click_get = False
     if md5_dict['lgrsnf_book'] != None:
         md5_dict['additional']['download_urls'].append(('Library Genesis ".rs-fork" Non-Fiction', f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
@@ -1409,7 +1410,7 @@ def md5_page(md5_input):
     for doi in md5_dict['file_unified_data']['doi_multiple']:
         md5_dict['additional']['download_urls'].append((f"Sci-Hub: {doi}", f"https://sci-hub.se/{doi}", ""))
     if md5_dict['zlib_book'] != None:
-        if len(md5_dict['additional']['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0][2] == 'zlib'):
+        if len(md5_dict['additional']['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0]['from'] == 'zlib'):
             md5_dict['additional']['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
             md5_dict['additional']['download_urls'].append((f"Z-Library TOR", f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", "(requires TOR browser)"))
 
@@ -1432,7 +1433,7 @@ def get_search_md5_objs(session, canonical_md5s):
         search_md5_objs.append(SearchMd5Obj(
             md5=md5_dict['md5'],
             cover_url_best=md5_dict['file_unified_data']['cover_url_best'][:1000],
-            languages_and_codes=md5_dict['file_unified_data']['languages_and_codes'][:10],
+            languages_and_codes=zip(md5_dict['file_unified_data']['language_names'][:10], md5_dict['file_unified_data']['language_codes'][:10]),
             extension_best=md5_dict['file_unified_data']['extension_best'][:100],
             filesize_best=md5_dict['file_unified_data']['filesize_best'],
             original_filename_best_name_only=md5_dict['file_unified_data']['original_filename_best_name_only'][:1000],
