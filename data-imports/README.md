@@ -191,7 +191,7 @@ TODO: figure out how to best load this.
 ## Derived data
 
 ```sh
-./run flask page mysql_build_computed_all_md5s
-./run flask page elastic_reset_md5_dicts
-./run flask page elastic_build_md5_dicts
+./run flask cli mysql_build_computed_all_md5s
+./run flask cli elastic_reset_md5_dicts
+./run flask cli elastic_build_md5_dicts
 ```
