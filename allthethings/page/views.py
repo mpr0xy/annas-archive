@@ -22,7 +22,7 @@ import slugify
 import elasticsearch.helpers
 
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
-from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s, ComputedSearchMd5Objs
+from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
 from sqlalchemy import select, func, text
 from sqlalchemy.dialects.mysql import match
 
@@ -1005,7 +1005,6 @@ def isbn_page(isbn_input):
             isbndb_dict['languages_and_codes'] = [(langcodes.get(lang_code).display_name(), lang_code) for lang_code in isbndb_dict['language_codes']]
             isbndb_dict['stripped_description'] = '\n\n'.join([strip_description(isbndb_dict['json'].get('synopsis') or ''),  strip_description(isbndb_dict['json'].get('overview') or '')]).strip()
 
-        search_md5_objs_raw = conn.execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(match(ComputedSearchMd5Objs.json, against=f'"{canonical_isbn13}"').in_boolean_mode()).limit(100)).all()
         # Get the language codes from the first match.
         language_codes_probs = {}
         if len(isbn_dict['isbndb']) > 0:
@@ -1014,11 +1013,11 @@ def isbn_page(isbn_input):
         for lang_code, quality in request.accept_languages:
             for code in get_bcp47_lang_codes(lang_code):
                 language_codes_probs[code] = quality
-        search_md5_objs = sort_search_md5_objs([SearchMd5Obj(search_md5_obj_raw.md5, *orjson.loads(search_md5_obj_raw.json)) for search_md5_obj_raw in search_md5_objs_raw], language_codes_probs)
-        isbn_dict['search_md5_objs'] = search_md5_objs
-        # TODO: add IPFS CIDs to these objects so we can show a preview.
-        # isbn_dict['search_md5_objs_pdf_index'] = next((i for i, search_md5_obj in enumerate(search_md5_objs) if search_md5_obj.extension_best == 'pdf' and len(search_md5_obj['ipfs_cids']) > 0), -1)
 
+        search_results_raw = es.search(index="md5_dicts", size=100, query={'term': {'file_unified_data.sanitized_isbns': canonical_isbn13}})
+        search_md5_dicts = sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
+        isbn_dict['search_md5_dicts'] = search_md5_dicts
+        
         return render_template(
             "page/isbn.html",
             header_active="datasets",
@@ -1327,7 +1326,15 @@ def get_md5_dicts(session, canonical_md5s):
         if (not md5_dict['lgrsnf_book']) and md5_dict['lgrsfic_book']:
             md5_dict['file_unified_data']['content_type'] = 'book_fiction'
 
-
+        md5_dict['search_text'] = "\n".join([
+            md5_dict['file_unified_data']['title_best'][:1000],
+            md5_dict['file_unified_data']['publisher_best'][:1000],
+            md5_dict['file_unified_data']['edition_varia_best'][:1000],
+            md5_dict['file_unified_data']['author_best'][:1000],
+            md5_dict['file_unified_data']['original_filename_best_name_only'][:1000],
+            md5_dict['file_unified_data']['extension_best'],
+            md5_dict['file_unified_data']['most_likely_language_name'],
+        ])
 
         if md5_dict['lgrsnf_book'] != None:
             md5_dict['lgrsnf_book'] = {
@@ -1447,52 +1454,54 @@ def get_search_md5_objs(session, canonical_md5s):
         ))
     return search_md5_objs
 
-def sort_search_md5_objs(search_md5_objs, language_codes_probs):
-    def score_fn(search_md5_obj):
-        language_codes = [item[1] for item in search_md5_obj.languages_and_codes]
+def sort_search_md5_dicts(md5_dicts, language_codes_probs):
+    def score_fn(md5_dict):
+        language_codes = (md5_dict['file_unified_data'].get('language_codes') or [])
         score = 0
-        if search_md5_obj.filesize_best > 500000:
+        if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
             score += 10000
         for lang_code, prob in language_codes_probs.items():
-            if lang_code in language_codes:
+            if lang_code == md5_dict['file_unified_data'].get('most_likely_language_code'):
                 score += prob * 1000
+            elif lang_code in language_codes:
+                score += prob * 500
         if len(language_codes) == 0:
             score += 100
-        if search_md5_obj.extension_best in ['epub', 'pdf']:
+        if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
             score += 100
-        if len(search_md5_obj.cover_url_best) > 0:
+        if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
             # Since we only use the zlib cover as a last resort, and zlib is down / only on Tor,
             # stronlgy demote zlib-only books for now.
-            if 'covers.zlibcdn2.com' in search_md5_obj.cover_url_best:
+            if 'covers.zlibcdn2.com' in (md5_dict['file_unified_data'].get('cover_url_best') or ''):
                 score -= 100
             else:
                 score += 30
-        if len(search_md5_obj.title_best) > 0:
+        if len(md5_dict['file_unified_data'].get('title_best') or '') > 0:
             score += 100
-        if len(search_md5_obj.author_best) > 0:
+        if len(md5_dict['file_unified_data'].get('author_best') or '') > 0:
             score += 10
-        if len(search_md5_obj.publisher_best) > 0:
+        if len(md5_dict['file_unified_data'].get('publisher_best') or '') > 0:
             score += 10
-        if len(search_md5_obj.edition_varia_best) > 0:
+        if len(md5_dict['file_unified_data'].get('edition_varia_best') or '') > 0:
             score += 10
-        if len(search_md5_obj.original_filename_best_name_only) > 0:
+        if len(md5_dict['file_unified_data'].get('original_filename_best_name_only') or '') > 0:
             score += 10
-        if len(search_md5_obj.sanitized_isbns) > 0:
+        if len(md5_dict['file_unified_data'].get('sanitized_isbns') or []) > 0:
             score += 10
-        if len(search_md5_obj.asin_multiple) > 0:
+        if len(md5_dict['file_unified_data'].get('asin_multiple') or []) > 0:
             score += 10
-        if len(search_md5_obj.googlebookid_multiple) > 0:
+        if len(md5_dict['file_unified_data'].get('googlebookid_multiple') or []) > 0:
             score += 10
-        if len(search_md5_obj.openlibraryid_multiple) > 0:
+        if len(md5_dict['file_unified_data'].get('openlibraryid_multiple') or []) > 0:
             score += 10
-        if len(search_md5_obj.doi_multiple) > 0:
+        if len(md5_dict['file_unified_data'].get('doi_multiple') or []) > 0:
             # For now demote DOI quite a bit, since tons of papers can drown out books.
             score -= 700
-        if search_md5_obj.has_description > 0:
+        if len(md5_dict['file_unified_data'].get('stripped_description_best') or '') > 0:
             score += 10
         return score
 
-    return sorted(search_md5_objs, key=score_fn, reverse=True)
+    return sorted(md5_dicts, key=score_fn, reverse=True)
 
 # InnoDB stop words of 3 characters or more
 # INNODB_LONG_STOP_WORDS = [ 'about', 'an', 'are','com', 'for', 'from', 'how', 'that', 'the', 'this', 'was', 'what', 'when', 'where', 'who', 'will', 'with', 'und', 'the', 'www']
@@ -1525,7 +1534,8 @@ def search_page():
         pass
     for item in language_detection:
         for code in get_bcp47_lang_codes(item.lang):
-            language_codes_probs[code] = item.prob
+            # Give this slightly less weight than the languages we get from the browser (below).
+            language_codes_probs[code] = item.prob * 0.8
     for lang_code, quality in request.accept_languages:
         for code in get_bcp47_lang_codes(lang_code):
             language_codes_probs[code] = quality
@@ -1537,38 +1547,38 @@ def search_page():
     try:
         search_results = 1000
         max_display_results = 200
-        search_md5_objs = []
-        max_search_md5_objs_reached = False
-        max_additional_search_md5_objs_reached = False
+        search_md5_dicts = []
+        max_search_md5_dicts_reached = False
+        max_additional_search_md5_dicts_reached = False
 
         if not bool(re.findall(r'[+|\-"*]', search_input)):
-            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'match_phrase': {'json': search_input}})
-            search_md5_objs = sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in search_filtered_bad_md5s], language_codes_probs)
+            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'match_phrase': {'search_text': search_input}})
+            search_md5_dicts = sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
 
-        if len(search_md5_objs) < max_display_results:
-            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'simple_query_string': {'query': search_input, 'fields': ['json'], 'default_operator': 'and'}})
-            if len(search_md5_objs)+len(search_results_raw['hits']['hits']) >= max_display_results:
-                max_search_md5_objs_reached = True
-            seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
-            search_md5_objs += sort_search_md5_objs([SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s and obj['_id'] not in search_filtered_bad_md5s], language_codes_probs)
+        if len(search_md5_dicts) < max_display_results:
+            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'simple_query_string': {'query': search_input, 'fields': ['search_text'], 'default_operator': 'and'}})
+            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_display_results:
+                max_search_md5_dicts_reached = True
+            seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
+            search_md5_dicts += sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
         else:
-            max_search_md5_objs_reached = True
+            max_search_md5_dicts_reached = True
 
-        additional_search_md5_objs = []
-        if len(search_md5_objs) < max_display_results:
-            search_results_raw = es.search(index="computed_search_md5_objs", size=search_results, query={'match': {'json': {'query': search_input}}})
-            if len(search_md5_objs)+len(search_results_raw['hits']['hits']) >= max_display_results:
-                max_additional_search_md5_objs_reached = True
-            seen_md5s = set([search_md5_obj.md5 for search_md5_obj in search_md5_objs])
+        additional_search_md5_dicts = []
+        if len(search_md5_dicts) < max_display_results:
+            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'match': {'search_text': {'query': search_input}}})
+            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_display_results:
+                max_additional_search_md5_dicts_reached = True
+            seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
 
             # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
-            additional_search_md5_objs = [SearchMd5Obj(obj['_id'], *orjson.loads(obj['_source']['json'])) for obj in search_results_raw['hits']['hits'] if obj['_id'] not in seen_md5s and obj['_id'] not in search_filtered_bad_md5s]
+            additional_search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s]
 
         search_dict = {}
-        search_dict['search_md5_objs'] = search_md5_objs[0:max_display_results]
-        search_dict['additional_search_md5_objs'] = additional_search_md5_objs[0:max_display_results]
-        search_dict['max_search_md5_objs_reached'] = max_search_md5_objs_reached
-        search_dict['max_additional_search_md5_objs_reached'] = max_additional_search_md5_objs_reached
+        search_dict['search_md5_dicts'] = search_md5_dicts[0:max_display_results]
+        search_dict['additional_search_md5_dicts'] = additional_search_md5_dicts[0:max_display_results]
+        search_dict['max_search_md5_dicts_reached'] = max_search_md5_dicts_reached
+        search_dict['max_additional_search_md5_dicts_reached'] = max_additional_search_md5_dicts_reached
 
         return render_template(
             "page/search.html",
@@ -1576,7 +1586,10 @@ def search_page():
             search_input=search_input,
             search_dict=search_dict,
         )
-    except:
+    except Exception as err:
+        raise
+        print("Search error: ", err)
+
         return render_template(
             "page/search.html",
             header_active="search",
@@ -1585,35 +1598,6 @@ def search_page():
         ), 500
 
 
-
-def generate_computed_file_info_process_md5s(canonical_md5s):
-    with db.Session(db.engine) as session:
-        search_md5_objs = get_search_md5_objs(session, canonical_md5s)
-
-        data = []
-        for search_md5_obj in search_md5_objs:
-            # search_text_combined_list = []
-            # for item in md5_dict['file_unified_data']['title_multiple']:
-            #     search_text_combined_list.append(item.lower())
-            # for item in md5_dict['file_unified_data']['author_multiple']:
-            #     search_text_combined_list.append(item.lower())
-            # for item in md5_dict['file_unified_data']['edition_varia_multiple']:
-            #     search_text_combined_list.append(item.lower())
-            # for item in md5_dict['file_unified_data']['publisher_multiple']:
-            #     search_text_combined_list.append(item.lower())
-            # for item in md5_dict['file_unified_data']['original_filename_multiple']:
-            #     search_text_combined_list.append(item.lower())
-            # search_text_combined = '   ///   '.join(search_text_combined_list)
-            # language_codes = ",".join(md5_dict['file_unified_data']['language_codes'])
-            # data.append({ 'md5': md5_dict['md5'], 'language_codes': language_codes[0:10], 'json': orjson.dumps(md5_dict, ensure_ascii=False), 'search_text_combined': search_text_combined[0:30000] })
-            data.append({ 'md5': search_md5_obj.md5, 'json': orjson.dumps(search_md5_obj[1:], ensure_ascii=False) })
-        # session.connection().execute(text("INSERT INTO computed_file_info (md5, language_codes, json, search_text_combined) VALUES (:md5, :language_codes, :json, :search_text_combined)"), data)
-        # session.connection().execute(text("REPLACE INTO computed_file_info (md5, json, search_text_combined) VALUES (:md5, :json, :search_text_combined)"), data)
-        session.connection().execute(text("INSERT INTO computed_file_info (md5, json) VALUES (:md5, :json)"), data)
-        # pbar.update(len(data))
-        # print(f"Processed {len(data)} md5s")
-        del search_md5_objs
-    gc.collect()
 
 def chunks(l, n):
     for i in range(0, len(l), n):
@@ -1638,203 +1622,182 @@ def query_yield_batches(conn, qry, pk_attr, maxrq):
         yield batch
         firstid = batch[-1][0]
 
-# CREATE TABLE computed_all_md5s (
-#     md5 CHAR(32) NOT NULL,
-#     PRIMARY KEY (md5)
-# ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 SELECT md5 FROM libgenli_files;
-# INSERT IGNORE INTO computed_all_md5s SELECT md5 FROM zlib_book WHERE md5 != '';
-# INSERT IGNORE INTO computed_all_md5s SELECT md5_reported FROM zlib_book WHERE md5_reported != '';
-# INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_updated;
-# INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_fiction;
 
-# CREATE TABLE computed_file_info (
-#     `id` INT NOT NULL AUTO_INCREMENT,
-#     `md5` CHAR(32) CHARSET=utf8mb4 COLLATE=utf8mb4_bin NOT NULL,
-#     `json` LONGTEXT NOT NULL,
-#     PRIMARY KEY (`id`)
-# ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-# ALTER TABLE computed_file_info ADD INDEX md5 (md5);
-# ALTER TABLE computed_file_info ADD FULLTEXT KEY `json` (`json`);
+# Rebuild "computed_all_md5s" table in MySQL. At the time of writing, this isn't
+# used in the app, but it is used for `./run flask page elastic_build_md5_dicts`.
+# ./run flask page mysql_build_computed_all_md5s
+@page.cli.command('mysql_build_computed_all_md5s')
+def mysql_build_computed_all_md5s():
+    print("Erasing entire MySQL 'computed_all_md5s' table! Did you double-check that any production/large databases are offline/inaccessible from here?")
+    time.sleep(2)
+    print("Giving you 5 seconds to abort..")
+    time.sleep(5)
 
-# SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-# CREATE TABLE computed_search_md5_objs (
-#     `md5` CHAR(32) CHARSET=utf8mb4 COLLATE=utf8mb4_bin NOT NULL,
-#     `json` LONGTEXT NOT NULL,
-#     PRIMARY KEY (`md5`),
-#     FULLTEXT KEY `json` (`json`)
-# -- Significant benefits for MyISAM in search: https://stackoverflow.com/a/45674350 and https://mariadb.com/resources/blog/storage-engine-choice-aria/
-# ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci IGNORE SELECT `md5`, `json` FROM computed_file_info LIMIT 10000000;
+    mysql_build_computed_all_md5s_internal()
+
+def mysql_build_computed_all_md5s_internal():
+    cursor = db.engine.raw_connection().cursor()
+    sql = """
+        DROP TABLE IF EXISTS `computed_all_md5s`;
+        CREATE TABLE computed_all_md5s (
+            md5 CHAR(32) NOT NULL,
+            PRIMARY KEY (md5)
+        ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 SELECT md5 FROM libgenli_files;
+        INSERT IGNORE INTO computed_all_md5s SELECT md5 FROM zlib_book WHERE md5 != '';
+        INSERT IGNORE INTO computed_all_md5s SELECT md5_reported FROM zlib_book WHERE md5_reported != '';
+        INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_updated;
+        INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_fiction;
+    """
+    cursor.execute(sql)
+    cursor.close()
 
 
-# ./run flask page generate_computed_file_info
-def generate_computed_file_info_internal():
-    THREADS = 100
-    CHUNK_SIZE = 150
+# Recreate "md5_dicts" index in ElasticSearch, without filling it with data yet.
+# (That is done with `./run flask page elastic_build_md5_dicts`)
+# ./run flask page elastic_reset_md5_dicts
+@page.cli.command('elastic_reset_md5_dicts')
+def elastic_reset_md5_dicts():
+    print("Erasing entire ElasticSearch 'md5_dicts' index! Did you double-check that any production/large databases are offline/inaccessible from here?")
+    time.sleep(2)
+    print("Giving you 5 seconds to abort..")
+    time.sleep(5)
+
+    elastic_reset_md5_dicts_internal()
+
+def elastic_reset_md5_dicts_internal():
+    es.options(ignore_status=[400,404]).indices.delete(index='md5_dicts')
+    es.indices.create(index='md5_dicts', body={
+        "mappings": {
+            "dynamic": "strict",
+            "properties": {
+                "lgrsnf_book": {
+                    "properties": {
+                        "id": { "type": "integer", "index": false, "doc_values": false },
+                        "md5": { "type": "keyword", "index": false, "doc_values": false }
+                    }
+                },
+                "lgrsfic_book": {
+                    "properties": {
+                        "id": { "type": "integer", "index": false, "doc_values": false },
+                        "md5": { "type": "keyword", "index": false, "doc_values": false }
+                    }
+                },
+                "lgli_file": {
+                    "properties": {
+                        "f_id": { "type": "integer", "index": false, "doc_values": false },
+                        "md5": { "type": "keyword", "index": false, "doc_values": false },
+                        "libgen_topic": { "type": "keyword", "index": false, "doc_values": false }
+                    }
+                },
+                "zlib_book": {
+                    "properties": {
+                        "zlibrary_id": { "type": "integer", "index": false, "doc_values": false },
+                        "md5": { "type": "keyword", "index": false, "doc_values": false },
+                        "md5_reported": { "type": "keyword", "index": false, "doc_values": false },
+                        "filesize": { "type": "long", "index": false, "doc_values": false },
+                        "filesize_reported": { "type": "long", "index": false, "doc_values": false },
+                        "in_libgen": { "type": "byte", "index": false, "doc_values": false },
+                        "pilimi_torrent": { "type": "keyword", "index": false, "doc_values": false }
+                    }
+                },
+                "ipfs_infos": {
+                    "properties": {
+                        "ipfs_cid": { "type": "keyword", "index": false, "doc_values": false },
+                        "filename": { "type": "keyword", "index": false, "doc_values": false },
+                        "from": { "type": "keyword", "index": false, "doc_values": false }
+                    }
+                },
+                "file_unified_data": {
+                    "properties": {
+                        "original_filename_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "original_filename_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "original_filename_best_name_only": { "type": "keyword", "index": false, "doc_values": false },
+                        "cover_url_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "cover_url_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "extension_best": { "type": "keyword", "index": true, "doc_values": false },
+                        "extension_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "filesize_best": { "type": "long", "index": false, "doc_values": false },
+                        "filesize_additional": { "type": "long", "index": false, "doc_values": false },
+                        "title_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "title_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "author_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "author_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "publisher_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "publisher_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "edition_varia_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "edition_varia_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "year_best": { "type": "keyword", "index": true, "doc_values": true },
+                        "year_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "comments_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "comments_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "stripped_description_best": { "type": "keyword", "index": false, "doc_values": false },
+                        "stripped_description_additional": { "type": "keyword", "index": false, "doc_values": false },
+                        "language_codes": { "type": "keyword", "index": false, "doc_values": false },
+                        "language_names": { "type": "keyword", "index": false, "doc_values": false },
+                        "most_likely_language_code": { "type": "keyword", "index": true, "doc_values": false },
+                        "most_likely_language_name": { "type": "keyword", "index": false, "doc_values": false },
+                        "sanitized_isbns": { "type": "keyword", "index": true, "doc_values": false },
+                        "asin_multiple": { "type": "keyword", "index": true, "doc_values": false },
+                        "googlebookid_multiple": { "type": "keyword", "index": true, "doc_values": false },
+                        "openlibraryid_multiple": { "type": "keyword", "index": true, "doc_values": false },
+                        "doi_multiple": { "type": "keyword", "index": true, "doc_values": false },
+                        "problems": {
+                            "properties": {
+                                "type": { "type": "keyword", "index": false, "doc_values": false },
+                                "descr": { "type": "keyword", "index": false, "doc_values": false }
+                            }
+                        },
+                        "content_type": { "type": "keyword", "index": true, "doc_values": false }
+                    }
+                },
+                "search_text": { "type": "text", "index": true }
+            }
+        },
+        "settings": {
+            "index.number_of_replicas": 0,
+            "index.search.slowlog.threshold.query.warn": "2s",
+            "index.store.preload": ["nvd", "dvd"]
+        }
+    })
+
+# Regenerate "md5_dicts" index in ElasticSearch.
+# ./run flask page elastic_build_md5_dicts
+@page.cli.command('elastic_build_md5_dicts')
+def elastic_build_md5_dicts():
+    elastic_build_md5_dicts_internal()
+
+def elastic_build_md5_dicts_internal():
+    def elastic_build_md5_dicts_job(canonical_md5s):
+        try:
+            with db.Session(db.engine) as session:
+                md5_dicts = get_md5_dicts(db.session, canonical_md5s)
+                for md5_dict in md5_dicts:
+                    md5_dict['_op_type'] = 'index'
+                    md5_dict['_index'] = 'md5_dicts'
+                    md5_dict['_id'] = md5_dict['md5']
+                    del md5_dict['md5']
+                    
+                elasticsearch.helpers.bulk(es, md5_dicts, request_timeout=30)
+                # print(f"Processed {len(md5_dicts)} md5s")
+        except Exception as err:
+            print(repr(err))
+            raise err
+
+    THREADS = 60
+    CHUNK_SIZE = 70
     BATCH_SIZE = 100000
-    # BATCH_SIZE = 320000
-    # THREADS = 10
-    # CHUNK_SIZE = 100
-    # BATCH_SIZE = 5000
 
     first_md5 = ''
-    # first_md5 = '03f5fda962bf419e836b8e8c7e652e7b'
+    # Uncomment to resume from a given md5, e.g. after a crash
+    # first_md5 = '0337ca7b631f796fa2f465ef42cb815c'
 
     with db.engine.connect() as conn:
-        # with concurrent.futures.ThreadPoolExecutor(max_workers=THREADS) as executor:
-            # , smoothing=0.005
-            with tqdm.tqdm(total=conn.execute(select([func.count()]).where(ComputedAllMd5s.md5 >= first_md5)).scalar(), bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
-            # with tqdm.tqdm(total=100000, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
-                for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
-                    with multiprocessing.Pool(THREADS) as executor:
-                        print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
-                        executor.map(generate_computed_file_info_process_md5s, chunks([item[0] for item in batch], CHUNK_SIZE))
-                        pbar.update(len(batch))
-
-                # executor.shutdown()
-                print(f"Done!")
-
-@page.cli.command('generate_computed_file_info')
-def generate_computed_file_info():
-    yappi.set_clock_type("wall")
-    yappi.start()
-    generate_computed_file_info_internal()
-    yappi.stop()
-    stats = yappi.get_func_stats()
-    stats.save("profile.prof", type="pstat")
-
-
-
-
-### Build ES computed_search_md5_objs index from scratch
-
-# PUT /computed_search_md5_objs
-# {
-#   "mappings": {
-#     "properties": {
-#       "json":   { "type": "text"  }     
-#     }
-#   },
-#   "settings": {
-#     "index": { 
-#       "number_of_replicas": 0,
-#       "index.search.slowlog.threshold.query.warn": "2s",
-#       "index.store.preload": ["nvd", "dvd"]
-#     }
-#   }
-# }
-
-def elastic_generate_computed_file_info_process_md5s(canonical_md5s):
-    with db.Session(db.engine) as session:
-        search_md5_objs = get_search_md5_objs(session, canonical_md5s)
-
-        data = []
-        for search_md5_obj in search_md5_objs:
-            data.append({
-                '_op_type': 'index',
-                '_index': 'computed_search_md5_objs',
-                '_id': search_md5_obj.md5,
-                'json': orjson.dumps(search_md5_obj[1:]).decode('utf-8')
-            })
-
-        elasticsearch.helpers.bulk(es, data, request_timeout=30)
-
-        # resp = elasticsearch.helpers.bulk(es, data, raise_on_error=False)
-        # print(resp)
-
-        # session.connection().execute(text("INSERT INTO computed_file_info (md5, json) VALUES (:md5, :json)"), data)
-        # print(f"Processed {len(data)} md5s")
-        del search_md5_objs
-
-def elastic_generate_computed_file_info_internal():
-    # print(es.get(index="computed_search_md5_objs", id="0001859729bdcf82e64dea0222f5e2f1"))
-
-    THREADS = 100
-    CHUNK_SIZE = 150
-    BATCH_SIZE = 100000
-    # BATCH_SIZE = 320000
-
-    # THREADS = 10
-    # CHUNK_SIZE = 100
-    # BATCH_SIZE = 5000
-
-    # BATCH_SIZE = 100
-
-    first_md5 = ''
-    # first_md5 = '03f5fda962bf419e836b8e8c7e652e7b'
-
-    with db.engine.connect() as conn:
-        # total = conn.execute(select([func.count()]).where(ComputedAllMd5s.md5 >= first_md5)).scalar()
-        # total = 103476508
         total = conn.execute(select([func.count(ComputedAllMd5s.md5)])).scalar()
         with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
             for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
-                # print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
-                # elastic_generate_computed_file_info_process_md5s([item[0] for item in batch])
-                # pbar.update(len(batch))
-
                 with multiprocessing.Pool(THREADS) as executor:
                     print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
-                    executor.map(elastic_generate_computed_file_info_process_md5s, chunks([item[0] for item in batch], CHUNK_SIZE))
-                    pbar.update(len(batch))
-
-            print(f"Done!")
-
-# ./run flask page elastic_generate_computed_file_info
-@page.cli.command('elastic_generate_computed_file_info')
-def elastic_generate_computed_file_info():
-    elastic_generate_computed_file_info_internal()
-
-
-
-### Temporary migration from MySQL computed_search_md5_objs table
-
-def elastic_load_existing_computed_file_info_process_md5s(canonical_md5s):
-    with db.Session(db.engine) as session:
-        search_md5_objs_raw = session.connection().execute(select(ComputedSearchMd5Objs.md5, ComputedSearchMd5Objs.json).where(ComputedSearchMd5Objs.md5.in_(canonical_md5s))).all()
-
-        data = []
-        for search_md5_obj_raw in search_md5_objs_raw:
-            data.append({
-                '_op_type': 'index',
-                '_index': 'computed_search_md5_objs',
-                '_id': search_md5_obj_raw.md5,
-                'json': search_md5_obj_raw.json
-            })
-
-        elasticsearch.helpers.bulk(es, data, request_timeout=30)
-
-# ./run flask page elastic_load_existing_computed_file_info
-@page.cli.command('elastic_load_existing_computed_file_info')
-def elastic_load_existing_computed_file_info():
-    # print(es.get(index="computed_search_md5_objs", id="0001859729bdcf82e64dea0222f5e2f1"))
-
-    THREADS = 100
-    CHUNK_SIZE = 150
-    BATCH_SIZE = 100000
-    # BATCH_SIZE = 320000
-
-    # THREADS = 10
-    # CHUNK_SIZE = 100
-    # BATCH_SIZE = 5000
-
-    # BATCH_SIZE = 100
-
-    first_md5 = ''
-    # first_md5 = '03f5fda962bf419e836b8e8c7e652e7b'
-
-    with db.engine.connect() as conn:
-        # total = conn.execute(select([func.count()]).where(ComputedAllMd5s.md5 >= first_md5)).scalar()
-        # total = 103476508
-        total = conn.execute(select([func.count(ComputedAllMd5s.md5)])).scalar()
-        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
-            for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
-                # print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
-                # elastic_load_existing_computed_file_info_process_md5s([item[0] for item in batch])
-                # pbar.update(len(batch))
-
-                with multiprocessing.Pool(THREADS) as executor:
-                    print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
-                    executor.map(elastic_load_existing_computed_file_info_process_md5s, chunks([item[0] for item in batch], CHUNK_SIZE))
+                    executor.map(elastic_build_md5_dicts_job, chunks([item[0] for item in batch], CHUNK_SIZE))
                     pbar.update(len(batch))
 
             print(f"Done!")

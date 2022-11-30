@@ -84,6 +84,3 @@ class OlBase(Reflected, Base):
 
 class ComputedAllMd5s(Reflected, Base):
     __tablename__ = "computed_all_md5s"
-class ComputedSearchMd5Objs(Reflected, Base):
-    __tablename__ = "computed_search_md5_objs"
-
