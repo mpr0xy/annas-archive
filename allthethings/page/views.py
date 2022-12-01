@@ -229,7 +229,7 @@ def home_page():
         "7849ad74f44619db11c17b85f1a7f5c8", # Lord of the rings
         "6ed2d768ec1668c73e4fa742e3df78d6", # Physics
     ]
-    md5_dicts = get_md5_dicts(db.session, popular_md5s)
+    md5_dicts = get_md5_dicts_elasticsearch(db.session, popular_md5s)
     md5_dicts.sort(key=lambda md5_dict: popular_md5s.index(md5_dict['md5']))
 
     return render_template(
@@ -1014,8 +1014,16 @@ def isbn_page(isbn_input):
             for code in get_bcp47_lang_codes(lang_code):
                 language_codes_probs[code] = quality
 
-        search_results_raw = es.search(index="md5_dicts", size=100, query={'term': {'file_unified_data.sanitized_isbns': canonical_isbn13}})
-        search_md5_dicts = sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
+        search_results_raw = es.search(index="md5_dicts2", size=100, query={
+            "script_score": {
+                "query": {"term": {"file_unified_data.sanitized_isbns": canonical_isbn13}},
+                "script": {
+                    "source": sort_search_md5_dicts_script,
+                    "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
+                }
+            }
+        })
+        search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
         isbn_dict['search_md5_dicts'] = search_md5_dicts
         
         return render_template(
@@ -1046,9 +1054,14 @@ def sort_by_length_and_filter_subsequences_with_longest_string(strings):
             strings_filtered.append(string)
     return strings_filtered
 
+def get_md5_dicts_elasticsearch(session, canonical_md5s):
+    # Uncomment the following line to use MySQL directly; useful for local development.
+    # return get_md5_dicts_mysql(session, canonical_md5s)
 
+    search_results_raw = es.mget(index="md5_dicts2", ids=canonical_md5s)
+    return [{'md5': result['_id'], **result['_source']} for result in search_results_raw['docs']]
 
-def get_md5_dicts(session, canonical_md5s):
+def get_md5_dicts_mysql(session, canonical_md5s):
     # canonical_and_upper_md5s = canonical_md5s + [md5.upper() for md5 in canonical_md5s]
     lgrsnf_book_dicts = dict((item['md5'].lower(), item) for item in get_lgrsnf_book_dicts(session, "MD5", canonical_md5s))
     lgrsfic_book_dicts = dict((item['md5'].lower(), item) for item in get_lgrsfic_book_dicts(session, "MD5", canonical_md5s))
@@ -1388,7 +1401,7 @@ def md5_page(md5_input):
     if canonical_md5 != md5_input:
         return redirect(f"/md5/{canonical_md5}", code=301)
 
-    md5_dicts = get_md5_dicts(db.session, [canonical_md5])
+    md5_dicts = get_md5_dicts_elasticsearch(db.session, [canonical_md5])
 
     if len(md5_dicts) == 0:
         return render_template("page/md5.html", header_active="datasets", md5_input=md5_input)
@@ -1428,81 +1441,22 @@ def md5_page(md5_input):
     )
 
 
-SearchMd5Obj = collections.namedtuple('SearchMd5Obj', 'md5 cover_url_best languages_and_codes extension_best filesize_best original_filename_best_name_only title_best publisher_best edition_varia_best author_best sanitized_isbns asin_multiple googlebookid_multiple openlibraryid_multiple doi_multiple has_description')
+sort_search_md5_dicts_script = """
+float score = 100000 + params.offset + $('search_only_fields.score_base', 0);
 
-def get_search_md5_objs(session, canonical_md5s):
-    md5_dicts = get_md5_dicts(session, canonical_md5s)
-    search_md5_objs = []
-    for md5_dict in md5_dicts:
-        search_md5_objs.append(SearchMd5Obj(
-            md5=md5_dict['md5'],
-            cover_url_best=md5_dict['file_unified_data']['cover_url_best'][:1000],
-            languages_and_codes=zip(md5_dict['file_unified_data']['language_names'][:10], md5_dict['file_unified_data']['language_codes'][:10]),
-            extension_best=md5_dict['file_unified_data']['extension_best'][:100],
-            filesize_best=md5_dict['file_unified_data']['filesize_best'],
-            original_filename_best_name_only=md5_dict['file_unified_data']['original_filename_best_name_only'][:1000],
-            title_best=md5_dict['file_unified_data']['title_best'][:1000],
-            publisher_best=md5_dict['file_unified_data']['publisher_best'][:1000],
-            edition_varia_best=md5_dict['file_unified_data']['edition_varia_best'][:1000],
-            author_best=md5_dict['file_unified_data']['author_best'][:1000],
-            sanitized_isbns=md5_dict['file_unified_data']['sanitized_isbns'][:50],
-            asin_multiple=md5_dict['file_unified_data']['asin_multiple'][:50],
-            googlebookid_multiple=md5_dict['file_unified_data']['googlebookid_multiple'][:50],
-            openlibraryid_multiple=md5_dict['file_unified_data']['openlibraryid_multiple'][:50],
-            doi_multiple=md5_dict['file_unified_data']['doi_multiple'][:50],
-            has_description=len(md5_dict['file_unified_data']['stripped_description_best']) > 0,
-        ))
-    return search_md5_objs
+score += _score / 10.0;
 
-def sort_search_md5_dicts(md5_dicts, language_codes_probs):
-    def score_fn(md5_dict):
-        language_codes = (md5_dict['file_unified_data'].get('language_codes') or [])
-        score = 0
-        if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
-            score += 10000
-        for lang_code, prob in language_codes_probs.items():
-            if lang_code == md5_dict['file_unified_data'].get('most_likely_language_code'):
-                score += prob * 1000
-            elif lang_code in language_codes:
-                score += prob * 500
-        if len(language_codes) == 0:
-            score += 100
-        if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
-            score += 100
-        if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
-            # Since we only use the zlib cover as a last resort, and zlib is down / only on Tor,
-            # stronlgy demote zlib-only books for now.
-            if 'covers.zlibcdn2.com' in (md5_dict['file_unified_data'].get('cover_url_best') or ''):
-                score -= 100
-            else:
-                score += 30
-        if len(md5_dict['file_unified_data'].get('title_best') or '') > 0:
-            score += 100
-        if len(md5_dict['file_unified_data'].get('author_best') or '') > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('publisher_best') or '') > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('edition_varia_best') or '') > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('original_filename_best_name_only') or '') > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('sanitized_isbns') or []) > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('asin_multiple') or []) > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('googlebookid_multiple') or []) > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('openlibraryid_multiple') or []) > 0:
-            score += 10
-        if len(md5_dict['file_unified_data'].get('doi_multiple') or []) > 0:
-            # For now demote DOI quite a bit, since tons of papers can drown out books.
-            score -= 700
-        if len(md5_dict['file_unified_data'].get('stripped_description_best') or '') > 0:
-            score += 10
-        return score
+String most_likely_language_code = $('file_unified_data.most_likely_language_code', '');
+for (lang_code in params.language_codes_probs.keySet()) {
+    if (lang_code == most_likely_language_code) {
+        score += params.language_codes_probs[lang_code] * 1000
+    } else if (doc['file_unified_data.language_codes'].contains(lang_code)) {
+        score += params.language_codes_probs[lang_code] * 500
+    }
+}
 
-    return sorted(md5_dicts, key=score_fn, reverse=True)
-
+return score;
+"""
 
 @page.get("/search")
 def search_page():
@@ -1530,41 +1484,53 @@ def search_page():
             language_codes_probs[code] = item.prob * 0.8
     for lang_code, quality in request.accept_languages:
         for code in get_bcp47_lang_codes(lang_code):
-            language_codes_probs[code] = quality
+            language_codes_probs[code] = float(quality)
     if len(language_codes_probs) == 0:
         language_codes_probs['en'] = 1.0
 
-    # file_search_cols = [ComputedFileSearchIndex.search_text_combined,  ComputedFileSearchIndex.sanitized_isbns,  ComputedFileSearchIndex.asin_multiple,  ComputedFileSearchIndex.googlebookid_multiple,  ComputedFileSearchIndex.openlibraryid_multiple,  ComputedFileSearchIndex.doi_multiple]
-
     try:
-        search_results = 1000
         max_display_results = 200
-        search_md5_dicts = []
+        search_results_raw = es.search(
+            index="md5_dicts2", 
+            size=max_display_results, 
+            query={
+                "bool": {
+                    "should": [{
+                        "script_score": {
+                            "query": { "match_phrase": { "search_text": { "query": search_input } } },
+                            "script": {
+                                "source": sort_search_md5_dicts_script,
+                                "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
+                            }
+                        }
+                    }],
+                    "must": [{
+                        "script_score": {
+                            "query": { "simple_query_string": {"query": search_input, "fields": ["search_text"], "default_operator": "and"} },
+                            "script": {
+                                "source": sort_search_md5_dicts_script,
+                                "params": { "language_codes_probs": language_codes_probs, "offset": 0 }
+                            }
+                        }
+                    }]
+                }
+            }
+        )
+        search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
+
         max_search_md5_dicts_reached = False
         max_additional_search_md5_dicts_reached = False
-
-        if not bool(re.findall(r'[+|\-"*]', search_input)):
-            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'match_phrase': {'search_text': search_input}})
-            search_md5_dicts = sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
-
-        if len(search_md5_dicts) < max_display_results:
-            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'simple_query_string': {'query': search_input, 'fields': ['search_text'], 'default_operator': 'and'}})
-            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_display_results:
-                max_search_md5_dicts_reached = True
-            seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
-            search_md5_dicts += sort_search_md5_dicts([{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s], language_codes_probs)
-        else:
-            max_search_md5_dicts_reached = True
-
         additional_search_md5_dicts = []
         if len(search_md5_dicts) < max_display_results:
-            search_results_raw = es.search(index="md5_dicts", size=search_results, query={'match': {'search_text': {'query': search_input}}})
+            search_results_raw = es.search(index="md5_dicts2", size=max_display_results, query={'match': {'search_text': {'query': search_input}}})
             if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_display_results:
                 max_additional_search_md5_dicts_reached = True
             seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
 
             # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
             additional_search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s]
+        else:
+            max_search_md5_dicts_reached = True
 
         search_dict = {}
         search_dict['search_md5_dicts'] = search_md5_dicts[0:max_display_results]

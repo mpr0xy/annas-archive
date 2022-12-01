@@ -31,10 +31,12 @@ from sqlalchemy.dialects.mysql import match
 from pymysql.constants import CLIENT
 from allthethings.extensions import ComputedAllMd5s
 
-from allthethings.page.views import get_md5_dicts
+from allthethings.page.views import get_md5_dicts_mysql
 
 cli = Blueprint("cli", __name__, template_folder="templates")
 
+
+#################################################################################################
 # ./run flask cli dbreset
 @cli.cli.command('dbreset')
 def dbreset():
@@ -87,6 +89,7 @@ def query_yield_batches(conn, qry, pk_attr, maxrq):
         firstid = batch[-1][0]
 
 
+#################################################################################################
 # Rebuild "computed_all_md5s" table in MySQL. At the time of writing, this isn't
 # used in the app, but it is used for `./run flask cli elastic_build_md5_dicts`.
 # ./run flask cli mysql_build_computed_all_md5s
@@ -117,12 +120,13 @@ def mysql_build_computed_all_md5s_internal():
     cursor.close()
 
 
-# Recreate "md5_dicts" index in ElasticSearch, without filling it with data yet.
+#################################################################################################
+# Recreate "md5_dicts2" index in ElasticSearch, without filling it with data yet.
 # (That is done with `./run flask cli elastic_build_md5_dicts`)
 # ./run flask cli elastic_reset_md5_dicts
 @cli.cli.command('elastic_reset_md5_dicts')
 def elastic_reset_md5_dicts():
-    print("Erasing entire ElasticSearch 'md5_dicts' index! Did you double-check that any production/large databases are offline/inaccessible from here?")
+    print("Erasing entire ElasticSearch 'md5_dicts2' index! Did you double-check that any production/large databases are offline/inaccessible from here?")
     time.sleep(2)
     print("Giving you 5 seconds to abort..")
     time.sleep(5)
@@ -130,8 +134,8 @@ def elastic_reset_md5_dicts():
     elastic_reset_md5_dicts_internal()
 
 def elastic_reset_md5_dicts_internal():
-    es.options(ignore_status=[400,404]).indices.delete(index='md5_dicts')
-    es.indices.create(index='md5_dicts', body={
+    es.options(ignore_status=[400,404]).indices.delete(index='md5_dicts2')
+    es.indices.create(index='md5_dicts2', body={
         "mappings": {
             "dynamic": "strict",
             "properties": {
@@ -179,7 +183,7 @@ def elastic_reset_md5_dicts_internal():
                         "original_filename_best_name_only": { "type": "keyword", "index": False, "doc_values": False },
                         "cover_url_best": { "type": "keyword", "index": False, "doc_values": False },
                         "cover_url_additional": { "type": "keyword", "index": False, "doc_values": False },
-                        "extension_best": { "type": "keyword", "index": True, "doc_values": False },
+                        "extension_best": { "type": "keyword", "index": True, "doc_values": True },
                         "extension_additional": { "type": "keyword", "index": False, "doc_values": False },
                         "filesize_best": { "type": "long", "index": False, "doc_values": False },
                         "filesize_additional": { "type": "long", "index": False, "doc_values": False },
@@ -197,9 +201,9 @@ def elastic_reset_md5_dicts_internal():
                         "comments_additional": { "type": "keyword", "index": False, "doc_values": False },
                         "stripped_description_best": { "type": "keyword", "index": False, "doc_values": False },
                         "stripped_description_additional": { "type": "keyword", "index": False, "doc_values": False },
-                        "language_codes": { "type": "keyword", "index": False, "doc_values": False },
+                        "language_codes": { "type": "keyword", "index": False, "doc_values": True },
                         "language_names": { "type": "keyword", "index": False, "doc_values": False },
-                        "most_likely_language_code": { "type": "keyword", "index": True, "doc_values": False },
+                        "most_likely_language_code": { "type": "keyword", "index": True, "doc_values": True },
                         "most_likely_language_name": { "type": "keyword", "index": False, "doc_values": False },
                         "sanitized_isbns": { "type": "keyword", "index": True, "doc_values": False },
                         "asin_multiple": { "type": "keyword", "index": True, "doc_values": False },
@@ -208,14 +212,19 @@ def elastic_reset_md5_dicts_internal():
                         "doi_multiple": { "type": "keyword", "index": True, "doc_values": False },
                         "problems": {
                             "properties": {
-                                "type": { "type": "keyword", "index": False, "doc_values": False },
+                                "type": { "type": "keyword", "index": False, "doc_values": True },
                                 "descr": { "type": "keyword", "index": False, "doc_values": False }
                             }
                         },
-                        "content_type": { "type": "keyword", "index": True, "doc_values": False }
+                        "content_type": { "type": "keyword", "index": True, "doc_values": True }
                     }
                 },
-                "search_text": { "type": "text", "index": True }
+                "search_text": { "type": "text", "index": True },
+                "search_only_fields": {
+                    "properties": {
+                        "score_base": { "type": "float", "index": False, "doc_values": True }
+                    }
+                }
             }
         },
         "settings": {
@@ -225,19 +234,64 @@ def elastic_reset_md5_dicts_internal():
         }
     })
 
-# Regenerate "md5_dicts" index in ElasticSearch.
+#################################################################################################
+# Regenerate "md5_dicts2" index in ElasticSearch.
 # ./run flask cli elastic_build_md5_dicts
 @cli.cli.command('elastic_build_md5_dicts')
 def elastic_build_md5_dicts():
     elastic_build_md5_dicts_internal()
 
+def md5_dict_score_base(md5_dict):
+    if len(md5_dict['file_unified_data'].get('problems') or []) > 0:
+        return 0.0
+
+    score = 10000.0
+    if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
+        score += 1000.0
+    if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
+        score += 10.0
+    if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
+        # Since we only use the zlib cover as a last resort, and zlib is down / only on Tor,
+        # stronlgy demote zlib-only books for now.
+        if 'covers.zlibcdn2.com' in (md5_dict['file_unified_data'].get('cover_url_best') or ''):
+            score -= 10.0
+        else:
+            score += 3.0
+    if len(md5_dict['file_unified_data'].get('title_best') or '') > 0:
+        score += 10.0
+    if len(md5_dict['file_unified_data'].get('author_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('publisher_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('edition_varia_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('original_filename_best_name_only') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('sanitized_isbns') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('asin_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('googlebookid_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('openlibraryid_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('doi_multiple') or []) > 0:
+        # For now demote DOI quite a bit, since tons of papers can drown out books.
+        score -= 70.0
+    if len(md5_dict['file_unified_data'].get('stripped_description_best') or '') > 0:
+        score += 1.0
+    return score
+
 def elastic_build_md5_dicts_job(canonical_md5s):
     try:
         with db.Session(db.engine) as session:
-            md5_dicts = get_md5_dicts(db.session, canonical_md5s)
+            md5_dicts = get_md5_dicts_mysql(db.session, canonical_md5s)
             for md5_dict in md5_dicts:
+                md5_dict['search_only_fields'] = {
+                    'score_base': float(md5_dict_score_base(md5_dict))
+                }
                 md5_dict['_op_type'] = 'index'
-                md5_dict['_index'] = 'md5_dicts'
+                md5_dict['_index'] = 'md5_dicts2'
                 md5_dict['_id'] = md5_dict['md5']
                 del md5_dict['md5']
                 
@@ -263,6 +317,60 @@ def elastic_build_md5_dicts_internal():
                 with multiprocessing.Pool(THREADS) as executor:
                     print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
                     executor.map(elastic_build_md5_dicts_job, chunks([item[0] for item in batch], CHUNK_SIZE))
+                    pbar.update(len(batch))
+
+            print(f"Done!")
+
+
+#################################################################################################
+# ./run flask cli elastic_migrate_from_md5_dicts_to_md5_dicts2
+@cli.cli.command('elastic_migrate_from_md5_dicts_to_md5_dicts2')
+def elastic_migrate_from_md5_dicts_to_md5_dicts2():
+    print("Erasing entire ElasticSearch 'md5_dicts2' index! Did you double-check that any production/large databases are offline/inaccessible from here?")
+    time.sleep(2)
+    print("Giving you 5 seconds to abort..")
+    time.sleep(5)
+
+    elastic_migrate_from_md5_dicts_to_md5_dicts2_internal()
+
+def elastic_migrate_from_md5_dicts_to_md5_dicts2_job(canonical_md5s):
+    try:
+        search_results_raw = es.mget(index="md5_dicts", ids=canonical_md5s)
+        # print(f"{search_results_raw}"[0:10000])
+        new_md5_dicts = []
+        for item in search_results_raw['docs']:
+            new_md5_dicts.append({
+                **item['_source'],
+                '_op_type': 'index',
+                '_index': 'md5_dicts2',
+                '_id': item['_id'],
+                'search_only_fields': { 'score_base': float(md5_dict_score_base(item['_source'])) }
+            })
+                
+        elasticsearch.helpers.bulk(es, new_md5_dicts, request_timeout=30)
+        # print(f"Processed {len(new_md5_dicts)} md5s")
+    except Exception as err:
+        print(repr(err))
+        raise err
+
+def elastic_migrate_from_md5_dicts_to_md5_dicts2_internal():
+    elastic_reset_md5_dicts_internal()
+
+    THREADS = 60
+    CHUNK_SIZE = 70
+    BATCH_SIZE = 100000
+
+    first_md5 = ''
+    # Uncomment to resume from a given md5, e.g. after a crash (be sure to also comment out the index deletion above)
+    # first_md5 = '0337ca7b631f796fa2f465ef42cb815c'
+
+    with db.engine.connect() as conn:
+        total = conn.execute(select([func.count(ComputedAllMd5s.md5)])).scalar()
+        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
+            for batch in query_yield_batches(conn, select(ComputedAllMd5s.md5).where(ComputedAllMd5s.md5 >= first_md5), ComputedAllMd5s.md5, BATCH_SIZE):
+                with multiprocessing.Pool(THREADS) as executor:
+                    print(f"Processing {len(batch)} md5s from computed_all_md5s (starting md5: {batch[0][0]})...")
+                    executor.map(elastic_migrate_from_md5_dicts_to_md5_dicts2_job, chunks([item[0] for item in batch], CHUNK_SIZE))
                     pbar.update(len(batch))
 
             print(f"Done!")
