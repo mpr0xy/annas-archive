@@ -1,7 +1,7 @@
 {% extends "layouts/index.html" %}
 
 {% block title %}
-{{search_input}} - Search
+{% if (search_input | length) > 0 %}{{search_input}} - Search{% else %}New search{% endif %}
 {% endblock %}
 
 {% block body %}
@@ -13,12 +13,35 @@
     {% endif %}
   {% else %}
     <div class="mb-4">Search ▶ New search</div>
-
-    <p class="mb-4">
-    Example searches: <a href="/search?q=george+martin+arabic">george martin arabic</a>, <a href="/search?q=lord+of+the+rings+epub">lord of the rings epub</a>.
   {% endif %}
 
   <form action="/search" method="get">
+    <div class="flex mb-4 max-w-[600px]" style="font-size: 87%">
+      <select class="grow w-[25%] bg-[#00000011] px-2 py-1 mr-2 rounded" name="lang">
+        <option value="">Language</option>
+        {% for bucket in search_dict.aggregations.most_likely_language_code %}
+          <option value="{{bucket.key}}" {% if bucket.selected %}selected{% endif %}>{{bucket.label}} ({{'{0:,}'.format(bucket.doc_count)}})</option>
+        {% endfor %}
+      </select>
+      <select class="grow w-[25%] bg-[#00000011] px-2 py-1 mr-2 rounded" name="content">
+        <option value="">Content</option>
+        {% for bucket in search_dict.aggregations.content_type %}
+          <option value="{{bucket.key}}" {% if bucket.selected %}selected{% endif %}>{{bucket.label}} ({{'{0:,}'.format(bucket.doc_count)}})</option>
+        {% endfor %}
+      </select>
+      <select class="grow w-[25%] bg-[#00000011] px-2 py-1 mr-2 rounded" name="ext">
+        <option value="">Filetype</option>
+        {% for bucket in search_dict.aggregations.extension_best %}
+          <option value="{{bucket.key}}" {% if bucket.selected %}selected{% endif %}>{{bucket.label}} ({{'{0:,}'.format(bucket.doc_count)}})</option>
+        {% endfor %}
+      </select>
+      <select class="grow w-[25%] bg-[#00000011] px-2 py-1 mr-2 rounded" name="sort">
+        <option value="">Most relevant</option>
+        <option value="newest" {% if search_dict.sort_value == 'newest' %}selected{% endif %}>Newest</option>
+        <option value="oldest" {% if search_dict.sort_value == 'oldest' %}selected{% endif %}>Oldest</option>
+      </select>
+    </div>
+
     <div class="flex mb-4">
       <input type="text" name="q" placeholder="Search title, author, language, filetype, ISBN, MD5, …" value="{{search_input}}" class="grow max-w-[400] bg-[#00000011] px-2 py-1 mr-2 rounded" autofocus>
       <button type="submit">Search</button>
@@ -32,7 +55,7 @@
       <p class="mt-4">Try <a href="javascript:location.reload()">reloading the page</a>. If the problem persists, please let us know on <a href="https://twitter.com/AnnaArchivist">Twitter</a> or <a href="https://www.reddit.com/user/AnnaArchivist">Reddit</a>.</p>
     {% else %}
       {% if (search_dict.search_md5_dicts | length) == 0 %}
-        <div class="mt-4"><span class="font-bold">No files found.</span> Try fewer or different search terms.</div>
+        <div class="mt-4"><span class="font-bold">No files found.</span> Try fewer or different search terms and filters.</div>
 
         {% if (search_dict.additional_search_md5_dicts | length) > 0 %}
           <div class="italic mt-4">{{search_dict.additional_search_md5_dicts | length}}{% if search_dict.max_additional_search_md5_dicts_reached %}+{% endif %} partial matches</div>

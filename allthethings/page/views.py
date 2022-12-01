@@ -213,6 +213,16 @@ def combine_bcp47_lang_codes(sets_of_codes):
             combined_codes.add(code)
     return list(combined_codes)
 
+@functools.cache
+def get_display_name_for_lang(lang_code):
+    if lang_code == '':
+        return 'Unknown'
+    else:
+        try:
+            return langcodes.get(lang_code).display_name().replace('Unknown language [', 'Unknown code [')
+        except:
+            return f"Unknown code [{lang_code}]"
+
 
 @page.get("/")
 def home_page():
@@ -960,10 +970,14 @@ def isbn_page(isbn_input):
     if canonical_isbn13 != isbn_input:
         return redirect(f"/isbn/{canonical_isbn13}", code=301)
 
-    barcode_bytesio = io.BytesIO()
-    barcode.ISBN13(canonical_isbn13, writer=barcode.writer.SVGWriter()).write(barcode_bytesio)
-    barcode_bytesio.seek(0)
-    barcode_svg = barcode_bytesio.read().decode('utf-8').replace('fill:white', 'fill:transparent').replace(canonical_isbn13, '')
+    barcode_svg = ''
+    try:
+        barcode_bytesio = io.BytesIO()
+        barcode.ISBN13(canonical_isbn13, writer=barcode.writer.SVGWriter()).write(barcode_bytesio)
+        barcode_bytesio.seek(0)
+        barcode_svg = barcode_bytesio.read().decode('utf-8').replace('fill:white', 'fill:transparent').replace(canonical_isbn13, '')
+    except Exception as err:
+        print(f"Error generating barcode: {err}")
 
     isbn13_mask = isbnlib.mask(canonical_isbn13)
     isbn_dict = {
@@ -1002,7 +1016,7 @@ def isbn_page(isbn_input):
 
         for isbndb_dict in isbn_dict['isbndb']:
             isbndb_dict['language_codes'] = get_bcp47_lang_codes(isbndb_dict['json'].get('language') or '')
-            isbndb_dict['languages_and_codes'] = [(langcodes.get(lang_code).display_name(), lang_code) for lang_code in isbndb_dict['language_codes']]
+            isbndb_dict['languages_and_codes'] = [(get_display_name_for_lang(lang_code), lang_code) for lang_code in isbndb_dict['language_codes']]
             isbndb_dict['stripped_description'] = '\n\n'.join([strip_description(isbndb_dict['json'].get('synopsis') or ''),  strip_description(isbndb_dict['json'].get('overview') or '')]).strip()
 
         # Get the language codes from the first match.
@@ -1120,10 +1134,10 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         md5_dict['file_unified_data']['cover_url_additional'] = [s for s in cover_url_multiple_processed if s != md5_dict['file_unified_data']['cover_url_best']]
 
         extension_multiple = [
-            ((md5_dict['zlib_book'] or {}).get('extension') or '').strip(),
-            ((md5_dict['lgrsnf_book'] or {}).get('extension') or '').strip(),
-            ((md5_dict['lgrsfic_book'] or {}).get('extension') or '').strip(),
-            ((md5_dict['lgli_file'] or {}).get('extension') or '').strip(),
+            ((md5_dict['zlib_book'] or {}).get('extension') or '').strip().lower(),
+            ((md5_dict['lgrsnf_book'] or {}).get('extension') or '').strip().lower(),
+            ((md5_dict['lgrsfic_book'] or {}).get('extension') or '').strip().lower(),
+            ((md5_dict['lgli_file'] or {}).get('extension') or '').strip().lower(),
         ]
         if "epub" in extension_multiple:
             md5_dict['file_unified_data']['extension_best'] = "epub"
@@ -1211,6 +1225,10 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         year_multiple = [(year if year.isdigit() and int(year) >= 1600 and int(year) < 2100 else '') for year in year_multiple_raw]
         md5_dict['file_unified_data']['year_best'] = max(year_multiple, key=len)
         year_multiple += [(edition.get('year_normalized') or '').strip() for edition in lgli_all_editions]
+        for year in year_multiple:
+            # If a year appears in edition_varia_best, then use that, for consistency.
+            if year != '' and year in md5_dict['file_unified_data']['edition_varia_best']:
+                md5_dict['file_unified_data']['year_best'] = year
         if md5_dict['file_unified_data']['year_best'] == '':
             md5_dict['file_unified_data']['year_best'] = max(year_multiple, key=len)
         md5_dict['file_unified_data']['year_additional'] = [s for s in sort_by_length_and_filter_subsequences_with_longest_string(year_multiple) if s != md5_dict['file_unified_data']['year_best']]
@@ -1257,7 +1275,7 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         ])
         if len(md5_dict['file_unified_data']['language_codes']) == 0:
             md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([(edition.get('language_codes') or []) for edition in lgli_all_editions])
-        md5_dict['file_unified_data']['language_names'] = [langcodes.get(lang_code).display_name() for lang_code in md5_dict['file_unified_data']['language_codes']]
+        md5_dict['file_unified_data']['language_names'] = [get_display_name_for_lang(lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
 
         language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
         language_detection = []
@@ -1280,7 +1298,7 @@ def get_md5_dicts_mysql(session, canonical_md5s):
 
         md5_dict['file_unified_data']['most_likely_language_name'] = ''
         if md5_dict['file_unified_data']['most_likely_language_code'] != '':
-            md5_dict['file_unified_data']['most_likely_language_name'] = langcodes.get(md5_dict['file_unified_data']['most_likely_language_code']).display_name()
+            md5_dict['file_unified_data']['most_likely_language_name'] = get_display_name_for_lang(md5_dict['file_unified_data']['most_likely_language_code'])
  
 
         md5_dict['file_unified_data']['sanitized_isbns'] = list(set([
@@ -1381,14 +1399,17 @@ def get_md5_dicts_mysql(session, canonical_md5s):
     return md5_dicts
 
 md5_content_type_mapping = {
-    "book_unknown": "Book (unknown classification)",
-    "book_nonfiction": "Book (non-fiction)",
-    "book_fiction": "Book (fiction)",
-    "journal_article": "Journal article",
+    "book_unknown":       "Book (unknown)",
+    "book_nonfiction":    "Book (non-fiction)",
+    "book_fiction":       "Book (fiction)",
+    "journal_article":    "Journal article",
     "standards_document": "Standards document",
-    "magazine": "Magazine",
-    "book_comic": "Book (comic)",
+    "magazine":           "Magazine",
+    "book_comic":         "Comic book",
+    # Virtual field, only in searches:
+    "book_any":           "Book (any)"
 }
+md5_content_type_book_any_subtypes = ["book_unknown","book_fiction","book_nonfiction"]
 
 @page.get("/md5/<string:md5_input>")
 def md5_page(md5_input):
@@ -1461,6 +1482,12 @@ return score;
 @page.get("/search")
 def search_page():
     search_input = request.args.get("q", "").strip()
+    filter_values = {
+        'most_likely_language_code': request.args.get("lang", "").strip(),
+        'content_type': request.args.get("content", "").strip(),
+        'extension_best': request.args.get("ext", "").strip(),
+    }
+    sort_value = request.args.get("sort", "").strip()
 
     if bool(re.match(r"^[a-fA-F\d]{32}$", search_input)):
         return redirect(f"/md5/{search_input}", code=301)
@@ -1474,6 +1501,7 @@ def search_page():
 
     language_codes_probs = {}
     language_detection = []
+    browser_lang_codes = set()
     try:
         language_detection = langdetect.detect_langs(search_input)
     except langdetect.lang_detect_exception.LangDetectException:
@@ -1485,11 +1513,40 @@ def search_page():
     for lang_code, quality in request.accept_languages:
         for code in get_bcp47_lang_codes(lang_code):
             language_codes_probs[code] = float(quality)
+            browser_lang_codes.add(code)
     if len(language_codes_probs) == 0:
         language_codes_probs['en'] = 1.0
 
+    post_filter = []
+    for filter_key, filter_value in filter_values.items():
+        if filter_value != '':
+            if filter_key == 'content_type' and filter_value == 'book_any':
+                post_filter.append({ "terms": { f"file_unified_data.content_type": md5_content_type_book_any_subtypes } })
+            else:
+                post_filter.append({ "term": { f"file_unified_data.{filter_key}": filter_value } })
+
+    search_sorting = ["_score"]
+    if sort_value == "newest":
+        search_sorting = [{ "file_unified_data.year_best": "desc" }, "_score"]
+    if sort_value == "oldest":
+        search_sorting = [{ "file_unified_data.year_best": "asc" }, "_score"]
+
     try:
         max_display_results = 200
+        max_additional_display_results = 50
+
+        query_aggs = {
+            "most_likely_language_code": {
+              "terms": { "field": "file_unified_data.most_likely_language_code", "size": 200 } 
+            },
+            "content_type": {
+              "terms": { "field": "file_unified_data.content_type", "size": 200 } 
+            },
+            "extension_best": {
+              "terms": { "field": "file_unified_data.extension_best", "size": 40 } 
+            },
+        }
+
         search_results_raw = es.search(
             index="md5_dicts2", 
             size=max_display_results, 
@@ -1514,16 +1571,44 @@ def search_page():
                         }
                     }]
                 }
-            }
+            } if search_input != '' else { "match_all": {} },
+            aggs=query_aggs,
+            post_filter={ "bool": { "filter": post_filter } },
+            sort=search_sorting,
         )
+
+        if len(search_results_raw['aggregations']['most_likely_language_code']['buckets']) == 0:
+            search_results_raw = es.search(index="md5_dicts2", size=0, aggs=query_aggs)
+
+        aggregations = {}
+        # Unfortunately we have to explicitly filter for the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
+        aggregations['most_likely_language_code'] = [{ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['most_likely_language_code']) } for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets'] if bucket['key'] != '']
+        total_doc_count = sum([record['doc_count'] for record in aggregations['most_likely_language_code']])
+        aggregations['most_likely_language_code'] = sorted(aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
+
+        content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
+        book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
+        if book_any_total > 0:
+            content_type_buckets.append({'key': 'book_any', 'doc_count': book_any_total})
+        aggregations['content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['content_type']) } for bucket in content_type_buckets]
+        aggregations['content_type'] = sorted(aggregations['content_type'], key=lambda bucket: bucket['doc_count'], reverse=True)
+
+        # Similarly to the "unknown language" issue above, we have to filter for empty-string extensions, since it gives too much trouble.
+        aggregations['extension_best'] = [{ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['extension_best']) } for bucket in search_results_raw['aggregations']['extension_best']['buckets'] if bucket['key'] != '']
+
         search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
 
         max_search_md5_dicts_reached = False
         max_additional_search_md5_dicts_reached = False
         additional_search_md5_dicts = []
         if len(search_md5_dicts) < max_display_results:
-            search_results_raw = es.search(index="md5_dicts2", size=max_display_results, query={'match': {'search_text': {'query': search_input}}})
-            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_display_results:
+            search_results_raw = es.search(
+                index="md5_dicts2",
+                size=max_display_results+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
+                query={"bool": { "must": { "match": { "search_text": { "query": search_input } } }, "filter": post_filter } },
+                sort=search_sorting,
+            )
+            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                 max_additional_search_md5_dicts_reached = True
             seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
 
@@ -1534,9 +1619,11 @@ def search_page():
 
         search_dict = {}
         search_dict['search_md5_dicts'] = search_md5_dicts[0:max_display_results]
-        search_dict['additional_search_md5_dicts'] = additional_search_md5_dicts[0:max_display_results]
+        search_dict['additional_search_md5_dicts'] = additional_search_md5_dicts[0:max_additional_display_results]
         search_dict['max_search_md5_dicts_reached'] = max_search_md5_dicts_reached
         search_dict['max_additional_search_md5_dicts_reached'] = max_additional_search_md5_dicts_reached
+        search_dict['aggregations'] = aggregations
+        search_dict['sort_value'] = sort_value
 
         return render_template(
             "page/search.html",
