@@ -1582,6 +1582,29 @@ def search_page():
     if sort_value == "oldest":
         search_sorting = [{ "file_unified_data.year_best": "asc" }, "_score"]
 
+    search_query = {
+        "bool": {
+            "should": [{
+                "script_score": {
+                    "query": { "match_phrase": { "search_text": { "query": search_input } } },
+                    "script": {
+                        "source": sort_search_md5_dicts_script,
+                        "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
+                    }
+                }
+            }],
+            "must": [{
+                "script_score": {
+                    "query": { "simple_query_string": {"query": search_input, "fields": ["search_text"], "default_operator": "and"} },
+                    "script": {
+                        "source": sort_search_md5_dicts_script,
+                        "params": { "language_codes_probs": language_codes_probs, "offset": 0 }
+                    }
+                }
+            }]
+        }
+    } if search_input != '' else { "match_all": {} }
+
     try:
         max_display_results = 200
         max_additional_display_results = 50
@@ -1589,28 +1612,7 @@ def search_page():
         search_results_raw = es.search(
             index="md5_dicts2", 
             size=max_display_results, 
-            query={
-                "bool": {
-                    "should": [{
-                        "script_score": {
-                            "query": { "match_phrase": { "search_text": { "query": search_input } } },
-                            "script": {
-                                "source": sort_search_md5_dicts_script,
-                                "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
-                            }
-                        }
-                    }],
-                    "must": [{
-                        "script_score": {
-                            "query": { "simple_query_string": {"query": search_input, "fields": ["search_text"], "default_operator": "and"} },
-                            "script": {
-                                "source": sort_search_md5_dicts_script,
-                                "params": { "language_codes_probs": language_codes_probs, "offset": 0 }
-                            }
-                        }
-                    }]
-                }
-            } if search_input != '' else { "match_all": {} },
+            query=search_query,
             aggs=search_query_aggs,
             post_filter={ "bool": { "filter": post_filter } },
             sort=search_sorting,
@@ -1668,22 +1670,51 @@ def search_page():
         max_search_md5_dicts_reached = False
         max_additional_search_md5_dicts_reached = False
         additional_search_md5_dicts = []
+
         if len(search_md5_dicts) < max_display_results:
+            # For partial matches, first try our original query again but this time without filters.
+            seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
             search_results_raw = es.search(
-                index="md5_dicts2",
-                size=max_display_results+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
-                query={"bool": { "must": { "match": { "search_text": { "query": search_input } } }, "filter": post_filter } },
+                index="md5_dicts2", 
+                size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already., 
+                query=search_query,
                 sort=search_sorting,
             )
-            if len(search_md5_dicts)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
+            if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                 max_additional_search_md5_dicts_reached = True
-            seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
-
-            # Don't do custom sorting on these; otherwise we'll get a bunch of garbage at the top, since the last few results can be pretty bad.
             additional_search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s]
+
+            # Then do an "OR" query, but this time with the filters again.
+            if len(search_md5_dicts) + len(additional_search_md5_dicts) < max_display_results:
+                seen_md5s = seen_md5s.union(set([md5_dict['md5'] for md5_dict in additional_search_md5_dicts]))
+                # Don't do custom sorting here; otherwise we'll get a bunch of garbage at the top typically.
+                search_results_raw = es.search(
+                    index="md5_dicts2",
+                    size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
+                    query={"bool": { "must": { "match": { "search_text": { "query": search_input } } }, "filter": post_filter } },
+                    sort=search_sorting,
+                )
+                if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
+                    max_additional_search_md5_dicts_reached = True
+                additional_search_md5_dicts += [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s]
+
+                # If we still don't have enough, do another OR query but this time without filters.
+                if len(search_md5_dicts) + len(additional_search_md5_dicts) < max_display_results:
+                    seen_md5s = seen_md5s.union(set([md5_dict['md5'] for md5_dict in additional_search_md5_dicts]))
+                    # Don't do custom sorting here; otherwise we'll get a bunch of garbage at the top typically.
+                    search_results_raw = es.search(
+                        index="md5_dicts2",
+                        size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
+                        query={"bool": { "must": { "match": { "search_text": { "query": search_input } } } } },
+                        sort=search_sorting,
+                    )
+                    if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
+                        max_additional_search_md5_dicts_reached = True
+                    additional_search_md5_dicts += [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in seen_md5s and md5_dict['_id'] not in search_filtered_bad_md5s]
         else:
             max_search_md5_dicts_reached = True
 
+        
         search_dict = {}
         search_dict['search_md5_dicts'] = search_md5_dicts[0:max_display_results]
         search_dict['additional_search_md5_dicts'] = additional_search_md5_dicts[0:max_additional_display_results]
