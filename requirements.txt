@@ -34,5 +34,8 @@ quickle==0.4.0
 orjson==3.8.1
 python-slugify==7.0.0
 
+fasttext-langdetect==1.0.3
+wget==3.2
+
 elasticsearch==8.5.2
 Flask-Elasticsearch==0.2.5

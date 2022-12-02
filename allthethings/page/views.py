@@ -15,11 +15,11 @@ import concurrent
 import threading
 import yappi
 import multiprocessing
-import langdetect
 import gc
 import random
 import slugify
 import elasticsearch.helpers
+import ftlangdetect
 
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
 from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
@@ -1025,7 +1025,7 @@ def isbn_page(isbn_input):
             for lang_code in isbn_dict['isbndb'][0]['language_codes']:
                 language_codes_probs[lang_code] = 1.0
 
-        search_results_raw = es.search(index="md5_dicts2", size=100, query={
+        search_results_raw = es.search(index="md5_dicts", size=100, query={
             "script_score": {
                 "query": {"term": {"file_unified_data.sanitized_isbns": canonical_isbn13}},
                 "script": {
@@ -1069,8 +1069,8 @@ def get_md5_dicts_elasticsearch(session, canonical_md5s):
     # Uncomment the following line to use MySQL directly; useful for local development.
     # return get_md5_dicts_mysql(session, canonical_md5s)
 
-    search_results_raw = es.mget(index="md5_dicts2", ids=canonical_md5s)
-    return [{'md5': result['_id'], **result['_source']} for result in search_results_raw['docs']]
+    search_results_raw = es.mget(index="md5_dicts", ids=canonical_md5s)
+    return [{'md5': result['_id'], **result['_source']} for result in search_results_raw['docs'] if result['found']]
 
 def get_md5_dicts_mysql(session, canonical_md5s):
     # canonical_and_upper_md5s = canonical_md5s + [md5.upper() for md5 in canonical_md5s]
@@ -1275,10 +1275,12 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         md5_dict['file_unified_data']['language_names'] = [get_display_name_for_lang(lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
 
         language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
-        language_detection = []
+        language_detection = ''
         try:
-            language_detection = langdetect.detect_langs(language_detect_string)
-        except langdetect.lang_detect_exception.LangDetectException:
+            language_detection_data = ftlangdetect.detect(language_detect_string)
+            if language_detection_data['score'] > 0.5: # Somewhat arbitrary cutoff
+                language_detection = language_detection_data['lang']
+        except:
             pass
 
         # detected_language_codes_probs = []
@@ -1291,7 +1293,7 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         if len(md5_dict['file_unified_data']['language_codes']) > 0:
             md5_dict['file_unified_data']['most_likely_language_code'] = md5_dict['file_unified_data']['language_codes'][0]
         elif len(language_detection) > 0:
-            md5_dict['file_unified_data']['most_likely_language_code'] = get_bcp47_lang_codes(language_detection[0].lang)[0]
+            md5_dict['file_unified_data']['most_likely_language_code'] = get_bcp47_lang_codes(language_detection)[0]
 
         md5_dict['file_unified_data']['most_likely_language_name'] = ''
         if md5_dict['file_unified_data']['most_likely_language_code'] != '':
@@ -1459,23 +1461,6 @@ def md5_page(md5_input):
     )
 
 
-sort_search_md5_dicts_script = """
-float score = 100000 + params.offset + $('search_only_fields.score_base', 0);
-
-score += _score / 10.0;
-
-String most_likely_language_code = $('file_unified_data.most_likely_language_code', '');
-for (lang_code in params.language_codes_probs.keySet()) {
-    if (lang_code == most_likely_language_code) {
-        score += params.language_codes_probs[lang_code] * 1000
-    } else if (doc['file_unified_data.language_codes'].contains(lang_code)) {
-        score += params.language_codes_probs[lang_code] * 500
-    }
-}
-
-return score;
-"""
-
 search_query_aggs = {
     "most_likely_language_code": {
       "terms": { "field": "file_unified_data.most_likely_language_code", "size": 100 } 
@@ -1490,7 +1475,7 @@ search_query_aggs = {
 
 @functools.cache
 def all_search_aggs():
-    search_results_raw = es.search(index="md5_dicts2", size=0, aggs=search_query_aggs)
+    search_results_raw = es.search(index="md5_dicts", size=0, aggs=search_query_aggs)
 
     all_aggregations = {}
     # Unfortunately we have to special case the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
@@ -1576,46 +1561,32 @@ def search_page():
             else:
                 post_filter.append({ "term": { f"file_unified_data.{filter_key}": filter_value } })
 
-    search_sorting = ["_score"]
+    base_search_sorting = [{ "search_only_fields.score_base": "desc" }, "_score"]
+    custom_search_sorting = []
     if sort_value == "newest":
-        search_sorting = [{ "file_unified_data.year_best": "desc" }, "_score"]
+        custom_search_sorting = [{ "file_unified_data.year_best": "desc" }]
     if sort_value == "oldest":
-        search_sorting = [{ "file_unified_data.year_best": "asc" }, "_score"]
+        custom_search_sorting = [{ "file_unified_data.year_best": "asc" }]
 
     search_query = {
         "bool": {
-            "should": [{
-                "script_score": {
-                    "query": { "match_phrase": { "search_text": { "query": search_input } } },
-                    "script": {
-                        "source": sort_search_md5_dicts_script,
-                        "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
-                    }
-                }
-            }],
-            "must": [{
-                "script_score": {
-                    "query": { "simple_query_string": {"query": search_input, "fields": ["search_text"], "default_operator": "and"} },
-                    "script": {
-                        "source": sort_search_md5_dicts_script,
-                        "params": { "language_codes_probs": language_codes_probs, "offset": 0 }
-                    }
-                }
-            }]
+            "should": [{ "match_phrase": { "search_text": { "query": search_input, "boost": 10000 } } }],
+            "must": [{ "simple_query_string": { "query": search_input, "fields": ["search_text"], "default_operator": "and" } }]
         }
-    } if search_input != '' else { "match_all": {} }
+    }
 
     try:
         max_display_results = 200
         max_additional_display_results = 50
 
         search_results_raw = es.search(
-            index="md5_dicts2", 
+            index="md5_dicts", 
             size=max_display_results, 
             query=search_query,
             aggs=search_query_aggs,
             post_filter={ "bool": { "filter": post_filter } },
-            sort=search_sorting,
+            sort=custom_search_sorting+base_search_sorting,
+            track_total_hits=False,
         )
 
         all_aggregations = all_search_aggs()
@@ -1675,10 +1646,11 @@ def search_page():
             # For partial matches, first try our original query again but this time without filters.
             seen_md5s = set([md5_dict['md5'] for md5_dict in search_md5_dicts])
             search_results_raw = es.search(
-                index="md5_dicts2", 
+                index="md5_dicts", 
                 size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already., 
                 query=search_query,
-                sort=search_sorting,
+                sort=custom_search_sorting+base_search_sorting,
+                track_total_hits=False,
             )
             if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                 max_additional_search_md5_dicts_reached = True
@@ -1687,12 +1659,13 @@ def search_page():
             # Then do an "OR" query, but this time with the filters again.
             if len(search_md5_dicts) + len(additional_search_md5_dicts) < max_display_results:
                 seen_md5s = seen_md5s.union(set([md5_dict['md5'] for md5_dict in additional_search_md5_dicts]))
-                # Don't do custom sorting here; otherwise we'll get a bunch of garbage at the top typically.
                 search_results_raw = es.search(
-                    index="md5_dicts2",
+                    index="md5_dicts",
                     size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
                     query={"bool": { "must": { "match": { "search_text": { "query": search_input } } }, "filter": post_filter } },
-                    sort=search_sorting,
+                    # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
+                    sort=custom_search_sorting+['_score'],
+                    track_total_hits=False,
                 )
                 if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                     max_additional_search_md5_dicts_reached = True
@@ -1701,12 +1674,13 @@ def search_page():
                 # If we still don't have enough, do another OR query but this time without filters.
                 if len(search_md5_dicts) + len(additional_search_md5_dicts) < max_display_results:
                     seen_md5s = seen_md5s.union(set([md5_dict['md5'] for md5_dict in additional_search_md5_dicts]))
-                    # Don't do custom sorting here; otherwise we'll get a bunch of garbage at the top typically.
                     search_results_raw = es.search(
-                        index="md5_dicts2",
+                        index="md5_dicts",
                         size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
                         query={"bool": { "must": { "match": { "search_text": { "query": search_input } } } } },
-                        sort=search_sorting,
+                        # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
+                        sort=custom_search_sorting+['_score'],
+                        track_total_hits=False,
                     )
                     if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                         max_additional_search_md5_dicts_reached = True
