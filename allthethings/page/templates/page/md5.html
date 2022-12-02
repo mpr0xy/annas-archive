@@ -15,7 +15,7 @@
       <img class="float-right max-w-[25%] ml-4" src="{{md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer"/>
       <div class="text-xs text-gray-500">{{md5_dict.file_unified_data.most_likely_language_name + ", " if md5_dict.file_unified_data.most_likely_language_name | length > 0}}{{md5_dict.file_unified_data.extension_best}}, {% if md5_dict.file_unified_data.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{md5_dict.file_unified_data.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + md5_dict.file_unified_data.original_filename_best_name_only + '"' if md5_dict.file_unified_data.original_filename_best_name_only}}</div>
       <div class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</div>
-      <div class="text-sm">{{md5_dict.file_unified_data.publisher_best}}{% if md5_dict.file_unified_data.publisher_best and md5_dict.file_unified_data.edition_varia_best %},  {% endif %}{{md5_dict.file_unified_data.edition_varia_best}}</div>
+      <div class="text-sm">{{md5_dict.file_unified_data.publisher_best}}{% if md5_dict.file_unified_data.publisher_best and md5_dict.file_unified_data.edition_varia_best %}, {% endif %}{{md5_dict.file_unified_data.edition_varia_best}}</div>
       <div class="italic">{{md5_dict.file_unified_data.author_best}}</div>
       <div class="mt-4 line-clamp-[6]">{% if md5_dict.file_unified_data.stripped_description_best %}“{{md5_dict.file_unified_data.stripped_description_best | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
       {% if (md5_dict.additional.download_urls | length) > 0 %}
@@ -28,7 +28,7 @@
       {% endif %}
     </div>
 
-    <button class="bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
+    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
 
     <div class="js-technical-details hidden">
       <h2 class="mt-12 mb-1 text-3xl font-bold">Unified file information</h2>
