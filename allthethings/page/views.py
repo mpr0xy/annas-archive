@@ -1017,7 +1017,20 @@ def isbn_page(isbn_input):
         for isbndb_dict in isbn_dict['isbndb']:
             isbndb_dict['language_codes'] = get_bcp47_lang_codes(isbndb_dict['json'].get('language') or '')
             isbndb_dict['languages_and_codes'] = [(get_display_name_for_lang(lang_code), lang_code) for lang_code in isbndb_dict['language_codes']]
-            isbndb_dict['stripped_description'] = '\n\n'.join([strip_description(isbndb_dict['json'].get('synopsis') or ''),  strip_description(isbndb_dict['json'].get('overview') or '')]).strip()
+
+        if len(isbn_dict['isbndb']) > 0:
+            isbn_dict['top_box'] = {
+                'cover_url': isbn_dict['isbndb'][0]['json'].get('image', None) or '',
+                'top_row': isbn_dict['isbndb'][0]['languages_and_codes'][0][0],
+                'title': isbn_dict['isbndb'][0]['json'].get('title', None) or '',
+                'publisher_and_edition': ", ".join([item for item in [
+                        (isbn_dict['isbndb'][0]['json'].get('publisher', None) or '').strip(),
+                        (isbn_dict['isbndb'][0]['json'].get('edition', None) or '').strip(),
+                        str(isbn_dict['isbndb'][0]['json'].get('date_published', None) or '').strip(),
+                    ] if item != '']),
+                'author': ', '.join(isbn_dict['isbndb'][0]['json'].get('authors', None) or []),
+                'description': '\n\n'.join([strip_description(isbndb_dict['json'].get('synopsis') or ''), strip_description(isbndb_dict['json'].get('overview') or '')]).strip(),
+            }
 
         # TODO: sort the results again by best matching language. But we should maybe also look at other matches like title, author, etc, in case we have mislabeled ISBNs.
         # Get the language codes from the first match.
@@ -1458,6 +1471,16 @@ md5_content_type_mapping = {
 }
 md5_content_type_book_any_subtypes = ["book_unknown","book_fiction","book_nonfiction"]
 
+def format_filesize(bytes):
+    if bytes < 1000000:
+        return '<1MB'
+    else:
+        for unit in ["", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]:
+            if abs(num) < 1000.0:
+                return f"{num:3.1f}{unit}"
+            num /= 1000.0
+        return f"{num:.1f}YB"
+
 @page.get("/md5/<string:md5_input>")
 def md5_page(md5_input):
     md5_input = md5_input[0:50]
@@ -1476,6 +1499,22 @@ def md5_page(md5_input):
 
     md5_dict = md5_dicts[0]
     md5_dict['additional'] = {}
+    md5_dict['additional']['top_box'] = {
+        'cover_url': md5_dict['file_unified_data'].get('cover_url_best', None) or '',
+        'top_row': ", ".join([item for item in [
+                md5_dict['file_unified_data'].get('most_likely_language_name', None) or '',
+                md5_dict['file_unified_data'].get('extension_best', None) or '',
+                format_filesize(md5_dict['file_unified_data'].get('filesize_best', None) or 0),
+                md5_dict['file_unified_data'].get('original_filename_best_name_only', None) or '',
+            ] if item != '']),
+        'title': md5_dict['file_unified_data'].get('title_best', None) or '',
+        'publisher_and_edition': ", ".join([item for item in [
+                md5_dict['file_unified_data'].get('publisher_best', None) or '',
+                md5_dict['file_unified_data'].get('edition_varia_best', None) or '',
+            ] if item != '']),
+        'author': md5_dict['file_unified_data'].get('author_best', None) or '',
+        'description': md5_dict['file_unified_data'].get('stripped_description_best', None) or '',
+    }
     md5_dict['additional']['isbns_rich'] = make_isbns_rich(md5_dict['file_unified_data']['sanitized_isbns'])
     md5_dict['additional']['download_urls'] = []
     if len(md5_dict['ipfs_infos']) > 0:

@@ -11,16 +11,16 @@
       "{{isbn_input}}" is not a valid ISBN number. ISBNs are 10 or 13 characters long, not counting the optional dashes. All characters must be numbers, except of the last character, which might also be "X". The last character is the "check digit", which must match a checksum value that is computed from the other numbers. It must also be in a valid range, allocated by the International ISBN Agency.
     </p>
   {% else %}
-    {% if (isbn_dict.isbndb | length > 0) or (isbn_dict.search_md5_dicts | length > 0) %}
+    {% if isbn_dict.top_box or (isbn_dict.search_md5_dicts | length > 0) %}
       <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
-        {% if isbn_dict.isbndb | length > 0 %}
+        {% if isbn_dict.top_box %}
           <div class="overflow-hidden">
-            <img class="float-right max-w-[25%] ml-4" src="{{isbn_dict.isbndb[0].json.image}}" alt="" referrerpolicy="no-referrer"/>
-            <div class="text-xs text-gray-500">{{isbn_dict.isbndb[0].languages_and_codes[0][0] if isbn_dict.isbndb[0].languages_and_codes | length > 0}}</div>
-            <div class="text-xl font-bold">{{isbn_dict.isbndb[0].json.title}}</div>
-            <div class="text-sm">{{isbn_dict.isbndb[0].json.publisher}}{% if isbn_dict.isbndb[0].json.publisher and isbn_dict.isbndb[0].json.edition %},  {% endif %}{{isbn_dict.isbndb[0].json.edition}}</div>
-            <div class="italic">{{isbn_dict.isbndb[0].json.authors | default([], true) | join(', ')}}</div>
-            <div class="mt-4 line-clamp-[6]">{% if isbn_dict.isbndb[0].stripped_description %}“{{isbn_dict.isbndb[0].stripped_description | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
+            <img class="float-right max-w-[25%] ml-4" src="{{isbn_dict.top_box.cover_url}}" alt="" referrerpolicy="no-referrer"/>
+            <div class="text-xs text-gray-500">{{isbn_dict.top_box.top_row}}</div>
+            <div class="text-xl font-bold">{{isbn_dict.top_box.title}}</div>
+            <div class="text-sm">{{isbn_dict.top_box.publisher_and_edition}}</div>
+            <div class="italic">{{isbn_dict.top_box.author}}</div>
+            <div class="mt-4 line-clamp-[6]">{% if isbn_dict.top_box.description %}“{{isbn_dict.top_box.description | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
           </div>
         {% endif %}
 
