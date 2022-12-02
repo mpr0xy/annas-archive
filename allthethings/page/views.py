@@ -1019,21 +1019,19 @@ def isbn_page(isbn_input):
             isbndb_dict['languages_and_codes'] = [(get_display_name_for_lang(lang_code), lang_code) for lang_code in isbndb_dict['language_codes']]
             isbndb_dict['stripped_description'] = '\n\n'.join([strip_description(isbndb_dict['json'].get('synopsis') or ''),  strip_description(isbndb_dict['json'].get('overview') or '')]).strip()
 
+        # TODO: sort the results again by best matching language. But we should maybe also look at other matches like title, author, etc, in case we have mislabeled ISBNs.
         # Get the language codes from the first match.
-        language_codes_probs = {}
-        if len(isbn_dict['isbndb']) > 0:
-            for lang_code in isbn_dict['isbndb'][0]['language_codes']:
-                language_codes_probs[lang_code] = 1.0
+        # language_codes_probs = {}
+        # if len(isbn_dict['isbndb']) > 0:
+        #     for lang_code in isbn_dict['isbndb'][0]['language_codes']:
+        #         language_codes_probs[lang_code] = 1.0
 
-        search_results_raw = es.search(index="md5_dicts", size=100, query={
-            "script_score": {
-                "query": {"term": {"file_unified_data.sanitized_isbns": canonical_isbn13}},
-                "script": {
-                    "source": sort_search_md5_dicts_script,
-                    "params": { "language_codes_probs": language_codes_probs, "offset": 100000 }
-                }
-            }
-        })
+        search_results_raw = es.search(
+            index="md5_dicts",
+            size=100,
+            query={ "term": { "file_unified_data.sanitized_isbns": canonical_isbn13 } },
+            sort={ "search_only_fields.score_base": "desc" },
+        )
         search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
         isbn_dict['search_md5_dicts'] = search_md5_dicts
         
