@@ -1493,8 +1493,13 @@ def all_search_aggs():
     search_results_raw = es.search(index="md5_dicts2", size=0, aggs=search_query_aggs)
 
     all_aggregations = {}
-    # Unfortunately we have to explicitly filter for the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
-    all_aggregations['most_likely_language_code'] = [{ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'] } for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets'] if bucket['key'] != '']
+    # Unfortunately we have to special case the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
+    all_aggregations['most_likely_language_code'] = []
+    for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets']:
+        if bucket['key'] == '':
+            all_aggregations['most_likely_language_code'].append({ 'key': '_empty', 'label': 'Unknown language', 'doc_count': bucket['doc_count'] })
+        else:
+            all_aggregations['most_likely_language_code'].append({ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'] })
     # We don't have browser_lang_codes for now..
     # total_doc_count = sum([record['doc_count'] for record in all_aggregations['most_likely_language_code']])
     # all_aggregations['most_likely_language_code'] = sorted(all_aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
@@ -1506,7 +1511,12 @@ def all_search_aggs():
     all_aggregations['content_type'] = sorted(all_aggregations['content_type'], key=lambda bucket: bucket['doc_count'], reverse=True)
 
     # Similarly to the "unknown language" issue above, we have to filter for empty-string extensions, since it gives too much trouble.
-    all_aggregations['extension_best'] = [{ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] } for bucket in search_results_raw['aggregations']['extension_best']['buckets'] if bucket['key'] != '']
+    all_aggregations['extension_best'] = []
+    for bucket in search_results_raw['aggregations']['extension_best']['buckets']:
+        if bucket['key'] == '':
+            all_aggregations['extension_best'].append({ 'key': '_empty', 'label': 'unknown', 'doc_count': bucket['doc_count'] })
+        else:
+            all_aggregations['extension_best'].append({ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] })
 
     return all_aggregations
 
@@ -1561,6 +1571,8 @@ def search_page():
         if filter_value != '':
             if filter_key == 'content_type' and filter_value == 'book_any':
                 post_filter.append({ "terms": { f"file_unified_data.content_type": md5_content_type_book_any_subtypes } })
+            elif filter_value == '_empty':
+                post_filter.append({ "term": { f"file_unified_data.{filter_key}": '' } })
             else:
                 post_filter.append({ "term": { f"file_unified_data.{filter_key}": filter_value } })
 
@@ -1619,7 +1631,7 @@ def search_page():
                 doc_counts['extension_best'][bucket['key']] = bucket['doc_count']
         else:
             for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets']:
-                doc_counts['most_likely_language_code'][bucket['key']] = bucket['doc_count']
+                doc_counts['most_likely_language_code'][bucket['key'] if bucket['key'] != '' else '_empty'] = bucket['doc_count']
             # Special casing for "book_any":
             doc_counts['content_type']['book_any'] = 0
             for bucket in search_results_raw['aggregations']['content_type']['buckets']:
@@ -1627,7 +1639,7 @@ def search_page():
                 if bucket['key'] in md5_content_type_book_any_subtypes:
                     doc_counts['content_type']['book_any'] += bucket['doc_count']
             for bucket in search_results_raw['aggregations']['extension_best']['buckets']:
-                doc_counts['extension_best'][bucket['key']] = bucket['doc_count']
+                doc_counts['extension_best'][bucket['key'] if bucket['key'] != '' else '_empty'] = bucket['doc_count']
 
         aggregations = {}
         aggregations['most_likely_language_code'] = [{
