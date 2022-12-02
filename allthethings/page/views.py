@@ -1476,13 +1476,49 @@ for (lang_code in params.language_codes_probs.keySet()) {
 return score;
 """
 
+search_query_aggs = {
+    "most_likely_language_code": {
+      "terms": { "field": "file_unified_data.most_likely_language_code", "size": 100 } 
+    },
+    "content_type": {
+      "terms": { "field": "file_unified_data.content_type", "size": 200 } 
+    },
+    "extension_best": {
+      "terms": { "field": "file_unified_data.extension_best", "size": 20 } 
+    },
+}
+
+@functools.cache
+def all_search_aggs():
+    search_results_raw = es.search(index="md5_dicts2", size=0, aggs=search_query_aggs)
+
+    all_aggregations = {}
+    # Unfortunately we have to explicitly filter for the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
+    all_aggregations['most_likely_language_code'] = [{ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'] } for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets'] if bucket['key'] != '']
+    # We don't have browser_lang_codes for now..
+    # total_doc_count = sum([record['doc_count'] for record in all_aggregations['most_likely_language_code']])
+    # all_aggregations['most_likely_language_code'] = sorted(all_aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
+
+    content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
+    book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
+    content_type_buckets.append({'key': 'book_any', 'doc_count': book_any_total})
+    all_aggregations['content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]
+    all_aggregations['content_type'] = sorted(all_aggregations['content_type'], key=lambda bucket: bucket['doc_count'], reverse=True)
+
+    # Similarly to the "unknown language" issue above, we have to filter for empty-string extensions, since it gives too much trouble.
+    all_aggregations['extension_best'] = [{ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'] } for bucket in search_results_raw['aggregations']['extension_best']['buckets'] if bucket['key'] != '']
+
+    return all_aggregations
+
+
+
 @page.get("/search")
 def search_page():
     search_input = request.args.get("q", "").strip()
     filter_values = {
-        'most_likely_language_code': request.args.get("lang", "").strip(),
-        'content_type': request.args.get("content", "").strip(),
-        'extension_best': request.args.get("ext", "").strip(),
+        'most_likely_language_code': request.args.get("lang", "").strip()[0:15],
+        'content_type': request.args.get("content", "").strip()[0:25],
+        'extension_best': request.args.get("ext", "").strip()[0:10],
     }
     sort_value = request.args.get("sort", "").strip()
 
@@ -1538,18 +1574,6 @@ def search_page():
         max_display_results = 200
         max_additional_display_results = 50
 
-        query_aggs = {
-            "most_likely_language_code": {
-              "terms": { "field": "file_unified_data.most_likely_language_code", "size": 200 } 
-            },
-            "content_type": {
-              "terms": { "field": "file_unified_data.content_type", "size": 200 } 
-            },
-            "extension_best": {
-              "terms": { "field": "file_unified_data.extension_best", "size": 40 } 
-            },
-        }
-
         search_results_raw = es.search(
             index="md5_dicts2", 
             size=max_display_results, 
@@ -1575,30 +1599,57 @@ def search_page():
                     }]
                 }
             } if search_input != '' else { "match_all": {} },
-            aggs=query_aggs,
+            aggs=search_query_aggs,
             post_filter={ "bool": { "filter": post_filter } },
             sort=search_sorting,
         )
 
-        if len(search_results_raw['aggregations']['most_likely_language_code']['buckets']) == 0:
-            search_results_raw = es.search(index="md5_dicts2", size=0, aggs=query_aggs)
+        all_aggregations = all_search_aggs()
+
+        doc_counts = {}
+        doc_counts['most_likely_language_code'] = {}
+        doc_counts['content_type'] = {}
+        doc_counts['extension_best'] = {}
+        if search_input == '':
+            for bucket in all_aggregations['most_likely_language_code']:
+                doc_counts['most_likely_language_code'][bucket['key']] = bucket['doc_count']
+            for bucket in all_aggregations['content_type']:
+                doc_counts['content_type'][bucket['key']] = bucket['doc_count']
+            for bucket in all_aggregations['extension_best']:
+                doc_counts['extension_best'][bucket['key']] = bucket['doc_count']
+        else:
+            for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets']:
+                doc_counts['most_likely_language_code'][bucket['key']] = bucket['doc_count']
+            # Special casing for "book_any":
+            doc_counts['content_type']['book_any'] = 0
+            for bucket in search_results_raw['aggregations']['content_type']['buckets']:
+                doc_counts['content_type'][bucket['key']] = bucket['doc_count']
+                if bucket['key'] in md5_content_type_book_any_subtypes:
+                    doc_counts['content_type']['book_any'] += bucket['doc_count']
+            for bucket in search_results_raw['aggregations']['extension_best']['buckets']:
+                doc_counts['extension_best'][bucket['key']] = bucket['doc_count']
 
         aggregations = {}
-        # Unfortunately we have to explicitly filter for the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
-        aggregations['most_likely_language_code'] = [{ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['most_likely_language_code']) } for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets'] if bucket['key'] != '']
-        # We don't have browser_lang_codes for now..
-        # total_doc_count = sum([record['doc_count'] for record in aggregations['most_likely_language_code']])
-        # aggregations['most_likely_language_code'] = sorted(aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
+        aggregations['most_likely_language_code'] = [{
+                **bucket,
+                'doc_count': doc_counts['most_likely_language_code'].get(bucket['key'], 0),
+                'selected':  (bucket['key'] == filter_values['most_likely_language_code']),
+            } for bucket in all_aggregations['most_likely_language_code']]
+        aggregations['content_type'] = [{
+                **bucket,
+                'doc_count': doc_counts['content_type'].get(bucket['key'], 0),
+                'selected':  (bucket['key'] == filter_values['content_type']),
+            } for bucket in all_aggregations['content_type']]
+        aggregations['extension_best'] = [{
+                **bucket,
+                'doc_count': doc_counts['extension_best'].get(bucket['key'], 0),
+                'selected':  (bucket['key'] == filter_values['extension_best']),
+            } for bucket in all_aggregations['extension_best']]
 
-        content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
-        book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
-        if book_any_total > 0:
-            content_type_buckets.append({'key': 'book_any', 'doc_count': book_any_total})
-        aggregations['content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['content_type']) } for bucket in content_type_buckets]
-        aggregations['content_type'] = sorted(aggregations['content_type'], key=lambda bucket: bucket['doc_count'], reverse=True)
+        aggregations['most_likely_language_code'] = sorted(aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'], reverse=True)
+        aggregations['content_type']              = sorted(aggregations['content_type'],              key=lambda bucket: bucket['doc_count'], reverse=True)
+        aggregations['extension_best']            = sorted(aggregations['extension_best'],            key=lambda bucket: bucket['doc_count'], reverse=True)
 
-        # Similarly to the "unknown language" issue above, we have to filter for empty-string extensions, since it gives too much trouble.
-        aggregations['extension_best'] = [{ 'key': bucket['key'], 'label': bucket['key'], 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['extension_best']) } for bucket in search_results_raw['aggregations']['extension_best']['buckets'] if bucket['key'] != '']
 
         search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
 
