@@ -19,7 +19,7 @@
       <img class="float-right max-w-[25%] ml-4" src="{{lgrs_book_dict.cover_url_normalized}}" alt="" referrerpolicy="no-referrer"/>
       <div class="text-xl font-bold">{{lgrs_book_dict.title}}</div>
       <div class="italic">{{lgrs_book_dict.author}}</div>
-      <div class="line-clamp-[8] whitespace-pre-wrap">{{lgrs_book_dict.stripped_description}}</div>
+      <div class="line-clamp-[8]">{{lgrs_book_dict.stripped_description | escape | replace('\n', '<br>' | safe)}}</div>
       <div class="mt-4">Download {{lgrs_book_dict.extension | upper | default('file', true)}} from: {% if lgrs_book_dict.ipfs_cid %}<a href="https://cloudflare-ipfs.com/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs1</a> / <a href="https://ipfs.io/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs2</a> / <a href="https://gateway.pinata.cloud/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs3</a> / {% endif %}<a href="http://library.lol/{{ 'main' if lgrs_type == 'nf' else 'fiction'}}/{{lgrs_book_dict.md5 | lower}}" rel="noopener noreferrer" target="_blank">libgen.rs</a></div>
     </div>
 
@@ -393,6 +393,6 @@
       Below is a JSON dump of the record for this book, straight out of the database. If you want all records, please check out the dataset at the top of this page.
     </p>
 
-    <div class="text-xs p-4 font-mono whitespace-pre-wrap break-words bg-[#0000000d]">{{ lgrs_book_dict_json }}</div>
+    <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ lgrs_book_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
   {% endif %}
 {% endblock %}

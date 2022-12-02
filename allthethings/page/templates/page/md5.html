@@ -17,7 +17,7 @@
       <div class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</div>
       <div class="text-sm">{{md5_dict.file_unified_data.publisher_best}}{% if md5_dict.file_unified_data.publisher_best and md5_dict.file_unified_data.edition_varia_best %},  {% endif %}{{md5_dict.file_unified_data.edition_varia_best}}</div>
       <div class="italic">{{md5_dict.file_unified_data.author_best}}</div>
-      <div class="mt-4 line-clamp-[6] whitespace-pre-wrap">{% if md5_dict.file_unified_data.stripped_description_best %}“{{md5_dict.file_unified_data.stripped_description_best}}”{% endif %}</div>
+      <div class="mt-4 line-clamp-[6]">{% if md5_dict.file_unified_data.stripped_description_best %}“{{md5_dict.file_unified_data.stripped_description_best | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
       {% if (md5_dict.additional.download_urls | length) > 0 %}
         <div class="mt-4 font-bold">Download free ebook/file{% if md5_dict.file_unified_data.extension_best | lower %} ({{md5_dict.file_unified_data.extension_best}}){% endif %} from:</div>
         <ul>
@@ -149,7 +149,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Description</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[15] whitespace-pre-wrap">{{md5_dict.file_unified_data.stripped_description_best | default('-', true)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_additional %}<div class="text-sm text-gray-500">{{stripped_description}}</div>{% endfor %}</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[15]">{{md5_dict.file_unified_data.stripped_description_best | default('-', true) | escape | replace('\n', '<br>' | safe)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_additional %}<div class="text-sm text-gray-500">{{stripped_description | escape | replace('\n', '<br>' | safe)}}</div>{% endfor %}</div>
           <div></div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
@@ -489,7 +489,7 @@
         This is the raw JSON used to render this page.
       </p>
 
-      <div class="text-xs p-4 font-mono whitespace-pre-wrap break-words bg-[#0000000d]">{{ md5_dict_json }}</div>
+      <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ md5_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
     </div>
   {% endif %}
 {% endblock %}

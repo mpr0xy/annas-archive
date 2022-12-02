@@ -20,7 +20,7 @@
             <div class="text-xl font-bold">{{isbn_dict.isbndb[0].json.title}}</div>
             <div class="text-sm">{{isbn_dict.isbndb[0].json.publisher}}{% if isbn_dict.isbndb[0].json.publisher and isbn_dict.isbndb[0].json.edition %},  {% endif %}{{isbn_dict.isbndb[0].json.edition}}</div>
             <div class="italic">{{isbn_dict.isbndb[0].json.authors | default([], true) | join(', ')}}</div>
-            <div class="mt-4 line-clamp-[6] whitespace-pre-wrap">{% if isbn_dict.isbndb[0].stripped_description %}“{{isbn_dict.isbndb[0].stripped_description}}”{% endif %}</div>
+            <div class="mt-4 line-clamp-[6]">{% if isbn_dict.isbndb[0].stripped_description %}“{{isbn_dict.isbndb[0].stripped_description | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
           </div>
         {% endif %}
 
@@ -316,6 +316,6 @@
       This is the raw JSON used to render this page.
     </p>
 
-    <div class="text-xs p-4 font-mono whitespace-pre-wrap break-words bg-[#0000000d]">{{ isbn_dict_json }}</div>
+    <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ isbn_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
   {% endif %}
 {% endblock %}
