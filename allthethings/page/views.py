@@ -1024,9 +1024,6 @@ def isbn_page(isbn_input):
         if len(isbn_dict['isbndb']) > 0:
             for lang_code in isbn_dict['isbndb'][0]['language_codes']:
                 language_codes_probs[lang_code] = 1.0
-        for lang_code, quality in request.accept_languages:
-            for code in get_bcp47_lang_codes(lang_code):
-                language_codes_probs[code] = quality
 
         search_results_raw = es.search(index="md5_dicts2", size=100, query={
             "script_score": {
@@ -1500,20 +1497,26 @@ def search_page():
         return redirect(f"/isbn/{canonical_isbn13}", code=301)
 
     language_codes_probs = {}
-    language_detection = []
-    browser_lang_codes = set()
-    try:
-        language_detection = langdetect.detect_langs(search_input)
-    except langdetect.lang_detect_exception.LangDetectException:
-        pass
-    for item in language_detection:
-        for code in get_bcp47_lang_codes(item.lang):
-            # Give this slightly less weight than the languages we get from the browser (below).
-            language_codes_probs[code] = item.prob * 0.8
-    for lang_code, quality in request.accept_languages:
-        for code in get_bcp47_lang_codes(lang_code):
-            language_codes_probs[code] = float(quality)
-            browser_lang_codes.add(code)
+    # The language detection for search terms is not very good, and we have proper language search now.
+    #
+    # language_detection = []
+    # browser_lang_codes = set()
+    # try:
+    #     language_detection = langdetect.detect_langs(search_input)
+    # except langdetect.lang_detect_exception.LangDetectException:
+    #     pass
+    # for item in language_detection:
+    #     for code in get_bcp47_lang_codes(item.lang):
+    #         # Give this slightly less weight than the languages we get from the browser (below).
+    #         language_codes_probs[code] = item.prob * 0.8
+    #
+    # Cloudflare caches pages, so we can't use accept_languages for now. We could move it to JS as a default when searching?
+    # for lang_code, quality in request.accept_languages:
+    #     for code in get_bcp47_lang_codes(lang_code):
+    #         language_codes_probs[code] = float(quality)
+    #         browser_lang_codes.add(code)
+    #
+    # For now, let's just prefer English when unspecified.
     if len(language_codes_probs) == 0:
         language_codes_probs['en'] = 1.0
 
@@ -1583,8 +1586,9 @@ def search_page():
         aggregations = {}
         # Unfortunately we have to explicitly filter for the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
         aggregations['most_likely_language_code'] = [{ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'], 'selected': (bucket['key'] == filter_values['most_likely_language_code']) } for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets'] if bucket['key'] != '']
-        total_doc_count = sum([record['doc_count'] for record in aggregations['most_likely_language_code']])
-        aggregations['most_likely_language_code'] = sorted(aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
+        # We don't have browser_lang_codes for now..
+        # total_doc_count = sum([record['doc_count'] for record in aggregations['most_likely_language_code']])
+        # aggregations['most_likely_language_code'] = sorted(aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
 
         content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
         book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
