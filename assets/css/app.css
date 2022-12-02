@@ -6,7 +6,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-select, input, a {
+select, input, a, button {
 outline-color: #00000055;
 }
 .main {
@@ -114,6 +114,12 @@ text-decoration: underline;
 }
 a.anna:hover, a.anna:focus {
 color: #0070c0;
+}
+button:not(.custom-button) {
+color: #777;
+}
+button:not(.custom-button):hover, button:not(.custom-button):focus {
+color: #333;
 }
 form {
 margin-block-end: 0;
