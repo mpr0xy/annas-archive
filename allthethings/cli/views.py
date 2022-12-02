@@ -220,9 +220,9 @@ def elastic_reset_md5_dicts_internal():
                         "content_type": { "type": "keyword", "index": True, "doc_values": True }
                     }
                 },
-                "search_text": { "type": "text", "index": True, "analyzer": "icu_analyzer" },
                 "search_only_fields": {
                     "properties": {
+                        "search_text": { "type": "text", "index": True, "analyzer": "icu_analyzer" },
                         "score_base": { "type": "float", "index": False, "doc_values": True }
                     }
                 }
@@ -244,58 +244,11 @@ def elastic_reset_md5_dicts_internal():
 def elastic_build_md5_dicts():
     elastic_build_md5_dicts_internal()
 
-def md5_dict_score_base(md5_dict):
-    if len(md5_dict['file_unified_data'].get('problems') or []) > 0:
-        return 0.0
-
-    score = 10000.0
-    if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
-        score += 1000.0
-    # Unless there are other filters, prefer English over other languages, for now.
-    if (md5_dict['file_unified_data'].get('most_likely_language_code') or '') == 'en':
-        score += 10.0
-    if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
-        score += 10.0
-    if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
-        # Since we only use the zlib cover as a last resort, and zlib is down / only on Tor,
-        # stronlgy demote zlib-only books for now.
-        if 'covers.zlibcdn2.com' in (md5_dict['file_unified_data'].get('cover_url_best') or ''):
-            score -= 10.0
-        else:
-            score += 3.0
-    if len(md5_dict['file_unified_data'].get('title_best') or '') > 0:
-        score += 10.0
-    if len(md5_dict['file_unified_data'].get('author_best') or '') > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('publisher_best') or '') > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('edition_varia_best') or '') > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('original_filename_best_name_only') or '') > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('sanitized_isbns') or []) > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('asin_multiple') or []) > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('googlebookid_multiple') or []) > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('openlibraryid_multiple') or []) > 0:
-        score += 1.0
-    if len(md5_dict['file_unified_data'].get('doi_multiple') or []) > 0:
-        # For now demote DOI quite a bit, since tons of papers can drown out books.
-        score -= 70.0
-    if len(md5_dict['file_unified_data'].get('stripped_description_best') or '') > 0:
-        score += 1.0
-    return score
-
 def elastic_build_md5_dicts_job(canonical_md5s):
     try:
         with db.Session(db.engine) as session:
             md5_dicts = get_md5_dicts_mysql(db.session, canonical_md5s)
             for md5_dict in md5_dicts:
-                md5_dict['search_only_fields'] = {
-                    'score_base': float(md5_dict_score_base(md5_dict))
-                }
                 md5_dict['_op_type'] = 'index'
                 md5_dict['_index'] = 'md5_dicts'
                 md5_dict['_id'] = md5_dict['md5']
@@ -310,7 +263,7 @@ def elastic_build_md5_dicts_job(canonical_md5s):
 def elastic_build_md5_dicts_internal():
     THREADS = 60
     CHUNK_SIZE = 70
-    BATCH_SIZE = 100000
+    BATCH_SIZE = 50000
 
     first_md5 = ''
     # Uncomment to resume from a given md5, e.g. after a crash
@@ -354,7 +307,6 @@ def elastic_build_md5_dicts_internal():
 #                 '_op_type': 'index',
 #                 '_index': 'md5_dicts2',
 #                 '_id': item['_id'],
-#                 'search_only_fields': { 'score_base': float(md5_dict_score_base(item['_source'])) }
 #             })
                 
 #         elasticsearch.helpers.bulk(es, new_md5_dicts, request_timeout=30)

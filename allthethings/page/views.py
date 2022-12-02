@@ -1070,6 +1070,50 @@ def get_md5_dicts_elasticsearch(session, canonical_md5s):
     search_results_raw = es.mget(index="md5_dicts", ids=canonical_md5s)
     return [{'md5': result['_id'], **result['_source']} for result in search_results_raw['docs'] if result['found']]
 
+def md5_dict_score_base(md5_dict):
+    if len(md5_dict['file_unified_data'].get('problems') or []) > 0:
+        return 0.0
+
+    score = 10000.0
+    if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
+        score += 1000.0
+    # Unless there are other filters, prefer English over other languages, for now.
+    if (md5_dict['file_unified_data'].get('most_likely_language_code') or '') == 'en':
+        score += 10.0
+    if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
+        score += 10.0
+    if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
+        # Since we only use the zlib cover as a last resort, and zlib is down / only on Tor,
+        # stronlgy demote zlib-only books for now.
+        if 'covers.zlibcdn2.com' in (md5_dict['file_unified_data'].get('cover_url_best') or ''):
+            score -= 10.0
+        else:
+            score += 3.0
+    if len(md5_dict['file_unified_data'].get('title_best') or '') > 0:
+        score += 10.0
+    if len(md5_dict['file_unified_data'].get('author_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('publisher_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('edition_varia_best') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('original_filename_best_name_only') or '') > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('sanitized_isbns') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('asin_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('googlebookid_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('openlibraryid_multiple') or []) > 0:
+        score += 1.0
+    if len(md5_dict['file_unified_data'].get('doi_multiple') or []) > 0:
+        # For now demote DOI quite a bit, since tons of papers can drown out books.
+        score -= 70.0
+    if len(md5_dict['file_unified_data'].get('stripped_description_best') or '') > 0:
+        score += 1.0
+    return score
+
 def get_md5_dicts_mysql(session, canonical_md5s):
     # canonical_and_upper_md5s = canonical_md5s + [md5.upper() for md5 in canonical_md5s]
     lgrsnf_book_dicts = dict((item['md5'].lower(), item) for item in get_lgrsnf_book_dicts(session, "MD5", canonical_md5s))
@@ -1354,15 +1398,6 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         if (not md5_dict['lgrsnf_book']) and md5_dict['lgrsfic_book']:
             md5_dict['file_unified_data']['content_type'] = 'book_fiction'
 
-        md5_dict['search_text'] = "\n".join([
-            md5_dict['file_unified_data']['title_best'][:1000],
-            md5_dict['file_unified_data']['publisher_best'][:1000],
-            md5_dict['file_unified_data']['edition_varia_best'][:1000],
-            md5_dict['file_unified_data']['author_best'][:1000],
-            md5_dict['file_unified_data']['original_filename_best_name_only'][:1000],
-            md5_dict['file_unified_data']['extension_best'],
-            md5_dict['file_unified_data']['most_likely_language_name'],
-        ])
 
         if md5_dict['lgrsnf_book'] != None:
             md5_dict['lgrsnf_book'] = {
@@ -1390,6 +1425,21 @@ def get_md5_dicts_mysql(session, canonical_md5s):
                 'in_libgen': md5_dict['zlib_book']['in_libgen'],
                 'pilimi_torrent': md5_dict['zlib_book']['pilimi_torrent'],
             }
+
+
+        md5_dict['search_only_fields'] = {}
+        md5_dict['search_only_fields']['search_text'] = "\n".join([
+            md5_dict['file_unified_data']['title_best'][:1000],
+            md5_dict['file_unified_data']['author_best'][:1000],
+            md5_dict['file_unified_data']['edition_varia_best'][:1000],
+            md5_dict['file_unified_data']['publisher_best'][:1000],
+            md5_dict['file_unified_data']['original_filename_best_name_only'][:1000],
+            md5_dict['file_unified_data']['extension_best'],
+            md5_dict['file_unified_data']['most_likely_language_name'],
+        ]).replace('.', '. ').replace('_', ' ').replace('/', ' ').replace('\\', ' ')
+
+        # At the very end
+        md5_dict['search_only_fields']['score_base'] = float(md5_dict_score_base(md5_dict))
 
         md5_dicts.append(md5_dict)
 
@@ -1568,8 +1618,8 @@ def search_page():
 
     search_query = {
         "bool": {
-            "should": [{ "match_phrase": { "search_text": { "query": search_input, "boost": 10000 } } }],
-            "must": [{ "simple_query_string": { "query": search_input, "fields": ["search_text"], "default_operator": "and" } }]
+            "should": [{ "match_phrase": { "search_only_fields.search_text": { "query": search_input, "boost": 10000 } } }],
+            "must": [{ "simple_query_string": { "query": search_input, "fields": ["search_only_fields.search_text"], "default_operator": "and" } }]
         }
     }
 
@@ -1660,7 +1710,7 @@ def search_page():
                 search_results_raw = es.search(
                     index="md5_dicts",
                     size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
-                    query={"bool": { "must": { "match": { "search_text": { "query": search_input } } }, "filter": post_filter } },
+                    query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } }, "filter": post_filter } },
                     # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
                     sort=custom_search_sorting+['_score'],
                     track_total_hits=False,
@@ -1675,7 +1725,7 @@ def search_page():
                     search_results_raw = es.search(
                         index="md5_dicts",
                         size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
-                        query={"bool": { "must": { "match": { "search_text": { "query": search_input } } } } },
+                        query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } } } },
                         # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
                         sort=custom_search_sorting+['_score'],
                         track_total_hits=False,
