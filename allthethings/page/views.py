@@ -1024,8 +1024,8 @@ def isbn_page(isbn_input):
                 'top_row': isbn_dict['isbndb'][0]['languages_and_codes'][0][0],
                 'title': isbn_dict['isbndb'][0]['json'].get('title', None) or '',
                 'publisher_and_edition': ", ".join([item for item in [
-                        (isbn_dict['isbndb'][0]['json'].get('publisher', None) or '').strip(),
-                        (isbn_dict['isbndb'][0]['json'].get('edition', None) or '').strip(),
+                        str(isbn_dict['isbndb'][0]['json'].get('publisher', None) or '').strip(),
+                        str(isbn_dict['isbndb'][0]['json'].get('edition', None) or '').strip(),
                         str(isbn_dict['isbndb'][0]['json'].get('date_published', None) or '').strip(),
                     ] if item != '']),
                 'author': ', '.join(isbn_dict['isbndb'][0]['json'].get('authors', None) or []),
