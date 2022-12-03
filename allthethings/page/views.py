@@ -1471,8 +1471,8 @@ md5_content_type_mapping = {
 }
 md5_content_type_book_any_subtypes = ["book_unknown","book_fiction","book_nonfiction"]
 
-def format_filesize(bytes):
-    if bytes < 1000000:
+def format_filesize(num):
+    if num < 1000000:
         return '<1MB'
     else:
         for unit in ["", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]:
