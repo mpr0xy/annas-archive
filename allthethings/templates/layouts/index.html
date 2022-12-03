@@ -13,7 +13,7 @@
     <div class="header">
       <div class="header-inner">
         <div class="header-inner-top">
-          <a href="/" class="custom-a" style="color: black"><h1>Anna’s Archive</h1></a>
+          <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>Anna’s Archive</h1></a>
         </div>
 
         <div>🔍 Search engine of shadow libraries: books, papers, comics, magazines. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Fully resiliant through open source code and data. ❤️ Spread the word: everyone is welcome here!</div>
@@ -34,10 +34,10 @@
         </div>
         <div class="header-bar">
           <div class="header-links">
-            <a href="/" class="custom-a {{ 'header-link-active' if header_active == 'home' }}"><span class="header-link-normal">Home</span><span class="header-link-bold">Home</span></a>
-            <a href="/about" class="custom-a {{ 'header-link-active' if header_active == 'about' }}"><span class="header-link-normal">About</span><span class="header-link-bold">About</span></a>
-            <a href="/donate" class="custom-a {{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">Donate</span><span class="header-link-bold">Donate</span></a>
-            <a href="/search" class="custom-a {{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">Search</span><span class="header-link-bold">Search</span></a>
+            <a href="/" class="{{ 'header-link-active' if header_active == 'home' }}"><span class="header-link-normal">Home</span><span class="header-link-bold">Home</span></a>
+            <a href="/about" class="{{ 'header-link-active' if header_active == 'about' }}"><span class="header-link-normal">About</span><span class="header-link-bold">About</span></a>
+            <a href="/donate" class="{{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">Donate</span><span class="header-link-bold">Donate</span></a>
+            <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">Search</span><span class="header-link-bold">Search</span></a>
           </div>
           <form class="header-search" action="/search" method="get">
             <input name="q" type="text" placeholder="Search title, author, language, filetype, ISBN, MD5, …" value="{{search_input}}">

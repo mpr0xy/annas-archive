@@ -35,11 +35,11 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 }
-.header-inner a, .header-inner a:visited {
+.header-inner a:not(.custom-a), .header-inner a:not(.custom-a):visited {
 text-decoration: none;
 color: #000000a3;
 }
-.header-inner a:hover, .header-inner a:focus {
+.header-inner a:not(.custom-a):hover, .header-inner a:not(.custom-a):focus {
 color: black;
 }
 .header-inner h1 {
