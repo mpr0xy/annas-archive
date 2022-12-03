@@ -1500,6 +1500,14 @@ def md5_page(md5_input):
     md5_dict = md5_dicts[0]
     md5_dict['additional'] = {}
     md5_dict['additional']['top_box'] = {
+        'meta_information': [item for item in [
+                md5_dict['file_unified_data'].get('title_best', None) or '',
+                md5_dict['file_unified_data'].get('author_best', None) or '',
+                (md5_dict['file_unified_data'].get('stripped_description_best', None) or '')[0:100],
+                md5_dict['file_unified_data'].get('publisher_best', None) or '',
+                md5_dict['file_unified_data'].get('edition_varia_best', None) or '',
+                md5_dict['file_unified_data'].get('original_filename_best_name_only', None) or '',
+            ] if item != ''],
         'cover_url': md5_dict['file_unified_data'].get('cover_url_best', None) or '',
         'top_row': ", ".join([item for item in [
                 md5_dict['file_unified_data'].get('most_likely_language_name', None) or '',

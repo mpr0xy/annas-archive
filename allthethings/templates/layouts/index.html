@@ -3,7 +3,11 @@
     <meta charset="utf-8">
     <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}Anna’s Archive</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-    <meta name="description" content="Search engine of shadow libraries: books, papers, comics, magazines." />
+    {% if self.meta_tags() %}
+      {% block meta_tags %}{% endblock %}
+    {% else %}
+      <meta name="description" content="Search engine of shadow libraries: books, papers, comics, magazines." />
+    {% endif %}
     <meta name="twitter:card" value="summary">
     <meta name="twitter:creator" content="@AnnaArchivist"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />

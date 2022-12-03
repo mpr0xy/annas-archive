@@ -1,6 +1,10 @@
 {% extends "layouts/index.html" %}
 
-{% block title %}{% if md5_dict and md5_dict.file_unified_data.title_best %}{{md5_dict.file_unified_data.title_best}} - {% endif %}MD5 {{md5_input}}{% endblock %}
+{% block title %}{{md5_dict.additional.top_box.meta_information[0]}}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="{{md5_dict.additional.top_box.meta_information[1:4] | join('\n\n')}}" />
+{% endblock %}
 
 {% block body %}
   <div class="mb-4 truncate">Datasets ▶ Files ▶ MD5 {{md5_input}}</div>
@@ -30,7 +34,7 @@
 
     <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
 
-    <div class="js-technical-details hidden">
+    <div class="js-technical-details hidden" itemscope="" itemtype="https://schema.org/Book">
       <h2 class="mt-12 mb-1 text-3xl font-bold">Unified file information</h2>
 
       <p class="mb-4">
@@ -81,7 +85,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Title</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="name">
             {{md5_dict.file_unified_data.title_best | default('-', true)}}
             {% for title in md5_dict.file_unified_data.title_additional %}
               <div class="text-sm text-gray-500">{{title}}</div>
@@ -91,7 +95,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Author</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="author">
             {{md5_dict.file_unified_data.author_best | default('-', true)}}
             {% for author in md5_dict.file_unified_data.author_additional %}
               <div class="text-sm text-gray-500">{{author}}</div>
@@ -101,7 +105,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Publisher</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="publisher">
             {{md5_dict.file_unified_data.publisher_best | default('-', true)}}
             {% for publisher in md5_dict.file_unified_data.publisher_additional %}
               <div class="text-sm text-gray-500">{{publisher}}</div>
@@ -111,7 +115,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Edition/series info</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="bookEdition">
             {{md5_dict.file_unified_data.edition_varia_best | default('-', true)}}
             {% for edition_varia in md5_dict.file_unified_data.edition_varia_additional %}
               <div class="text-sm text-gray-500">{{edition_varia}}</div>
@@ -121,7 +125,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Year</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" {% if md5_dict.file_unified_data.year_best %} itemprop="datePublished" content="{{md5_dict.file_unified_data.year_best}}-01-01"{% endif %}>
             {{md5_dict.file_unified_data.year_best | default('-', true)}}
             {% for year in md5_dict.file_unified_data.year_additional %}
               <div class="text-sm text-gray-500">{{year}}</div>
@@ -142,14 +146,14 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Most likely language (detected)</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">
+          <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="inLanguage" content="{{md5_dict.file_unified_data.most_likely_language_code}}">
             {{ md5_dict.file_unified_data.most_likely_language_name | default('Unknown', true) }}{% if md5_dict.file_unified_data.most_likely_language_code %} ({{ md5_dict.file_unified_data.most_likely_language_code }}){% endif %}
           </div>
           <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.file_unified_data.most_likely_language_code %}<a href="https://r12a.github.io/app-subtags/index?check={{ md5_dict.file_unified_data.most_likely_language_code }}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Description</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[15]">{{md5_dict.file_unified_data.stripped_description_best | default('-', true) | escape | replace('\n', '<br>' | safe)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_additional %}<div class="text-sm text-gray-500">{{stripped_description | escape | replace('\n', '<br>' | safe)}}</div>{% endfor %}</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[15]" itemprop="description">{{md5_dict.file_unified_data.stripped_description_best | default('-', true) | escape | replace('\n', '<br>' | safe)}}{% for stripped_description in md5_dict.file_unified_data.stripped_description_additional %}<div class="text-sm text-gray-500">{{stripped_description | escape | replace('\n', '<br>' | safe)}}</div>{% endfor %}</div>
           <div></div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
@@ -173,7 +177,7 @@
         {% for isbn in md5_dict.additional.isbns_rich %}
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'ISBNs' if loop.index0 == 0 else ' ' }}&nbsp;</div>
-            <div class="px-2 py-1 grow break-words line-clamp-[8]">{{isbn[0]}} {{ " / " + isbn[1] if isbn[1] }}</div>
+            <div class="px-2 py-1 grow break-words line-clamp-[8]"><span itemprop="isbn">{{isbn[0]}}</span> {{ " / " + isbn[1] if isbn[1] }}</div>
             <div class="px-2 py-1 whitespace-nowrap text-right"><a href="/isbn/{{isbn[0]}}" class="anna">anna</a> <a href="https://en.wikipedia.org/wiki/Special:BookSources/{{isbn[0]}}">wiki</a> <a href="https://google.com/search?q=%22{{isbn[0]}}%22+OR+%22{{isbn[1]}}%22+OR+%22{{isbn[2]}}%22+OR+%22{{isbn[3]}}%22">goog</a></div>
           </div>
         {% endfor %}
@@ -188,7 +192,7 @@
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'Open Library ID' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">{{id}}</div>
-            <div class="px-2 py-1 whitespace-nowrap text-right">{% if id[-1] == 'M' %}<a href="/ol/{{id}}" class="anna">anna</a> <a href="https://openlibrary.org/books/{{id}}">url</a>{% elif id[-1] == 'W' %}<a href="https://openlibrary.org/works/{{id}}">url</a>{% endif %}</div>
+            <div class="px-2 py-1 whitespace-nowrap text-right">{% if id[-1] == 'M' %}<a href="/ol/{{id}}" class="anna">anna</a> <a itemprop="sameAs" content="https://openlibrary.org/books/{{id}}"  href="https://openlibrary.org/books/{{id}}">url</a>{% elif id[-1] == 'W' %}<a href="https://openlibrary.org/works/{{id}}">url</a>{% endif %}</div>
           </div>
         {% endfor %}
         {% if md5_dict.file_unified_data.doi_multiple | length == 0 %}
@@ -202,7 +206,7 @@
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'DOI' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">{{id}}</div>
-            <div class="px-2 py-1 whitespace-nowrap text-right"><a href="https://doi.org/{{id}}">url</a> <a href="https://sci-hub.se/{{id}}">scihub</a></div>
+            <div class="px-2 py-1 whitespace-nowrap text-right"><a itemprop="sameAs" content="https://doi.org/{{id}}" href="https://doi.org/{{id}}">url</a> <a href="https://sci-hub.se/{{id}}">scihub</a></div>
           </div>
         {% endfor %}
         {% if md5_dict.file_unified_data.googlebookid_multiple | length == 0 %}
@@ -216,7 +220,7 @@
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'Google Books ID' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">{{id}}</div>
-            <div class="px-2 py-1 whitespace-nowrap text-right"><a href="https://books.google.com/books?id={{id}}">url</a></div>
+            <div class="px-2 py-1 whitespace-nowrap text-right"><a itemprop="sameAs" content="https://books.google.com/books?id={{id}}"  href="https://books.google.com/books?id={{id}}">url</a></div>
           </div>
         {% endfor %}
         {% if md5_dict.file_unified_data.asin_multiple | length == 0 %}
@@ -230,7 +234,7 @@
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'Amazon ID (ASIN)' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             <div class="px-2 py-1 grow break-words line-clamp-[8]">{{id}}</div>
-            <div class="px-2 py-1 whitespace-nowrap text-right"><a href="https://www.amazon.com/gp/product/{{id}}">url</a></div>
+            <div class="px-2 py-1 whitespace-nowrap text-right"><a itemprop="sameAs" content="https://www.amazon.com/gp/product/{{id}}"  href="https://www.amazon.com/gp/product/{{id}}">url</a></div>
           </div>
         {% endfor %}
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
@@ -332,22 +336,22 @@
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Library Genesis ".rs-fork" Non-Fiction</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">{% if md5_dict.lgrsnf_book %}http://library.lol/main/{{md5_dict.lgrsnf_book.md5 | lower}}{% else %}-{% endif %}</div>
-          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgrsnf_book %}<a href="http://library.lol/main/{{md5_dict.lgrsnf_book.md5 | lower}}">url</a>{% endif %}</div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgrsnf_book %}<a itemprop="sameAs" content="http://library.lol/main/{{md5_dict.lgrsnf_book.md5 | lower}}" href="http://library.lol/main/{{md5_dict.lgrsnf_book.md5 | lower}}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Library Genesis ".rs-fork" Fiction</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">{% if md5_dict.lgrsfic_book %}http://library.lol/fiction/{{md5_dict.lgrsfic_book.md5 | lower}}{% else %}-{% endif %}</div>
-          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgrsfic_book %}<a href="http://library.lol/fiction/{{md5_dict.lgrsfic_book.md5 | lower}}">url</a>{% endif %}</div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgrsfic_book %}<a itemprop="sameAs" content="http://library.lol/fiction/{{md5_dict.lgrsfic_book.md5 | lower}}" href="http://library.lol/fiction/{{md5_dict.lgrsfic_book.md5 | lower}}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Library Genesis ".li-fork"</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">{% if md5_dict.lgli_file %}http://libgen.li/ads.php?md5={{md5_dict.lgli_file.md5 | lower}}{% else %}-{% endif %}</div>
-          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgli_file %}<a href="http://libgen.li/ads.php?md5={{md5_dict.lgli_file.md5 | lower}}">url</a>{% endif %}</div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.lgli_file %}<a itemprop="sameAs" content="http://libgen.li/ads.php?md5={{md5_dict.lgli_file.md5 | lower}}" href="http://libgen.li/ads.php?md5={{md5_dict.lgli_file.md5 | lower}}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Z-Library (TOR)</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">{% if md5_dict.zlib_book %}http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{{md5_dict.zlib_book.md5_reported | lower}}{% else %}-{% endif %}</div>
-          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.zlib_book %}<a href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{{md5_dict.zlib_book.md5_reported | lower}}">url</a> <a href="https://www.torproject.org/download/">info</a></a>{% endif %}</div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.zlib_book %}<a itemprop="sameAs" content="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{{md5_dict.zlib_book.md5_reported | lower}}" href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{{md5_dict.zlib_book.md5_reported | lower}}">url</a> <a href="https://www.torproject.org/download/">info</a></a>{% endif %}</div>
         </div>
       </div>
 
