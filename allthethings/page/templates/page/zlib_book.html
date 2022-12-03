@@ -11,14 +11,6 @@
       This ID was not found in the Z-Library dataset. They sometimes skip over ranges of IDs, and there is a maximum ID representing how many books have been added so far.
     </p>
   {% else %}
-    <div class="mb-4 p-6 overflow-hidden bg-[#0000000d]">
-      <img class="float-right max-w-[25%] ml-4" src="{{zlib_book_dict.cover_url}}" alt="" referrerpolicy="no-referrer"/>
-      <div class="text-xl font-bold">{{zlib_book_dict.title}}</div>
-      <div class="italic">{{zlib_book_dict.author}}</div>
-      <div class="line-clamp-[8] break-words">{{zlib_book_dict.stripped_description | escape | replace('\n', '<br>' | safe)}}</div>
-      {% if zlib_book_dict.md5_reported %}<div class="mt-4">Download {{zlib_book_dict.extension | upper | default('file', true)}} from: {% if zlib_book_dict.zlib_anon_url %}<a href="{{zlib_book_dict.zlib_anon_url}}" rel="noopener noreferrer" target="_blank">zlib-anon1</a> / {% endif %}<a href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{{zlib_book_dict.md5_reported}}" rel="noopener noreferrer" target="_blank">zlib (TOR browser)</a></div>{% endif %}
-    </div>
-
     <h2 class="mt-12 mb-1 text-3xl font-bold">Scraped metadata</h2>
 
     <p class="mb-4">

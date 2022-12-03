@@ -13,22 +13,6 @@
       This file ID was not found in the Library Genesis ".li-fork" dataset.
     </p>
   {% else %}
-    <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
-      <img class="float-right max-w-[25%] ml-4" src="{{ lgli_file_dict.cover_url_guess_normalized }}" alt="" referrerpolicy="no-referrer"/>
-      <div class="text-xl font-bold">{{ lgli_file_top.title }}</div>
-      <div class="italic">{{lgli_file_top.author}}</div>
-      <div class="line-clamp-[8]">{{lgli_file_top.description | escape | replace('\n', '<br>' | safe)}}</div>
-      <div class="mt-4">Download {{lgli_file_dict.extension | upper | default('file', true)}} from: {% if lgli_file_dict.descriptions_mapped.ipfscid_first %}<a href="https://cloudflare-ipfs.com/ipfs/{{lgli_file_dict.descriptions_mapped.ipfscid_first | lower}}" rel="noopener noreferrer" target="_blank">ipfs1</a> / <a href="https://ipfs.io/ipfs/{{lgli_file_dict.descriptions_mapped.ipfscid_first | lower}}" rel="noopener noreferrer" target="_blank">ipfs2</a> / <a href="https://gateway.pinata.cloud/ipfs/{{lgli_file_dict.descriptions_mapped.ipfscid_first | lower}}" rel="noopener noreferrer" target="_blank">ipfs3</a> / {% endif %}<a href="http://libgen.li/file.php?id={{lgli_file_id}}" rel="noopener noreferrer" target="_blank">libgen.li</a></div>
-    </div>
-
-    {% if lgli_file_dict.descriptions_mapped.ipfscid_first and ((lgli_file_dict.extension | lower) in ['pdf', 'html', 'htm', 'txt', 'jpeg', 'jpg', 'gif']) %}
-      <h2 class="mt-12 mb-1"><span class="text-3xl font-bold">Preview</span> <span class="italic">from ipfs.io</span></h2>
-
-      <div class="mb-4">
-        <iframe width="300" class="w-[100%] h-[40vh] p-1 bg-[#0000000d]" src="https://ipfs.io/ipfs/{{lgli_file_dict.descriptions_mapped.ipfscid_first | lower}}#view=fitH&navpanes=0&pagemode=none" referrerpolicy="no-referrer" allowtransparency="true"></iframe>
-      </div>
-    {% endif %}
-
     <h2 class="mt-12 mb-1 text-3xl font-bold">File metadata</h2>
 
     <p class="mb-4">

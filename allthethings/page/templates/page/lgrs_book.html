@@ -15,22 +15,6 @@
       This ID was not found in the Library Genesis ".rs-fork" {{ "Non-Fiction" if lgrs_type == "nf" else "Fiction" }} dataset.
     </p>
   {% else %}
-    <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
-      <img class="float-right max-w-[25%] ml-4" src="{{lgrs_book_dict.cover_url_normalized}}" alt="" referrerpolicy="no-referrer"/>
-      <div class="text-xl font-bold">{{lgrs_book_dict.title}}</div>
-      <div class="italic">{{lgrs_book_dict.author}}</div>
-      <div class="line-clamp-[8]">{{lgrs_book_dict.stripped_description | escape | replace('\n', '<br>' | safe)}}</div>
-      <div class="mt-4">Download {{lgrs_book_dict.extension | upper | default('file', true)}} from: {% if lgrs_book_dict.ipfs_cid %}<a href="https://cloudflare-ipfs.com/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs1</a> / <a href="https://ipfs.io/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs2</a> / <a href="https://gateway.pinata.cloud/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}" rel="noopener noreferrer" target="_blank">ipfs3</a> / {% endif %}<a href="http://library.lol/{{ 'main' if lgrs_type == 'nf' else 'fiction'}}/{{lgrs_book_dict.md5 | lower}}" rel="noopener noreferrer" target="_blank">libgen.rs</a></div>
-    </div>
-
-    {% if lgrs_book_dict.ipfs_cid and ((lgrs_book_dict.extension | lower) in ['pdf', 'html', 'htm', 'txt', 'jpeg', 'jpg', 'gif']) %}
-      <h2 class="mt-12 mb-1"><span class="text-3xl font-bold">Preview</span> <span class="italic">from ipfs.io</span></h2>
-
-      <div class="mb-4">
-        <iframe width="300" class="w-[100%] h-[40vh] p-1 bg-[#0000000d]" src="https://ipfs.io/ipfs/{{lgrs_book_dict.ipfs_cid | lower}}?filename={{lgrs_book_dict.normalized_filename}}#view=fitH&navpanes=0&pagemode=none" referrerpolicy="no-referrer" allowtransparency="true"></iframe>
-      </div>
-    {% endif %}
-
     <h2 class="mt-12 mb-1 text-3xl font-bold">Book metadata</h2>
 
     <p class="mb-4">
