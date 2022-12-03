@@ -9,10 +9,17 @@
 select, input, a, button {
 outline-color: #00000055;
 }
+html, body {
+height: 100%;
+display: flex;
+flex-direction: column;
+}
 .main {
 max-width: 850px;
 margin: 0 auto;
 padding: 20px 10px;
+width: 100%;
+flex-grow: 1;
 }
 .header {
 background: #0000000d;
