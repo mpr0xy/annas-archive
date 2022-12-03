@@ -1021,7 +1021,7 @@ def isbn_page(isbn_input):
         if len(isbn_dict['isbndb']) > 0:
             isbn_dict['top_box'] = {
                 'cover_url': isbn_dict['isbndb'][0]['json'].get('image', None) or '',
-                'top_row': isbn_dict['isbndb'][0]['languages_and_codes'][0][0],
+                'top_row': isbn_dict['isbndb'][0]['languages_and_codes'][0][0] if len(isbn_dict['isbndb'][0]['languages_and_codes']) > 0 else '',
                 'title': isbn_dict['isbndb'][0]['json'].get('title', None) or '',
                 'publisher_and_edition': ", ".join([item for item in [
                         str(isbn_dict['isbndb'][0]['json'].get('publisher', None) or '').strip(),
