@@ -138,6 +138,9 @@ for language in ol_languages_json:
 # * http://localhost:8000/isbn/9780316769174
 # * http://localhost:8000/md5/8fcb740b8c13f202e89e05c4937c09ac
 
+def looks_like_doi(string):
+    return string.startswith('10.') and ('/' in string) and (' ' not in string)
+
 # Example: http://193.218.118.109/zlib2/pilimi-zlib2-0-14679999-extra/11078831.pdf
 def make_temp_anon_zlib_link(zlibrary_id, pilimi_torrent, extension):
     prefix = "zlib1"
@@ -298,12 +301,12 @@ def zlib_book_page(zlib_id):
     zlib_book_dicts = get_zlib_book_dicts(db.session, "zlibrary_id", [zlib_id])
 
     if len(zlib_book_dicts) == 0:
-        return render_template("page/zlib_book.html", header_active="datasets", zlib_id=zlib_id), 404
+        return render_template("page/zlib_book.html", header_active="search", zlib_id=zlib_id), 404
 
     zlib_book_dict = zlib_book_dicts[0]
     return render_template(
         "page/zlib_book.html",
-        header_active="datasets",
+        header_active="search",
         zlib_id=zlib_id,
         zlib_book_dict=zlib_book_dict,
         zlib_book_json=nice_json(zlib_book_dict),
@@ -317,7 +320,7 @@ def ol_book_page(ol_book_id):
         ol_book = conn.execute(select(OlBase).where(OlBase.ol_key == f"/books/{ol_book_id}").limit(1)).first()
 
         if ol_book == None:
-            return render_template("page/ol_book.html", header_active="datasets", ol_book_id=ol_book_id), 404
+            return render_template("page/ol_book.html", header_active="search", ol_book_id=ol_book_id), 404
 
         ol_book_dict = dict(ol_book)
         ol_book_dict['json'] = orjson.loads(ol_book_dict['json'])
@@ -438,7 +441,7 @@ def ol_book_page(ol_book_id):
 
         return render_template(
             "page/ol_book.html",
-            header_active="datasets",
+            header_active="search",
             ol_book_id=ol_book_id,
             ol_book_dict=ol_book_dict,
             ol_book_dict_json=nice_json(ol_book_dict),
@@ -494,11 +497,11 @@ def lgrsnf_book_page(lgrsnf_book_id):
     lgrs_book_dicts = get_lgrsnf_book_dicts(db.session, "ID", [lgrsnf_book_id])
 
     if len(lgrs_book_dicts) == 0:
-        return render_template("page/lgrs_book.html", header_active="datasets", lgrs_type='nf', lgrs_book_id=lgrsnf_book_id), 404
+        return render_template("page/lgrs_book.html", header_active="search", lgrs_type='nf', lgrs_book_id=lgrsnf_book_id), 404
 
     return render_template(
         "page/lgrs_book.html",
-        header_active="datasets",
+        header_active="search",
         lgrs_type='nf',
         lgrs_book_id=lgrsnf_book_id,
         lgrs_book_dict=lgrs_book_dicts[0],
@@ -546,11 +549,11 @@ def lgrsfic_book_page(lgrsfic_book_id):
     lgrs_book_dicts = get_lgrsfic_book_dicts(db.session, "ID", [lgrsfic_book_id])
 
     if len(lgrs_book_dicts) == 0:
-        return render_template("page/lgrs_book.html", header_active="datasets", lgrs_type='fic', lgrs_book_id=lgrsfic_book_id), 404
+        return render_template("page/lgrs_book.html", header_active="search", lgrs_type='fic', lgrs_book_id=lgrsfic_book_id), 404
 
     return render_template(
         "page/lgrs_book.html",
-        header_active="datasets",
+        header_active="search",
         lgrs_type='fic',
         lgrs_book_id=lgrsfic_book_id,
         lgrs_book_dict=lgrs_book_dicts[0],
@@ -916,7 +919,7 @@ def lgli_file_page(lgli_file_id):
     lgli_file_dicts = get_lgli_file_dicts(db.session, "f_id", [lgli_file_id])
 
     if len(lgli_file_dicts) == 0:
-        return render_template("page/lgli_file.html", header_active="datasets", lgli_file_id=lgli_file_id), 404
+        return render_template("page/lgli_file.html", header_active="search", lgli_file_id=lgli_file_id), 404
 
     lgli_file_dict = lgli_file_dicts[0]
 
@@ -946,7 +949,7 @@ def lgli_file_page(lgli_file_id):
 
     return render_template(
         "page/lgli_file.html",
-        header_active="datasets",
+        header_active="search",
         lgli_file_id=lgli_file_id,
         lgli_file_dict=lgli_file_dict,
         lgli_file_top=lgli_file_top,
@@ -965,7 +968,7 @@ def isbn_page(isbn_input):
     if len(canonical_isbn13) != 13 or len(isbnlib.info(canonical_isbn13)) == 0:
         # TODO, check if a different prefix would help, like in
         # https://github.com/inventaire/isbn3/blob/d792973ac0e13a48466d199b39326c96026b7fc3/lib/audit.js
-        return render_template("page/isbn.html", header_active="datasets", isbn_input=isbn_input)
+        return render_template("page/isbn.html", header_active="search", isbn_input=isbn_input)
 
     if canonical_isbn13 != isbn_input:
         return redirect(f"/isbn/{canonical_isbn13}", code=301)
@@ -1050,11 +1053,37 @@ def isbn_page(isbn_input):
         
         return render_template(
             "page/isbn.html",
-            header_active="datasets",
+            header_active="search",
             isbn_input=isbn_input,
             isbn_dict=isbn_dict,
             isbn_dict_json=nice_json(isbn_dict),
         )
+
+@page.get("/doi/<path:doi_input>")
+def doi_page(doi_input):
+    doi_input = doi_input[0:100]
+
+    if not looks_like_doi(doi_input):
+        return render_template("page/doi.html", header_active="search", doi_input=doi_input), 404
+
+    search_results_raw = es.search(
+        index="md5_dicts",
+        size=100,
+        query={ "term": { "file_unified_data.doi_multiple": doi_input } },
+        sort={ "search_only_fields.score_base": "desc" },
+    )
+    search_md5_dicts = [{'md5': md5_dict['_id'], **md5_dict['_source']} for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
+
+    doi_dict = {}
+    doi_dict['search_md5_dicts'] = search_md5_dicts
+    
+    return render_template(
+        "page/doi.html",
+        header_active="search",
+        doi_input=doi_input,
+        doi_dict=doi_dict,
+        doi_dict_json=nice_json(doi_dict),
+    )
 
 def is_string_subsequence(needle, haystack):
     i_needle = 0
@@ -1487,7 +1516,7 @@ def md5_page(md5_input):
     canonical_md5 = md5_input.strip().lower()[0:32]
 
     if not bool(re.match(r"^[a-fA-F\d]{32}$", canonical_md5)):
-        return render_template("page/md5.html", header_active="datasets", md5_input=md5_input)
+        return render_template("page/md5.html", header_active="search", md5_input=md5_input)
 
     if canonical_md5 != md5_input:
         return redirect(f"/md5/{canonical_md5}", code=301)
@@ -1495,7 +1524,7 @@ def md5_page(md5_input):
     md5_dicts = get_md5_dicts_elasticsearch(db.session, [canonical_md5])
 
     if len(md5_dicts) == 0:
-        return render_template("page/md5.html", header_active="datasets", md5_input=md5_input)
+        return render_template("page/md5.html", header_active="search", md5_input=md5_input)
 
     md5_dict = md5_dicts[0]
     md5_dict['additional'] = {}
@@ -1548,7 +1577,7 @@ def md5_page(md5_input):
 
     return render_template(
         "page/md5.html",
-        header_active="datasets",
+        header_active="search",
         md5_input=md5_input,
         md5_dict=md5_dict,
         md5_dict_json=nice_json(md5_dict),
@@ -1617,6 +1646,9 @@ def search_page():
 
     if bool(re.match(r"^OL\d+M$", search_input)):
         return redirect(f"/ol/{search_input}", code=301)
+
+    if looks_like_doi(search_input):
+        return redirect(f"/doi/{search_input}", code=301)
 
     canonical_isbn13 = isbnlib.get_canonical_isbn(search_input, output='isbn13')
     if len(canonical_isbn13) == 13 and len(isbnlib.info(canonical_isbn13)) > 0:

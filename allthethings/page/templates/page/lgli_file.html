@@ -533,7 +533,7 @@
             <div class="flex-none w-[150] px-2 py-1">{{ 'Identifiers' if loop.index0 == 0 else ' ' }}&nbsp;</div>
             {% if lgli_identifiers[identifier_type] %}
               <div class="px-2 py-1 grow break-words line-clamp-[8]">{{lgli_identifiers[identifier_type].label}}: {{item}}{% if lgli_identifiers[identifier_type].description %} ({{lgli_identifiers[identifier_type].description}}){% endif %}</div>
-            <div class="px-2 py-1 whitespace-nowrap text-right">{% if lgli_identifiers[identifier_type].url %}<a href="{{lgli_identifiers[identifier_type].url | replace('%s', item | urlencode)}}">url</a>{% elif lgli_identifiers[identifier_type].website %}<a href="{{lgli_identifiers[identifier_type].website}}">info</a>{% endif %}</div>
+            <div class="px-2 py-1 whitespace-nowrap text-right">{% if identifier_type == 'doi' %}<a href="/doi/{{item}}" class="anna">anna</a>{% endif %} {% if identifier_type == 'openlibrary_multiple' %}<a href="/ol/{{item}}" class="anna">anna</a>{% endif %} {% if lgli_identifiers[identifier_type].url %}<a href="{{lgli_identifiers[identifier_type].url | replace('%s', item | urlencode)}}">url</a>{% elif lgli_identifiers[identifier_type].website %}<a href="{{lgli_identifiers[identifier_type].website}}">info</a>{% endif %}</div>
             {% else %}
               <div class="px-2 py-1 grow break-words line-clamp-[8]">{{identifier_type}}: {{item}}</div>
               <div></div>

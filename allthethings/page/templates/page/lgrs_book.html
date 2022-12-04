@@ -173,7 +173,7 @@
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">DOI</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">{{lgrs_book_dict.doi | default('-', true)}}</div>
-          <div class="px-2 py-1 whitespace-nowrap text-right">{% if lgrs_book_dict.doi %}<a href="https://doi.org/{{lgrs_book_dict.doi}}">url</a>{% endif %}</div>
+          <div class="px-2 py-1 whitespace-nowrap text-right">{% if lgrs_book_dict.doi %}<a href="/doi/{{lgrs_book_dict.doi}}" class="anna">anna</a> <a href="https://doi.org/{{lgrs_book_dict.doi}}">url</a>{% endif %}</div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Dewey Decimal</div>

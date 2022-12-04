@@ -1,0 +1,75 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}DOI {{doi_input}}{% endblock %}
+
+{% block body %}
+  <div class="mb-4">Datasets ▶ DOIs ▶ DOI {{doi_input}}</div>
+
+  {% if not(doi_dict is defined) %}
+    <h2 class="mt-12 mb-1 text-3xl font-bold">Not found</h2>
+    <p class="mb-4 italic">
+      "{{doi_input}}" doesn't look like a DOI. It should start with "10." and have a forward slash in it.
+    </p>
+  {% else %}
+    <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
+      <div class="text-xl font-bold mb-4">doi:{{doi_input}}</div>
+
+      <div class="mb-4">
+        Canonical URL: <a href="https://doi.org/{{doi_input}}">https://doi.org/{{doi_input}}</a>
+      </div>
+
+      <div class="mb-4">
+        This file might potentially be in <a href="https://sci-hub.se/{{doi_input}}">Sci-Hub</a>.
+      </div>
+
+      {% if doi_dict.search_md5_dicts | length > 0 %}
+        <p class="mb-2">
+          Matching files in our database:
+        </p>
+
+        {% for search_md5_dict in (doi_dict.search_md5_dicts) %}
+          <a href="/md5/{{search_md5_dict.md5}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011]">
+            <div class="flex-none">
+              <div class="overflow-hidden w-[72] h-[108] flex flex-col justify-center">
+                <img class="inline-block" src="{{search_md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
+                <div id="placeholder-img-{{loop.index0}}" class="w-[100%] h-[90] bg-[#00000033]" style="display: none"></div>
+              </div>
+            </div>
+            <div class="relative top-[-1] pl-4 grow overflow-hidden">
+              <div class="truncate text-xs text-gray-500">{{search_md5_dict.file_unified_data.most_likely_language_name + ", " if search_md5_dict.file_unified_data.most_likely_language_name | length > 0}}{{search_md5_dict.file_unified_data.extension_best}}, {% if search_md5_dict.file_unified_data.filesize_best | default(0, true) < 1000000 %}&lt;1MB{% else %}{{search_md5_dict.file_unified_data.filesize_best | default(0, true) | filesizeformat | replace(' ', '')}}{% endif %}{{', "' + search_md5_dict.file_unified_data.original_filename_best_name_only + '"' if search_md5_dict.file_unified_data.original_filename_best_name_only}}</div>
+              <div class="truncate text-xl font-bold">{{search_md5_dict.file_unified_data.title_best}}</div>
+              <div class="truncate text-sm">{{search_md5_dict.file_unified_data.publisher_best}}{% if search_md5_dict.file_unified_data.publisher_best and search_md5_dict.file_unified_data.edition_varia_best %},  {% endif %}{{search_md5_dict.file_unified_data.edition_varia_best}}</div>
+              <div class="truncate italic">{{search_md5_dict.file_unified_data.author_best}}</div>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        No matching files found in our database.
+      {% endif %}
+    </div>
+
+    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
+
+    <div class="js-technical-details hidden">
+      <h2 class="mt-12 mb-1 text-3xl font-bold">DOI</h2>
+
+      <p class="mb-4">
+        A <a href="https://en.wikipedia.org/wiki/Digital_object_identifier">digital object identifier (DOI)</a> is an identifier used to uniquely identify various objects, standardized by the International Organization for Standardization (ISO). DOIs are an implementation of the <a href="https://en.wikipedia.org/wiki/Handle_System">Handle System</a>, and within that system have the unique prefix of "10.". We currently don't have any DOI-specific metadata in our database, aside from records that have a DOI field.
+      </p>
+
+      <h2 class="mt-12 mb-1 text-3xl font-bold">Shadow library files</h2>
+
+      <p class="mb-2">
+        There are <strong>{{doi_dict.search_md5_dicts | length}}</strong> files found for which the metadata in one of the shadow libraries link to this ISBN. They are displayed at the top of this page.
+      </p>
+
+      <h2 class="mt-12 mb-1 text-3xl font-bold">Raw JSON</h2>
+
+      <p class="mb-4">
+        This is the raw JSON used to render this page.
+      </p>
+
+      <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ doi_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
+    </div>
+  {% endif %}
+{% endblock %}
