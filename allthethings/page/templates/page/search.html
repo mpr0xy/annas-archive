@@ -68,9 +68,9 @@
             {% if loop.index0 > 10 %}<!--{% endif %}
             <a href="/md5/{{search_md5_dict.md5}}" class="custom-a flex items-center relative left-[-10] px-[10] py-2 hover:bg-[#00000011] {% if (search_md5_dict.file_unified_data.problems | length) > 0 %}opacity-[40%]{% endif %}">
               <div class="flex-none">
-                <div class="overflow-hidden w-[72] h-[108] flex flex-col justify-center">
-                  <img class="inline-block" src="{{search_md5_dict.file_unified_data.cover_url_best if 'zlibcdn2' not in search_md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer" onerror="document.getElementById('placeholder-img-{{loop.index0}}').style.display = 'block'"/>
-                  <div id="placeholder-img-{{loop.index0}}" class="w-[100%] h-[90] bg-[#00000033]" style="display: none"></div>
+                <div class="relative overflow-hidden w-[72] h-[108] flex flex-col justify-center">
+                  <div class="absolute w-[100%] h-[90] bg-[#00000033]"></div>
+                  <img class="relative inline-block" src="{{search_md5_dict.file_unified_data.cover_url_best if 'zlibcdn2' not in search_md5_dict.file_unified_data.cover_url_best}}" alt="" referrerpolicy="no-referrer"/>
                 </div>
               </div>
               <div class="relative top-[-1] pl-4 grow overflow-hidden">
