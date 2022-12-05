@@ -80,6 +80,10 @@ def extensions(app):
             print("Error in loading tables; reset using './run flask cli dbreset'")
     es.init_app(app)
 
+    # https://stackoverflow.com/a/57950565
+    app.jinja_env.trim_blocks = True
+    app.jinja_env.lstrip_blocks = True
+
     # https://stackoverflow.com/a/18095320
     hash_cache = {}
     @app.url_defaults
