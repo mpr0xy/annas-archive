@@ -1487,6 +1487,13 @@ def get_md5_dicts_mysql(session, canonical_md5s):
 
     return md5_dicts
 
+md5_problem_type_mapping = { 
+    "lgrsnf_visible":  'Not visible in Library Genesis ".rs-fork" Non-Fiction', 
+    "lgrsfic_visible": 'Not visible in Library Genesis ".rs-fork" Fiction', 
+    "lgli_visible":    'Not visible in Library Genesis ".li-fork"', 
+    "lgli_broken":     'Marked broken in Library Genesis ".li-fork"',
+}
+
 md5_content_type_mapping = {
     "book_unknown":       "Book (unknown)",
     "book_nonfiction":    "Book (non-fiction)",
@@ -1582,6 +1589,7 @@ def md5_page(md5_input):
         md5_dict=md5_dict,
         md5_dict_json=nice_json(md5_dict),
         md5_content_type_mapping=md5_content_type_mapping,
+        md5_problem_type_mapping=md5_problem_type_mapping,
     )
 
 

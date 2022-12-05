@@ -22,14 +22,29 @@
       <div class="text-sm">{{md5_dict.additional.top_box.publisher_and_edition}}</div>
       <div class="italic">{{md5_dict.additional.top_box.author}}</div>
       <div class="mt-4 line-clamp-[6]">{% if md5_dict.additional.top_box.description %}“{{md5_dict.additional.top_box.description | escape | replace('\n', '<br>' | safe)}}”{% endif %}</div>
+
       {% if (md5_dict.additional.download_urls | length) > 0 %}
-        <div class="mt-4 font-bold">Download free ebook/file{% if md5_dict.file_unified_data.extension_best | lower %} ({{md5_dict.file_unified_data.extension_best}}){% endif %} from:</div>
+        {% if (md5_dict.file_unified_data.problems | length) > 0 %}
+          <div class="mt-4"><span class="font-bold">❌ This file might have issues, and has been hidden from a source library.</span> Sometimes this is by request of a copyright holder, sometimes it is because a better alternative is available, but sometimes it is because of an issue with the file itself. It might still be fine to download, but we recommend first searching for an alternative file. More details:</div>
+          <ul class="list-inside">
+            {% for problem in md5_dict.file_unified_data.problems %}
+            <li>- {{ md5_problem_type_mapping[problem.type] }} ("{{problem.descr}}")</li>
+            {% endfor %}
+          </ul>
+
+          <div class="mt-4">If you still want to download this file, be sure to only use trusted, updated software to open it.</div>
+        {% else %}
+          <div class="mt-4 font-bold">Download free ebook/file{% if md5_dict.file_unified_data.extension_best | lower %} ({{md5_dict.file_unified_data.extension_best}}){% endif %} from:</div>
+        {% endif %}
+      
         <ul>
           {% for label, url, extra in md5_dict.additional.download_urls %}
             <li>- Mirror #{{loop.index}}: <a href="{{url}}" rel="noopener noreferrer">{{label}}</a> {{extra}}</li>
           {% endfor %}
         </ul>
-        <div class="mt-4">All mirrors serve the same file, and should be safe to use. That said, always be cautious when downloading files from the internet. For example, be sure to keep your devices updated.</div>
+        {% if (md5_dict.file_unified_data.problems | length) == 0 %}
+          <div class="mt-4">All mirrors serve the same file, and should be safe to use. That said, always be cautious when downloading files from the internet. For example, be sure to keep your devices updated.</div>
+        {% endif %}
       {% endif %}
     </div>
 
@@ -274,7 +289,7 @@
         {% for problem in md5_dict.file_unified_data.problems %}
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">{{ 'File problems' if loop.index0 == 0 else ' ' }}&nbsp;</div>
-            <div class="px-2 py-1 grow break-words line-clamp-[8]">❌ {{ { "lgrsnf_visible": 'Not visible in Library Genesis ".rs-fork" Non-Fiction', "lgrsfic_visible": 'Not visible in Library Genesis ".rs-fork" Fiction', "lgli_visible": 'Not visible in Library Genesis ".li-fork"', "lgli_broken": 'Marked broken in Library Genesis ".li-fork"' }[problem.type] }} ("{{problem.descr}}")</div>
+            <div class="px-2 py-1 grow break-words line-clamp-[8]">❌ {{ md5_problem_type_mapping[problem.type] }} ("{{problem.descr}}")</div>
             <div class="px-2 py-1 whitespace-nowrap text-right">
               {% if problem.type=='lgrsnf_visible' and md5_dict.lgrsnf_book %}<a href="/lgrs/nf/{{md5_dict.lgrsnf_book.id}}" class="anna">anna</a>{% endif %}
               {% if problem.type=='lgrsfic_visible' and md5_dict.lgrsfic_book %}<a href="/lgrs/fic/{{md5_dict.lgrsfic_book.id}}" class="anna">anna</a>{% endif %}
