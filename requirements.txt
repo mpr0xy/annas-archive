@@ -10,6 +10,7 @@ Flask-SQLAlchemy==2.5.1
 alembic==1.8.1
 PyMySQL==1.0.2
 cryptography==38.0.1
+mysqlclient==2.1.1
 
 redis==4.3.4
 celery==5.2.7

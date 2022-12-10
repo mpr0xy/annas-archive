@@ -20,6 +20,7 @@ import random
 import slugify
 import elasticsearch.helpers
 import ftlangdetect
+import traceback
 
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
 from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
@@ -267,7 +268,17 @@ def donate_page():
 
 
 def get_zlib_book_dicts(session, key, values):
-    zlib_books = session.scalars(select(ZlibBook).where(getattr(ZlibBook, key).in_(values))).unique().all()
+    # Filter out bad data
+    if key.lower() in ['md5', 'md5_reported']:
+        values = [val for val in values if val not in search_filtered_bad_md5s]
+
+    zlib_books = []
+    try:
+        zlib_books = session.scalars(select(ZlibBook).where(getattr(ZlibBook, key).in_(values))).unique().all()
+    except Exception as err:
+        print(f"Error in get_zlib_book_dicts when querying {key}; {values}")
+        print(repr(err))
+        traceback.print_tb(err.__traceback__)
 
     zlib_book_dicts = []
     for zlib_book in zlib_books:
@@ -455,14 +466,24 @@ def ol_book_page(ol_book_id):
 
 # See https://wiki.mhut.org/content:bibliographic_data for some more information.
 def get_lgrsnf_book_dicts(session, key, values):
-    # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-    lgrsnf_books = session.connection().execute(
-            select(LibgenrsUpdated, LibgenrsDescription.descr, LibgenrsDescription.toc, LibgenrsHashes.crc32, LibgenrsHashes.edonkey, LibgenrsHashes.aich, LibgenrsHashes.sha1, LibgenrsHashes.tth, LibgenrsHashes.torrent, LibgenrsHashes.btih, LibgenrsHashes.sha256, LibgenrsHashes.ipfs_cid, LibgenrsTopics.topic_descr)
-            .join(LibgenrsDescription, LibgenrsUpdated.MD5 == LibgenrsDescription.md5, isouter=True)
-            .join(LibgenrsHashes, LibgenrsUpdated.MD5 == LibgenrsHashes.md5, isouter=True)
-            .join(LibgenrsTopics, (LibgenrsUpdated.Topic == LibgenrsTopics.topic_id) & (LibgenrsTopics.lang == "en"), isouter=True)
-            .where(getattr(LibgenrsUpdated, key).in_(values))
-        ).all()
+    # Filter out bad data
+    if key.lower() == 'md5':
+        values = [val for val in values if val not in search_filtered_bad_md5s]
+
+    lgrsnf_books = []
+    try:
+        # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
+        lgrsnf_books = session.connection().execute(
+                select(LibgenrsUpdated, LibgenrsDescription.descr, LibgenrsDescription.toc, LibgenrsHashes.crc32, LibgenrsHashes.edonkey, LibgenrsHashes.aich, LibgenrsHashes.sha1, LibgenrsHashes.tth, LibgenrsHashes.torrent, LibgenrsHashes.btih, LibgenrsHashes.sha256, LibgenrsHashes.ipfs_cid, LibgenrsTopics.topic_descr)
+                .join(LibgenrsDescription, LibgenrsUpdated.MD5 == LibgenrsDescription.md5, isouter=True)
+                .join(LibgenrsHashes, LibgenrsUpdated.MD5 == LibgenrsHashes.md5, isouter=True)
+                .join(LibgenrsTopics, (LibgenrsUpdated.Topic == LibgenrsTopics.topic_id) & (LibgenrsTopics.lang == "en"), isouter=True)
+                .where(getattr(LibgenrsUpdated, key).in_(values))
+            ).all()
+    except Exception as err:
+        print(f"Error in get_lgrsnf_book_dicts when querying {key}; {values}")
+        print(repr(err))
+        traceback.print_tb(err.__traceback__)
 
     lgrs_book_dicts = []
     for lgrsnf_book in lgrsnf_books:
@@ -511,13 +532,23 @@ def lgrsnf_book_page(lgrsnf_book_id):
 
 
 def get_lgrsfic_book_dicts(session, key, values):
-    # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-    lgrsfic_books = session.connection().execute(
-            select(LibgenrsFiction, LibgenrsFictionDescription.Descr, LibgenrsFictionHashes.crc32, LibgenrsFictionHashes.edonkey, LibgenrsFictionHashes.aich, LibgenrsFictionHashes.sha1, LibgenrsFictionHashes.tth, LibgenrsFictionHashes.btih, LibgenrsFictionHashes.sha256, LibgenrsFictionHashes.ipfs_cid)
-            .join(LibgenrsFictionDescription, LibgenrsFiction.MD5 == LibgenrsFictionDescription.MD5, isouter=True)
-            .join(LibgenrsFictionHashes, LibgenrsFiction.MD5 == LibgenrsFictionHashes.md5, isouter=True)
-            .where(getattr(LibgenrsFiction, key).in_(values))
-        ).all()
+    # Filter out bad data
+    if key.lower() == 'md5':
+        values = [val for val in values if val not in search_filtered_bad_md5s]
+
+    lgrsfic_books = []
+    try:
+        # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
+        lgrsfic_books = session.connection().execute(
+                select(LibgenrsFiction, LibgenrsFictionDescription.Descr, LibgenrsFictionHashes.crc32, LibgenrsFictionHashes.edonkey, LibgenrsFictionHashes.aich, LibgenrsFictionHashes.sha1, LibgenrsFictionHashes.tth, LibgenrsFictionHashes.btih, LibgenrsFictionHashes.sha256, LibgenrsFictionHashes.ipfs_cid)
+                .join(LibgenrsFictionDescription, LibgenrsFiction.MD5 == LibgenrsFictionDescription.MD5, isouter=True)
+                .join(LibgenrsFictionHashes, LibgenrsFiction.MD5 == LibgenrsFictionHashes.md5, isouter=True)
+                .where(getattr(LibgenrsFiction, key).in_(values))
+            ).all()
+    except Exception as err:
+        print(f"Error in get_lgrsfic_book_dicts when querying {key}; {values}")
+        print(repr(err))
+        traceback.print_tb(err.__traceback__)
 
     lgrs_book_dicts = []
 
@@ -745,6 +776,10 @@ lgli_classifications = {
 
 # See https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix
 def get_lgli_file_dicts(session, key, values):
+    # Filter out bad data
+    if key.lower() == 'md5':
+        values = [val for val in values if val not in search_filtered_bad_md5s]
+
     description_metadata = libgenli_elem_descr(session.connection())
 
     lgli_files = session.scalars(
@@ -1107,6 +1142,9 @@ def sort_by_length_and_filter_subsequences_with_longest_string(strings):
     return strings_filtered
 
 def get_md5_dicts_elasticsearch(session, canonical_md5s):
+    # Filter out bad data
+    canonical_md5s = [val for val in canonical_md5s if val not in search_filtered_bad_md5s]
+
     # Uncomment the following line to use MySQL directly; useful for local development.
     # return get_md5_dicts_mysql(session, canonical_md5s)
 
@@ -1158,6 +1196,9 @@ def md5_dict_score_base(md5_dict):
     return score
 
 def get_md5_dicts_mysql(session, canonical_md5s):
+    # Filter out bad data
+    canonical_md5s = [val for val in canonical_md5s if val not in search_filtered_bad_md5s]
+
     # canonical_and_upper_md5s = canonical_md5s + [md5.upper() for md5 in canonical_md5s]
     lgrsnf_book_dicts = dict((item['md5'].lower(), item) for item in get_lgrsnf_book_dicts(session, "MD5", canonical_md5s))
     lgrsfic_book_dicts = dict((item['md5'].lower(), item) for item in get_lgrsfic_book_dicts(session, "MD5", canonical_md5s))

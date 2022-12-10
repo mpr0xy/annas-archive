@@ -23,6 +23,7 @@ import elasticsearch.helpers
 import time
 import pathlib
 import ftlangdetect
+import traceback
 
 from config import settings
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
@@ -258,6 +259,7 @@ def elastic_build_md5_dicts_job(canonical_md5s):
             # print(f"Processed {len(md5_dicts)} md5s")
     except Exception as err:
         print(repr(err))
+        traceback.print_tb(err.__traceback__)
         raise err
 
 def elastic_build_md5_dicts_internal():

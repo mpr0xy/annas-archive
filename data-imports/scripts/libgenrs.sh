@@ -14,7 +14,7 @@ aria2c -c -x16 -s16 -j16 'http://libgen.rs/dbdumps/libgen.rar'
 aria2c -c -x16 -s16 -j16 'http://libgen.rs/dbdumps/fiction.rar'
 [ ! -e libgen.sql ] && unrar e libgen.rar
 [ ! -e fiction.sql ] && unrar e fiction.rar
-pv libgen.sql  | mariadb -u root -ppassword allthethings
-pv fiction.sql | mariadb -u root -ppassword allthethings
+pv libgen.sql  | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+pv fiction.sql | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
 
 mariadb -u root -ppassword allthethings --show-warnings -vv < /scripts/helpers/libgenrs_final.sql

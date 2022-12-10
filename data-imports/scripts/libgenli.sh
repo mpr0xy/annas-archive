@@ -16,10 +16,23 @@ for i in $(seq -w 0 39); do
     curl -C - -O "https://libgen.li/dbdumps/libgen_new.part0${i}.rar"
 done
 
-[ ! -e libgen_new/works_to_editions.MYI ] && unrar e libgen_new.part001.rar
+[ ! -e libgen_new/works_to_editions.MYI ] && unrar x libgen_new.part001.rar
 
 mv /temp-dir/libgen_new /var/lib/mysql/
 chown -R mysql /var/lib/mysql/libgen_new
 chgrp -R mysql /var/lib/mysql/libgen_new
 
-mariadb -u root -ppassword allthethings --show-warnings -vv < /scripts/helpers/libgenli_final.sql
+mariadb -u root -ppassword --show-warnings -vv < /scripts/helpers/libgenli_pre_export.sql
+
+# Split into multiple lines for easier resuming if one fails.
+mysqldump -u root -ppassword libgen_new libgenli_elem_descr | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py         | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_files | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py              | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_editions | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py           | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_editions_to_files | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py  | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_editions_add_descr | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_files_add_descr | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py    | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_series | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py             | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_series_add_descr | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py   | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+mysqldump -u root -ppassword libgen_new libgenli_publishers | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py         | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
+
+echo 'DROP DATABASE libgen_new;' | mariadb -u root -ppassword --show-warnings -vv

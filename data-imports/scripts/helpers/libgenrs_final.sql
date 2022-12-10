@@ -1,6 +1,22 @@
 DROP TRIGGER libgen_description_update_all;
 DROP TRIGGER libgen_updated_update_all;
 
+# Double-check that the new tables indeed exist, before we start dropping a bunch of existing tables.
+SELECT * FROM updated LIMIT 1;
+SELECT * FROM description LIMIT 1;
+SELECT * FROM hashes LIMIT 1;
+SELECT * FROM fiction LIMIT 1;
+SELECT * FROM fiction_description LIMIT 1;
+SELECT * FROM fiction_hashes LIMIT 1;
+SELECT * FROM topics LIMIT 1;
+DROP TABLE IF EXISTS allthethings.libgenrs_updated;
+DROP TABLE IF EXISTS allthethings.libgenrs_description;
+DROP TABLE IF EXISTS allthethings.libgenrs_hashes;
+DROP TABLE IF EXISTS allthethings.libgenrs_fiction;
+DROP TABLE IF EXISTS allthethings.libgenrs_fiction_description;
+DROP TABLE IF EXISTS allthethings.libgenrs_fiction_hashes;
+DROP TABLE IF EXISTS allthethings.libgenrs_topics;
+
 ALTER TABLE updated RENAME libgenrs_updated;
 ALTER TABLE description RENAME libgenrs_description;
 ALTER TABLE hashes RENAME libgenrs_hashes;
