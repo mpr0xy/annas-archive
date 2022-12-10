@@ -1161,6 +1161,9 @@ def md5_dict_score_base(md5_dict):
     # Unless there are other filters, prefer English over other languages, for now.
     if (md5_dict['file_unified_data'].get('most_likely_language_code') or '') == 'en':
         score += 10.0
+    # But if we're not confident about the language, demote.
+    if len(md5_dict['file_unified_data'].get('language_codes') or []) == 0:
+        score -= 2.0
     if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
         score += 10.0
     if len(md5_dict['file_unified_data'].get('cover_url_best') or '') > 0:
@@ -1400,14 +1403,15 @@ def get_md5_dicts_mysql(session, canonical_md5s):
             md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([(edition.get('language_codes') or []) for edition in lgli_all_editions])
         md5_dict['file_unified_data']['language_names'] = [get_display_name_for_lang(lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
 
-        language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
         language_detection = ''
-        try:
-            language_detection_data = ftlangdetect.detect(language_detect_string)
-            if language_detection_data['score'] > 0.5: # Somewhat arbitrary cutoff
-                language_detection = language_detection_data['lang']
-        except:
-            pass
+        if len(md5_dict['file_unified_data']['stripped_description_best']) > 20:
+            language_detect_string = " ".join(title_multiple) + " ".join(stripped_description_multiple)
+            try:
+                language_detection_data = ftlangdetect.detect(language_detect_string)
+                if language_detection_data['score'] > 0.5: # Somewhat arbitrary cutoff
+                    language_detection = language_detection_data['lang']
+            except:
+                pass
 
         # detected_language_codes_probs = []
         # for item in language_detection:
@@ -1423,7 +1427,8 @@ def get_md5_dicts_mysql(session, canonical_md5s):
 
         md5_dict['file_unified_data']['most_likely_language_name'] = ''
         if md5_dict['file_unified_data']['most_likely_language_code'] != '':
-            md5_dict['file_unified_data']['most_likely_language_name'] = get_display_name_for_lang(md5_dict['file_unified_data']['most_likely_language_code'])
+            md5_dict['file_unified_data']['most_likely_language_name'] = get_display_name_for_lang(md5_dict['file_unified_data']['most_likely_language_code']) + ("?" if len(md5_dict['file_unified_data']['language_codes']) == 0 else '')
+
  
 
         md5_dict['file_unified_data']['sanitized_isbns'] = list(set([
