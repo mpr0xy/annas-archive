@@ -36,12 +36,13 @@
   </script>
 
   <div class="mb-4">
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="document.querySelector('.js-cc').classList.remove('hidden'); document.querySelector('.js-crypto').classList.add('hidden'); document.querySelector('.js-q').classList.add('hidden'); scrollDown();">Credit/debit card</button>
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="document.querySelector('.js-cc').classList.add('hidden'); document.querySelector('.js-crypto').classList.remove('hidden'); document.querySelector('.js-q').classList.add('hidden'); scrollDown();">Crypto</button>
-    <a href="#" class="mt-2 pl-2" onclick="document.querySelector('.js-cc').classList.add('hidden'); document.querySelector('.js-crypto').classList.add('hidden'); document.querySelector('.js-q').classList.remove('hidden'); scrollDown(); return false">Questions</a>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-cc').classList.remove('hidden'); scrollDown();">Credit/debit card</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-crypto').classList.remove('hidden'); scrollDown();">Crypto</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-alipay').classList.remove('hidden'); scrollDown();">Alipay 支付宝</button>
+    <a href="#" class="mt-2 pl-2" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-q').classList.remove('hidden'); scrollDown(); return false">Questions</a>
   </div>
 
-  <div class="hidden js-cc">
+  <div class="hidden js-section js-cc">
     <h3 class="mt-4 mb-1 text-xl font-bold">Credit/debit card</h3>
 
     <p class="mb-4">
@@ -71,7 +72,7 @@
     </p>
   </div>
 
-  <div class="hidden js-crypto">
+  <div class="hidden js-section js-crypto">
     <h3 class="mt-4 mb-1 text-xl font-bold">Crypto</h3>
 
     <p class="mb-4">
@@ -90,7 +91,25 @@
     </p>
   </div>
 
-  <div class="hidden js-q">
+  <div class="hidden js-section js-alipay">
+    <h3 class="mt-4 mb-1 text-xl font-bold">Alipay 支付宝</h3>
+
+    <p class="mb-4">
+      Please use this Alipay account to send your donation.
+    </p>
+
+    <div class="js-alipay-img"></div>
+
+    <script>
+      document.querySelector('.js-alipay-img').innerHTML = '<img src="/images/alipay' + Math.floor(3*Math.random()) + '.jpg" style="max-width: 350px">';
+    </script>
+
+    <p class="mb-4 mt-4">
+      Thank you so much for helping out! This project would not be possible without you.
+    </p>
+  </div>
+
+  <div class="hidden js-section js-q">
     <h3 class="mt-4 mb-1 text-xl font-bold">Frequently asked questions</h3>
 
     <div class="mb-4">
