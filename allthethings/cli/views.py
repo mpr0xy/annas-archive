@@ -187,7 +187,7 @@ def elastic_reset_md5_dicts_internal():
                         "cover_url_additional": { "type": "keyword", "index": False, "doc_values": False },
                         "extension_best": { "type": "keyword", "index": True, "doc_values": True },
                         "extension_additional": { "type": "keyword", "index": False, "doc_values": False },
-                        "filesize_best": { "type": "long", "index": False, "doc_values": False },
+                        "filesize_best": { "type": "long", "index": False, "doc_values": True },
                         "filesize_additional": { "type": "long", "index": False, "doc_values": False },
                         "title_best": { "type": "keyword", "index": False, "doc_values": False },
                         "title_additional": { "type": "keyword", "index": False, "doc_values": False },
