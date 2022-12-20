@@ -1,9 +1,11 @@
 {% extends "layouts/index.html" %}
 
-{% block title %}{{md5_dict.additional.top_box.meta_information[0]}}{% endblock %}
+{% block title %}{% if md5_dict %}{{md5_dict.additional.top_box.meta_information[0]}}{% endif %}{% endblock %}
 
 {% block meta_tags %}
-<meta name="description" content="{{md5_dict.additional.top_box.meta_information[1:4] | join('\n\n')}}" />
+  {% if md5_dict %}
+    <meta name="description" content="{{md5_dict.additional.top_box.meta_information[1:4] | join('\n\n')}}" />
+  {% endif %}
 {% endblock %}
 
 {% block body %}

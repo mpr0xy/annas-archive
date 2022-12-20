@@ -61,6 +61,7 @@ docker-compose down
 # mv ../aa-data-import--allthethings-mysql-data ../allthethings-mysql-data
 # mv ../aa-data-import--allthethings-elastic-data ../allthethings-elastic-data
 # docker-compose up -d --no-deps --build
+# docker-compose logs --tail 20 --follow
 
 # To restore the backup:
 # docker-compose stop mariadb elasticsearch kibana
@@ -69,4 +70,5 @@ docker-compose down
 # mv ../all-thethings-mysql-data--backup-$NOW ../allthethings-mysql-data
 # mv ../allthethings-elastic-data--backup-$NOW ../allthethings-elastic-data
 # docker-compose up -d --no-deps --build
+# docker-compose logs --tail 20 --follow
 ```

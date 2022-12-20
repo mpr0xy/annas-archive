@@ -1626,7 +1626,8 @@ def md5_page(md5_input):
         md5_dict['additional']['download_urls'].append((f"Sci-Hub: {doi}", f"https://sci-hub.se/{doi}", ""))
     if md5_dict['zlib_book'] != None:
         if len(md5_dict['additional']['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0]['from'] == 'zlib'):
-            md5_dict['additional']['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+            if len(md5_dict['zlib_book']['pilimi_torrent'] or '') > 0:
+                md5_dict['additional']['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
             md5_dict['additional']['download_urls'].append((f"Z-Library TOR", f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", "(requires TOR browser)"))
 
     return render_template(
