@@ -258,13 +258,26 @@ def home_page():
 def about_page():
     return render_template("page/about.html", header_active="about")
 
-@page.get("/datasets")
-def datasets_page():
-    return render_template("page/datasets.html", header_active="about")
 
 @page.get("/donate")
 def donate_page():
     return render_template("page/donate.html", header_active="donate")
+
+
+@page.get("/datasets")
+def datasets_page():
+    with db.engine.connect() as conn:
+        libgenrs_time = conn.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
+        libgenrs_date = str(libgenrs_time.date())
+        libgenli_time = conn.execute(select(LibgenliFiles.time_last_modified).order_by(LibgenliFiles.f_id.desc()).limit(1)).scalars().first()
+        libgenli_date = str(libgenli_time.date())
+
+    return render_template(
+        "page/datasets.html",
+        header_active="about",
+        libgenrs_date=libgenrs_date,
+        libgenli_date=libgenli_date,
+    )
 
 
 def get_zlib_book_dicts(session, key, values):
