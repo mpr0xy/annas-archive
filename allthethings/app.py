@@ -78,6 +78,7 @@ def extensions(app):
             Reflected.prepare(db.engine)
         except:
             print("Error in loading tables; comment out the following 'raise' in app.py to prevent restarts; and then reset using './run flask cli dbreset'")
+            raise
     es.init_app(app)
 
     # https://stackoverflow.com/a/57950565
