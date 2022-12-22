@@ -40,3 +40,5 @@ wget==3.2
 
 elasticsearch==8.5.2
 Flask-Elasticsearch==0.2.5
+
+Flask-Babel==2.0.0

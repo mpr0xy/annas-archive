@@ -55,7 +55,6 @@ coverage.xml
 pytestdebug.log
 
 # Translations
-*.mo
 *.pot
 
 # Flask stuff

@@ -35,6 +35,18 @@ Notes:
 
 See [data-imports/README.md](data-imports/README.md).
 
+## Translations
+
+These are a work in progress. For now, we check in .po _and_ .mo files. The process is as follows:
+```sh
+# After updating any `gettext` calls:
+pybabel extract -F babel.cfg -o messages.pot .
+pybabel update -i messages.pot -d translations --no-fuzzy-matching
+
+# After changing any translations:
+pybabel compile -d translations
+```
+
 ## Contribute
 
 To report bugs or suggest new ideas, please file an ["issue"](https://annas-software.org/AnnaArchivist/annas-archive/-/issues).

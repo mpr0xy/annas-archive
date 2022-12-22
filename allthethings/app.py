@@ -3,6 +3,7 @@ import os
 
 from celery import Celery
 from flask import Flask
+from flask_babel import Babel
 from werkzeug.security import safe_join
 from werkzeug.debug import DebuggedApplication
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -80,6 +81,7 @@ def extensions(app):
             print("Error in loading tables; comment out the following 'raise' in app.py to prevent restarts; and then reset using './run flask cli dbreset'")
             raise
     es.init_app(app)
+    babel = Babel(app)
 
     # https://stackoverflow.com/a/57950565
     app.jinja_env.trim_blocks = True

@@ -1,0 +1,52 @@
+# English translations for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-12-23 02:44+0300\n"
+"PO-Revision-Date: 2022-12-23 02:27+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: templates/layouts/index.html:23
+msgid "layout.index.header.title"
+msgstr "Anna’s Archive"
+
+#: templates/layouts/index.html:26
+msgid "layout.index.header.tagline"
+msgstr "🔍 Search engine of shadow libraries: books, papers, comics, magazines. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Fully resilient through open source code and data. ❤️ Spread the word: everyone is welcome here!"
+
+#: templates/layouts/index.html:40
+msgid "layout.index.header.progress_bar.text"
+msgstr "5%% of humanity’s written heritage preserved forever"
+
+#: templates/layouts/index.html:44
+msgid "layout.index.header.nav.home"
+msgstr "Home"
+
+#: templates/layouts/index.html:45
+msgid "layout.index.header.nav.about"
+msgstr "About"
+
+#: templates/layouts/index.html:46
+msgid "layout.index.header.nav.donate"
+msgstr "Donate"
+
+#: templates/layouts/index.html:47
+msgid "layout.index.header.nav.search"
+msgstr "Search"
+
+#: templates/layouts/index.html:50
+msgid "layout.index.header.search_bar_placeholder"
+msgstr "Search title, author, language, filetype, ISBN, MD5, …"
+

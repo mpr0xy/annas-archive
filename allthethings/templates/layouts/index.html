@@ -20,10 +20,10 @@
     <div class="header">
       <div class="header-inner">
         <div class="header-inner-top">
-          <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>Anna’s Archive</h1></a>
+          <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>{{ gettext('layout.index.header.title') }}</h1></a>
         </div>
 
-        <div>🔍 Search engine of shadow libraries: books, papers, comics, magazines. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Fully resilient through open source code and data. ❤️ Spread the word: everyone is welcome here!</div>
+        <div>{{ gettext('layout.index.header.tagline') }}</div>
 
         <div style="position: relative; height: 16px; margin-top: 16px">
           <div style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: white; overflow: hidden; border-radius: 16px; box-shadow: 0px 2px 4px 0px #00000038">
@@ -37,17 +37,17 @@
 
         <div style="position: relative; padding-bottom: 20px">
           <div style="width: 14px; height: 14px; border-left: 1px solid gray; border-bottom: 1px solid gray; position: absolute; top: 5px; left: calc(5% - 1px)"></div>
-          <div style="position: relative; left: calc(5% + 20px); width: calc(90% - 20px); top: 8px; font-size: 90%; color: #555">5% of humanity’s written heritage preserved forever <a href="/about" style="text-decoration: none !important;">ⓘ</a></div>
+          <div style="position: relative; left: calc(5% + 20px); width: calc(90% - 20px); top: 8px; font-size: 90%; color: #555">{{ gettext('layout.index.header.progress_bar.text') }} <a href="/about" style="text-decoration: none !important;">ⓘ</a></div>
         </div>
         <div class="header-bar">
           <div class="header-links">
-            <a href="/" class="{{ 'header-link-active' if header_active == 'home' }}"><span class="header-link-normal">Home</span><span class="header-link-bold">Home</span></a>
-            <a href="/about" class="{{ 'header-link-active' if header_active == 'about' }}"><span class="header-link-normal">About</span><span class="header-link-bold">About</span></a>
-            <a href="/donate" class="{{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">Donate</span><span class="header-link-bold">Donate</span></a>
-            <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">Search</span><span class="header-link-bold">Search</span></a>
+            <a href="/" class="{{ 'header-link-active' if header_active == 'home' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.home') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.home') }}</span></a>
+            <a href="/about" class="{{ 'header-link-active' if header_active == 'about' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.about') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.about') }}</span></a>
+            <a href="/donate" class="{{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.donate') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.donate') }}</span></a>
+            <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.search') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.search') }}</span></a>
           </div>
           <form class="header-search" action="/search" method="get">
-            <input name="q" type="text" placeholder="Search title, author, language, filetype, ISBN, MD5, …" value="{{search_input}}">
+            <input name="q" type="text" placeholder="{{ gettext('layout.index.header.search_bar_placeholder') }}" value="{{search_input}}">
           </form>
         </div>
       </div>
