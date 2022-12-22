@@ -41,10 +41,10 @@ These are a work in progress. For now, we check in .po _and_ .mo files. The proc
 ```sh
 # After updating any `gettext` calls:
 pybabel extract -F babel.cfg -o messages.pot .
-pybabel update -i messages.pot -d translations --no-fuzzy-matching
+pybabel update -i messages.pot -d allthethings/translations --no-fuzzy-matching
 
 # After changing any translations:
-pybabel compile -d translations
+pybabel compile -d allthethings/translations
 ```
 
 ## Contribute
