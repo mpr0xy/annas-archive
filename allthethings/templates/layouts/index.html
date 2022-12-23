@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}Anna’s Archive</title>
+    <title>{% if self.title() %}{% block title %}{% endblock %} - {% endif %}{{ gettext('layout.index.title') }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
     {% if self.meta_tags() %}
       {% block meta_tags %}{% endblock %}
@@ -37,7 +37,7 @@
 
         <div style="position: relative; padding-bottom: 20px">
           <div style="width: 14px; height: 14px; border-left: 1px solid gray; border-bottom: 1px solid gray; position: absolute; top: 5px; left: calc(5% - 1px)"></div>
-          <div style="position: relative; left: calc(5% + 20px); width: calc(90% - 20px); top: 8px; font-size: 90%; color: #555">{{ gettext('layout.index.header.progress_bar.text') }} <a href="/about" style="text-decoration: none !important;">ⓘ</a></div>
+          <div style="position: relative; left: calc(5% + 20px); width: calc(90% - 20px); top: 8px; font-size: 90%; color: #555">{{ gettext('layout.index.header.progress_bar.text', info_icon=('<a href="/about" style="text-decoration: none !important;">ⓘ</a>' | safe)) }}</div>
         </div>
         <div class="header-bar">
           <div class="header-links">
@@ -47,7 +47,7 @@
             <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.search') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.search') }}</span></a>
           </div>
           <form class="header-search" action="/search" method="get">
-            <input name="q" type="text" placeholder="{{ gettext('layout.index.header.search_bar_placeholder') }}" value="{{search_input}}">
+            <input name="q" type="text" placeholder="{{ gettext('common.search.placeholder') }}" value="{{search_input}}">
           </form>
         </div>
       </div>
@@ -56,17 +56,17 @@
     <div class="bg-[#0000000d]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
       <div class="max-w-[850px] mx-auto p-[12px] leading-relaxed flex">
         <p class=" mr-16" style="flex-grow: 1">
-          <strong class="font-bold">Anna’s Archive</strong><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="/">Home</a><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="/about">About</a><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="/donate">Donate</a><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="/datasets">Datasets</a><br>
+          <strong class="font-bold">{{ gettext('layout.index.footer.list1.header') }}</strong><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="/">{{ gettext('layout.index.footer.list1.home') }}</a><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="/about">{{ gettext('layout.index.footer.list1.about') }}</a><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="/donate">{{ gettext('layout.index.footer.list1.donate') }}</a><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="/datasets">{{ gettext('layout.index.footer.list1.datasets') }}</a><br>
         </p>
         <p style="flex-grow: 2">
-          <strong class="font-bold">Stay in touch</strong><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="https://twitter.com/AnnaArchivist">Twitter</a> / <a class="custom-a text-[#777] hover:text-[#333]" href="https://www.reddit.com/user/AnnaArchivist">Reddit</a><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-blog.org">Anna’s Blog</a><br>
-          <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-software.org">Anna’s Software</a><br>
+          <strong class="font-bold">{{ gettext('layout.index.footer.list2.header') }}</strong><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="https://twitter.com/AnnaArchivist">{{ gettext('layout.index.footer.list2.twitter') }}</a> / <a class="custom-a text-[#777] hover:text-[#333]" href="https://www.reddit.com/user/AnnaArchivist">{{ gettext('layout.index.footer.list2.reddit') }}</a><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-blog.org">{{ gettext('layout.index.footer.list2.blog') }}</a><br>
+          <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-software.org">{{ gettext('layout.index.footer.list2.software') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a><br>
         </p>
       </div>

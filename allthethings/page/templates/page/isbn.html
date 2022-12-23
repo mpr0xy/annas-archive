@@ -1,20 +1,20 @@
 {% extends "layouts/index.html" %}
 
-{% block title %}ISBN {{isbn_input}}{% endblock %}
+{% block title %}{{ gettext('page.isbn.title', isbn_input=isbn_input) }}{% endblock %}
 
 {% block body %}
-  <div class="mb-4">Datasets ▶ ISBNs ▶ ISBN {{isbn_input}}</div>
+  <div class="mb-4">{{ gettext('page.isbn.breadcrumbs', isbn_input=isbn_input) }}</div>
 
   {% if not(isbn_dict is defined) %}
-    <h2 class="mt-12 mb-1 text-3xl font-bold">Not found</h2>
+    <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.isbn.invalid.header') }}</h2>
     <p class="mb-4 italic">
-      "{{isbn_input}}" is not a valid ISBN number. ISBNs are 10 or 13 characters long, not counting the optional dashes. All characters must be numbers, except of the last character, which might also be "X". The last character is the "check digit", which must match a checksum value that is computed from the other numbers. It must also be in a valid range, allocated by the International ISBN Agency.
+      {{ gettext('page.isbn.invalid.text', isbn_input=isbn_input) }}
     </p>
   {% else %}
     {% if isbn_dict.top_box or (isbn_dict.search_md5_dicts | length > 0) %}
       <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
         {% if isbn_dict.top_box %}
-          <div class="overflow-hidden">
+          <div class="overflow-hidden mb-4">
             <img class="float-right max-w-[25%] ml-4" src="{{isbn_dict.top_box.cover_url}}" alt="" referrerpolicy="no-referrer"/>
             <div class="text-xs text-gray-500">{{isbn_dict.top_box.top_row}}</div>
             <div class="text-xl font-bold">{{isbn_dict.top_box.title}}</div>
@@ -25,8 +25,8 @@
         {% endif %}
 
         {% if isbn_dict.search_md5_dicts | length > 0 %}
-          <p class="mb-2 {% if isbn_dict.isbndb | length > 0 %}mt-4{% endif %}">
-            Download free ebook/file:
+          <p class="mb-2">
+            {{ gettext('page.isbn.results.text') }}
           </p>
 
           <div class="">
@@ -47,13 +47,21 @@
               </a>
             {% endfor %}
           </div>
+        {% else %}
+          <p>
+            {{ gettext('page.isbn.results.none') }}
+          </p>
         {% endif %}
       </div>
     {% endif %}
 
-    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
+    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('common.tech_details') }}</button>
 
     <div class="js-technical-details hidden">
+      {% if gettext('common.english_only') | trim %}
+        <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+      {% endif %}
+
       <h2 class="mt-12 mb-1 text-3xl font-bold">ISBN</h2>
 
       <p class="mb-4">

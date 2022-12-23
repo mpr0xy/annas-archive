@@ -1,24 +1,24 @@
 {% extends "layouts/index.html" %}
 
-{% block title %}Donate{% endblock %}
+{% block title %}{{ gettext('page.donate.title') }}{% endblock %}
 
 {% block body %}
-  <h2 class="mt-4 mb-1 text-3xl font-bold">Donate</h2>
+  <h2 class="mt-4 mb-1 text-3xl font-bold">{{ gettext('page.donate.header') }}</h2>
 
   <p class="mb-4">
-    Anna’s Archive is a non-profit, open-source project, run completely by volunteers. We take donations to cover our costs, which include hosting, domain names, development, and other expenses.
+    {{ gettext('page.donate.text1') }}
   </p>
 
   <p class="mb-4">
-    With your contributions we are able to keep this site running, improve its features, and preserve more collections.
+    {{ gettext('page.donate.text2') }}
   </p>
 
   <p class="mb-4">
-    Recent donations: $148, $25, $11, $100, $2, $5, $20, $50, $69, $135, $5,000, $410, $1.37, $10,000, $0.50, $40, $20, $10,000. Thanks everyone for your generosity. We really appreciate putting your trust in us, with whatever amount you can spare.
+    {{ gettext('page.donate.text3', donations='$148, $25, $11, $100, $2, $5, $20, $50, $69, $135, $5,000, $410, $1.37, $10,000, $0.50, $40, $20, $10,000') }}
   </p>
 
   <p class="mb-2">
-    To donate, select your preferred method below. If you run into any trouble, please contact us at <a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>.
+    {{ gettext('page.donate.text4', email=('<a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>' | safe)) }}
   </p>
 
   <script>
@@ -36,66 +36,62 @@
   </script>
 
   <div class="mb-4">
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-cc').classList.remove('hidden'); scrollDown();">Credit/debit card</button>
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-crypto').classList.remove('hidden'); scrollDown();">Crypto</button>
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-alipay').classList.remove('hidden'); scrollDown();">Alipay 支付宝</button>
-    <a href="#" class="mt-2 pl-2" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-q').classList.remove('hidden'); scrollDown(); return false">Questions</a>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-cc').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.cc') }}</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-crypto').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.crypto') }}</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-alipay').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.alipay') }}</button>
+    <a href="#" class="mt-2 pl-2" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-q').classList.remove('hidden'); scrollDown(); return false">{{ gettext('page.donate.nav.faq') }}</a>
   </div>
 
   <div class="hidden js-section js-cc">
-    <h3 class="mt-4 mb-1 text-xl font-bold">Credit/debit card</h3>
+    <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.cc.header') }}</h3>
 
     <p class="mb-4">
-      We use Sendwyre to deposit money directly into our Bitcoin (BTC) wallet. It takes about 5 minutes to complete.
+      {{ gettext('page.donate.cc.text1') }}
     </p>
 
     <p class="mb-4">
-      This method has a minimum transaction amount of $30, and a fee of about $5.
-    </p>
-
-    <p class="mb-4">
-      It is therefore mostly suitable for larger transactions, but think of it this way: if you want to support us with $1.99 per week, then for a year that would be about $100, so might as well do that all at once. 😄
+      {{ gettext('page.donate.cc.text2') }}
     </p>
 
     <p class="font-bold">
-      Steps:
+      {{ gettext('page.donate.cc.steps.header') }}
     </p>
 
     <ol class="list-inside mb-4">
-      <li>1. Copy our Bitcoin (BTC) wallet address: 15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o</li>
-      <li>2. Go to <a href="https://www.sendwyre.com/buy/btc/step-3" class="font-bold" style="color: #0095ff" rel="noopener noreferrer" target="_blank">this page</a> and click on "buy crypto instantly"</li>
-      <li>3. Paste our wallet address, and follow the instructions</li>
+      <li>{{ gettext('page.donate.cc.steps.list1', address='15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o') }}</li>
+      <li>{{ gettext('page.donate.cc.steps.list2', link_open_tag=('<a href="https://www.sendwyre.com/buy/btc/step-3" class="font-bold" style="color: #0095ff" rel="noopener noreferrer" target="_blank">' | safe)) }}</li>
+      <li>{{ gettext('page.donate.cc.steps.list3') }}</li>
     </ol>
 
     <p class="mb-4">
-      Thank you so much for helping out! This project would not be possible without you.
+      {{ gettext('page.donate.text_thank_you') }}
     </p>
   </div>
 
   <div class="hidden js-section js-crypto">
-    <h3 class="mt-4 mb-1 text-xl font-bold">Crypto</h3>
+    <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.crypto.header') }}</h3>
 
     <p class="mb-4">
-      If you already have crypto money, these are our addresses:
+      {{ gettext('page.donate.crypto.intro') }}
     </p>
 
     <ul class="list-inside mb-4">
-      <li>- Bitcoin BTC: <a style="word-break: break-all;" rel="payment" href="bitcoin:15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o">15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o</a> (also works for BCH)</li>
+      <li>- Bitcoin BTC: <a style="word-break: break-all;" rel="payment" href="bitcoin:15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o">15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o</a> {{ gettext('page.donate.crypto.btc_bch_note') }}</li>
       <li>- Ethereum ETH: <a style="word-break: break-all;" rel="payment" href="ethereum:0x4a47880518eD21937e7d44251bd87054c1be022E">0x4a47880518eD21937e7d44251bd87054c1be022E</a></li>
       <li>- Monero XMR: <a style="word-break: break-all;" rel="payment" href="monero:445v3zW24nBbdJDAUeRG4aWmGBwqL3ctHE9DuV42d2K7KbaWeUjn13N3f9MNnfSKpFUCkiQ9RoJ1U66CG7HPhBSDQdSdi7t">445v3zW24nBbdJDAUeRG4aWmGBwqL3ctHE9DuV42d2K7KbaWeUjn13N3f9MNnfSKpFUCkiQ9RoJ1U66CG7HPhBSDQdSdi7t</a></li>
       <li>- Solana SOL: <a style="word-break: break-all;" rel="payment" href="solana:HDMUSnfFYiKNc9r2ktJ1rsmQhS8kJitKjRZtVGMVy1DP">HDMUSnfFYiKNc9r2ktJ1rsmQhS8kJitKjRZtVGMVy1DP</a></li>
     </ul>
 
     <p class="mb-4">
-      Thank you so much for helping out! This project would not be possible without you.
+      {{ gettext('page.donate.text_thank_you') }}
     </p>
   </div>
 
   <div class="hidden js-section js-alipay">
-    <h3 class="mt-4 mb-1 text-xl font-bold">Alipay 支付宝</h3>
+    <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.alipay.header') }}</h3>
 
     <p class="mb-4">
-      Please use this Alipay account to send your donation.
+      {{ gettext('page.donate.alipay.intro') }}
     </p>
 
     <div class="js-alipay-img"></div>
@@ -105,30 +101,27 @@
     </script>
 
     <p class="mb-4 mt-4">
-      Thank you so much for helping out! This project would not be possible without you.
+      {{ gettext('page.donate.text_thank_you') }}
     </p>
   </div>
 
   <div class="hidden js-section js-q">
-    <h3 class="mt-4 mb-1 text-xl font-bold">Frequently asked questions</h3>
+    <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.faq.header') }}</h3>
 
     <div class="mb-4">
-      <div class="font-bold">Do you have other payment methods?</div>
-      Currently not. A lot of people don’t want archives like this to exist, so we have to be careful. If you can help us set up other (more convenient) payment methods safely, please get in touch at <a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>.
+      {{ gettext('page.donate.faq.text_other_payment1', email=('<a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>' | safe)) }}
     </div>
 
     <div class="mb-4">
-      If your payment method is not in the list, the easiest thing to do would be to download <a href="https://www.coinbase.com/">Coinbase</a> on your phone, and buy a bit of Bitcoin (BTC) there. You can then send it to our address: 15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o. In most countries, this should take only a few minutes to set up.
+      {{ gettext('page.donate.faq.text_other_payment2', address='15ruLg4LeREntByp7Xyzhf5hu2qGn8ta2o') }}
     </div>
 
     <div class="mb-4">
-      <div class="font-bold">Can I make a large donation?</div>
-      That would be amazing! For donations over a few thousand dollars, please contact us directly at <a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>.
+      {{ gettext('page.donate.faq.text_large_donation', email=('<a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>' | safe)) }}
     </div>
 
     <div class="mb-4">
-      <div class="font-bold">Can I contribute in other ways?</div>
-      Yes! See the <a href="/about">about page</a> under “How to help”.
+      {{ gettext('page.donate.faq.text_other_contribs') }}
     </div>
   </div>
 

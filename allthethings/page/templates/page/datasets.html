@@ -3,6 +3,10 @@
 {% block title %}Datasets{% endblock %}
 
 {% block body %}
+  {% if gettext('common.english_only') | trim %}
+    <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+  {% endif %}
+
   <p class="mt-4 mb-4">
     We currently pull data from the following sources. We describe them in more detail below.
   </p>

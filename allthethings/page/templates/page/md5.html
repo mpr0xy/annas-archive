@@ -9,12 +9,12 @@
 {% endblock %}
 
 {% block body %}
-  <div class="mb-4 truncate">Datasets ▶ Files ▶ MD5 {{md5_input}}</div>
+  <div class="mb-4 truncate">{{ gettext('page.md5.breadcrumbs', md5_input=md5_input) }}</div>
 
   {% if not(md5_dict is defined) %}
-    <h2 class="mt-12 mb-1 text-3xl font-bold">Not found</h2>
+    <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.md5.invalid.header') }}</h2>
     <p class="mb-4 italic">
-      "{{md5_input}}" is not a valid MD5. MD5s are 128-bit hashes, commonly represeted as 32-character hexadecimal values, like "79054025255fb1a26e4bc422aef54eb4".
+      {{ gettext('page.md5.invalid.text', md5_input=md5_input) }}
     </p>
   {% else %}
     <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
@@ -27,32 +27,36 @@
 
       {% if (md5_dict.additional.download_urls | length) > 0 %}
         {% if (md5_dict.file_unified_data.problems | length) > 0 %}
-          <div class="mt-4"><span class="font-bold">❌ This file might have issues, and has been hidden from a source library.</span> Sometimes this is by request of a copyright holder, sometimes it is because a better alternative is available, but sometimes it is because of an issue with the file itself. It might still be fine to download, but we recommend first searching for an alternative file. More details:</div>
+          <div class="mt-4">{{ gettext('page.md5.box.issues.text1') }}</div>
           <ul class="list-inside">
             {% for problem in md5_dict.file_unified_data.problems %}
             <li>- {{ md5_problem_type_mapping[problem.type] }} ("{{problem.descr}}")</li>
             {% endfor %}
           </ul>
 
-          <div class="mt-4">If you still want to download this file, be sure to only use trusted, updated software to open it.</div>
+          <div class="mt-4">{{ gettext('page.md5.box.issues.text2') }}</div>
         {% else %}
-          <div class="mt-4 font-bold">Download free ebook/file{% if md5_dict.file_unified_data.extension_best | lower %} ({{md5_dict.file_unified_data.extension_best}}){% endif %} from:</div>
+          <div class="mt-4 font-bold">{{ gettext('page.md5.box.download.text', extension=(md5_dict.file_unified_data.extension_best | lower)) }}</div>
         {% endif %}
       
         <ul>
           {% for label, url, extra in md5_dict.additional.download_urls %}
-            <li>- Mirror #{{loop.index}}: <a href="{{url}}" rel="noopener noreferrer">{{label}}</a> {{extra}}</li>
+            <li>- {{ gettext('page.md5.box.download.mirror', num=loop.index, link=(('<a href="' + url + '" rel="noopener noreferrer">' + label + '</a>') | safe), extra=extra) }}</li>
           {% endfor %}
         </ul>
         {% if (md5_dict.file_unified_data.problems | length) == 0 %}
-          <div class="mt-4">All mirrors serve the same file, and should be safe to use. That said, always be cautious when downloading files from the internet. For example, be sure to keep your devices updated.</div>
+          <div class="mt-4">{{ gettext('page.md5.box.download.no_issues_notice') }}</div>
         {% endif %}
       {% endif %}
     </div>
 
-    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
+    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('common.tech_details') }}</button>
 
     <div class="js-technical-details hidden" itemscope="" itemtype="https://schema.org/Book">
+      {% if gettext('common.english_only') | trim %}
+        <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+      {% endif %}
+      
       <h2 class="mt-12 mb-1 text-3xl font-bold">Unified file information</h2>
 
       <p class="mb-4">

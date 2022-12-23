@@ -26,6 +26,7 @@ from flask import Blueprint, __version__, render_template, make_response, redire
 from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
 from sqlalchemy import select, func, text
 from sqlalchemy.dialects.mysql import match
+from flask_babel import gettext, ngettext
 
 page = Blueprint("page", __name__, template_folder="templates")
 
@@ -1547,24 +1548,26 @@ def get_md5_dicts_mysql(session, canonical_md5s):
 
     return md5_dicts
 
-md5_problem_type_mapping = { 
-    "lgrsnf_visible":  'Not visible in Library Genesis ".rs-fork" Non-Fiction', 
-    "lgrsfic_visible": 'Not visible in Library Genesis ".rs-fork" Fiction', 
-    "lgli_visible":    'Not visible in Library Genesis ".li-fork"', 
-    "lgli_broken":     'Marked broken in Library Genesis ".li-fork"',
-}
+def get_md5_problem_type_mapping():
+    return { 
+        "lgrsnf_visible":  gettext("common.md5_problem_type_mapping.lgrsnf_visible"),
+        "lgrsfic_visible": gettext("common.md5_problem_type_mapping.lgrsfic_visible"),
+        "lgli_visible":    gettext("common.md5_problem_type_mapping.lgli_visible"),
+        "lgli_broken":     gettext("common.md5_problem_type_mapping.lgli_broken"),
+    }
 
-md5_content_type_mapping = {
-    "book_unknown":       "Book (unknown)",
-    "book_nonfiction":    "Book (non-fiction)",
-    "book_fiction":       "Book (fiction)",
-    "journal_article":    "Journal article",
-    "standards_document": "Standards document",
-    "magazine":           "Magazine",
-    "book_comic":         "Comic book",
-    # Virtual field, only in searches:
-    "book_any":           "Book (any)"
-}
+def get_md5_content_type_mapping():
+    return {
+        "book_unknown":       gettext("common.md5_content_type_mapping.book_unknown"),
+        "book_nonfiction":    gettext("common.md5_content_type_mapping.book_nonfiction"),
+        "book_fiction":       gettext("common.md5_content_type_mapping.book_fiction"),
+        "journal_article":    gettext("common.md5_content_type_mapping.journal_article"),
+        "standards_document": gettext("common.md5_content_type_mapping.standards_document"),
+        "magazine":           gettext("common.md5_content_type_mapping.magazine"),
+        "book_comic":         gettext("common.md5_content_type_mapping.book_comic"),
+        # Virtual field, only in searches:
+        "book_any":           gettext("common.md5_content_type_mapping.book_any"),
+    }
 md5_content_type_book_any_subtypes = ["book_unknown","book_fiction","book_nonfiction"]
 
 def format_filesize(num):
@@ -1622,26 +1625,26 @@ def md5_page(md5_input):
     md5_dict['additional']['isbns_rich'] = make_isbns_rich(md5_dict['file_unified_data']['sanitized_isbns'])
     md5_dict['additional']['download_urls'] = []
     if len(md5_dict['ipfs_infos']) > 0:
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #1', f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", "(you might need to try multiple times with IPFS)"))
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #2', f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
-        md5_dict['additional']['download_urls'].append(('IPFS Gateway #3', f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=2), f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=3), f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
     shown_click_get = False
     if md5_dict['lgrsnf_book'] != None:
-        md5_dict['additional']['download_urls'].append(('Library Genesis ".rs-fork" Non-Fiction', f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.lgrsnf'), f"http://library.lol/main/{md5_dict['lgrsnf_book']['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
         shown_click_get = True
     if md5_dict['lgrsfic_book'] != None:
-        md5_dict['additional']['download_urls'].append(('Library Genesis ".rs-fork" Fiction', f"http://library.lol/fiction/{md5_dict['lgrsfic_book']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.lgrsfic'), f"http://library.lol/fiction/{md5_dict['lgrsfic_book']['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
         shown_click_get = True
     if md5_dict['lgli_file'] != None:
-        md5_dict['additional']['download_urls'].append(('Library Genesis ".li-fork"', f"http://libgen.li/ads.php?md5={md5_dict['lgli_file']['md5'].lower()}", f"({'also ' if shown_click_get else ''}click “GET” at the top)"))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.lgli'), f"http://libgen.li/ads.php?md5={md5_dict['lgli_file']['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
         shown_click_get = True
     for doi in md5_dict['file_unified_data']['doi_multiple']:
-        md5_dict['additional']['download_urls'].append((f"Sci-Hub: {doi}", f"https://sci-hub.se/{doi}", ""))
+        md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.se/{doi}", ""))
     if md5_dict['zlib_book'] != None:
         if len(md5_dict['additional']['download_urls']) == 0 or (len(md5_dict['ipfs_infos']) > 0 and md5_dict['ipfs_infos'][0]['from'] == 'zlib'):
             if len(md5_dict['zlib_book']['pilimi_torrent'] or '') > 0:
-                md5_dict['additional']['download_urls'].append((f"Z-Library Anonymous Mirror #1", make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
-            md5_dict['additional']['download_urls'].append((f"Z-Library TOR", f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", "(requires TOR browser)"))
+                md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=1), make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+            md5_dict['additional']['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
 
     return render_template(
         "page/md5.html",
@@ -1649,8 +1652,8 @@ def md5_page(md5_input):
         md5_input=md5_input,
         md5_dict=md5_dict,
         md5_dict_json=nice_json(md5_dict),
-        md5_content_type_mapping=md5_content_type_mapping,
-        md5_problem_type_mapping=md5_problem_type_mapping,
+        md5_content_type_mapping=get_md5_content_type_mapping(),
+        md5_problem_type_mapping=get_md5_problem_type_mapping(),
     )
 
 
@@ -1683,6 +1686,7 @@ def all_search_aggs():
     # all_aggregations['most_likely_language_code'] = sorted(all_aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
 
     content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
+    md5_content_type_mapping = get_md5_content_type_mapping()
     book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
     content_type_buckets.append({'key': 'book_any', 'doc_count': book_any_total})
     all_aggregations['content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]

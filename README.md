@@ -40,8 +40,8 @@ See [data-imports/README.md](data-imports/README.md).
 These are a work in progress. For now, we check in .po _and_ .mo files. The process is as follows:
 ```sh
 # After updating any `gettext` calls:
-pybabel extract -F babel.cfg -o messages.pot .
-pybabel update -i messages.pot -d allthethings/translations --no-fuzzy-matching
+pybabel extract --omit-header -F babel.cfg -o messages.pot .
+pybabel update --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching
 
 # After changing any translations:
 pybabel compile -d allthethings/translations

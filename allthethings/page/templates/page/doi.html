@@ -1,30 +1,31 @@
 {% extends "layouts/index.html" %}
 
-{% block title %}DOI {{doi_input}}{% endblock %}
+{% block title %}{{ gettext('page.doi.title', doi_input=doi_input) }}{% endblock %}
 
 {% block body %}
-  <div class="mb-4">Datasets ▶ DOIs ▶ DOI {{doi_input}}</div>
+  <div class="mb-4">{{ gettext('page.doi.breadcrumbs', doi_input=doi_input) }}</div>
 
   {% if not(doi_dict is defined) %}
-    <h2 class="mt-12 mb-1 text-3xl font-bold">Not found</h2>
+    <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.doi.invalid.header') }}</h2>
     <p class="mb-4 italic">
-      "{{doi_input}}" doesn't look like a DOI. It should start with "10." and have a forward slash in it.
+      {{ gettext('page.doi.invalid.text', doi_input=doi_input) }}
+      
     </p>
   {% else %}
     <div class="mb-4 p-6 overflow-hidden bg-[#0000000d] break-words">
-      <div class="text-xl font-bold mb-4">doi:{{doi_input}}</div>
+      <div class="text-xl font-bold mb-4">{{ gettext('page.doi.box.header', doi_input=doi_input) }}</div>
 
       <div class="mb-4">
-        Canonical URL: <a href="https://doi.org/{{doi_input}}">https://doi.org/{{doi_input}}</a>
+        {{ gettext('page.doi.box.canonical_url', doi_input=doi_input) }}
       </div>
 
       <div class="mb-4">
-        This file might potentially be in <a href="https://sci-hub.se/{{doi_input}}">Sci-Hub</a>.
+        {{ gettext('page.doi.box.scihub', doi_input=doi_input) }}
       </div>
 
       {% if doi_dict.search_md5_dicts | length > 0 %}
         <p class="mb-2">
-          Matching files in our database:
+          {{ gettext('page.doi.results.text') }}
         </p>
 
         {% for search_md5_dict in (doi_dict.search_md5_dicts) %}
@@ -44,13 +45,17 @@
           </a>
         {% endfor %}
       {% else %}
-        No matching files found in our database.
+        {{ gettext('page.doi.results.none') }}
       {% endif %}
     </div>
 
-    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">Show technical details</button>
+    <button class="custom bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mb-4 mt-8" onclick="document.querySelector('.js-technical-details').classList.remove('hidden'); this.classList.add('hidden')">{{ gettext('common.tech_details') }}</button>
 
     <div class="js-technical-details hidden">
+      {% if gettext('common.english_only') | trim %}
+        <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+      {% endif %}
+
       <h2 class="mt-12 mb-1 text-3xl font-bold">DOI</h2>
 
       <p class="mb-4">

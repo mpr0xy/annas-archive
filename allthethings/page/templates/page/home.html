@@ -2,26 +2,26 @@
 
 {% block body %}
   <p class="mt-4 mb-4">
-    <span class="italic font-bold">Anna’s Archive</span> is a project that aims to catalog all the books in existence, by aggregating data from various sources. We also track humanity’s progress toward making all these books easily available in digital form, through “<a href="https://en.wikipedia.org/wiki/Shadow_library">shadow libraries</a>”. Learn more <a href="/about">about us.</a>
+    {{ gettext('page.home.intro') }}
   </p>
 
-  <h2 class="mt-12 mb-1 text-3xl font-bold">Search</h2>
+  <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.home.search.header') }}</h2>
 
   <p class="mb-4">
-    Search our catalog of shadow libraries.
+    {{ gettext('page.home.search.intro') }}
   </p>
 
   <form action="/search" method="get">
     <div class="flex mb-4">
-      <input type="text" name="q" placeholder="Search title, author, language, filetype, ISBN, MD5, …" value="{{search_input}}" class="grow max-w-[400] bg-[#00000011] px-2 py-1 mr-2 rounded" autofocus>
-      <button class="text-[#777] hover:text-[#333]" type="submit">Search</button>
+      <input type="text" name="q" placeholder="{{ gettext('common.search.placeholder') }}" value="{{search_input}}" class="grow max-w-[400] bg-[#00000011] px-2 py-1 mr-2 rounded" autofocus>
+      <button class="text-[#777] hover:text-[#333]" type="submit">{{ gettext('common.search.submit') }}</button>
     </div>
   </form>
 
-  <h2 class="mt-12 mb-1 text-3xl font-bold">Explore books</h2>
+  <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.home.explore.header') }}</h2>
 
   <p class="mb-4">
-    These are a combination of popular books, and books that carry special significance to the world of shadow libraries and digital preservation.
+    {{ gettext('page.home.explore.intro') }}
   </p>
 
   {% for md5_dict in md5_dicts %}
@@ -38,285 +38,4 @@
       </div>
     </a>
   {% endfor %}
-  <!-- <h2 class="text-xl font-bold">Explore by ISBN</h2>
-  <p class="mb-4">
-    International Standard Book Number (ISBN) numbers have been assigned to books since the 1970s. However, there is no central database, so our ISBN collection is compiled from different sources. ISBN ranges are assigned to language groups and countries, which then assign ranges to publishers, which then assign individual numbers to their books.
-  </p>
-  <p class="mb-4">
-    An ISBN-13 number usually looks like this: 978-AAA-BBB-CCCC-X. The last number (X) is a check digit and can be derived from the other numbers. AAA is the "registration group" (language/country), BBB is the "registrant" (publisher) and CCCC is the "publication" (actual book). The dashes may be in different places depending on the length of ranges allocated to each language/country and publisher. There is an older form, ISBN-10, which can be converted to ISBN-13 by adding the "978" prefix and recomputing X. "978" and "979" are the only prefixes, and they are part of the Global Trade Item Number (GTIN) standard.
-  </p>
-  <ul class="list list-inside list-[disclosure-closed] isbn-list">
-    <li><a class="inline-block min-w-[80]" href="/">978-0-</a> English (language area)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-1-</a> English (language area)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-2-</a> French (language area)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-3-</a> German (language area)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-4-</a> Japan</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-5-</a> Former USSR (regional)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-7-</a> China</li>
-    <div class="h-2"></div>
-    <li><a class="inline-block min-w-[80]" href="/">979-0-</a> International Standard Music Number</li>
-    <li><a class="inline-block min-w-[80]" href="/">979-10-</a> France</li>
-    <li><a class="inline-block min-w-[80]" href="/">979-11-</a> South Kora</li>
-    <li><a class="inline-block min-w-[80]" href="/">979-12-</a> Italy</li>
-    <li><a class="inline-block min-w-[80]" href="/">979-8-</a> USA</li>
-    <div class="h-2"></div>
-    <li><a class="inline-block min-w-[80]" href="/">978-65-</a> Brazil </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-80-</a> former Czechoslovakia (regional)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-81-</a> India  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-82-</a> Norway </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-83-</a> Poland </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-84-</a> Spain  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-85-</a> Brazil </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-86-</a> former Yugoslavia (regional)</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-87-</a> Denmark  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-88-</a> Italy  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-89-</a> South Korea</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-90-</a> Netherlands  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-91-</a> Sweden </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-92-</a> International NGO Publishers and EC Organizations</li>
-    <li><a class="inline-block min-w-[80]" href="/">978-93-</a> India  </li>
-    <li><a class="inline-block min-w-[80]" href="/">978-94-</a> Netherlands</li>
-    <div class="h-2"></div>
-    <li><a class="inline-block min-w-[80]" href="/">(more)</a></li>
-  </ul> -->
-  <!-- <ul class="isbn-list">
-    <li><a href="/">978-600-</a>  Iran  </li>
-    <li><a href="/">978-601-</a>  Kazakhstan  </li>
-    <li><a href="/">978-602-</a>  Indonesia   </li>
-    <li><a href="/">978-603-</a>  Saudi Arabia  </li>
-    <li><a href="/">978-604-</a>  Vietnam   </li>
-    <li><a href="/">978-605-</a>  Turkey  </li>
-    <li><a href="/">978-606-</a>  Romania   </li>
-    <li><a href="/">978-607-</a>  Mexico  </li>
-    <li><a href="/">978-608-</a>  North Macedonia   </li>
-    <li><a href="/">978-609-</a>  Lithuania   </li>
-    <li><a href="/">978-611-</a>  Thailand  </li>
-    <li><a href="/">978-612-</a>  Peru  </li>
-    <li><a href="/">978-613-</a>  Mauritius (mostly used by some subsidiaries of VDM Publishing)</li>
-    <li><a href="/">978-614-</a>  Lebanon   </li>
-    <li><a href="/">978-615-</a>  Hungary   </li>
-    <li><a href="/">978-616-</a>  Thailand  </li>
-    <li><a href="/">978-617-</a>  Ukraine   </li>
-    <li><a href="/">978-618-</a>  Greece  </li>
-    <li><a href="/">978-619-</a>  Bulgaria  </li>
-    <li><a href="/">978-620-</a>  Mauritius   </li>
-    <li><a href="/">978-621-</a>  Philippines   </li>
-    <li><a href="/">978-622-</a>  Iran  </li>
-    <li><a href="/">978-623-</a>  Indonesia   </li>
-    <li><a href="/">978-624-</a>  Sri Lanka   </li>
-    <li><a href="/">978-625-</a>  Turkey  </li>
-    <li><a href="/">978-626-</a>  Taiwan  </li>
-    <li><a href="/">978-627-</a>  Pakistan  </li>
-    <li><a href="/">978-628-</a>  Colombia  </li>
-    <li><a href="/">978-629-</a>  Malaysia </li>
-    <li><a href="/">978-630-</a>  Romania  </li>
-    <li><a href="/">978-950-</a>  Argentina   </li>
-    <li><a href="/">978-951-</a>  Finland   </li>
-    <li><a href="/">978-952-</a>  Finland   </li>
-    <li><a href="/">978-953-</a>  Croatia   </li>
-    <li><a href="/">978-954-</a>  Bulgaria  </li>
-    <li><a href="/">978-955-</a>  Sri Lanka   </li>
-    <li><a href="/">978-956-</a>  Chile   </li>
-    <li><a href="/">978-957-</a>  Taiwan  </li>
-    <li><a href="/">978-958-</a>  Colombia  </li>
-    <li><a href="/">978-959-</a>  Cuba  </li>
-    <li><a href="/">978-960-</a>  Greece  </li>
-    <li><a href="/">978-961-</a>  Slovenia  </li>
-    <li><a href="/">978-962-</a>  Hong Kong   </li>
-    <li><a href="/">978-963-</a>  Hungary   </li>
-    <li><a href="/">978-964-</a>  Iran  </li>
-    <li><a href="/">978-965-</a>  Israel  </li>
-    <li><a href="/">978-966-</a>  Ukraine   </li>
-    <li><a href="/">978-967-</a>  Malaysia  </li>
-    <li><a href="/">978-968-</a>  Mexico  </li>
-    <li><a href="/">978-969-</a>  Pakistan  </li>
-    <li><a href="/">978-970-</a>  Mexico  </li>
-    <li><a href="/">978-971-</a>  Philippines   </li>
-    <li><a href="/">978-972-</a>  Portugal  </li>
-    <li><a href="/">978-973-</a>  Romania   </li>
-    <li><a href="/">978-974-</a>  Thailand  </li>
-    <li><a href="/">978-975-</a>  Turkey  </li>
-    <li><a href="/">978-976-</a>  Caribbean Community (regional) </li>
-    <li><a href="/">978-977-</a>  Egypt   </li>
-    <li><a href="/">978-978-</a>  Nigeria   </li>
-    <li><a href="/">978-979-</a>  Indonesia   </li>
-    <li><a href="/">978-980-</a>  Venezuela   </li>
-    <li><a href="/">978-981-</a>  Singapore   </li>
-    <li><a href="/">978-982-</a> South Pacific (regional) </li>
-    <li><a href="/">978-983-</a>  Malaysia  </li>
-    <li><a href="/">978-984-</a>  Bangladesh  </li>
-    <li><a href="/">978-985-</a>  Belarus   </li>
-    <li><a href="/">978-986-</a>  Taiwan  </li>
-    <li><a href="/">978-987-</a>  Argentina   </li>
-    <li><a href="/">978-988-</a>  Hong Kong   </li>
-    <li><a href="/">978-989-</a>  Portugal  </li>
-  </ul>
-  <ul class="isbn-list">
-    <li><a href="/">978-9911-</a> Montenegro   </li>
-    <li><a href="/">978-9912-</a> Tanzania   </li>
-    <li><a href="/">978-9913-</a> Uganda   </li>
-    <li><a href="/">978-9914-</a> Kenya    </li>
-    <li><a href="/">978-9915-</a> Uruguay    </li>
-    <li><a href="/">978-9916-</a> Estonia    </li>
-    <li><a href="/">978-9917-</a> Bolivia    </li>
-    <li><a href="/">978-9918-</a> Malta    </li>
-    <li><a href="/">978-9919-</a> Mongolia   </li>
-    <li><a href="/">978-9920-</a> Morocco    </li>
-    <li><a href="/">978-9921-</a> Kuwait   </li>
-    <li><a href="/">978-9922-</a> Iraq   </li>
-    <li><a href="/">978-9923-</a> Jordan   </li>
-    <li><a href="/">978-9924-</a> Cambodia   </li>
-    <li><a href="/">978-9925-</a> Cyprus   </li>
-    <li><a href="/">978-9926-</a> Bosnia and Herzegovina   </li>
-    <li><a href="/">978-9927-</a> Qatar    </li>
-    <li><a href="/">978-9928-</a> Albania    </li>
-    <li><a href="/">978-9929-</a> Guatemala    </li>
-    <li><a href="/">978-9930-</a> Costa Rica   </li>
-    <li><a href="/">978-9931-</a> Algeria    </li>
-    <li><a href="/">978-9932-</a> Laos   </li>
-    <li><a href="/">978-9933-</a> Syria    </li>
-    <li><a href="/">978-9934-</a> Latvia   </li>
-    <li><a href="/">978-9935-</a> Iceland    </li>
-    <li><a href="/">978-9936-</a> Afghanistan    </li>
-    <li><a href="/">978-9937-</a> Nepal    </li>
-    <li><a href="/">978-9938-</a> Tunisia    </li>
-    <li><a href="/">978-9939-</a> Armenia    </li>
-    <li><a href="/">978-9940-</a> Montenegro   </li>
-    <li><a href="/">978-9941-</a> Georgia    </li>
-    <li><a href="/">978-9942-</a> Ecuador    </li>
-    <li><a href="/">978-9943-</a> Uzbekistan   </li>
-    <li><a href="/">978-9944-</a> Turkey   </li>
-    <li><a href="/">978-9945-</a> Dominican Republic   </li>
-    <li><a href="/">978-9946-</a> North Korea    </li>
-    <li><a href="/">978-9947-</a> Algeria    </li>
-    <li><a href="/">978-9948-</a> United Arab Emirates   </li>
-    <li><a href="/">978-9949-</a> Estonia    </li>
-    <li><a href="/">978-9950-</a> Palestine    </li>
-    <li><a href="/">978-9951-</a> Kosovo   </li>
-    <li><a href="/">978-9952-</a> Azerbaijan   </li>
-    <li><a href="/">978-9953-</a> Lebanon    </li>
-    <li><a href="/">978-9954-</a> Morocco    </li>
-    <li><a href="/">978-9955-</a> Lithuania    </li>
-    <li><a href="/">978-9956-</a> Cameroon   </li>
-    <li><a href="/">978-9957-</a> Jordan   </li>
-    <li><a href="/">978-9958-</a> Bosnia and Herzegovina   </li>
-    <li><a href="/">978-9959-</a> Libya    </li>
-    <li><a href="/">978-9960-</a> Saudi Arabia   </li>
-    <li><a href="/">978-9961-</a> Algeria    </li>
-    <li><a href="/">978-9962-</a> Panama   </li>
-    <li><a href="/">978-9963-</a> Cyprus   </li>
-    <li><a href="/">978-9964-</a> Ghana    </li>
-    <li><a href="/">978-9965-</a> Kazakhstan   </li>
-    <li><a href="/">978-9966-</a> Kenya    </li>
-    <li><a href="/">978-9967-</a> Kyrgyzstan   </li>
-    <li><a href="/">978-9968-</a> Costa Rica   </li>
-    <li><a href="/">978-9970-</a> Uganda   </li>
-    <li><a href="/">978-9971-</a> Singapore    </li>
-    <li><a href="/">978-9972-</a> Peru   </li>
-    <li><a href="/">978-9973-</a> Tunisia    </li>
-    <li><a href="/">978-9974-</a> Uruguay    </li>
-    <li><a href="/">978-9975-</a> Moldova    </li>
-    <li><a href="/">978-9976-</a> Tanzania   </li>
-    <li><a href="/">978-9977-</a> Costa Rica   </li>
-    <li><a href="/">978-9978-</a> Ecuador    </li>
-    <li><a href="/">978-9979-</a> Iceland    </li>
-    <li><a href="/">978-9980-</a> Papua New Guinea   </li>
-    <li><a href="/">978-9981-</a> Morocco    </li>
-    <li><a href="/">978-9982-</a> Zambia   </li>
-    <li><a href="/">978-9983-</a> Gambia   </li>
-    <li><a href="/">978-9984-</a> Latvia   </li>
-    <li><a href="/">978-9985-</a> Estonia    </li>
-    <li><a href="/">978-9986-</a> Lithuania    </li>
-    <li><a href="/">978-9987-</a> Tanzania   </li>
-    <li><a href="/">978-9988-</a> Ghana    </li>
-    <li><a href="/">978-9989-</a> North Macedonia    </li>
-  </ul>
-  <ul class="isbn-list">
-    <li><a href="/">978-99901-</a> Bahrain   </li>
-    <li><a href="/">978-99903-</a> Mauritius   </li>
-    <li><a href="/">978-99904-</a> Curaçao (was  Netherlands Antilles, and  Aruba)   </li>
-    <li><a href="/">978-99905-</a> Bolivia   </li>
-    <li><a href="/">978-99906-</a> Kuwait    </li>
-    <li><a href="/">978-99908-</a> Malawi    </li>
-    <li><a href="/">978-99909-</a> Malta   </li>
-    <li><a href="/">978-99910-</a> Sierra Leone    </li>
-    <li><a href="/">978-99911-</a> Lesotho   </li>
-    <li><a href="/">978-99912-</a> Botswana    </li>
-    <li><a href="/">978-99913-</a> Andorra   </li>
-    <li><a href="/">978-99914-</a> Suriname    </li>
-    <li><a href="/">978-99915-</a> Maldives    </li>
-    <li><a href="/">978-99916-</a> Namibia   </li>
-    <li><a href="/">978-99917-</a> Brunei    </li>
-    <li><a href="/">978-99918-</a> Faroe Islands   </li>
-    <li><a href="/">978-99919-</a> Benin   </li>
-    <li><a href="/">978-99920-</a> Andorra   </li>
-    <li><a href="/">978-99921-</a> Qatar   </li>
-    <li><a href="/">978-99922-</a> Guatemala   </li>
-    <li><a href="/">978-99923-</a> El Salvador   </li>
-    <li><a href="/">978-99924-</a> Nicaragua   </li>
-    <li><a href="/">978-99925-</a> Paraguay    </li>
-    <li><a href="/">978-99926-</a> Honduras    </li>
-    <li><a href="/">978-99927-</a> Albania   </li>
-    <li><a href="/">978-99928-</a> Georgia   </li>
-    <li><a href="/">978-99929-</a> Mongolia    </li>
-    <li><a href="/">978-99930-</a> Armenia   </li>
-    <li><a href="/">978-99931-</a> Seychelles    </li>
-    <li><a href="/">978-99932-</a> Malta   </li>
-    <li><a href="/">978-99933-</a> Nepal   </li>
-    <li><a href="/">978-99934-</a> Dominican Republic    </li>
-    <li><a href="/">978-99935-</a> Haiti   </li>
-    <li><a href="/">978-99936-</a> Bhutan    </li>
-    <li><a href="/">978-99937-</a> Macau   </li>
-    <li><a href="/">978-99938-</a> Republika Srpska    </li>
-    <li><a href="/">978-99939-</a> Guatemala   </li>
-    <li><a href="/">978-99940-</a> Georgia   </li>
-    <li><a href="/">978-99941-</a> Armenia   </li>
-    <li><a href="/">978-99942-</a> Sudan   </li>
-    <li><a href="/">978-99943-</a> Albania   </li>
-    <li><a href="/">978-99944-</a> Ethiopia    </li>
-    <li><a href="/">978-99945-</a> Namibia   </li>
-    <li><a href="/">978-99946-</a> Nepal   </li>
-    <li><a href="/">978-99947-</a> Tajikistan    </li>
-    <li><a href="/">978-99948-</a> Eritrea   </li>
-    <li><a href="/">978-99949-</a> Mauritius   </li>
-    <li><a href="/">978-99950-</a> Cambodia    </li>
-    <li><a href="/">978-99952-</a> Mali    </li>
-    <li><a href="/">978-99953-</a> Paraguay    </li>
-    <li><a href="/">978-99954-</a> Bolivia   </li>
-    <li><a href="/">978-99955-</a> Republika Srpska    </li>
-    <li><a href="/">978-99956-</a> Albania   </li>
-    <li><a href="/">978-99957-</a> Malta   </li>
-    <li><a href="/">978-99958-</a> Bahrain   </li>
-    <li><a href="/">978-99959-</a> Luxembourg    </li>
-    <li><a href="/">978-99960-</a> Malawi    </li>
-    <li><a href="/">978-99961-</a> El Salvador   </li>
-    <li><a href="/">978-99962-</a> Mongolia    </li>
-    <li><a href="/">978-99963-</a> Cambodia    </li>
-    <li><a href="/">978-99964-</a> Nicaragua   </li>
-    <li><a href="/">978-99965-</a> Macau   </li>
-    <li><a href="/">978-99966-</a> Kuwait    </li>
-    <li><a href="/">978-99967-</a> Paraguay    </li>
-    <li><a href="/">978-99968-</a> Botswana    </li>
-    <li><a href="/">978-99969-</a> Oman    </li>
-    <li><a href="/">978-99970-</a> Haiti   </li>
-    <li><a href="/">978-99971-</a> Myanmar   </li>
-    <li><a href="/">978-99972-</a> Faroe Islands   </li>
-    <li><a href="/">978-99973-</a> Mongolia    </li>
-    <li><a href="/">978-99974-</a> Bolivia   </li>
-    <li><a href="/">978-99975-</a> Tajikistan    </li>
-    <li><a href="/">978-99976-</a> Republika Srpska    </li>
-    <li><a href="/">978-99977-</a> Rwanda    </li>
-    <li><a href="/">978-99978-</a> Mongolia    </li>
-    <li><a href="/">978-99979-</a> Honduras    </li>
-    <li><a href="/">978-99980-</a> Bhutan    </li>
-    <li><a href="/">978-99981-</a> Macau   </li>
-    <li><a href="/">978-99982-</a> Benin   </li>
-    <li><a href="/">978-99983-</a> El Salvador   </li>
-    <li><a href="/">978-99985-</a> Tajikistan    </li>
-    <li><a href="/">978-99986-</a> Myanmar   </li>
-    <li><a href="/">978-99987-</a> Luxembourg    </li>
-    <li><a href="/">978-99988-</a> Sudan   </li>
-    <li><a href="/">978-99989-</a> Paraguay    </li>
-    <li><a href="/">978-99990-</a> Ethiopia</li>
-  </ul> -->
 {% endblock %}
