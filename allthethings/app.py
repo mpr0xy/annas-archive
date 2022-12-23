@@ -56,7 +56,8 @@ def create_app(settings_override=None):
     middleware(app)
 
     app.register_blueprint(up)
-    app.register_blueprint(page)
+    app.register_blueprint(page, url_prefix="/<lang>")
+    app.register_blueprint(page, name='page_en', url_defaults={'lang': 'en'})
     app.register_blueprint(cli)
 
     extensions(app)
