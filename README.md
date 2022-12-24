@@ -45,7 +45,12 @@ pybabel update --omit-header -i messages.pot -d allthethings/translations --no-f
 
 # After changing any translations:
 pybabel compile -f -d allthethings/translations
+
+# To add a new translation file:
+pybabel init -i messages.pot -d allthethings/translations -l es
 ```
+
+Try it out by going to `http://es.localhost` (on some systems you might have to add this to your `/etc/hosts` file).
 
 ## Contribute
 

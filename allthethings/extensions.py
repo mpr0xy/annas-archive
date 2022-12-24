@@ -1,3 +1,4 @@
+from flask_babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_sqlalchemy import SQLAlchemy
 from flask_static_digest import FlaskStaticDigest
@@ -11,6 +12,7 @@ flask_static_digest = FlaskStaticDigest()
 db = SQLAlchemy()
 Base = declarative_base()
 es = FlaskElasticsearch()
+babel = Babel()
 
 class Reflected(DeferredReflection):
     __abstract__ = True

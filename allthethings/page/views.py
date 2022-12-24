@@ -23,10 +23,10 @@ import ftlangdetect
 import traceback
 
 from flask import Blueprint, __version__, render_template, make_response, redirect, request
-from allthethings.extensions import db, es, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
+from allthethings.extensions import db, es, babel, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
 from sqlalchemy import select, func, text
 from sqlalchemy.dialects.mysql import match
-from flask_babel import gettext, ngettext
+from flask_babel import gettext, ngettext, get_translations, force_locale
 
 page = Blueprint("page", __name__, template_folder="templates")
 
@@ -144,7 +144,7 @@ for language in ol_languages_json:
 def validate_canonical_md5s(canonical_md5s):
     return all([bool(re.match(r"^[a-f\d]{32}$", canonical_md5)) for canonical_md5 in canonical_md5s])
          
-         
+
 def looks_like_doi(string):
     return string.startswith('10.') and ('/' in string) and (' ' not in string)
 
@@ -233,9 +233,25 @@ def get_display_name_for_lang(lang_code):
         except:
             return f"Unknown code [{lang_code}]"
 
+@babel.localeselector
+def get_locale():
+    potential_locale = request.headers['Host'].split('.')[0]
+    if potential_locale in [locale.language for locale in babel.list_translations()]:
+        return potential_locale
+    return 'en'
+
+translations_with_english_fallback = set()
+@page.before_request
+def before_req():
+    translations = get_translations()
+    if translations not in translations_with_english_fallback:
+        with force_locale('en'):
+            translations.add_fallback(get_translations())
+        translations_with_english_fallback.add(translations)
+
 
 @page.get("/")
-def home_page(**kwargs):
+def home_page():
     popular_md5s = [
         "8336332bf5877e3adbfb60ac70720cd5", # Against intellectual monopoly
         "f0a0beca050610397b9a1c2604c1a472", # Harry Potter
@@ -260,17 +276,17 @@ def home_page(**kwargs):
 
 
 @page.get("/about")
-def about_page(**kwargs):
+def about_page():
     return render_template("page/about.html", header_active="about")
 
 
 @page.get("/donate")
-def donate_page(**kwargs):
+def donate_page():
     return render_template("page/donate.html", header_active="donate")
 
 
 @page.get("/datasets")
-def datasets_page(**kwargs):
+def datasets_page():
     with db.engine.connect() as conn:
         libgenrs_time = conn.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
         libgenrs_date = str(libgenrs_time.date())
@@ -327,7 +343,7 @@ def get_zlib_book_dicts(session, key, values):
     return zlib_book_dicts
 
 @page.get("/zlib/<int:zlib_id>")
-def zlib_book_page(zlib_id, **kwargs):
+def zlib_book_page(zlib_id):
     zlib_book_dicts = get_zlib_book_dicts(db.session, "zlibrary_id", [zlib_id])
 
     if len(zlib_book_dicts) == 0:
@@ -343,7 +359,7 @@ def zlib_book_page(zlib_id, **kwargs):
     )
 
 @page.get("/ol/<string:ol_book_id>")
-def ol_book_page(ol_book_id, **kwargs):
+def ol_book_page(ol_book_id):
     ol_book_id = ol_book_id[0:20]
 
     with db.engine.connect() as conn:
@@ -533,7 +549,7 @@ def get_lgrsnf_book_dicts(session, key, values):
 
 
 @page.get("/lgrs/nf/<int:lgrsnf_book_id>")
-def lgrsnf_book_page(lgrsnf_book_id, **kwargs):
+def lgrsnf_book_page(lgrsnf_book_id):
     lgrs_book_dicts = get_lgrsnf_book_dicts(db.session, "ID", [lgrsnf_book_id])
 
     if len(lgrs_book_dicts) == 0:
@@ -595,7 +611,7 @@ def get_lgrsfic_book_dicts(session, key, values):
 
 
 @page.get("/lgrs/fic/<int:lgrsfic_book_id>")
-def lgrsfic_book_page(lgrsfic_book_id, **kwargs):
+def lgrsfic_book_page(lgrsfic_book_id):
     lgrs_book_dicts = get_lgrsfic_book_dicts(db.session, "ID", [lgrsfic_book_id])
 
     if len(lgrs_book_dicts) == 0:
@@ -969,7 +985,7 @@ def get_lgli_file_dicts(session, key, values):
 
 
 @page.get("/lgli/file/<int:lgli_file_id>")
-def lgli_file_page(lgli_file_id, **kwargs):
+def lgli_file_page(lgli_file_id):
     lgli_file_dicts = get_lgli_file_dicts(db.session, "f_id", [lgli_file_id])
 
     if len(lgli_file_dicts) == 0:
@@ -1015,7 +1031,7 @@ def lgli_file_page(lgli_file_id, **kwargs):
     )
 
 @page.get("/isbn/<string:isbn_input>")
-def isbn_page(isbn_input, **kwargs):
+def isbn_page(isbn_input):
     isbn_input = isbn_input[0:20]
 
     canonical_isbn13 = isbnlib.get_canonical_isbn(isbn_input, output='isbn13')
@@ -1114,7 +1130,7 @@ def isbn_page(isbn_input, **kwargs):
         )
 
 @page.get("/doi/<path:doi_input>")
-def doi_page(doi_input, **kwargs):
+def doi_page(doi_input):
     doi_input = doi_input[0:100]
 
     if not looks_like_doi(doi_input):
@@ -1591,7 +1607,7 @@ def format_filesize(num):
         return f"{num:.1f}YB"
 
 @page.get("/md5/<string:md5_input>")
-def md5_page(md5_input, **kwargs):
+def md5_page(md5_input):
     md5_input = md5_input[0:50]
     canonical_md5 = md5_input.strip().lower()[0:32]
 
@@ -1715,7 +1731,7 @@ def all_search_aggs():
 
 
 @page.get("/search")
-def search_page(**kwargs):
+def search_page():
     search_input = request.args.get("q", "").strip()
     filter_values = {
         'most_likely_language_code': request.args.get("lang", "").strip()[0:15],

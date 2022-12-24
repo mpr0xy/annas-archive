@@ -3,7 +3,6 @@ import os
 
 from celery import Celery
 from flask import Flask
-from flask_babel import Babel
 from werkzeug.security import safe_join
 from werkzeug.debug import DebuggedApplication
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -11,7 +10,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from allthethings.page.views import page
 from allthethings.up.views import up
 from allthethings.cli.views import cli
-from allthethings.extensions import db, es, debug_toolbar, flask_static_digest, Base, Reflected
+from allthethings.extensions import db, es, babel, debug_toolbar, flask_static_digest, Base, Reflected
 
 def create_celery_app(app=None):
     """
@@ -56,8 +55,7 @@ def create_app(settings_override=None):
     middleware(app)
 
     app.register_blueprint(up)
-    app.register_blueprint(page, url_prefix="/<lang>")
-    app.register_blueprint(page, name='page_en', url_defaults={'lang': 'en'})
+    app.register_blueprint(page)
     app.register_blueprint(cli)
 
     extensions(app)
@@ -82,7 +80,7 @@ def extensions(app):
             print("Error in loading tables; comment out the following 'raise' in app.py to prevent restarts; and then reset using './run flask cli dbreset'")
             raise
     es.init_app(app)
-    babel = Babel(app)
+    babel.init_app(app)
 
     # https://stackoverflow.com/a/57950565
     app.jinja_env.trim_blocks = True
