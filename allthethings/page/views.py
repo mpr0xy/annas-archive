@@ -22,11 +22,11 @@ import elasticsearch.helpers
 import ftlangdetect
 import traceback
 
-from flask import Blueprint, __version__, render_template, make_response, redirect, request
+from flask import g, Blueprint, __version__, render_template, make_response, redirect, request
 from allthethings.extensions import db, es, babel, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
 from sqlalchemy import select, func, text
 from sqlalchemy.dialects.mysql import match
-from flask_babel import gettext, ngettext, get_translations, force_locale
+from flask_babel import gettext, ngettext, get_translations, force_locale, get_locale
 
 page = Blueprint("page", __name__, template_folder="templates")
 
@@ -234,7 +234,7 @@ def get_display_name_for_lang(lang_code):
             return f"Unknown code [{lang_code}]"
 
 @babel.localeselector
-def get_locale():
+def localeselector():
     potential_locale = request.headers['Host'].split('.')[0]
     if potential_locale in [locale.language for locale in babel.list_translations()]:
         return potential_locale
@@ -248,6 +248,9 @@ def before_req():
         with force_locale('en'):
             translations.add_fallback(get_translations())
         translations_with_english_fallback.add(translations)
+
+    g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
+    g.current_lang_code = get_locale().language
 
 
 @page.get("/")

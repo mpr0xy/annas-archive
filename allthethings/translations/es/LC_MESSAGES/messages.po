@@ -304,7 +304,7 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:46
 #: allthethings/templates/layouts/index.html:50
 msgid "common.search.placeholder"
-msgstr ""
+msgstr "Buscar título, autor, idioma, tipo de archivo, ISBN, MD5, …"
 
 #: allthethings/page/templates/page/home.html:17
 #: allthethings/page/templates/page/search.html:47
@@ -465,23 +465,23 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:40
 msgid "layout.index.header.progress_bar.text"
-msgstr ""
+msgstr "5%% del patrimonio escrito de la humanidad preservado para siempre"
 
 #: allthethings/templates/layouts/index.html:44
 msgid "layout.index.header.nav.home"
-msgstr ""
+msgstr "Casa"
 
 #: allthethings/templates/layouts/index.html:45
 msgid "layout.index.header.nav.about"
-msgstr ""
+msgstr "Sobre"
 
 #: allthethings/templates/layouts/index.html:46
 msgid "layout.index.header.nav.donate"
-msgstr ""
+msgstr "Donar"
 
 #: allthethings/templates/layouts/index.html:47
 msgid "layout.index.header.nav.search"
-msgstr ""
+msgstr "Búsqueda"
 
 #: allthethings/templates/layouts/index.html:59
 msgid "layout.index.footer.list1.header"

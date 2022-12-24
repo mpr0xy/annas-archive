@@ -44,7 +44,8 @@ color: black;
 }
 .header-inner h1 {
 font-size: 2.5em;
-margin: 0;
+line-height: 1;
+margin: 10px 0;
 font-weight: 900;
 }
 .header-bar {
@@ -82,7 +83,6 @@ visibility: visible;
 .header-search {
 display: flex;
 overflow: hidden;
-border-radius: 5px;
 flex-grow: 1;
 max-width: 400px;
 }
