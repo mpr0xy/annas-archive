@@ -113,10 +113,10 @@ def mysql_build_computed_all_md5s_internal():
             md5 CHAR(32) NOT NULL,
             PRIMARY KEY (md5)
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 SELECT md5 FROM libgenli_files;
-        INSERT IGNORE INTO computed_all_md5s SELECT md5 FROM zlib_book WHERE md5 != '';
-        INSERT IGNORE INTO computed_all_md5s SELECT md5_reported FROM zlib_book WHERE md5_reported != '';
-        INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_updated;
-        INSERT IGNORE INTO computed_all_md5s SELECT MD5 FROM libgenrs_fiction;
+        INSERT IGNORE INTO computed_all_md5s SELECT LOWER(md5) FROM zlib_book WHERE md5 != '';
+        INSERT IGNORE INTO computed_all_md5s SELECT LOWER(md5_reported) FROM zlib_book WHERE md5_reported != '';
+        INSERT IGNORE INTO computed_all_md5s SELECT LOWER(MD5) FROM libgenrs_updated;
+        INSERT IGNORE INTO computed_all_md5s SELECT LOWER(MD5) FROM libgenrs_fiction;
     """
     cursor.execute(sql)
     cursor.close()

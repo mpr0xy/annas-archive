@@ -44,7 +44,7 @@ pybabel extract --omit-header -F babel.cfg -o messages.pot .
 pybabel update --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching
 
 # After changing any translations:
-pybabel compile -d allthethings/translations
+pybabel compile -f -d allthethings/translations
 ```
 
 ## Contribute

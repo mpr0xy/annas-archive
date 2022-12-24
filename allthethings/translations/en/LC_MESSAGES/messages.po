@@ -423,9 +423,7 @@ msgstr "Not found"
 #: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
 msgstr ""
-"“%(md5_input)s” is not a valid MD5. MD5s are 128-bit hashes, commonly "
-"represeted as 32-character hexadecimal values, like "
-"“79054025255fb1a26e4bc422aef54eb4”."
+"“%(md5_input)s” was not found in our database."
 
 #: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
