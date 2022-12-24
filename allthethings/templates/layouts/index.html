@@ -23,21 +23,45 @@
           <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>{{ gettext('layout.index.header.title') }}</h1></a>
 
           <script>
-            function changeLang(event) {
-              var domainPosition = location.hostname.indexOf('localhost');
-              if (domainPosition == -1) {
-                domainPosition = location.hostname.indexOf('annas-archive');
+            // Keep this code in sync with that in page/views.py `before_req()`.
+            (function() {
+              var langCodes = [{% for lang_code, _lang_name in g.languages %}{{ lang_code | tojson }}, {% endfor %}];
+
+              var domainPosition = 0;
+              var potentialLangCode = location.hostname.split(".")[0];
+              if (langCodes.includes(potentialLangCode)) {
+                domainPosition = potentialLangCode.length + 1;
               }
-              if (domainPosition == -1) {
-                console.error("Unsupported domain for language selection");
-                return;
+
+              baseDomain = location.hostname.substring(domainPosition);
+
+              function setLangCookie(lang) {
+                document.cookie = 'selected_lang=' + lang + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain
               }
-              let prefix = '';
-              if (event.target.value != 'en') {
-                prefix = event.target.value + '.';
+
+              // Refresh cookie with a new expiry, in case the browser has
+              // restricted it.
+              var cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
+              if (cookieLangMatch) {
+                setLangCookie(cookieLangMatch[1]);
               }
-              location.hostname = prefix + location.hostname.substring(domainPosition)
-            }
+
+              window.changeLang = function(event) {
+                if (baseDomain === '') {
+                  console.error("Unsupported domain for language selection");
+                  return;
+                }
+
+                var lang = event.target.value;
+                setLangCookie(lang);
+
+                var prefix = '';
+                if (lang != 'en') {
+                  prefix = lang + '.';
+                }
+                location.hostname = prefix + baseDomain
+              };
+            })();
           </script>
           <select class="p-1 rounded text-gray-500 max-w-[45px] mt-1 ml-2" onchange="changeLang(event)">
             <option>🌐</option>

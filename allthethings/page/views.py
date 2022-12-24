@@ -21,6 +21,7 @@ import slugify
 import elasticsearch.helpers
 import ftlangdetect
 import traceback
+import urllib.parse
 
 from flask import g, Blueprint, __version__, render_template, make_response, redirect, request
 from allthethings.extensions import db, es, babel, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, ComputedAllMd5s
@@ -243,14 +244,45 @@ def localeselector():
 translations_with_english_fallback = set()
 @page.before_request
 def before_req():
+    # Add English as a fallback language to all translations.
     translations = get_translations()
     if translations not in translations_with_english_fallback:
         with force_locale('en'):
             translations.add_fallback(get_translations())
         translations_with_english_fallback.add(translations)
 
-    g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
     g.current_lang_code = get_locale().language
+
+    lang_codes = [locale.language for locale in babel.list_translations()]
+    redirect_lang = None
+
+    # If a cookie is set, that means the user at some point explicitly selected a language,
+    # so redirect to that language.
+    if 'selected_lang' in request.cookies:
+        if request.cookies['selected_lang'] != g.current_lang_code:
+            redirect_lang = request.cookies['selected_lang']
+    # Otherwise, see if the user's browser language is one that we support directly.
+    elif redirect_lang == None:
+        best_matching_browser_lang = request.accept_languages.best_match(lang_codes)
+        if best_matching_browser_lang != None and best_matching_browser_lang != g.current_lang_code:
+            redirect_lang = best_matching_browser_lang
+
+    # If we're redirecting, strip off any language prefix subdomain, and then
+    # add a subdomain.
+    # Keep this code in sync with the corresponding JS in `templates/layouts/index.html`.
+    if redirect_lang != None:
+        parsed_url = urllib.parse.urlparse(request.url)
+        potential_subdomain_lang_code = parsed_url.netloc.split('.')[0]
+        domain_position = 0
+        if potential_subdomain_lang_code in lang_codes:
+            domain_position = len(potential_subdomain_lang_code) + 1
+        base_domain = parsed_url.netloc[domain_position:]
+        new_prefix = ''
+        if redirect_lang != 'en':
+            new_prefix = redirect_lang + '.'
+        return redirect(urllib.parse.urlunparse(parsed_url._replace(netloc=new_prefix + base_domain)), code=302)
+
+    g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
 
 
 @page.get("/")
