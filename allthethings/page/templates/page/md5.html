@@ -159,7 +159,7 @@
           <div class="flex-none w-[150] px-2 py-1">Language</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]">
             {% if (md5_dict.file_unified_data.language_codes | length) > 0 %}
-              {% for lang_code in md5_dict.file_unified_data.language_codes %}{{ '' if loop.index0 == 0 else ', ' }}{{md5_dict.file_unified_data.language_names[loop.index0]}} ({{lang_code}}){% endfor %}
+              {% for lang_code in md5_dict.file_unified_data.language_codes %}{{ '' if loop.index0 == 0 else ', ' }}{{lang_code}}{% endfor %}
             {% else %}
               -
             {% endif %}
@@ -169,7 +169,7 @@
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Most likely language (detected)</div>
           <div class="px-2 py-1 grow break-words line-clamp-[8]" itemprop="inLanguage" content="{{md5_dict.file_unified_data.most_likely_language_code}}">
-            {{ md5_dict.file_unified_data.most_likely_language_name | default('Unknown', true) }}{% if md5_dict.file_unified_data.most_likely_language_code %} ({{ md5_dict.file_unified_data.most_likely_language_code }}){% endif %}
+            {{ md5_dict.additional.most_likely_language_name | default('Unknown', true) }}{% if md5_dict.file_unified_data.most_likely_language_code %} ({{ md5_dict.file_unified_data.most_likely_language_code }}){% endif %}
           </div>
           <div class="px-2 py-1 whitespace-nowrap text-right">{% if md5_dict.file_unified_data.most_likely_language_code %}<a href="https://r12a.github.io/app-subtags/index?check={{ md5_dict.file_unified_data.most_likely_language_code }}">url</a>{% endif %}</div>
         </div>
