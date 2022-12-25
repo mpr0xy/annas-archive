@@ -16,19 +16,16 @@
   <p class="mb-4">
     {{ gettext('page.about.text3', email=('<a href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a>' | safe)) }}
   </p>
+  
+  <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.about.help.header') }}</h2>
+
+  <ol class="list-inside mb-4">
+    {{ gettext('page.about.help.text') }}
+  </ol>
 
   {% if gettext('common.english_only') | trim %}
     <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
   {% endif %}
-  
-  <h2 class="mt-12 mb-1 text-3xl font-bold">How to help</h2>
-
-  <ol class="list-inside mb-4">
-    <li>1. Follow us on <a href="https://twitter.com/AnnaArchivist">Twitter</a> or <a href="https://www.reddit.com/user/AnnaArchivist">Reddit</a>.</li>
-    <li>2. Spread the word about Anna’s Archive on Twitter, Reddit, Tiktok, Instagram, at your local cafe or library, or wherever you go! We don’t believe in gatekeeping — if we get taken down we’ll just pop right up elsewhere, since all our code and data is fully open source.</li>
-    <li>3. If you are able, consider <a href="/donate">donating</a>.</li>
-    <li>4. If you are a software engineer, consider contributing to our <a href="https://annas-software.org/">open source</a>, or seeding our <a href="http://pilimi.org">torrents and IPFS</a>.</li>
-  </ol>
 
   <h2 class="mt-12 mb-1 text-3xl font-bold">Uploading books</h2>
 

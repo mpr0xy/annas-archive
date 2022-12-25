@@ -5,6 +5,10 @@
 {% block body %}
   <div class="mb-4">Datasets ▶ Open Library ▶ Book ID #{{ol_book_id}}</div>
 
+  {% if gettext('common.english_only') | trim %}
+    <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+  {% endif %}
+
   {% if not(ol_book_dict is defined) %}
     <h2 class="mt-12 mb-1 text-3xl font-bold">Not found</h2>
     <p class="mb-4">
