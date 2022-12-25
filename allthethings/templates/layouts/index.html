@@ -66,7 +66,7 @@
           <select class="p-1 rounded text-gray-500 max-w-[45px] mt-1 ml-2" onchange="changeLang(event)">
             <option>🌐</option>
             {% for lang_code, lang_name in g.languages %}
-              <option value="{{ lang_code }}">{{ lang_name }} ({{ lang_code }})</option>
+              <option value="{{ lang_code }}">{{ lang_name }} [{{ lang_code }}]</option>
             {% endfor %}
           </select>
         </div>
@@ -112,12 +112,12 @@
           <select class="p-1 rounded text-gray-500 mt-1" onchange="changeLang(event)">
             {% for lang_code, lang_name in g.languages %}
               {% if g.current_lang_code == lang_code %}
-                <option value="{{ lang_code }}">🌐 {{ lang_name }} ({{ lang_code }})</option>
+                <option value="{{ lang_code }}">🌐 {{ lang_name }} [{{ lang_code }}]</option>
               {% endif %}
             {% endfor %}
             {% for lang_code, lang_name in g.languages %}
               {% if g.current_lang_code != lang_code %}
-                <option value="{{ lang_code }}">{{ lang_name }} ({{ lang_code }})</option>
+                <option value="{{ lang_code }}">{{ lang_name }} [{{ lang_code }}]</option>
               {% endif %}
             {% endfor %}
           </select>
@@ -132,4 +132,3 @@
       </div>
     </div>
   </body>
-</html>

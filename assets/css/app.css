@@ -55,7 +55,7 @@ justify-content: space-between;
 }
 .header-links {
 flex-shrink: 0;
-word-break: keep-all;
+white-space: nowrap;
 }
 .header-links > a {
 margin-right: 1em;

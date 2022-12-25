@@ -53,7 +53,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.ipfs_gateway_extra"
-msgstr "(es posible que deba intentarlo varias veces con IPFS)"
+msgstr "(আপনাকে IPFS দিয়ে একাধিকবার চেষ্টা করতে হতে পারে)"
 
 #: allthethings/page/views.py:1671
 msgid "page.md5.box.download.lgrsnf"
@@ -62,12 +62,12 @@ msgstr ""
 #: allthethings/page/views.py:1671 allthethings/page/views.py:1674
 #: allthethings/page/views.py:1677
 msgid "page.md5.box.download.extra_also_click_get"
-msgstr "(también haga clic en “GET” en la parte superior)"
+msgstr "(উপরে \"GET\" এও ক্লিক করুন)"
 
 #: allthethings/page/views.py:1671 allthethings/page/views.py:1674
 #: allthethings/page/views.py:1677
 msgid "page.md5.box.download.extra_click_get"
-msgstr "(haga clic en “GET” en la parte superior)"
+msgstr "(শীর্ষে \"GET\" ক্লিক করুন)"
 
 #: allthethings/page/views.py:1674
 msgid "page.md5.box.download.lgrsfic"
@@ -138,7 +138,7 @@ msgstr ""
 #: allthethings/page/templates/page/zlib_book.html:8
 #: allthethings/page/templates/page/zlib_book.html:9
 msgid "common.english_only"
-msgstr "Texto a continuación solo en inglés."
+msgstr "পাঠ্য ইংরেজিতে নীচে চলতে থাকে।"
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
@@ -180,7 +180,7 @@ msgstr ""
 #: allthethings/page/templates/page/isbn.html:58
 #: allthethings/page/templates/page/md5.html:53
 msgid "common.tech_details"
-msgstr "Mostrar detalles técnicos (en inglés)"
+msgstr "প্রযুক্তিগত বিবরণ (ইংরেজিতে)"
 
 #: allthethings/page/templates/page/donate.html:3
 msgid "page.donate.title"
@@ -312,12 +312,12 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:46
 #: allthethings/templates/layouts/index.html:98
 msgid "common.search.placeholder"
-msgstr "Buscar título, autor, idioma, tipo de archivo, ISBN, MD5, …"
+msgstr "অনুসন্ধান শিরোনাম, লেখক, ভাষা, ফাইলের ধরন, ISBN, MD5, …"
 
 #: allthethings/page/templates/page/home.html:17
 #: allthethings/page/templates/page/search.html:47
 msgid "common.search.submit"
-msgstr "Búsqueda"
+msgstr "অনুসন্ধান করুন"
 
 #: allthethings/page/templates/page/home.html:21
 msgid "page.home.explore.header"
@@ -373,18 +373,18 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
-msgstr "Descargue gratis el libro electrónico/archivo %(extension)s de:"
+msgstr "এখান থেকে বিনামূল্যে ইবুক/ফাইল %(extension)s ডাউনলোড করুন:"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
-msgstr "Espejo #%(num)d: %(link)s %(extra)s"
+msgstr "মিরর #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Todos los espejos sirven el mismo archivo y deberían ser seguros de usar."
-" Dicho esto, siempre tenga cuidado al descargar archivos de Internet. Por"
-" ejemplo, asegúrese de mantener sus dispositivos actualizados."
+"সমস্ত আয়না একই ফাইল পরিবেশন করে, এবং ব্যবহার করা নিরাপদ হওয়া উচিত। এটি "
+"বলেছে, ইন্টারনেট থেকে ফাইল ডাউনলোড করার সময় সর্বদা সতর্ক থাকুন। "
+"উদাহরণস্বরূপ, আপনার ডিভাইসগুলিকে আপডেট রাখতে ভুলবেন না।"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -397,16 +397,10 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
-"Buscar ▶ %(num)d+ resultados para <span "
-"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
-"biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
-"Buscar ▶ %(num)d resultados para <span "
-"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
-"biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -414,35 +408,35 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:15
 msgid "page.search.breadcrumbs.new"
-msgstr "Buscar ▶ Nueva búsqueda"
+msgstr "অনুসন্ধান ▶ নতুন অনুসন্ধান"
 
 #: allthethings/page/templates/page/search.html:21
 msgid "page.search.filters.language.header"
-msgstr "Idioma"
+msgstr "ভাষা"
 
 #: allthethings/page/templates/page/search.html:27
 msgid "page.search.filters.content.header"
-msgstr "Contenido"
+msgstr "বিষয়বস্তু"
 
 #: allthethings/page/templates/page/search.html:33
 msgid "page.search.filters.filetype.header"
-msgstr "Tipo de archivo"
+msgstr "ফাইলের ধরন"
 
 #: allthethings/page/templates/page/search.html:39
 msgid "page.search.filters.sorting.most_relevant"
-msgstr "Más relevante"
+msgstr "সবচেয়ে প্রাসঙ্গিক"
 
 #: allthethings/page/templates/page/search.html:40
 msgid "page.search.filters.sorting.newest"
-msgstr "Más reciente"
+msgstr "সবথেকে নতুন"
 
 #: allthethings/page/templates/page/search.html:41
 msgid "page.search.filters.sorting.oldest"
-msgstr "El más antiguo"
+msgstr "প্রবীণতম"
 
 #: allthethings/page/templates/page/search.html:53
 msgid "page.search.results.error.header"
-msgstr ""
+msgstr "অনুসন্ধানের সময় ত্রুটি।"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.text"
@@ -466,41 +460,39 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:4
 msgid "layout.index.title"
-msgstr "Archivo de Anna"
+msgstr "আনার আর্কাইভ"
 
 #: allthethings/templates/layouts/index.html:23
 msgid "layout.index.header.title"
-msgstr "Archivo de Anna"
+msgstr "আনার আর্কাইভ"
 
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, "
-"cómics, revistas. ⭐️ Biblioteca Z, Biblioteca Génesis, Sci-Hub. ⚙️ "
-"Totalmente resistente a través de código fuente abierto y datos. ❤️ Corre"
-" la voz: ¡todos son bienvenidos aquí!"
+"🔍 ছায়া লাইব্রেরির সার্চ ইঞ্জিন: বই, পেপার, কমিকস, ম্যাগাজিন। ⭐️ "
+"জেড-লাইব্রেরি, লাইব্রেরি জেনেসিস, সাই-হাব। ⚙️ ওপেন সোর্স কোড এবং ডেটার "
+"মাধ্যমে সম্পূর্ণ স্থিতিস্থাপক। ❤️ শব্দটি ছড়িয়ে দিন: এখানে সবাইকে "
+"স্বাগতম!"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
-msgstr ""
-"5%% del patrimonio escrito de la humanidad preservado para siempre "
-"%(info_icon)s"
+msgstr "মানবতার লিখিত ঐতিহ্যের 5%% চিরকালের জন্য সংরক্ষিত %(info_icon)s"
 
 #: allthethings/templates/layouts/index.html:92
 msgid "layout.index.header.nav.home"
-msgstr "Casa"
+msgstr "বাড়ি"
 
 #: allthethings/templates/layouts/index.html:93
 msgid "layout.index.header.nav.about"
-msgstr "Sobre"
+msgstr "সম্পর্কিত"
 
 #: allthethings/templates/layouts/index.html:94
 msgid "layout.index.header.nav.donate"
-msgstr "Donar"
+msgstr "দান করুন"
 
 #: allthethings/templates/layouts/index.html:95
 msgid "layout.index.header.nav.search"
-msgstr "Búsqueda"
+msgstr "অনুসন্ধান করুন"
 
 #: allthethings/templates/layouts/index.html:107
 msgid "layout.index.footer.list1.header"
