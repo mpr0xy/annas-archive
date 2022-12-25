@@ -225,14 +225,11 @@ def combine_bcp47_lang_codes(sets_of_codes):
     return list(combined_codes)
 
 @functools.cache
-def get_display_name_for_lang(lang_code):
-    if lang_code == '':
-        return 'Unknown'
-    else:
-        try:
-            return langcodes.get(lang_code).display_name().replace('Unknown language [', 'Unknown code [')
-        except:
-            return f"Unknown code [{lang_code}]"
+def get_display_name_for_lang(lang_code, display_lang):
+    result = langcodes.Language.make(lang_code).display_name(display_lang)
+    if '[' not in result:
+        result = result + ' [' + lang_code + ']'
+    return result.replace(' []', '')
 
 @babel.localeselector
 def localeselector():
@@ -1124,7 +1121,7 @@ def isbn_page(isbn_input):
 
         for isbndb_dict in isbn_dict['isbndb']:
             isbndb_dict['language_codes'] = get_bcp47_lang_codes(isbndb_dict['json'].get('language') or '')
-            isbndb_dict['languages_and_codes'] = [(get_display_name_for_lang(lang_code), lang_code) for lang_code in isbndb_dict['language_codes']]
+            isbndb_dict['languages_and_codes'] = [(get_display_name_for_lang(lang_code, get_locale().language), lang_code) for lang_code in isbndb_dict['language_codes']]
 
         if len(isbn_dict['isbndb']) > 0:
             isbn_dict['top_box'] = {
@@ -1476,7 +1473,7 @@ def get_md5_dicts_mysql(session, canonical_md5s):
         ])
         if len(md5_dict['file_unified_data']['language_codes']) == 0:
             md5_dict['file_unified_data']['language_codes'] = combine_bcp47_lang_codes([(edition.get('language_codes') or []) for edition in lgli_all_editions])
-        md5_dict['file_unified_data']['language_names'] = [get_display_name_for_lang(lang_code) for lang_code in md5_dict['file_unified_data']['language_codes']]
+        md5_dict['file_unified_data']['language_names'] = [get_display_name_for_lang(lang_code, 'en') for lang_code in md5_dict['file_unified_data']['language_codes']]
 
         language_detection = ''
         if len(md5_dict['file_unified_data']['stripped_description_best']) > 20:
@@ -1502,7 +1499,7 @@ def get_md5_dicts_mysql(session, canonical_md5s):
 
         md5_dict['file_unified_data']['most_likely_language_name'] = ''
         if md5_dict['file_unified_data']['most_likely_language_code'] != '':
-            md5_dict['file_unified_data']['most_likely_language_name'] = get_display_name_for_lang(md5_dict['file_unified_data']['most_likely_language_code']) + ("?" if len(md5_dict['file_unified_data']['language_codes']) == 0 else '')
+            md5_dict['file_unified_data']['most_likely_language_name'] = get_display_name_for_lang(md5_dict['file_unified_data']['most_likely_language_code'], 'en') + ("?" if len(md5_dict['file_unified_data']['language_codes']) == 0 else '')
 
  
 
@@ -1617,18 +1614,19 @@ def get_md5_problem_type_mapping():
         "lgli_broken":     gettext("common.md5_problem_type_mapping.lgli_broken"),
     }
 
-def get_md5_content_type_mapping():
-    return {
-        "book_unknown":       gettext("common.md5_content_type_mapping.book_unknown"),
-        "book_nonfiction":    gettext("common.md5_content_type_mapping.book_nonfiction"),
-        "book_fiction":       gettext("common.md5_content_type_mapping.book_fiction"),
-        "journal_article":    gettext("common.md5_content_type_mapping.journal_article"),
-        "standards_document": gettext("common.md5_content_type_mapping.standards_document"),
-        "magazine":           gettext("common.md5_content_type_mapping.magazine"),
-        "book_comic":         gettext("common.md5_content_type_mapping.book_comic"),
-        # Virtual field, only in searches:
-        "book_any":           gettext("common.md5_content_type_mapping.book_any"),
-    }
+def get_md5_content_type_mapping(display_lang):
+    with force_locale(display_lang):
+        return {
+            "book_unknown":       gettext("common.md5_content_type_mapping.book_unknown"),
+            "book_nonfiction":    gettext("common.md5_content_type_mapping.book_nonfiction"),
+            "book_fiction":       gettext("common.md5_content_type_mapping.book_fiction"),
+            "journal_article":    gettext("common.md5_content_type_mapping.journal_article"),
+            "standards_document": gettext("common.md5_content_type_mapping.standards_document"),
+            "magazine":           gettext("common.md5_content_type_mapping.magazine"),
+            "book_comic":         gettext("common.md5_content_type_mapping.book_comic"),
+            # Virtual field, only in searches:
+            "book_any":           gettext("common.md5_content_type_mapping.book_any"),
+        }
 md5_content_type_book_any_subtypes = ["book_unknown","book_fiction","book_nonfiction"]
 
 def format_filesize(num):
@@ -1713,7 +1711,7 @@ def md5_page(md5_input):
         md5_input=md5_input,
         md5_dict=md5_dict,
         md5_dict_json=nice_json(md5_dict),
-        md5_content_type_mapping=get_md5_content_type_mapping(),
+        md5_content_type_mapping=get_md5_content_type_mapping(get_locale().language),
         md5_problem_type_mapping=get_md5_problem_type_mapping(),
     )
 
@@ -1731,7 +1729,7 @@ search_query_aggs = {
 }
 
 @functools.cache
-def all_search_aggs():
+def all_search_aggs(display_lang):
     search_results_raw = es.search(index="md5_dicts", size=0, aggs=search_query_aggs)
 
     all_aggregations = {}
@@ -1739,15 +1737,15 @@ def all_search_aggs():
     all_aggregations['most_likely_language_code'] = []
     for bucket in search_results_raw['aggregations']['most_likely_language_code']['buckets']:
         if bucket['key'] == '':
-            all_aggregations['most_likely_language_code'].append({ 'key': '_empty', 'label': 'Unknown language', 'doc_count': bucket['doc_count'] })
+            all_aggregations['most_likely_language_code'].append({ 'key': '_empty', 'label': get_display_name_for_lang('', display_lang), 'doc_count': bucket['doc_count'] })
         else:
-            all_aggregations['most_likely_language_code'].append({ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key']), 'doc_count': bucket['doc_count'] })
+            all_aggregations['most_likely_language_code'].append({ 'key': bucket['key'], 'label': get_display_name_for_lang(bucket['key'], display_lang), 'doc_count': bucket['doc_count'] })
     # We don't have browser_lang_codes for now..
     # total_doc_count = sum([record['doc_count'] for record in all_aggregations['most_likely_language_code']])
     # all_aggregations['most_likely_language_code'] = sorted(all_aggregations['most_likely_language_code'], key=lambda bucket: bucket['doc_count'] + (1000000000 if bucket['key'] in browser_lang_codes and bucket['doc_count'] >= total_doc_count//100 else 0), reverse=True)
 
     content_type_buckets = list(search_results_raw['aggregations']['content_type']['buckets'])
-    md5_content_type_mapping = get_md5_content_type_mapping()
+    md5_content_type_mapping = get_md5_content_type_mapping(display_lang)
     book_any_total = sum([bucket['doc_count'] for bucket in content_type_buckets if bucket['key'] in md5_content_type_book_any_subtypes])
     content_type_buckets.append({'key': 'book_any', 'doc_count': book_any_total})
     all_aggregations['content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]
@@ -1850,7 +1848,7 @@ def search_page():
             track_total_hits=False,
         )
 
-        all_aggregations = all_search_aggs()
+        all_aggregations = all_search_aggs(get_locale().language)
 
         doc_counts = {}
         doc_counts['most_likely_language_code'] = {}
