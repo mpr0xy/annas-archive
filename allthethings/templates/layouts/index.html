@@ -29,9 +29,11 @@
               var domainPosition = 0;
               var potentialSubDomainLangCode = location.hostname.split(".")[0];
               var subDomainLangCode = 'en';
-              if (langCodes.includes(potentialSubDomainLangCode)) {
+              if (langCodes.includes(potentialSubDomainLangCode) || potentialSubDomainLangCode === 'www') {
                 domainPosition = potentialSubDomainLangCode.length + 1;
-                subDomainLangCode = potentialSubDomainLangCode;
+                if (potentialSubDomainLangCode !== 'www') {
+                  subDomainLangCode = potentialSubDomainLangCode;
+                }
               }
 
               baseDomain = location.hostname.substring(domainPosition);
