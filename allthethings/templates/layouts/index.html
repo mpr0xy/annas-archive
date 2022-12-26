@@ -23,47 +23,65 @@
           <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>{{ gettext('layout.index.header.title') }}</h1></a>
 
           <script>
-            // Keep this code in sync with that in page/views.py `before_req()`.
             (function() {
               var langCodes = [{% for lang_code, _lang_name in g.languages %}{{ lang_code | tojson }}, {% endfor %}];
 
               var domainPosition = 0;
-              var potentialLangCode = location.hostname.split(".")[0];
-              if (langCodes.includes(potentialLangCode)) {
-                domainPosition = potentialLangCode.length + 1;
+              var potentialSubDomainLangCode = location.hostname.split(".")[0];
+              var subDomainLangCode = 'en';
+              if (langCodes.includes(potentialSubDomainLangCode)) {
+                domainPosition = potentialSubDomainLangCode.length + 1;
+                subDomainLangCode = potentialSubDomainLangCode;
               }
 
               baseDomain = location.hostname.substring(domainPosition);
 
-              function setLangCookie(lang) {
-                document.cookie = 'selected_lang=' + lang + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain
+              function setLangCookie(langCode) {
+                document.cookie = 'selected_lang=' + langCode + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain
               }
 
-              // Refresh cookie with a new expiry, in case the browser has
-              // restricted it.
+              function redirectLang(langCode) {
+                var prefix = '';
+                if (langCode != 'en') {
+                  prefix = langCode + '.';
+                }
+                location.hostname = prefix + baseDomain;
+              }
+
+              window.handleChangeLang = function(event) {
+                const langCode = event.target.value;
+                setLangCookie(langCode);
+                redirectLang(langCode);
+              };
+
               var cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
               if (cookieLangMatch) {
-                setLangCookie(cookieLangMatch[1]);
+                // Refresh cookie with a new expiry, in case the browser has
+                // restricted it.
+                var explicitlyRequestedLangCode = cookieLangMatch[1];
+                setLangCookie(explicitlyRequestedLangCode);
+
+                // If a cookie is set, that means the user at some point explicitly 
+                // selected a language, so redirect to that language.
+                if (explicitlyRequestedLangCode != subDomainLangCode) {
+                  redirectLang(explicitlyRequestedLangCode);
+                }
+              } else {
+                // Otherwise, see if the user's browser language is one that we support directly.
+                for (const langCode of navigator.languages) {
+                  // Take the first language that we support, and if we're already there
+                  // be sure to bail out so we don't redirect to a suboptimal language.
+                  if (langCodes.includes(langCode)) {
+                    if (langCode != subDomainLangCode) {
+                      redirectLang(langCode);
+                    }
+                    break;
+                  }
+                }
               }
-
-              window.changeLang = function(event) {
-                if (baseDomain === '') {
-                  console.error("Unsupported domain for language selection");
-                  return;
-                }
-
-                var lang = event.target.value;
-                setLangCookie(lang);
-
-                var prefix = '';
-                if (lang != 'en') {
-                  prefix = lang + '.';
-                }
-                location.hostname = prefix + baseDomain
-              };
             })();
           </script>
-          <select class="p-1 rounded text-gray-500 max-w-[45px] mt-1 ml-2" onchange="changeLang(event)">
+          <select class="p-1 rounded text-gray-500 max-w-[45px] mt-1 ml-2" onchange="handleChangeLang(event)">
             <option>🌐</option>
             {% for lang_code, lang_name in g.languages %}
               <option value="{{ lang_code }}">{{ lang_name }} [{{ lang_code }}]{% if lang_code == g.current_lang_code %} ☑️{% endif %}</option>
@@ -109,7 +127,7 @@
           <a class="custom-a text-[#777] hover:text-[#333]" href="/about">{{ gettext('layout.index.footer.list1.about') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="/donate">{{ gettext('layout.index.footer.list1.donate') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="/datasets">{{ gettext('layout.index.footer.list1.datasets') }}</a><br>
-          <select class="p-1 rounded text-gray-500 mt-1" onchange="changeLang(event)">
+          <select class="p-1 rounded text-gray-500 mt-1" onchange="handleChangeLang(event)">
             {% for lang_code, lang_name in g.languages %}
               {% if g.current_lang_code == lang_code %}
                 <option value="{{ lang_code }}">🌐 {{ lang_name }} [{{ lang_code }}]</option>
