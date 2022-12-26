@@ -24,6 +24,11 @@
 
           <script>
             (function() {
+              if (location.hostname.includes('localhost')) {
+                location.hostname = location.hostname.replace('localhost', 'localtest.me');
+                return;
+              }
+
               var langCodes = [{% for lang_code, _lang_name in g.languages %}{{ lang_code | tojson }}, {% endfor %}];
 
               var domainPosition = 0;
