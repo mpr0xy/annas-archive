@@ -267,17 +267,17 @@ def before_req():
     # If we're redirecting, strip off any language prefix subdomain, and then
     # add a subdomain.
     # Keep this code in sync with the corresponding JS in `templates/layouts/index.html`.
-    if redirect_lang != None:
-        parsed_url = urllib.parse.urlparse(request.url)
-        potential_subdomain_lang_code = parsed_url.netloc.split('.')[0]
-        domain_position = 0
-        if potential_subdomain_lang_code in lang_codes:
-            domain_position = len(potential_subdomain_lang_code) + 1
-        base_domain = parsed_url.netloc[domain_position:]
-        new_prefix = ''
-        if redirect_lang != 'en':
-            new_prefix = redirect_lang + '.'
-        return redirect(urllib.parse.urlunparse(parsed_url._replace(netloc=new_prefix + base_domain)), code=302)
+    # if redirect_lang != None:
+    #     parsed_url = urllib.parse.urlparse(request.url)
+    #     potential_subdomain_lang_code = parsed_url.netloc.split('.')[0]
+    #     domain_position = 0
+    #     if potential_subdomain_lang_code in lang_codes:
+    #         domain_position = len(potential_subdomain_lang_code) + 1
+    #     base_domain = parsed_url.netloc[domain_position:]
+    #     new_prefix = ''
+    #     if redirect_lang != 'en':
+    #         new_prefix = redirect_lang + '.'
+    #     return redirect(urllib.parse.urlunparse(parsed_url._replace(netloc=new_prefix + base_domain)), code=302)
 
     g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
     g.languages.sort()
