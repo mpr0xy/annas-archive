@@ -280,6 +280,7 @@ def before_req():
         return redirect(urllib.parse.urlunparse(parsed_url._replace(netloc=new_prefix + base_domain)), code=302)
 
     g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
+    g.languages.sort()
 
 
 @page.get("/")
