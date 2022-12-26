@@ -1199,10 +1199,7 @@ def md5_dict_score_base(md5_dict):
     score = 10000.0
     if (md5_dict['file_unified_data'].get('filesize_best') or 0) > 500000:
         score += 1000.0
-    # Unless there are other filters, prefer English over other languages, for now.
-    if (md5_dict['file_unified_data'].get('most_likely_language_code') or '') == 'en':
-        score += 10.0
-    # But if we're not confident about the language, demote.
+    # If we're not confident about the language, demote.
     if len(md5_dict['file_unified_data'].get('language_codes') or []) == 0:
         score -= 2.0
     if (md5_dict['file_unified_data'].get('extension_best') or '') in ['epub', 'pdf']:
@@ -1687,6 +1684,19 @@ def md5_page(md5_input):
     )
 
 
+sort_search_md5_dicts_script = """
+float score = params.boost + $('search_only_fields.score_base', 0);
+
+score += _score / 100.0;
+
+if (params.lang_code == $('file_unified_data.most_likely_language_code', '')) {
+    score += 15.0;
+}
+
+return score;
+"""
+
+
 search_query_aggs = {
     "most_likely_language_code": {
       "terms": { "field": "file_unified_data.most_likely_language_code", "size": 100 } 
@@ -1757,30 +1767,6 @@ def search_page():
     if len(canonical_isbn13) == 13 and len(isbnlib.info(canonical_isbn13)) > 0:
         return redirect(f"/isbn/{canonical_isbn13}", code=301)
 
-    language_codes_probs = {}
-    # The language detection for search terms is not very good, and we have proper language search now.
-    #
-    # language_detection = []
-    # browser_lang_codes = set()
-    # try:
-    #     language_detection = langdetect.detect_langs(search_input)
-    # except langdetect.lang_detect_exception.LangDetectException:
-    #     pass
-    # for item in language_detection:
-    #     for code in get_bcp47_lang_codes(item.lang):
-    #         # Give this slightly less weight than the languages we get from the browser (below).
-    #         language_codes_probs[code] = item.prob * 0.8
-    #
-    # Cloudflare caches pages, so we can't use accept_languages for now. We could move it to JS as a default when searching?
-    # for lang_code, quality in request.accept_languages:
-    #     for code in get_bcp47_lang_codes(lang_code):
-    #         language_codes_probs[code] = float(quality)
-    #         browser_lang_codes.add(code)
-    #
-    # For now, let's just prefer English when unspecified.
-    if len(language_codes_probs) == 0:
-        language_codes_probs['en'] = 1.0
-
     post_filter = []
     for filter_key, filter_value in filter_values.items():
         if filter_value != '':
@@ -1791,7 +1777,6 @@ def search_page():
             else:
                 post_filter.append({ "term": { f"file_unified_data.{filter_key}": filter_value } })
 
-    base_search_sorting = [{ "search_only_fields.score_base": "desc" }, "_score"]
     custom_search_sorting = []
     if sort_value == "newest":
         custom_search_sorting = [{ "file_unified_data.year_best": "desc" }]
@@ -1800,8 +1785,24 @@ def search_page():
 
     search_query = {
         "bool": {
-            "should": [{ "match_phrase": { "search_only_fields.search_text": { "query": search_input, "boost": 10000 } } }],
-            "must": [{ "simple_query_string": { "query": search_input, "fields": ["search_only_fields.search_text"], "default_operator": "and" } }]
+            "should": [{
+                "script_score": {
+                    "query": { "match_phrase": { "search_only_fields.search_text": { "query": search_input } } },
+                    "script": {
+                        "source": sort_search_md5_dicts_script,
+                        "params": { "lang_code": get_locale().language, "boost": 100000 }
+                    }
+                }
+            }],
+            "must": [{
+                "script_score": {
+                    "query": { "simple_query_string": {"query": search_input, "fields": ["search_only_fields.search_text"], "default_operator": "and"} },
+                    "script": {
+                        "source": sort_search_md5_dicts_script,
+                        "params": { "lang_code": get_locale().language, "boost": 0 }
+                    }
+                }
+            }]
         }
     }
 
@@ -1815,7 +1816,7 @@ def search_page():
             query=search_query,
             aggs=search_query_aggs,
             post_filter={ "bool": { "filter": post_filter } },
-            sort=custom_search_sorting+base_search_sorting,
+            sort=custom_search_sorting+['_score'],
             track_total_hits=False,
         )
 
@@ -1879,7 +1880,7 @@ def search_page():
                 index="md5_dicts", 
                 size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already., 
                 query=search_query,
-                sort=custom_search_sorting+base_search_sorting,
+                sort=custom_search_sorting+['_score'],
                 track_total_hits=False,
             )
             if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
@@ -1892,8 +1893,8 @@ def search_page():
                 search_results_raw = es.search(
                     index="md5_dicts",
                     size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
+                    # Don't use our own sorting here; otherwise we'll get a bunch of garbage at the top typically.
                     query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } }, "filter": post_filter } },
-                    # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
                     sort=custom_search_sorting+['_score'],
                     track_total_hits=False,
                 )
@@ -1907,8 +1908,8 @@ def search_page():
                     search_results_raw = es.search(
                         index="md5_dicts",
                         size=len(seen_md5s)+max_additional_display_results, # This way, we'll never filter out more than "max_display_results" results because we have seen them already.
+                        # Don't use our own sorting here; otherwise we'll get a bunch of garbage at the top typically.
                         query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } } } },
-                        # Don't use our base sorting here; otherwise we'll get a bunch of garbage at the top typically.
                         sort=custom_search_sorting+['_score'],
                         track_total_hits=False,
                     )
