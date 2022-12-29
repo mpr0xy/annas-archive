@@ -60,8 +60,6 @@ To contribute code, also file an [issue](https://annas-software.org/AnnaArchivis
 
 For larger projects, please contact Anna first on [Twitter](https://twitter.com/AnnaArchivist) or [Reddit](https://www.reddit.com/user/AnnaArchivist).
 
-Note that sending emails is disabled on this instance, so currently you won't get any notifications.
-
 ## License
 
 Released in the public domain under the terms of [CC0](./LICENSE). By contributing you agree to license your code under the same license.
