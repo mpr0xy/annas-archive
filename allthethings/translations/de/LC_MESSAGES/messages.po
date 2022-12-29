@@ -1,2 +1,128 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2022-12-30 00:20+0000\n"
+"Last-Translator: wolf <yagisim527@dewareff.com>\n"
+"Language-Team: German <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/de/>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15\n"
+
+#: allthethings/page/views.py:1605
+msgid "common.md5_problem_type_mapping.lgrsnf_visible"
+msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Non-Fiction"
+
+#: allthethings/page/views.py:1606
+msgid "common.md5_problem_type_mapping.lgrsfic_visible"
+msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Fiction"
+
+#: allthethings/page/views.py:1607
+msgid "common.md5_problem_type_mapping.lgli_visible"
+msgstr "Nicht sichtbar in Library Genesis \".li-fork\""
+
+#: allthethings/page/views.py:1614
+msgid "common.md5_content_type_mapping.book_unknown"
+msgstr "Buch (unbekann)"
+
+#: allthethings/page/views.py:1615
+msgid "common.md5_content_type_mapping.book_nonfiction"
+msgstr "Buch (non-fiction)"
+
+#: allthethings/page/views.py:1616
+msgid "common.md5_content_type_mapping.book_fiction"
+msgstr "Buch (fiction)"
+
+#: allthethings/page/views.py:1617
+msgid "common.md5_content_type_mapping.journal_article"
+msgstr "Zeitschriftenartikel"
+
+#: allthethings/page/views.py:1618
+msgid "common.md5_content_type_mapping.standards_document"
+msgstr "Normendokument"
+
+#: allthethings/page/views.py:1619
+msgid "common.md5_content_type_mapping.magazine"
+msgstr "Zeitschrift"
+
+#: allthethings/page/views.py:1620
+msgid "common.md5_content_type_mapping.book_comic"
+msgstr "Comic-Buch"
+
+#: allthethings/page/views.py:1622
+msgid "common.md5_content_type_mapping.book_any"
+msgstr "Buch (beliebig)"
+
+#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
+#: allthethings/page/views.py:1668
+msgid "page.md5.box.download.ipfs_gateway"
+msgstr "IPFS-Gateway #%(num)d"
+
+#: allthethings/page/views.py:1666
+msgid "page.md5.box.download.ipfs_gateway_extra"
+msgstr "(Sie müssen es möglicherweise mehrmals mit IPFS versuchen)"
+
+#: allthethings/page/views.py:1677
+msgid "page.md5.box.download.lgli"
+msgstr "Library Genesis \".li-fork\""
+
+#: allthethings/page/views.py:1680
+msgid "page.md5.box.download.scihub"
+msgstr "Sci-Hub: %(doi)s"
+
+#: allthethings/page/views.py:1685
+msgid "page.md5.box.download.zlib_tor_extra"
+msgstr "(benötigt TOR-Browser)"
+
+#: allthethings/page/templates/page/about.html:3
+msgid "page.about.title"
+msgstr "Über"
+
+#: allthethings/page/templates/page/about.html:6
+msgid "page.about.header"
+msgstr "Über"
+
+#: allthethings/page/templates/page/about.html:13
+msgid "page.about.text2"
+msgstr ""
+"Wir glauben fest an den freien Informationsfluss und die Bewahrung von "
+"Wissen und Kultur. Mit dieser Suchmaschine bauen wir auf den Schultern von "
+"Giganten auf. Wir respektieren zutiefst die harte Arbeit der Menschen, die "
+"die verschiedenen Schattenbibliotheken erstellt haben, und wir hoffen, dass "
+"diese Suchmaschine ihre Reichweite ausweiten wird."
+
+#: allthethings/page/views.py:1608
+msgid "common.md5_problem_type_mapping.lgli_broken"
+msgstr "Als beschädigt markiert in Library Genesis \".li-fork\""
+
+#: allthethings/page/views.py:1671
+msgid "page.md5.box.download.lgrsnf"
+msgstr "Library Genesis \".rs-fork\" Sachbücher"
+
+#: allthethings/page/views.py:1674
+msgid "page.md5.box.download.lgrsfic"
+msgstr "Library Genesis \".rs-fork\" Fiktion"
+
+#: allthethings/page/views.py:1684
+msgid "page.md5.box.download.zlib_anon"
+msgstr "Z-Library Anonymous Mirror #%(num)d"
+
+#: allthethings/page/templates/page/about.html:9
+msgid "page.about.text1"
+msgstr ""
+"Annas Archiv ist eine gemeinnützige Open-Source-Suchmaschine für „<a href="
+"\"https://en.wikipedia.org/wiki/Shadow_library\">Schattenbibliotheken</a>“. "
+"Es wurde von <a href=\"http://annas-blog.org\">Anna</a> erstellt, der Person "
+"hinter dem <a href=\"http://pilimi.org\">Pirate Library Mirror</a >, die ein "
+"Backup der Z-Library-Schattenbibliothek ist. Sie war der Meinung, dass ein "
+"zentraler Ort für die Suche nach Büchern, Zeitungen, Comics, Zeitschriften "
+"und anderen Dokumenten benötigt wird."
+
+#: allthethings/page/templates/page/about.html:17
+msgid "page.about.text3"
+msgstr ""
+"Folgen Sie Anna auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</"
+"a> oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. "
+"Für Fragen und Rückmeldungen wenden Sie sich bitte via %(email)s an Anna."
