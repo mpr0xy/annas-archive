@@ -44,10 +44,16 @@
               baseDomain = location.hostname.substring(domainPosition);
 
               function setLangCookie(langCode) {
+                if (!langCodes.includes(potentialSubDomainLangCode)) {
+                  return;
+                }
                 document.cookie = 'selected_lang=' + langCode + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain
               }
 
               function redirectLang(langCode) {
+                if (!langCodes.includes(potentialSubDomainLangCode)) {
+                  return;
+                }
                 var prefix = '';
                 if (langCode != 'en') {
                   prefix = langCode + '.';
