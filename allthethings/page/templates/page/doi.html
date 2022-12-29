@@ -55,25 +55,27 @@
         <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
       {% endif %}
 
-      <h2 class="mt-12 mb-1 text-3xl font-bold">DOI</h2>
+      <div lang="en">
+        <h2 class="mt-12 mb-1 text-3xl font-bold">DOI</h2>
 
-      <p class="mb-4">
-        A <a href="https://en.wikipedia.org/wiki/Digital_object_identifier">digital object identifier (DOI)</a> is an identifier used to uniquely identify various objects, standardized by the International Organization for Standardization (ISO). DOIs are an implementation of the <a href="https://en.wikipedia.org/wiki/Handle_System">Handle System</a>, and within that system have the unique prefix of "10.". We currently don't have any DOI-specific metadata in our database, aside from records that have a DOI field.
-      </p>
+        <p class="mb-4">
+          A <a href="https://en.wikipedia.org/wiki/Digital_object_identifier">digital object identifier (DOI)</a> is an identifier used to uniquely identify various objects, standardized by the International Organization for Standardization (ISO). DOIs are an implementation of the <a href="https://en.wikipedia.org/wiki/Handle_System">Handle System</a>, and within that system have the unique prefix of "10.". We currently don't have any DOI-specific metadata in our database, aside from records that have a DOI field.
+        </p>
 
-      <h2 class="mt-12 mb-1 text-3xl font-bold">Shadow library files</h2>
+        <h2 class="mt-12 mb-1 text-3xl font-bold">Shadow library files</h2>
 
-      <p class="mb-2">
-        There are <strong>{{doi_dict.search_md5_dicts | length}}</strong> files found for which the metadata in one of the shadow libraries link to this ISBN. They are displayed at the top of this page.
-      </p>
+        <p class="mb-2">
+          There are <strong>{{doi_dict.search_md5_dicts | length}}</strong> files found for which the metadata in one of the shadow libraries link to this ISBN. They are displayed at the top of this page.
+        </p>
 
-      <h2 class="mt-12 mb-1 text-3xl font-bold">Raw JSON</h2>
+        <h2 class="mt-12 mb-1 text-3xl font-bold">Raw JSON</h2>
 
-      <p class="mb-4">
-        This is the raw JSON used to render this page.
-      </p>
+        <p class="mb-4">
+          This is the raw JSON used to render this page.
+        </p>
 
-      <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ doi_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
+        <div class="text-xs p-4 font-mono break-words bg-[#0000000d]">{{ doi_dict_json | escape | replace('\n', '<br>' | safe) | replace('  ', '&nbsp;&nbsp;' | safe) }}</div>
+      </div>
     </div>
   {% endif %}
 {% endblock %}
