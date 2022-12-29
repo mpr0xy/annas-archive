@@ -1,14 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-30 00:20+0000\n"
+"PO-Revision-Date: 2022-12-30 00:20+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Bengali <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/bn/>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr ""
+msgstr "Library Genesis \".rs-fork\" নন-ফিকশনে দৃশ্যমান নয়"
 
 #: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr ""
+msgstr "Library Genesis \".rs-fork\" ফিকশনে দৃশ্যমান নয়"
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "Library Genesis \".li-fork\" এ দৃশ্যমান নয়"
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
@@ -20,7 +36,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr ""
+msgstr "বই (নন-ফিকশন)"
 
 #: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
@@ -87,11 +103,11 @@ msgstr ""
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor"
-msgstr ""
+msgstr "Z-Library TOR"
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor_extra"
-msgstr ""
+msgstr "(TOR ব্রাউজার প্রয়োজন)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
@@ -533,4 +549,3 @@ msgstr ""
 #: allthethings/templates/layouts/index.html:129
 msgid "layout.index.footer.list2.software"
 msgstr ""
-
