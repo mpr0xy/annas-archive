@@ -374,7 +374,7 @@ msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Puis-je faire un large dons?</div> Ce serais "
 "merveilleux! Pour les dons de plusieurs milliers de dollars, veuillez nous "
-"contacter directement au %(emails)s."
+"contacter directement au %(email)s."
 
 #: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.faq.text_other_contribs"
