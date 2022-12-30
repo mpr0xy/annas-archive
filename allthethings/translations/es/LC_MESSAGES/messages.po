@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 00:20+0000\n"
+"PO-Revision-Date: 2022-12-30 15:16+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
@@ -419,9 +419,9 @@ msgstr "Espejo #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Todos los espejos sirven el mismo archivo y deberían ser seguros de usar."
-" Dicho esto, siempre tenga cuidado al descargar archivos de Internet. Por"
-" ejemplo, asegúrese de mantener sus dispositivos actualizados."
+"Todos los espejos sirven el mismo archivo y deberían ser seguros de usar. "
+"Dicho esto, siempre tenga cuidado al descargar archivos de Internet. Por "
+"ejemplo, asegúrese de mantener sus dispositivos actualizados."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -434,16 +434,14 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
-"Buscar ▶ %(num)d+ resultados para <span "
-"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
-"biblioteca oculta)"
+"Buscar ▶ %(num)d+ resultados para <span class=\"italic\">%(search_input)s</"
+"span> (en los metadatos de la biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
-"Buscar ▶ %(num)d resultados para <span "
-"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
-"biblioteca oculta)"
+"Buscar ▶ %(num)d resultados para <span class=\"italic\">%(search_input)s</"
+"span> (en los metadatos de la biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -512,10 +510,10 @@ msgstr "Archivo de Anna"
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, "
-"cómics, revistas. ⭐️ Biblioteca Z, Biblioteca Génesis, Sci-Hub. ⚙️ "
-"Totalmente resistente a través de código fuente abierto y datos. ❤️ Corre"
-" la voz: ¡todos son bienvenidos aquí!"
+"🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, cómics, "
+"revistas. ⭐️ Biblioteca Z, Biblioteca Génesis, Sci-Hub. ⚙️ Totalmente "
+"resistente a través de código fuente abierto y datos. ❤️ Corre la voz: ¡"
+"todos son bienvenidos aquí!"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
