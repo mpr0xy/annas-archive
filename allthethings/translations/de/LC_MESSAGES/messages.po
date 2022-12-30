@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-30 00:20+0000\n"
+"PO-Revision-Date: 2022-12-30 00:41+0000\n"
 "Last-Translator: wolf <yagisim527@dewareff.com>\n"
 "Language-Team: German <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/de/>\n"
@@ -126,3 +126,7 @@ msgstr ""
 "Folgen Sie Anna auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</"
 "a> oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. "
 "Für Fragen und Rückmeldungen wenden Sie sich bitte via %(email)s an Anna."
+
+#: allthethings/page/templates/page/about.html:20
+msgid "page.about.help.header"
+msgstr "Wie man hilft"
