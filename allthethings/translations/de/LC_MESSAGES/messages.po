@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-30 22:41+0000\n"
+"PO-Revision-Date: 2022-12-30 22:49+0000\n"
 "Last-Translator: jann <hi@jannis.wtf>\n"
 "Language-Team: German <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/de/>\n"
@@ -202,8 +202,8 @@ msgstr ""
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Kann ich mich anders beteiligen?</div> Ja! Du "
-"findest mehr dazu auf unserer <a href=\"/about\">\"über\" Seite</a> unter "
-"dem Punk \"Wie kann ich helfen\"."
+"findest mehr dazu unter <a href=\"/about\">\"über uns</a> unter dem Punk "
+"\"Wie kann ich helfen\"."
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
