@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 22:49+0000\n"
+"PO-Revision-Date: 2022-12-30 23:39+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Hindi <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/hi/>\n"
@@ -20,7 +20,7 @@ msgstr "लाइब्रेरी जेनेसिस \".rs-fork\" नॉन
 
 #: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr ""
+msgstr "लाइब्रेरी जेनेसिस \".rs-fork\" नॉन-फिक्शन में दिखाई नहीं देता।"
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_visible"
@@ -111,11 +111,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
-msgstr ""
+msgstr "के बारे में"
 
 #: allthethings/page/templates/page/about.html:6
 msgid "page.about.header"
-msgstr ""
+msgstr "के बारे में"
 
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
@@ -200,11 +200,11 @@ msgstr "तकनीकी विवरण (अंग्रेजी में)"
 
 #: allthethings/page/templates/page/donate.html:3
 msgid "page.donate.title"
-msgstr ""
+msgstr "दान देना"
 
 #: allthethings/page/templates/page/donate.html:6
 msgid "page.donate.header"
-msgstr ""
+msgstr "दान देना"
 
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
-msgstr ""
+msgstr "खोज"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
@@ -511,19 +511,19 @@ msgstr "खोज"
 
 #: allthethings/templates/layouts/index.html:107
 msgid "layout.index.footer.list1.header"
-msgstr ""
+msgstr "अन्ना का पुरालेख"
 
 #: allthethings/templates/layouts/index.html:108
 msgid "layout.index.footer.list1.home"
-msgstr ""
+msgstr "घर"
 
 #: allthethings/templates/layouts/index.html:109
 msgid "layout.index.footer.list1.about"
-msgstr ""
+msgstr "के बारे में"
 
 #: allthethings/templates/layouts/index.html:110
 msgid "layout.index.footer.list1.donate"
-msgstr ""
+msgstr "दान देना"
 
 #: allthethings/templates/layouts/index.html:111
 msgid "layout.index.footer.list1.datasets"
