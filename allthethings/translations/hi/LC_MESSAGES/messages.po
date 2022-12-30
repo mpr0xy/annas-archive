@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 15:16+0000\n"
+"PO-Revision-Date: 2022-12-30 22:49+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Hindi <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/hi/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr ""
+msgstr "लाइब्रेरी जेनेसिस \".rs-fork\" नॉन-फिक्शन में दिखाई नहीं देता।"
 
 #: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
