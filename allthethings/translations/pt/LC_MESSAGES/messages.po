@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 18:32+0000\n"
-"Last-Translator: oliveiradumont <herlisson.ruh@gmail.com>\n"
+"PO-Revision-Date: 2022-12-30 22:32+0000\n"
+"Last-Translator: Rond <rondnelly@autistici.org>\n"
 "Language-Team: Portuguese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pt/>\n"
 "Language: pt\n"
@@ -48,7 +48,7 @@ msgstr "Artigo de periódico"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr "Documento de Normas"
+msgstr "Documento de normas"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
@@ -645,4 +645,4 @@ msgstr "Blog da Anna"
 
 #: allthethings/templates/layouts/index.html:129
 msgid "layout.index.footer.list2.software"
-msgstr "Programas da Anna"
+msgstr "Programa da Anna"
