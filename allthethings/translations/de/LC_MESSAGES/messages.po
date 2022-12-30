@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2022-12-30 15:16+0000\n"
-"Last-Translator: jann <hi@jannis.wtf>\n"
+"Last-Translator: wolf <yagisim527@dewareff.com>\n"
 "Language-Team: German <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/de/>\n"
 "Language: de\n"
@@ -562,3 +562,85 @@ msgstr "Schritte:"
 #: allthethings/page/templates/page/donate.html:61
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Kopiere unsere Bitcoin (BTC) Wallet Adresse: %(address)s"
+
+#: allthethings/page/templates/page/about.html:23
+msgid "page.about.help.text"
+msgstr ""
+"<li>1. Folgt uns auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</"
+"a> oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> .</"
+"li><li>2. Verbreitet die Nachricht von Annas Archiv auf Twitter, Reddit, "
+"Tiktok, Instagram, in Ihrem örtlichen Café oder Ihrer Bibliothek oder wohin "
+"ihr auch geht! Wir glauben nicht an Gatekeeping – wenn wir heruntergefahren "
+"werden, tauchen wir einfach woanders wieder auf, da unser gesamter Code und "
+"unsere Daten vollständig Open Source sind.</li><li>3. Wenn ihr dazu in der "
+"Lage seid, ziehet eine <a href=\"/donate\">Spende</a> in Betracht.</"
+"li><li>4. Helft mit, <a href=\"https://translate.annas-software.org/\""
+">unsere Website in verschiedene Sprachen zu übersetzen</a>.</li><li>5. Wenn "
+"ihr ein Softwareentwickler seid, erwägt, zu unserer <a href=\"https://annas-"
+"software.org/\">Open Source Software</a> beizutragen oder unsere <a href="
+"\"http://pilimi.org \">Torrents und IPFS</a> zu teilen.</li>"
+
+#: allthethings/page/templates/page/doi.html:3
+#, fuzzy
+msgid "page.doi.title"
+msgstr "DOI %(doi_input)s"
+
+#: allthethings/page/templates/page/doi.html:6
+msgid "page.doi.breadcrumbs"
+msgstr "Datensets ▶ DOIs ▶ DOI %(doi_input)s"
+
+#: allthethings/page/templates/page/doi.html:9
+msgid "page.doi.invalid.header"
+msgstr "Nicht gefunden"
+
+#: allthethings/page/templates/page/doi.html:16
+msgid "page.doi.box.header"
+msgstr "doi:%(doi_input)s"
+
+#: allthethings/page/templates/page/doi.html:19
+msgid "page.doi.box.canonical_url"
+msgstr ""
+"Kanonische URL: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
+"%(doi_input)s</a>"
+
+#: allthethings/page/templates/page/doi.html:23
+msgid "page.doi.box.scihub"
+msgstr ""
+"Diese Datei befindet sich möglicherweise auf <a href=\"https://sci-hub.se/"
+"%(doi_input)s\">Sci-Hub</a>."
+
+#: allthethings/page/templates/page/doi.html:28
+msgid "page.doi.results.text"
+msgstr "Passende Dateien in unserer Datenbank:"
+
+#: allthethings/page/templates/page/doi.html:48
+msgid "page.doi.results.none"
+msgstr "Keine passenden Dateien in unserer Datenbank gefunden."
+
+#: allthethings/page/templates/page/doi.html:52
+#: allthethings/page/templates/page/isbn.html:58
+#: allthethings/page/templates/page/md5.html:53
+msgid "common.tech_details"
+msgstr "Zeige technische Details"
+
+#: allthethings/page/templates/page/donate.html:3
+msgid "page.donate.title"
+msgstr "Spende"
+
+#: allthethings/page/templates/page/donate.html:6
+msgid "page.donate.header"
+msgstr "Spende"
+
+#: allthethings/page/templates/page/donate.html:9
+msgid "page.donate.text1"
+msgstr ""
+"Anna’s Archive ist ein gemeinnütziges Open-Source-Projekt, das vollständig "
+"von Freiwilligen betrieben wird. Wir nehmen Spenden entgegen, um unsere "
+"Kosten zu decken, die Hosting, Domainnamen, Entwicklung und andere Ausgaben "
+"umfassen."
+
+#: allthethings/page/templates/page/donate.html:13
+msgid "page.donate.text2"
+msgstr ""
+"Mit euren Beiträgen können wir diese Website am Laufen halten, die "
+"Funktionen verbessern und mehr Sammlungen erhalten."
