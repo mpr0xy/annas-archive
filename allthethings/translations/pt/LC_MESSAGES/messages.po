@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
 "PO-Revision-Date: 2022-12-30 18:32+0000\n"
-"Last-Translator: Rond <rondnelly@autistici.org>\n"
+"Last-Translator: oliveiradumont <herlisson.ruh@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pt/>\n"
 "Language: pt\n"
@@ -48,7 +48,7 @@ msgstr "Artigo de periódico"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Documento de Normas"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
