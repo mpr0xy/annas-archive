@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 00:20+0000\n"
+"PO-Revision-Date: 2022-12-30 15:16+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Polish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pl/>\n"
@@ -399,10 +399,9 @@ msgstr "Lustro nr %(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Wszystkie serwery lustrzane obsługują ten sam plik i powinny być "
-"bezpieczne w użyciu. To powiedziawszy, zawsze zachowaj ostrożność podczas"
-" pobierania plików z Internetu. Na przykład pamiętaj, aby aktualizować "
-"swoje urządzenia."
+"Wszystkie serwery lustrzane obsługują ten sam plik i powinny być bezpieczne "
+"w użyciu. To powiedziawszy, zawsze zachowaj ostrożność podczas pobierania "
+"plików z Internetu. Na przykład pamiętaj, aby aktualizować swoje urządzenia."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -487,8 +486,8 @@ msgstr "Archiwum Anny"
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Wyszukiwarka bibliotek cieni: książek, gazet, komiksów, czasopism. ⭐️ "
-"Z-Library, Library Genesis, Sci-Hub. ⚙️ W pełni odporny dzięki otwartemu "
+"🔍 Wyszukiwarka bibliotek cieni: książek, gazet, komiksów, czasopism. ⭐️ Z-"
+"Library, Library Genesis, Sci-Hub. ⚙️ W pełni odporny dzięki otwartemu "
 "kodowi źródłowemu i danym. ❤️ Przekaż dalej: wszyscy są tu mile widziani!"
 
 #: allthethings/templates/layouts/index.html:88
