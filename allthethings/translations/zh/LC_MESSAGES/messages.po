@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
 "PO-Revision-Date: 2022-12-30 15:16+0000\n"
-"Last-Translator: Jiamin Tang <Mr_Spade@foxmail.com>\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
 "projects/annas-archive/main-website/zh_Hans/>\n"
 "Language: zh\n"
@@ -449,7 +449,8 @@ msgstr "镜像 #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
-msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
+msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 "
+"也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -467,7 +468,9 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
-msgstr "搜索 ▶ %(num)d的 <span class=\"italic\">%(search_input)s</span> 个结果（在影子库元数据中）"
+msgstr ""
+"搜索 ▶ %(num)d的 <span class=\"italic\">%(search_input)s</span> "
+"个结果（在影子库元数据中）"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -540,8 +543,8 @@ msgstr "安娜的档案"
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 ⚙️ "
-"通过开源代码和数据完全恢复。 ❤️ 广而告之：这里欢迎大家！"
+"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis"
+"、Sci-Hub。 ⚙️ 通过开源代码和数据完全恢复。 ❤️ 广而告之：这里欢迎大家！"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
