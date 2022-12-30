@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 22:49+0000\n"
+"PO-Revision-Date: 2022-12-30 23:39+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Arabic <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ar/>\n"
@@ -112,11 +112,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
-msgstr ""
+msgstr "حول"
 
 #: allthethings/page/templates/page/about.html:6
 msgid "page.about.header"
-msgstr ""
+msgstr "حول"
 
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
@@ -201,11 +201,11 @@ msgstr "التفاصيل الفنية (باللغة الإنجليزية)"
 
 #: allthethings/page/templates/page/donate.html:3
 msgid "page.donate.title"
-msgstr ""
+msgstr "يتبرع"
 
 #: allthethings/page/templates/page/donate.html:6
 msgid "page.donate.header"
-msgstr ""
+msgstr "يتبرع"
 
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
@@ -319,7 +319,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
-msgstr ""
+msgstr "بحث"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
@@ -512,19 +512,19 @@ msgstr "بحث"
 
 #: allthethings/templates/layouts/index.html:107
 msgid "layout.index.footer.list1.header"
-msgstr ""
+msgstr "أرشيف آنا"
 
 #: allthethings/templates/layouts/index.html:108
 msgid "layout.index.footer.list1.home"
-msgstr ""
+msgstr "بيت"
 
 #: allthethings/templates/layouts/index.html:109
 msgid "layout.index.footer.list1.about"
-msgstr ""
+msgstr "حول"
 
 #: allthethings/templates/layouts/index.html:110
 msgid "layout.index.footer.list1.donate"
-msgstr ""
+msgstr "يتبرع"
 
 #: allthethings/templates/layouts/index.html:111
 msgid "layout.index.footer.list1.datasets"
