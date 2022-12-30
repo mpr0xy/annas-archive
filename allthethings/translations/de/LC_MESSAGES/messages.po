@@ -134,7 +134,7 @@ msgstr "Wie kann ich helfen"
 #: allthethings/page/templates/page/donate.html:62
 msgid "page.donate.cc.steps.list2"
 msgstr ""
-"2. Gehe zu%(link_open_tag)sdieser Seite</a> und klicke auf \"buy crypto "
+"2. Gehe zu %(link_open_tag)sdieser Seite</a> und klicke auf \"buy crypto "
 "instantly\""
 
 #: allthethings/page/templates/page/donate.html:63
@@ -202,7 +202,7 @@ msgstr ""
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Kann ich mich anders beteiligen?</div> Ja! Du "
-"findest mehr dazu unter <a href=\"/about\">\"über uns</a> unter dem Punk "
+"findest mehr dazu unter <a href=\"/about\">\"über uns\"</a> unter dem Punk "
 "\"Wie kann ich helfen\"."
 
 #: allthethings/page/templates/page/home.html:8
@@ -500,9 +500,7 @@ msgstr "(drücke \"GET\" oben)"
 #: allthethings/page/templates/page/zlib_book.html:8
 #: allthethings/page/templates/page/zlib_book.html:9
 msgid "common.english_only"
-msgstr ""
-"\n"
-" "
+msgstr "Der folgende Text ist nur auf Englisch."
 
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
@@ -619,7 +617,7 @@ msgstr "Keine passenden Dateien in unserer Datenbank gefunden."
 #: allthethings/page/templates/page/isbn.html:58
 #: allthethings/page/templates/page/md5.html:53
 msgid "common.tech_details"
-msgstr "Zeige technische Details"
+msgstr "Zeige technische Details (auf Englisch)"
 
 #: allthethings/page/templates/page/donate.html:3
 msgid "page.donate.title"
