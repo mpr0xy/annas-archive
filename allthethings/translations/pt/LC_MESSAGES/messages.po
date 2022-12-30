@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 17:16+0000\n"
+"PO-Revision-Date: 2022-12-30 18:32+0000\n"
 "Last-Translator: Rond <rondnelly@autistici.org>\n"
 "Language-Team: Portuguese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pt/>\n"
@@ -20,11 +20,11 @@ msgstr "Não visível na Livraria Genesis “.rs-fork” Não-Ficção"
 
 #: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr "Não visível na aba Ficção do Library Genesis \".rs-fork\""
+msgstr "Não visível na área de Ficção do Library Genesis \".rs-fork\""
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr "Não visível na aba Ficção do Library Genesis \".li-fork\""
+msgstr "Não visível no Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
@@ -94,7 +94,6 @@ msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1680
-#, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
@@ -103,7 +102,6 @@ msgid "page.md5.box.download.zlib_anon"
 msgstr "Espelho anônimo Z-Library #%(num)d"
 
 #: allthethings/page/views.py:1685
-#, fuzzy
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
@@ -338,43 +336,62 @@ msgstr "(também funciona para BCH)"
 
 #: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.alipay.header"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:94
 msgid "page.donate.alipay.intro"
-msgstr ""
+msgstr "Por favor use esta conta do Alipay para enviar sua doação."
 
 #: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.faq.header"
-msgstr ""
+msgstr "Perguntas frequentes"
 
 #: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
+"<div class=\"font-bold\">Vocês usam outras formas de pagamento?</div> "
+"Atualmente não. Muitas pessoas não querem que arquivos como este existam, "
+"então precisamos tomar cuidado. Se você pode nos ajudar a usar alguma outra "
+"forma de pagamento com segurança, entre em contato no %(email)s."
 
 #: allthethings/page/templates/page/donate.html:116
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
+"Se sua forma de pagamento não está na lista, o mais fácil seria baixar o <a "
+"href=\"https://www.coinbase.com/\">Coinbase</a> em seu celular e comprar "
+"alguns Bitcoins (BTC) lá. Você pode nos enviar pelo endereço: %(address)s. "
+"Na maioria dos países isso deve levar poucos minutos."
 
 #: allthethings/page/templates/page/donate.html:120
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
+"<div class=\"font-bold\">Posso fazer uma doação grande?</div> Seria "
+"incrível! Para doações acima de mil dólares, por favor entre em contato em "
+"%(email)s."
 
 #: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
+"<div class=\"font-bold\">Posso contribuir de outras formas?</div> Sim! Veja "
+"a seção \"Como ajudar\" na página <a href=\"/about\">sobre nós</a>."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
 msgstr ""
+"<span class=\"italic font-bold\">O Arquivo da Ana (Anna’s Archive)</span> é "
+"um projeto com o objetivo de catalogar todos os livros que existem agregando "
+"dados de várias fontes. Também acompanhamos o progresso da humanidade em "
+"disponibilizar todos esses livros facilmente em forma digital através de \""
+"<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">shadow libraries</a>"
+"\". Saiba mais <a href=\"/about\">sobre nós.</a>"
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
-msgstr ""
+msgstr "Pesquisar"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
-msgstr ""
+msgstr "Pesquise nosso acervo de shadow libraries."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:46
@@ -389,55 +406,71 @@ msgstr "Procurar"
 
 #: allthethings/page/templates/page/home.html:21
 msgid "page.home.explore.header"
-msgstr ""
+msgstr "Explorar livros"
 
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
+"Uma combinação de livros populares e livros que têm algum significado "
+"especial para o mundo das shadow libraries e da preservação digital."
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
-msgstr ""
+msgstr "ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:6
 msgid "page.isbn.breadcrumbs"
-msgstr ""
+msgstr "Datasets ▶ ISBNs ▶ ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:9
 msgid "page.isbn.invalid.header"
-msgstr ""
+msgstr "Nenhum resultado"
 
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
+"“%(isbn_input)s” não é um ISBN válido. Os ISBNs tem 10 ou 13 caracteres, sem "
+"contar as barras opcionais. Todos os caracteres devem ser números, exceto o "
+"último, que pode ser \"X\". O último caractere é o \"digito de checagem\", "
+"que deve corresponder ao checksum computado pelos outros números. Os números "
+"também devem estar em uma faixa válida disponibilizada pela International "
+"ISBN Agency."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
-msgstr ""
+msgstr "Arquivos correspondentes em nosso banco de dados:"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
-msgstr ""
+msgstr "Nenhum arquivo correspondente em nosso banco de dados."
 
 #: allthethings/page/templates/page/md5.html:12
 msgid "page.md5.breadcrumbs"
-msgstr ""
+msgstr "Datasets ▶ Files ▶ MD5 %(md5_input)s"
 
 #: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
-msgstr ""
+msgstr "Nenhum resultado"
 
 #: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
-msgstr ""
+msgstr "“%(md5_input)s” não foi encontrado em nosso banco de dados."
 
 #: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
 msgstr ""
+"<span class=\"font-bold\">❌ Este arquivo pode ter problemas e foi ocultado "
+"de uma biblioteca fonte. </span> Às vezes por causa de um pedido de um "
+"detentor de direitos autorais, às vezes porque outro arquivo alternativo "
+"está disponível, mas também porque pode haver um problema com o próprio "
+"arquivo. Você pode conseguir baixá-lo, mas sugerimos que você procure outro "
+"arquivo. Mais detalhes:"
 
 #: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr ""
+"Se você ainda quiser baixar este arquivo, certifique-se de usar apenas "
+"programas confiáveis e atualizados para abri-lo."
 
 #: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
@@ -456,23 +489,28 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
-msgstr ""
+msgstr "%(search_input)s - Busca"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.new"
-msgstr ""
+msgstr "Nova busca"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
+"Busca ▶ %(num)d+ resultados para <span class=\"italic\">%(search_input)s</"
+"span> (nos metadados de shadow library)"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
+"Busca ▶ %(num)d+ resultados para <span class=\"italic\">%(search_input)s</"
+"span> (nos metadados de shadow library)"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
 msgstr ""
+"Busca ▶ Erro na busca por <span class=\"italic\">%(search_input)s</span>"
 
 #: allthethings/page/templates/page/search.html:15
 msgid "page.search.breadcrumbs.new"
@@ -509,22 +547,28 @@ msgstr "Erro durante a pesquisa."
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.text"
 msgstr ""
+"Tente <a href=\"javascript:location.reload()\">atualizar a página</a>. Se o "
+"problema continuar, nos avise pelo <a href=\"https://twitter.com/"
+"AnnaArchivist\">Twitter</a> ou <a href=\"https://www.reddit.com/user/"
+"AnnaArchivist\">Reddit</a>."
 
 #: allthethings/page/templates/page/search.html:58
 msgid "page.search.results.none"
 msgstr ""
+"<span class=\"font-bold\">Nenhum arquivo encontrado.</span> Tente usar menos "
+"termos ou termos diferentes na busca e nos filtros."
 
 #: allthethings/page/templates/page/search.html:64
 msgid "page.search.results.partial_more"
-msgstr ""
+msgstr "%(num)d+ correspondências parciais"
 
 #: allthethings/page/templates/page/search.html:64
 msgid "page.search.results.partial"
-msgstr ""
+msgstr "%(num)d correspondências parciais"
 
 #: allthethings/page/templates/page/search.html:81
 msgid "page.search.results.issues"
-msgstr ""
+msgstr "❌ Este arquivo pode ter problemas."
 
 #: allthethings/templates/layouts/index.html:4
 msgid "layout.index.title"
@@ -565,40 +609,40 @@ msgstr "Procurar"
 
 #: allthethings/templates/layouts/index.html:107
 msgid "layout.index.footer.list1.header"
-msgstr ""
+msgstr "Arquivo da Anna"
 
 #: allthethings/templates/layouts/index.html:108
 msgid "layout.index.footer.list1.home"
-msgstr ""
+msgstr "Início"
 
 #: allthethings/templates/layouts/index.html:109
 msgid "layout.index.footer.list1.about"
-msgstr ""
+msgstr "Sobre"
 
 #: allthethings/templates/layouts/index.html:110
 msgid "layout.index.footer.list1.donate"
-msgstr ""
+msgstr "Doar"
 
 #: allthethings/templates/layouts/index.html:111
 msgid "layout.index.footer.list1.datasets"
-msgstr ""
+msgstr "Datasets"
 
 #: allthethings/templates/layouts/index.html:126
 msgid "layout.index.footer.list2.header"
-msgstr ""
+msgstr "Mantenha contato"
 
 #: allthethings/templates/layouts/index.html:127
 msgid "layout.index.footer.list2.twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: allthethings/templates/layouts/index.html:127
 msgid "layout.index.footer.list2.reddit"
-msgstr ""
+msgstr "Reddit"
 
 #: allthethings/templates/layouts/index.html:128
 msgid "layout.index.footer.list2.blog"
-msgstr ""
+msgstr "Blog da Anna"
 
 #: allthethings/templates/layouts/index.html:129
 msgid "layout.index.footer.list2.software"
-msgstr ""
+msgstr "Programas da Anna"
