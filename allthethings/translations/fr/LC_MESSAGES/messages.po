@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 15:16+0000\n"
+"PO-Revision-Date: 2022-12-30 22:41+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: French <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/fr/>\n"
@@ -192,7 +192,7 @@ msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
-msgstr ""
+msgstr "Ensemble de données ▶ DOIs ▶ DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:9
 msgid "page.doi.invalid.header"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:16
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:19
 msgid "page.doi.box.canonical_url"
@@ -424,7 +424,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
-msgstr ""
+msgstr "ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:6
 msgid "page.isbn.breadcrumbs"
