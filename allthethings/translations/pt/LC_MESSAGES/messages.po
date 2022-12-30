@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 22:32+0000\n"
-"Last-Translator: Rond <rondnelly@autistici.org>\n"
+"PO-Revision-Date: 2022-12-30 22:41+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Portuguese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.15\n"
-
 
 #: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
@@ -582,10 +581,9 @@ msgstr "Arquivo da Anna"
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Motor de busca de shadow libraries: livros, papéis, quadrinhos, "
-"revistas. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Plenamente "
-"resiliente por meio de código aberto e dados. ❤️ Divulgue a palavra: "
-"aqui todos são bem-vindos!"
+"🔍 Motor de busca de shadow libraries: livros, papéis, quadrinhos, revistas. "
+"⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Plenamente resiliente por meio "
+"de código aberto e dados. ❤️ Divulgue a palavra: aqui todos são bem-vindos!"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
@@ -647,4 +645,3 @@ msgstr "Blog da Anna (em inglês)"
 #: allthethings/templates/layouts/index.html:129
 msgid "layout.index.footer.list2.software"
 msgstr "Código Fonte"
-
