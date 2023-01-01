@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 15:16+0000\n"
-"PO-Revision-Date: 2022-12-30 23:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-01-03 19:56+0000\n"
+"Last-Translator: Reza <oh@reza.cam>\n"
 "Language-Team: Indonesian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/id/>\n"
 "Language: id\n"
@@ -36,15 +36,15 @@ msgstr ""
 
 #: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr ""
+msgstr "Buku (nonfiksi)"
 
 #: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr ""
+msgstr "Buku (fiksi)"
 
 #: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
-msgstr ""
+msgstr "Artikel jurnal"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
@@ -52,20 +52,20 @@ msgstr ""
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
-msgstr ""
+msgstr "Majalah"
 
 #: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
-msgstr ""
+msgstr "Komik"
 
 #: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
-msgstr ""
+msgstr "Buku (apapun)"
 
 #: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 #: allthethings/page/views.py:1668
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "Gateway IPFS #%(num)d"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -95,7 +95,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1680
 msgid "page.md5.box.download.scihub"
-msgstr ""
+msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1684
 msgid "page.md5.box.download.zlib_anon"
