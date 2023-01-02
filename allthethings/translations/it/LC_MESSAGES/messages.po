@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 23:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-01-03 19:56+0000\n"
+"Last-Translator: Behind Black <behindblack@proton.me>\n"
 "Language-Team: Italian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/it/>\n"
 "Language: it\n"
@@ -24,11 +24,11 @@ msgstr "Non visibile su Library Genesis\".rs-fork\" Non-Fiction"
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "Non visibile in Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr ""
+msgstr "Contrassegnato non valido in Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Documento normativo"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
@@ -65,7 +65,7 @@ msgstr ""
 #: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 #: allthethings/page/views.py:1668
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "Gateway IPFS #%(num)d"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -73,7 +73,7 @@ msgstr "(potrebbe essere necessario provare più volte con IPFS)"
 
 #: allthethings/page/views.py:1671
 msgid "page.md5.box.download.lgrsnf"
-msgstr ""
+msgstr "Non-Fiction Library Genesis \".rs-fork\""
 
 #: allthethings/page/views.py:1671 allthethings/page/views.py:1674
 #: allthethings/page/views.py:1677
@@ -87,11 +87,11 @@ msgstr "(fai clic su “GET” in alto)"
 
 #: allthethings/page/views.py:1674
 msgid "page.md5.box.download.lgrsfic"
-msgstr ""
+msgstr "Fiction Library Genesis \".rs-fork\""
 
 #: allthethings/page/views.py:1677
 msgid "page.md5.box.download.lgli"
-msgstr ""
+msgstr "Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1680
 msgid "page.md5.box.download.scihub"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1684
 msgid "page.md5.box.download.zlib_anon"
-msgstr ""
+msgstr "Z-Library Mirror Anonimo #%(num)d"
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor"
@@ -120,6 +120,12 @@ msgstr "Di"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
+"Anna’s Archive è un motore di ricerca non-profit e open-source per “<a href="
+"\"https://it.wikipedia.org/wiki/Shadow_library\">shadow libraries</a>”. "
+"Creato da <a href=\"http://annas-blog.org\">Anna</a>, la persona che è "
+"dietro il <a href=\"http://pilimi.org\">Pirate Library Mirror</a>, un backup "
+"della Z-Library. Sentiva che c'era bisogno di un posto centrale dove cercare "
+"libri, giornali, fumetti, riviste e altri documenti."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
@@ -128,6 +134,10 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
+"Per restare aggiornato sui nostri progressi, segui Anna su <a href=\"https"
+"://twitter.com/AnnaArchivist\">Twitter</a> o <a href=\"https://www.reddit."
+"com/user/AnnaArchivist\">Reddit</a>. Per domande e feedback contatta Anna su "
+"%(email)s."
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
