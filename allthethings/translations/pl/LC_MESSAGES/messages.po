@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 23:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-01-04 02:13+0000\n"
+"Last-Translator: bw <mkvzvn@gmail.com>\n"
 "Language-Team: Polish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pl/>\n"
 "Language: pl\n"
@@ -17,19 +17,19 @@ msgstr ""
 
 #: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr ""
+msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
 #: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr ""
+msgstr "Brak w Library Genesis \".rs-fork\" (fikcja)"
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "Brak w Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr ""
+msgstr "Oznaczone jako uszkodzone w Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -37,36 +37,36 @@ msgstr "Livro (desconhecido)"
 
 #: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr ""
+msgstr "Książka (niefikcyjna)"
 
 #: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr ""
+msgstr "Książka (fikcyjna)"
 
 #: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
-msgstr ""
+msgstr "Artykuł z czasopisma fachowego"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Dokument standardu"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
-msgstr ""
+msgstr "Magazyn"
 
 #: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
-msgstr ""
+msgstr "Komiks"
 
 #: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
-msgstr ""
+msgstr "Książka (Dowolna)"
 
 #: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 #: allthethings/page/views.py:1668
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "Brama IPFS #%(num)d"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -74,7 +74,7 @@ msgstr "(być może będziesz musiał spróbować kilka razy z IPFS)"
 
 #: allthethings/page/views.py:1671
 msgid "page.md5.box.download.lgrsnf"
-msgstr ""
+msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
 #: allthethings/page/views.py:1671 allthethings/page/views.py:1674
 #: allthethings/page/views.py:1677
