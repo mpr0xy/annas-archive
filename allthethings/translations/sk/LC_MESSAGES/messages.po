@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-03 19:56+0000\n"
-"Last-Translator: Slada <slatinsky.adam@gmail.com>\n"
+"PO-Revision-Date: 2023-01-07 23:12+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Slovak <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/sk/>\n"
 "Language: sk\n"
@@ -142,7 +142,6 @@ msgid "page.home.explore.header"
 msgstr "Preskúmajte knihy"
 
 #: allthethings/page/templates/page/isbn.html:3
-#, fuzzy
 msgid "page.isbn.title"
 msgstr "ISBN %(isbn_input)s"
 
@@ -221,7 +220,6 @@ msgstr ""
 "alebo zmeniť hľadané výrazy a filtre."
 
 #: allthethings/page/templates/page/search.html:64
-#, fuzzy
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ čiastočné matches"
 
