@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 15:16+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-01-07 22:58+0000\n"
+"Last-Translator: Jonatan Porras <jonatanporras8@gmail.com>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
 "Language: es\n"
@@ -28,7 +28,7 @@ msgstr "No visible en Librería Génesis \".li-fork\""
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr ""
+msgstr "Marcado como roto en la Biblioteca Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -48,7 +48,7 @@ msgstr "Artículo periodístico"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Documento de Estándares"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
@@ -65,7 +65,7 @@ msgstr "Libro (cualquiera)"
 #: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 #: allthethings/page/views.py:1668
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "Puerta de enlace IPFS #%(num)d"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -95,15 +95,15 @@ msgstr "Librería Génesis \".li-fork\""
 
 #: allthethings/page/views.py:1680
 msgid "page.md5.box.download.scihub"
-msgstr ""
+msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1684
 msgid "page.md5.box.download.zlib_anon"
-msgstr ""
+msgstr "Mirror Anónimo de Z-Library #%(num)d"
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor"
-msgstr ""
+msgstr "TOR Z-Library"
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor_extra"
@@ -120,10 +120,21 @@ msgstr "Acerca de"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
+"Anna’s Archive es un motor de búsqueda abierto y sin fines de lucro de <a "
+"href=\"https://es.wikipedia.org/wiki/Biblioteca_fantasma\">bibliotecas "
+"fantasmas</a> . Fue creado por <a href=\"http://annas-blog.org\">Anna</a>, "
+"la persona detrás de <a href=\"http://pilimi.org\">Pirate Library Mirror </"
+"a>, como un respaldo de Z-Library. Anna cree que se necesita un lugar "
+"central para buscar libros, papeles, cómics, revistas, y otros documentos."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
+"Creemos firmemente en la libre circulación de información, y en la "
+"preservación del conocimiento y la cultura. Con este motor de búsqueda, "
+"construimos sobre los hombros de gigantes. Respetamos profundamante el duro "
+"trabajo de las personas que han creado las distintas bibliotecas fantasma, y "
+"esperamos que este motor de búsqueda amplíe su alcance."
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
@@ -174,7 +185,7 @@ msgstr "Texto a continuación solo en inglés."
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
-msgstr ""
+msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
