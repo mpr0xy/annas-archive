@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2023-01-03 19:56+0000\n"
-"Last-Translator: gvhert hrts <pauljonaskl@gmail.com>\n"
+"PO-Revision-Date: 2023-01-07 22:58+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: French <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/fr/>\n"
 "Language: fr\n"
@@ -95,7 +95,7 @@ msgstr "Librairie Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1680
 msgid "page.md5.box.download.scihub"
-msgstr "Sci-Hub: %(doi)s"
+msgstr "Sci-Hub : %(doi)s"
 
 #: allthethings/page/views.py:1684
 msgid "page.md5.box.download.zlib_anon"
@@ -153,19 +153,18 @@ msgstr "Comment aider"
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
-"<li>1. Suivez nous sur\n"
-"<a href=\"https://twitter.com/AnnaArchivist\"> Twitter</a> ou <a href=\"https"
-"://www.reddit.com/user/AnnaArchivist\">Reddit</a>.</li><li>2. Parlez d'Anna’"
-"s Archive sur Twitter, Reddit, Tiktok, Instagram, au café du coin, à la "
-"librairie, n'importe où vous allez! Nous ne croyons pas en la rétention de "
-"l'information — Si notre site est hors ligne un autre ressortira quelque "
-"part, vu que notre source de codes et données sont de logiciel libre.</"
-"li><li>3. Si vous le pouvez, considérez <a href=\"/donate\">donner</a>.</"
-"li><li>4. Aider <a href=\"https://translate.annas-software.org/\">traduire</"
-"a> notre site en d'autres languages.</li><li>5. Si vous êtes programmeurs, "
-"considérez contribuer a notre <a href=\"https://annas-software.org/\"> "
-"logiciel libre </a>, ou seedez nos <a href=\"http://pilimi.org\">torrents et "
-"IPFS</a>.</li>"
+"<li>1. Suivez nous sur <a href=\"https://twitter.com/AnnaArchivist\"> "
+"Twitter</a> ou <a href=\"https://www.reddit.com/user/AnnaArchivist\""
+">Reddit</a>.</li><li>2. Parlez d'Anna’s Archive sur Twitter, Reddit, Tiktok, "
+"Instagram, au café du coin, à la librairie, n'importe où vous allez ! Nous "
+"ne croyons pas en la rétention de l'information — Si notre site est hors "
+"ligne un autre ressortira quelque part, vu que notre source de codes et "
+"données sont de logiciel libre.</li><li>3. Si vous le pouvez, considérez <a "
+"href=\"/donate\">donner</a>.</li><li>4. Aider <a href=\"https://translate."
+"annas-software.org/\">traduire</a> notre site en d'autres languages.</"
+"li><li>5. Si vous êtes programmeurs, considérez contribuer a notre <a href="
+"\"https://annas-software.org/\"> logiciel libre </a>, ou seedez nos <a href="
+"\"http://pilimi.org\">torrents et IPFS</a>.</li>"
 
 #: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/about.html:32
@@ -211,19 +210,18 @@ msgstr "doi:%(doi_input)s"
 #: allthethings/page/templates/page/doi.html:19
 msgid "page.doi.box.canonical_url"
 msgstr ""
-"URL canonique: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
+"URL canonique : <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
 "%(doi_input)s</a>"
 
 #: allthethings/page/templates/page/doi.html:23
 msgid "page.doi.box.scihub"
 msgstr ""
-"Ce fichier pourrais se trouver dans\n"
-" <a href=\"https://sci-hub.se/%(doi_input)s\">\n"
-"Sci-Hub</a>."
+"Ce fichier pourrais se trouver dans <a href=\"https://sci-hub.se/%(doi_input)"
+"s\">Sci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:28
 msgid "page.doi.results.text"
-msgstr "Fichiers correspondants de notre base de données:"
+msgstr "Fichiers correspondants de notre base de données :"
 
 #: allthethings/page/templates/page/doi.html:48
 msgid "page.doi.results.none"
@@ -248,20 +246,20 @@ msgid "page.donate.text1"
 msgstr ""
 "Anna’s Archive est un projet sans but lucratif, de logiciel libre et "
 "maintenu entièrement par des volontaires. Nous prenons des dons pour couvrir "
-"nos frais; incluant l'hébergement, domaines, développement et autres frais."
+"nos frais ; incluant l'hébergement, domaines, développement et autres frais."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
 msgstr ""
 "Avec vos contributions, nous pouvons faire rouler le site, améliorer ses "
-"fonctionnalités et préserver plusieurs collections"
+"fonctionnalités et préserver plusieurs collections."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
 msgstr ""
-"Dons récents: %(donations)s.\n"
-"Merci à tous pour leur générosité. Nous apprécions grandement votre "
-"confiance en nous, toutes vos donations sont acceptées."
+"Dons récents : %(donations)s. Merci à tous pour leur générosité. Nous "
+"apprécions grandement votre confiance en nous, toutes vos donations sont "
+"acceptées."
 
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
@@ -303,11 +301,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:57
 msgid "page.donate.cc.steps.header"
-msgstr "Étapes:"
+msgstr "Étapes :"
 
 #: allthethings/page/templates/page/donate.html:61
 msgid "page.donate.cc.steps.list1"
-msgstr "1. Copiez notre adresse Bitcoin (BTC): %(address)s"
+msgstr "1. Copiez notre adresse Bitcoin (BTC) : %(address)s"
 
 #: allthethings/page/templates/page/donate.html:62
 msgid "page.donate.cc.steps.list2"
@@ -317,7 +315,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:63
 msgid "page.donate.cc.steps.list3"
-msgstr "3.Copiez l'adresse de notre portefeuille et suivez les instructions."
+msgstr "3.Copiez l'adresse de notre portefeuille et suivez les instructions"
 
 #: allthethings/page/templates/page/donate.html:67
 #: allthethings/page/templates/page/donate.html:86
@@ -332,7 +330,7 @@ msgstr "Crypto"
 
 #: allthethings/page/templates/page/donate.html:75
 msgid "page.donate.crypto.intro"
-msgstr "Si vous avez un portefeuille crypto, voici nos adresses:"
+msgstr "Si vous avez un portefeuille crypto, voici nos adresses :"
 
 #: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.crypto.btc_bch_note"
@@ -353,9 +351,9 @@ msgstr "Questions fréquemment demandées"
 #: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
-"<div class=\"font-bold\">Avez vous d'autres méthodes de paiement?</div> "
+"<div class=\"font-bold\">Avez vous d'autres méthodes de paiement ?</div> "
 "Présentement non. Beaucoup de gens ne veulent pas d'archives comme celle-ci "
-"d'exister; nous devons être attentif. Si vous voulez négocier une autre "
+"d'exister ; nous devons être attentif. Si vous voulez négocier une autre "
 "méthode (plus convenable) de paiement sécuritaire, laissez-le nous savoir au "
 "%(email)s."
 
@@ -363,23 +361,22 @@ msgstr ""
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Si votre mode de paiement n'est pas dans la liste, la chose la plus simple "
-"serais de télécharger\n"
-"<a href=\"https://www.coinbase.com/\">Coinbase</a> sur votre cellulaire et "
-"acheter un peux de Bitcoin (BTC) là-bas. Vous pouvez ensuite l'envoyer a "
-"notre adresse: %(address)s. Dans la majorité des pays, ceci ne devrais "
-"prendre que quelques minutes à régler."
+"serais de télécharger <a href=\"https://www.coinbase.com/\">Coinbase</a> sur "
+"votre cellulaire et acheter un peux de Bitcoin (BTC) là-bas. Vous pouvez "
+"ensuite l'envoyer a notre adresse : %(address)s. Dans la majorité des pays, "
+"ceci ne devrais prendre que quelques minutes à régler."
 
 #: allthethings/page/templates/page/donate.html:120
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
-"<div class=\"font-bold\">Puis-je faire un large dons?</div> Ce serais "
-"merveilleux! Pour les dons de plusieurs milliers de dollars, veuillez nous "
+"<div class=\"font-bold\">Puis-je faire un large dons ?</div> Ce serais "
+"merveilleux ! Pour les dons de plusieurs milliers de dollars, veuillez nous "
 "contacter directement au %(email)s."
 
 #: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
-"<div class=\"font-bold\">Puis-je contribuer autrement?</div> Oui! Voyez  <a "
+"<div class=\"font-bold\">Puis-je contribuer autrement ?</div> Oui ! Voyez <a "
 "href=\"/about\">la page</a> sous \"Comment aider\"."
 
 #: allthethings/page/templates/page/home.html:5
@@ -447,7 +444,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
-msgstr "Fichiers correspondants de notre base de données:"
+msgstr "Fichiers correspondants de notre base de données :"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
@@ -472,7 +469,7 @@ msgstr ""
 "droit d'auteur, parfois c'est parce qu'une meilleure alternative est "
 "disponible, mais parfois c'est à cause d'un problème avec le fichier lui-"
 "même.</span> Il peut toujours être bon à télécharger, mais nous vous "
-"recommandons d'abord de rechercher un fichier alternatif. Plus de détails:"
+"recommandons d'abord de rechercher un fichier alternatif. Plus de détails :"
 
 #: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
@@ -482,11 +479,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
-msgstr "Téléchargez gratuitement un ebook/fichier %(extension)s à partir de:"
+msgstr "Téléchargez gratuitement un ebook/fichier %(extension)s à partir de :"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
-msgstr "Miroir #%(num)d: %(link)s %(extra)s"
+msgstr "Miroir #%(num)d : %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
@@ -590,10 +587,10 @@ msgstr "Archives d'Anna"
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Moteur de recherche des bibliothèques clandestines: livres, journaux, BD, "
-"magazines. ⭐️ Bibliothèque Z, Bibliothèque Genesis, Sci-Hub. ⚙️ Entièrement "
-"résilient grâce au code source et aux données de logiciel libre. ❤️ Faites "
-"passer le mot : tout le monde est le bienvenu ici !"
+"🔍 Moteur de recherche des bibliothèques clandestines : livres, journaux, "
+"BD, magazines. ⭐️ Bibliothèque Z, Bibliothèque Genesis, Sci-Hub. ⚙️ "
+"Entièrement résilient grâce au code source et aux données de logiciel libre. "
+"❤️ Faites passer le mot : tout le monde est le bienvenu ici !"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
