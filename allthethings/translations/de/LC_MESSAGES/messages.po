@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-01-07 23:12+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: gvhert hrts <pauljonaskl@gmail.com>\n"
 "Language-Team: German <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/de/>\n"
 "Language: de\n"
@@ -25,15 +25,15 @@ msgstr "Nicht sichtbar in Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr "Buch (unbekann)"
+msgstr "Buch (unbekannt)"
 
 #: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr "Buch (non-fiction)"
+msgstr "Buch (Sachbuch)"
 
 #: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr "Buch (fiction)"
+msgstr "Buch (Belletristik)"
 
 #: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
@@ -49,11 +49,11 @@ msgstr "Zeitschrift"
 
 #: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
-msgstr "Comic-Buch"
+msgstr "Comic"
 
 #: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
-msgstr "Buch (beliebig)"
+msgstr "Buch (alle)"
 
 #: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 #: allthethings/page/views.py:1668
@@ -78,19 +78,19 @@ msgstr "(benötigt TOR-Browser)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
-msgstr "Über"
+msgstr "Über uns"
 
 #: allthethings/page/templates/page/about.html:6
 msgid "page.about.header"
-msgstr "Über"
+msgstr "Über uns"
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
-"Wir glauben fest an den freien Informationsfluss und die Bewahrung von "
-"Wissen und Kultur. Mit dieser Suchmaschine bauen wir auf den Schultern von "
-"Giganten auf. Wir respektieren zutiefst die harte Arbeit der Menschen, die "
-"die verschiedenen Schattenbibliotheken erstellt haben, und wir hoffen, dass "
+"Wir glauben fest an Informationsfreiheit und die Bewahrung von Wissen und "
+"Kultur. Mit dieser Suchmaschine bauen wir auf den Schultern von Giganten "
+"auf. Wir respektieren zutiefst die harte Arbeit der Menschen, die die "
+"verschiedenen Schattenbibliotheken erstellt haben, und wir hoffen, dass "
 "diese Suchmaschine ihre Reichweite ausweiten wird."
 
 #: allthethings/page/views.py:1608
@@ -177,9 +177,9 @@ msgstr "Häufig gestellte Fragen"
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Habt ihr auch andere Zahlungsmethoden?</div> "
-"Momentan nicht. Viele Menschen wollen nicht das Archive wie dieses "
+"Momentan nicht. Viele Menschen wollen nicht, dass Archive wie dieses "
 "existieren, darum müssen wir sehr vorsichtig sein . Falls du uns helfen "
-"kannst andere, (bequemere) sichere, Zahlungsmethoden bereitzustellen melde "
+"kannst andere, (bequemere) sichere, Zahlungsmethoden bereitzustellen, melde "
 "dich bitte bei uns unter %(email)s."
 
 #: allthethings/page/templates/page/donate.html:116
@@ -203,7 +203,7 @@ msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Kann ich mich anders beteiligen?</div> Ja! Du "
 "findest mehr dazu unter <a href=\"/about\">\"über uns\"</a> unter dem Punk "
-"\"Wie kann ich helfen\"."
+"\"Wie kann ich helfen?\"."
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
@@ -231,9 +231,8 @@ msgstr "Entdecke Bücher"
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
-"Hier sind Kombinationen von beliebten Büchern und Büchern die eine große "
-"Rolle in der Welt von Schattenbibliotheken und der digitalen Erhaltung "
-"spielen."
+"Hier ist eine Kombination von beliebten Büchern, und Büchern, die eine große "
+"Rolle in der Welt von Schattenbibliotheken und digitaler Erhaltung spielen."
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
@@ -254,17 +253,17 @@ msgstr "Anna’s Software"
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
-"“%(isbn_input)s” ist keine valide ISBN Nummer. ISBNs sind 10 bis 13 "
-"Charaktere lang, ohne die optionalen Querstriche. Alle Charaktäre müssen "
-"Nummern sein, außer dem letzten, dieser kann auch ein \"X\" sein. Der letzte "
-"Charakter ist die \"check Nummer\", diese muss dem Checksummen Wert "
-"entsprechen der durch die anderen Nummern berechnet wird. Außerdem muss die "
-"Nummer in einem validen Bereich liegen, der von der internationalen ISBN "
-"Agentur zugewiesen wird."
+"“%(isbn_input)s” ist keine valide ISBN Nummer. ISBNs sind 10 bis 13 Zeichen "
+"lang, ohne die optionalen Querstriche. Alle Zeichen müssen Nummern sein, "
+"außer dem letzten, dieses kann auch ein \"X\" sein. Das letzte Zeichen ist "
+"die \"check Nummer\", diese muss dem Checksummen Wert entsprechen, der durch "
+"die anderen Nummern berechnet wird. Außerdem muss die Nummer in einem "
+"validen Bereich liegen, der von der internationalen ISBN Agentur zugewiesen "
+"wird."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
-msgstr "passende Dateien in unserer Datenbank:"
+msgstr "Passende Dateien in unserer Datenbank:"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
@@ -286,17 +285,17 @@ msgstr "“%(md5_input)s” wurde nicht in unserer Datenbank gefunden."
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ Diese Datei hat womöglich Probleme und wurde "
-"daher aus unserer Quell Bibliothek versteckt..</span> Manchmal entsteht das "
-"durch Copyright-Holfer, manchmal weil wir eine bessere Alternative gefunden "
-"haben und manchmal wegen einem Problem mit der Datei selbst. Es kann sein "
-"dass der Download trotzdem ok ist, wir würden aber empfehlen nach einer "
-"Alternative zu suchen. Mehr Infos:"
+"daher in unserer Quellbibliothek versteckt..</span> Manchmal passiert das, "
+"weil der Inhaber der Rechte darum bittet, manchmal, weil wir eine bessere "
+"Alternative gefunden haben und manchmal wegen einem Problem mit der Datei "
+"selbst. Es kann sein dass der Download trotzdem ok ist, wir empfehlen aber "
+"nach einer Alternative zu suchen. Mehr Infos:"
 
 #: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr ""
-"Falls du die Datei dennoch downloaden möchtest, beachte bitte die Datei nur "
-"durch upgedatete und vertrauenswürdige Software zu öffnen."
+"Falls du die Datei dennoch downloaden möchtest, öffne die Datei bitte nur "
+"mit aktueller und vertrauenswürdiger Software."
 
 #: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
@@ -309,9 +308,9 @@ msgstr "Mirror #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Alle Mirrors verwenden die selbe Datei und sollten sicher zum Verwenden "
-"sein. Mit dem gesagt, sei bitte immer vorsichtig wenn du Dateien aus dem "
-"Internet downloadest, sei dir sicher dass deine Geräte und Software auf dem "
+"Alle Mirrors verwenden die selbe Datei und sollten daher sicher sein. "
+"Trotzdem, sei bitte immer vorsichtig, wenn du Dateien aus dem Internet "
+"downloadest. Achte auch darauf dass deine Geräte und Software auf dem "
 "neusten Stand sind."
 
 #: allthethings/page/templates/page/search.html:4
@@ -403,18 +402,19 @@ msgstr "❌ Diese Datei hat womöglich Probleme."
 
 #: allthethings/templates/layouts/index.html:4
 msgid "layout.index.title"
-msgstr "Anna’s Archive"
+msgstr "Anna’s Archiv"
 
 #: allthethings/templates/layouts/index.html:23
 msgid "layout.index.header.title"
-msgstr "Anna’s Archive"
+msgstr "Anna’s Archiv"
 
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Suchmaschine für Schattenbibliotheken: Bücher, papers/Akten, Comics, "
-"Magazine.⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Stabil und robust durch "
-"open source Code und Daten. ❤️ Spread the word: Hier ist jeder willkommen!"
+"🔍 Suchmaschine für Schattenbibliotheken: Bücher, wissenschaftliche "
+"Arbeiten, Comics, Magazine.⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ "
+"Stabil und robust durch Open Source Code und Daten. ❤️ Spread the word: Hier "
+"ist jede*r willkommen!"
 
 #: allthethings/templates/layouts/index.html:88
 msgid "layout.index.header.progress_bar.text"
@@ -435,7 +435,7 @@ msgstr "Suche"
 
 #: allthethings/templates/layouts/index.html:107
 msgid "layout.index.footer.list1.header"
-msgstr "Anna’s Archive"
+msgstr "Anna’s Archiv"
 
 #: allthethings/templates/layouts/index.html:108
 msgid "layout.index.footer.list1.home"
@@ -505,14 +505,14 @@ msgstr "Der folgende Text ist nur auf Englisch."
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
-"\"%(doi_input)s\" schaut nicht wie ein DOI aus. Er sollte mit einer \"10.\" "
+"\"%(doi_input)s\" sieht nicht wie ein DOI aus. Er sollte mit einer \"10.\" "
 "starten und einen Schrägstrich beinhalten."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
 msgstr ""
 "Kürzliche Spenden: %(donations)s. Danke für eure Großzügigkeit. Wir schätzen "
-"es sehr, dass du uns vertraust - egal mit welchem Betrag du übrig hast."
+"es sehr, dass du uns vertraust - egal welchem Betrag du übrig hast."
 
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
@@ -566,16 +566,16 @@ msgstr ""
 "<li>1. Folgt uns auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</"
 "a> oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> .</"
 "li><li>2. Verbreitet die Nachricht von Annas Archiv auf Twitter, Reddit, "
-"Tiktok, Instagram, in Ihrem örtlichen Café oder Ihrer Bibliothek oder wohin "
-"ihr auch geht! Wir glauben nicht an Gatekeeping – wenn wir heruntergefahren "
-"werden, tauchen wir einfach woanders wieder auf, da unser gesamter Code und "
-"unsere Daten vollständig Open Source sind.</li><li>3. Wenn ihr dazu in der "
-"Lage seid, ziehet eine <a href=\"/donate\">Spende</a> in Betracht.</"
-"li><li>4. Helft mit, <a href=\"https://translate.annas-software.org/\""
-">unsere Website in verschiedene Sprachen zu übersetzen</a>.</li><li>5. Wenn "
-"ihr ein Softwareentwickler seid, erwägt, zu unserer <a href=\"https://annas-"
-"software.org/\">Open Source Software</a> beizutragen oder unsere <a href="
-"\"http://pilimi.org \">Torrents und IPFS</a> zu teilen.</li>"
+"Tiktok, Instagram, in eurem örtlichen Café, Bibliothek, oder wohin ihr auch "
+"geht! Wir glauben nicht an Gatekeeping – wenn wir abgeschaltet werden, "
+"tauchen wir einfach woanders wieder auf, da unser gesamter Code und unsere "
+"Daten vollständig Open Source sind.</li><li>3. Wenn ihr dazu in der Lage "
+"seid, ziehet eine <a href=\"/donate\">Spende</a> in Betracht.</li><li>4. "
+"Helft mit, <a href=\"https://translate.annas-software.org/\">unsere Website "
+"in verschiedene Sprachen zu übersetzen</a>.</li><li>5. Wenn ihr ein "
+"Softwareentwickler seid, erwägt, zu unserer <a href=\"https://annas-software."
+"org/\">Open Source Software</a> beizutragen oder unsere <a href=\"http://"
+"pilimi.org \">Torrents und IPFS</a> zu teilen.</li>"
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
