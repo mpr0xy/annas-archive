@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2023-01-07 23:02+0000\n"
-"Last-Translator: David <dadch1404+annas@gmail.com>\n"
+"PO-Revision-Date: 2023-01-07 23:12+0000\n"
+"Last-Translator: Jonatan Porras <jonatanporras8@gmail.com>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
 "Language: es\n"
@@ -203,23 +203,27 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:16
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:19
 msgid "page.doi.box.canonical_url"
 msgstr ""
+"URL Canónica: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
+"%(doi_input)s</a>"
 
 #: allthethings/page/templates/page/doi.html:23
 msgid "page.doi.box.scihub"
 msgstr ""
+"Este archivo puede estar en <a href=\"https://sci-hub.se/%(doi_input)s\">Sci-"
+"Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:28
 msgid "page.doi.results.text"
-msgstr ""
+msgstr "Archivos coincidentes en nuestra base de datos:"
 
 #: allthethings/page/templates/page/doi.html:48
 msgid "page.doi.results.none"
-msgstr ""
+msgstr "No se encontraron archivos coincidentes en nuestra base de datos."
 
 #: allthethings/page/templates/page/doi.html:52
 #: allthethings/page/templates/page/isbn.html:58
@@ -238,10 +242,16 @@ msgstr "Dona aquí"
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
 msgstr ""
+"Anna’s Archive es un proyecto de código abierto sin ánimo de lucro, "
+"gestionado íntegramente por voluntarios. Aceptamos donaciones para cubrir "
+"nuestros costes, que incluyen alojamiento, nombres de dominio, desarrollo y "
+"otros gastos."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
 msgstr ""
+"Con sus contribuciones podemos mantener este sitio en funcionamiento, "
+"mejorar sus funciones y preservar más colecciones."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
