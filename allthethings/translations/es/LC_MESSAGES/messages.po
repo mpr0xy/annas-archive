@@ -1,111 +1,95 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2023-01-07 23:13+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Spanish <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/es/>\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "No visible en Librería Genesis \".rs-fork\" No Ficción"
 
-#: allthethings/page/views.py:1606
+#: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "No visible en Librería Génesis \".rs-fork\" Ficción"
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "No visible en Librería Génesis \".li-fork\""
 
-#: allthethings/page/views.py:1608
+#: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Marcado roto en Librería Génesis \".li-fork\""
 
-#: allthethings/page/views.py:1614
+#: allthethings/page/views.py:1595
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Libro (desconocido)"
 
-#: allthethings/page/views.py:1615
+#: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Libro (no ficción)"
 
-#: allthethings/page/views.py:1616
+#: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Libro (de ficción)"
 
-#: allthethings/page/views.py:1617
+#: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Artículo periodístico"
 
-#: allthethings/page/views.py:1618
+#: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Documentos estándar"
 
-#: allthethings/page/views.py:1619
+#: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Revista"
 
-#: allthethings/page/views.py:1620
+#: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Comic"
 
-#: allthethings/page/views.py:1622
+#: allthethings/page/views.py:1603
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Libro (cualquiera)"
 
-#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
-#: allthethings/page/views.py:1668
+#: allthethings/page/views.py:1647 allthethings/page/views.py:1648
+#: allthethings/page/views.py:1649
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "Puerta de enlace IPFS #%(num)d"
 
-#: allthethings/page/views.py:1666
+#: allthethings/page/views.py:1647
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(es posible que deba intentarlo varias veces con IPFS)"
 
-#: allthethings/page/views.py:1671
+#: allthethings/page/views.py:1652
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Librería Génesis \".rs-fork\" No Ficción"
 
-#: allthethings/page/views.py:1671 allthethings/page/views.py:1674
-#: allthethings/page/views.py:1677
+#: allthethings/page/views.py:1652 allthethings/page/views.py:1655
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(también haga clic en “GET” en la parte superior)"
 
-#: allthethings/page/views.py:1671 allthethings/page/views.py:1674
-#: allthethings/page/views.py:1677
+#: allthethings/page/views.py:1652 allthethings/page/views.py:1655
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(haga clic en “GET” en la parte superior)"
 
-#: allthethings/page/views.py:1674
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Librería Génesis \".rs-fork\" Ficción"
 
-#: allthethings/page/views.py:1677
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.lgli"
 msgstr "Librería Génesis \".li-fork\""
 
-#: allthethings/page/views.py:1680
+#: allthethings/page/views.py:1661
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1684
+#: allthethings/page/views.py:1665
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Espejo anónimo Z-Library #%(num)d"
 
-#: allthethings/page/views.py:1685
+#: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_tor"
 msgstr "TOR Z-Library"
 
-#: allthethings/page/views.py:1685
+#: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(requiere el navegador TOR)"
 
@@ -120,29 +104,30 @@ msgstr "Acerca de"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
-"Anna’s Archive es un motor de búsqueda abierto y sin fines de lucro de <a "
-"href=\"https://es.wikipedia.org/wiki/Biblioteca_fantasma\">bibliotecas "
-"fantasmas</a> . Fue creado por <a href=\"http://annas-blog.org\">Anna</a>, "
-"la persona detrás de <a href=\"http://pilimi.org\">Pirate Library Mirror </"
-"a>, como un respaldo de Z-Library. Anna cree que se necesita un lugar "
-"central para buscar libros, papeles, cómics, revistas, y otros documentos."
+"Anna’s Archive es un motor de búsqueda abierto y sin fines de lucro de <a"
+" href=\"https://es.wikipedia.org/wiki/Biblioteca_fantasma\">bibliotecas "
+"fantasmas</a> . Fue creado por <a href=\"http://annas-"
+"blog.org\">Anna</a>, la persona detrás de <a "
+"href=\"http://pilimi.org\">Pirate Library Mirror </a>, como un respaldo "
+"de Z-Library. Anna cree que se necesita un lugar central para buscar "
+"libros, papeles, cómics, revistas, y otros documentos."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
 "Creemos firmemente en la libre circulación de información, y en la "
 "preservación del conocimiento y la cultura. Con este motor de búsqueda, "
-"construimos sobre los hombros de gigantes. Respetamos profundamante el duro "
-"trabajo de las personas que han creado las distintas bibliotecas fantasma, y "
-"esperamos que este motor de búsqueda amplíe su alcance."
+"construimos sobre los hombros de gigantes. Respetamos profundamante el "
+"duro trabajo de las personas que han creado las distintas bibliotecas "
+"fantasma, y esperamos que este motor de búsqueda amplíe su alcance."
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
-"Para mantenerte informado de nuestra evolución, sigue a Anna en <a href="
-"\"https://twitter.com/AnnaArchivist\"> Twiter </a> o <a href=\"https://www."
-"reddit.com/user/AnnaArchivist\">Reddit</a> (paginas en ingles) . Para "
-"preguntas y feedback contacte con Anna en %(email)s."
+"Para mantenerte informado de nuestra evolución, sigue a Anna en <a "
+"href=\"https://twitter.com/AnnaArchivist\"> Twiter </a> o <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> (paginas en"
+" ingles) . Para preguntas y feedback contacte con Anna en %(email)s."
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
@@ -151,25 +136,27 @@ msgstr "Como ayudar"
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
-"<li>1. Siguenos en <a href=\"https://twitter.com/AnnaArchivist\">Twitter</a> "
-"o <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>.</"
-"li><li>2. Difunde la palabra sobre Anna’s Archive en Twitter, Reddit, "
-"Tiktok, Instagram, en la cafetería o librería de tu barrio o donde quiera "
-"que vayas. No creemos en el control sobre la información— si nos tiran la "
-"pagina apareceremos de nuevo en otro lugar, ya que nuestro codigo y datos "
-"son de fuente abierta.</li><li>3. Si tienes la posibilidad, considera <a "
-"href=\"/donate\">donar</a>.</li><li>4. Ayuda a <a href=\"https://translate."
-"annas-software.org/\">traducir</a> nuestra pagina web a distintos idiomas.</"
-"li><li>5. Si eres un programador, considera contribuir a nuestra <a href="
-"\"https://annas-software.org/\">librería de código abierto</a>, o \"seeding\""
-" los <a href=\"http://pilimi.org\">torrents e IPFS</a>.</li>"
+"<li>1. Siguenos en <a "
+"href=\"https://twitter.com/AnnaArchivist\">Twitter</a> o <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>.</li><li>2."
+" Difunde la palabra sobre Anna’s Archive en Twitter, Reddit, Tiktok, "
+"Instagram, en la cafetería o librería de tu barrio o donde quiera que "
+"vayas. No creemos en el control sobre la información— si nos tiran la "
+"pagina apareceremos de nuevo en otro lugar, ya que nuestro codigo y datos"
+" son de fuente abierta.</li><li>3. Si tienes la posibilidad, considera <a"
+" href=\"/donate\">donar</a>.</li><li>4. Ayuda a <a "
+"href=\"https://translate.annas-software.org/\">traducir</a> nuestra "
+"pagina web a distintos idiomas.</li><li>5. Si eres un programador, "
+"considera contribuir a nuestra <a href=\"https://annas-"
+"software.org/\">librería de código abierto</a>, o \"seeding\" los <a "
+"href=\"http://pilimi.org\">torrents e IPFS</a>.</li>"
 
-#: allthethings/page/templates/page/about.html:31
-#: allthethings/page/templates/page/about.html:32
+#: allthethings/page/templates/page/about.html:26
+#: allthethings/page/templates/page/about.html:27
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
+#: allthethings/page/templates/page/doi.html:54
 #: allthethings/page/templates/page/doi.html:55
-#: allthethings/page/templates/page/doi.html:56
 #: allthethings/page/templates/page/isbn.html:61
 #: allthethings/page/templates/page/isbn.html:62
 #: allthethings/page/templates/page/lgli_file.html:10
@@ -178,6 +165,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgrs_book.html:13
 #: allthethings/page/templates/page/md5.html:56
 #: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/ol_book.html:8
+#: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
 #: allthethings/page/templates/page/zlib_book.html:9
 msgid "common.english_only"
@@ -198,34 +187,34 @@ msgstr "No encontrado"
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
-"\"%(doi_input)s\" no parece un DOI. Debería empezar con un \"10.” y contener "
-"una barra oblicua (/)."
+"\"%(doi_input)s\" no parece un DOI. Debería empezar con un \"10.” y "
+"contener una barra oblicua (/)."
 
-#: allthethings/page/templates/page/doi.html:16
+#: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
 msgstr "%(doi_input)s"
 
-#: allthethings/page/templates/page/doi.html:19
+#: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
 msgstr ""
-"URL Canónica: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
-"%(doi_input)s</a>"
+"URL Canónica: <a "
+"href=\"https://doi.org/%(doi_input)s\">https://doi.org/%(doi_input)s</a>"
 
-#: allthethings/page/templates/page/doi.html:23
+#: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
 msgstr ""
-"Este archivo puede estar en <a href=\"https://sci-hub.se/%(doi_input)s\">Sci-"
-"Hub</a>."
+"Este archivo puede estar en <a href=\"https://sci-hub.se/%(doi_input)s"
+"\">Sci-Hub</a>."
 
-#: allthethings/page/templates/page/doi.html:28
+#: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
 msgstr "Archivos coincidentes en nuestra base de datos:"
 
-#: allthethings/page/templates/page/doi.html:48
+#: allthethings/page/templates/page/doi.html:47
 msgid "page.doi.results.none"
 msgstr "No se encontraron archivos coincidentes en nuestra base de datos."
 
-#: allthethings/page/templates/page/doi.html:52
+#: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
 #: allthethings/page/templates/page/md5.html:53
 msgid "common.tech_details"
@@ -243,9 +232,9 @@ msgstr "Dona aquí"
 msgid "page.donate.text1"
 msgstr ""
 "Anna’s Archive es un proyecto de código abierto sin ánimo de lucro, "
-"gestionado íntegramente por voluntarios. Aceptamos donaciones para cubrir "
-"nuestros costes, que incluyen alojamiento, nombres de dominio, desarrollo y "
-"otros gastos."
+"gestionado íntegramente por voluntarios. Aceptamos donaciones para cubrir"
+" nuestros costes, que incluyen alojamiento, nombres de dominio, "
+"desarrollo y otros gastos."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
@@ -313,8 +302,7 @@ msgstr "3. Pega nuestra \"wallet address\", y sigue las instrucciones"
 #: allthethings/page/templates/page/donate.html:86
 #: allthethings/page/templates/page/donate.html:104
 msgid "page.donate.text_thank_you"
-msgstr ""
-"¡Muchas gracias por ayudar! Este proyecto no seria posible sin tu ayuda."
+msgstr "¡Muchas gracias por ayudar! Este proyecto no seria posible sin tu ayuda."
 
 #: allthethings/page/templates/page/donate.html:72
 msgid "page.donate.crypto.header"
@@ -370,7 +358,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:46
-#: allthethings/templates/layouts/index.html:98
+#: allthethings/templates/layouts/index.html:129
 msgid "common.search.placeholder"
 msgstr "Buscar título, autor, idioma, tipo de archivo, ISBN, MD5, …"
 
@@ -442,9 +430,9 @@ msgstr "Espejo #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Todos los espejos sirven el mismo archivo y deberían ser seguros de usar. "
-"Dicho esto, siempre tenga cuidado al descargar archivos de Internet. Por "
-"ejemplo, asegúrese de mantener sus dispositivos actualizados."
+"Todos los espejos sirven el mismo archivo y deberían ser seguros de usar."
+" Dicho esto, siempre tenga cuidado al descargar archivos de Internet. Por"
+" ejemplo, asegúrese de mantener sus dispositivos actualizados."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -457,14 +445,16 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
-"Buscar ▶ %(num)d+ resultados para <span class=\"italic\">%(search_input)s</"
-"span> (en los metadatos de la biblioteca oculta)"
+"Buscar ▶ %(num)d+ resultados para <span "
+"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
+"biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
-"Buscar ▶ %(num)d resultados para <span class=\"italic\">%(search_input)s</"
-"span> (en los metadatos de la biblioteca oculta)"
+"Buscar ▶ %(num)d resultados para <span "
+"class=\"italic\">%(search_input)s</span> (en los metadatos de la "
+"biblioteca oculta)"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -530,72 +520,77 @@ msgstr "Archivo de Anna"
 msgid "layout.index.header.title"
 msgstr "Archivo de Anna"
 
-#: allthethings/templates/layouts/index.html:74
+#: allthethings/templates/layouts/index.html:105
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, cómics, "
-"revistas. ⭐️ Biblioteca Z, Biblioteca Génesis, Sci-Hub. ⚙️ Totalmente "
-"resistente a través de código fuente abierto y datos. ❤️ Corre la voz: ¡"
-"todos son bienvenidos aquí!"
+"🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, "
+"cómics, revistas. ⭐️ Biblioteca Z, Biblioteca Génesis, Sci-Hub. ⚙️ "
+"Totalmente resistente a través de código fuente abierto y datos. ❤️ Corre"
+" la voz: ¡todos son bienvenidos aquí!"
 
-#: allthethings/templates/layouts/index.html:88
+#: allthethings/templates/layouts/index.html:119
 msgid "layout.index.header.progress_bar.text"
 msgstr ""
 "5%% del patrimonio escrito de la humanidad preservado para siempre "
 "%(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:92
+#: allthethings/templates/layouts/index.html:123
 msgid "layout.index.header.nav.home"
 msgstr "Casa"
 
-#: allthethings/templates/layouts/index.html:93
+#: allthethings/templates/layouts/index.html:124
 msgid "layout.index.header.nav.about"
 msgstr "Sobre"
 
-#: allthethings/templates/layouts/index.html:94
+#: allthethings/templates/layouts/index.html:125
 msgid "layout.index.header.nav.donate"
 msgstr "Donar"
 
-#: allthethings/templates/layouts/index.html:95
+#: allthethings/templates/layouts/index.html:126
 msgid "layout.index.header.nav.search"
 msgstr "Búsqueda"
 
-#: allthethings/templates/layouts/index.html:107
+#: allthethings/templates/layouts/index.html:138
 msgid "layout.index.footer.list1.header"
 msgstr "Archivo de Anna"
 
-#: allthethings/templates/layouts/index.html:108
+#: allthethings/templates/layouts/index.html:139
 msgid "layout.index.footer.list1.home"
 msgstr "Casa"
 
-#: allthethings/templates/layouts/index.html:109
+#: allthethings/templates/layouts/index.html:140
 msgid "layout.index.footer.list1.about"
 msgstr "Acerca de"
 
-#: allthethings/templates/layouts/index.html:110
+#: allthethings/templates/layouts/index.html:141
 msgid "layout.index.footer.list1.donate"
 msgstr "Dona aquí"
 
-#: allthethings/templates/layouts/index.html:111
+#: allthethings/templates/layouts/index.html:142
 msgid "layout.index.footer.list1.datasets"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:126
+#: allthethings/templates/layouts/index.html:155
 msgid "layout.index.footer.list2.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:127
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.footer.list2.twitter"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:127
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.footer.list2.reddit"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:128
+#: allthethings/templates/layouts/index.html:156
+msgid "layout.index.footer.list2.subreddit"
+msgstr ""
+
+#: allthethings/templates/layouts/index.html:157
 msgid "layout.index.footer.list2.blog"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:129
+#: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr ""
+
