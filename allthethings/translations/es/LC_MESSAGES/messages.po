@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-30 00:20+0000\n"
-"PO-Revision-Date: 2023-01-07 22:58+0000\n"
-"Last-Translator: Jonatan Porras <jonatanporras8@gmail.com>\n"
+"PO-Revision-Date: 2023-01-07 23:02+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
 "Language: es\n"
@@ -28,7 +28,7 @@ msgstr "No visible en Librería Génesis \".li-fork\""
 
 #: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr "Marcado como roto en la Biblioteca Genesis \".li-fork\""
+msgstr "Marcado roto en Librería Génesis \".li-fork\""
 
 #: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -48,7 +48,7 @@ msgstr "Artículo periodístico"
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr "Documento de Estándares"
+msgstr "Documentos estándar"
 
 #: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
@@ -99,7 +99,7 @@ msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1684
 msgid "page.md5.box.download.zlib_anon"
-msgstr "Mirror Anónimo de Z-Library #%(num)d"
+msgstr "Espejo anónimo Z-Library #%(num)d"
 
 #: allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_tor"
@@ -198,6 +198,8 @@ msgstr "No encontrado"
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
+"\"%(doi_input)s\" no parece un DOI. Debería empezar con un \"10.” y contener "
+"una barra oblicua (/)."
 
 #: allthethings/page/templates/page/doi.html:16
 msgid "page.doi.box.header"
