@@ -35,6 +35,18 @@ page = Blueprint("page", __name__, template_folder="templates")
 search_filtered_bad_md5s = [
     "b0647953a182171074873b61200c71dd",
     "820a4f8961ae0a76ad265f1678b7dfa5",
+
+    # Likely CSAM
+    "d897ffc4e64cbaeae53a6005b6f155cc",
+    "8ae28a86719e3a4400145ac18b621efd",
+    "285171dbb2d1d56aa405ad3f5e1bc718",
+    "8ac4facd6562c28d7583d251aa2c9020",
+    "6c1b1ea486960a1ad548cd5c02c465a1",
+    "414e8f3a8bc0f63de37cd52bd6d8701e",
+    "c6cddcf83c558b758094e06b97067c89",
+    "5457b152ef9a91ca3e2d8b3a2309a106",
+    "02973f6d111c140510fcdf84b1d00c35",
+    "d4c01f9370c5ac93eb5ee5c2037ac794",
 ]
 
 # Retrieved from https://openlibrary.org/config/edition.json on 2022-10-11
