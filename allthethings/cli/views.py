@@ -42,7 +42,7 @@ cli = Blueprint("cli", __name__, template_folder="templates")
 # ./run flask cli dbreset
 @cli.cli.command('dbreset')
 def dbreset():
-    print("Erasing entire database! Did you double-check that any production/large databases are offline/inaccessible from here?")
+    print("Erasing entire database (2 MariaDB databases servers + 1 ElasticSearch)! Did you double-check that any production/large databases are offline/inaccessible from here?")
     time.sleep(2)
     print("Giving you 5 seconds to abort..")
     time.sleep(5)
@@ -53,8 +53,8 @@ def dbreset():
     engine = create_engine(settings.SQLALCHEMY_DATABASE_URI, connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})
     cursor = engine.raw_connection().cursor()
 
-    # Generated with `docker-compose exec mariadb mysqldump -u allthethings -ppassword --opt --where="1 limit 100" --skip-comments --ignore-table=computed_all_md5s allthethings > dump.sql`
-    cursor.execute(pathlib.Path(os.path.join(__location__, 'dump.sql')).read_text())
+    # Generated with `docker-compose exec mariadb mysqldump -u allthethings -ppassword --opt --where="1 limit 100" --skip-comments --ignore-table=computed_all_md5s allthethings > mariadb_dump.sql`
+    cursor.execute(pathlib.Path(os.path.join(__location__, 'mariadb_dump.sql')).read_text())
     cursor.close()
 
     mysql_build_computed_all_md5s_internal()
@@ -63,6 +63,8 @@ def dbreset():
     Reflected.prepare(db.engine)
     elastic_reset_md5_dicts_internal()
     elastic_build_md5_dicts_internal()
+
+    mariapersist_reset_internal()
 
     print("Done! Search for example for 'Rhythms of the brain': http://localhost:8000/search?q=Rhythms+of+the+brain")
 
@@ -336,3 +338,27 @@ def elastic_build_md5_dicts_internal():
 #                     pbar.update(len(batch))
 
 #             print(f"Done!")
+
+
+
+#################################################################################################
+# ./run flask cli mariapersist_reset
+@cli.cli.command('mariapersist_reset')
+def mariapersist_reset():
+    print("Erasing entire persistent database ('mariapersist')! Did you double-check that any production databases are offline/inaccessible from here?")
+    # time.sleep(2)
+    print("Giving you 5 seconds to abort..")
+    # time.sleep(5)
+    mariapersist_reset_internal()
+
+def mariapersist_reset_internal():
+    # Per https://stackoverflow.com/a/4060259
+    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+    print(settings.SQLALCHEMY_BINDS['mariapersist'])
+    engine = create_engine(settings.SQLALCHEMY_BINDS['mariapersist'], connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})
+    cursor = engine.raw_connection().cursor()
+
+    cursor.execute(pathlib.Path(os.path.join(__location__, 'mariapersist_drop_all.sql')).read_text())
+    cursor.execute(pathlib.Path(os.path.join(__location__, 'mariapersist_migration_001.sql')).read_text())
+    cursor.close()

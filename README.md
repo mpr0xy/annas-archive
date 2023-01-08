@@ -31,6 +31,16 @@ TODO:
 Notes:
 * This repo is based on [docker-flask-example](https://github.com/nickjj/docker-flask-example).
 
+## Architecture
+
+This is roughly the structure:
+* 1+ web servers
+* Heavy caching in front of web servers (e.g. Cloudflare)
+* 1+ read-only MariaDB db with MyISAM tables of data ("mariadb")
+* 1 read/write MariaDB db for persistent data ("mariapersist")
+
+Practically, you also want proxy servers in front of the web servers, so you can control who gets DMCA notices.
+
 ## Importing all data
 
 See [data-imports/README.md](data-imports/README.md).

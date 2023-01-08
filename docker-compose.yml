@@ -7,9 +7,6 @@ x-app: &default-app
       - "GID=${GID:-1000}"
       - "FLASK_DEBUG=${FLASK_DEBUG:-false}"
       - "NODE_ENV=${NODE_ENV:-production}"
-  depends_on:
-    - "mariadb"
-    - "redis"
   env_file:
     - ".env"
   restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
@@ -66,6 +63,30 @@ services:
       - "./mariadb-conf:/etc/mysql/conf.d"
     ports:
       - "${MARIADB_PORT_FORWARD:-127.0.0.1:3306}:3306"
+
+  mariapersist:
+    deploy:
+      resources:
+        limits:
+          cpus: "${DOCKER_MARIAPERSIST_CPUS:-0}"
+          memory: "${DOCKER_MARIAPERSIST_MEMORY:-0}"
+    environment:
+      MARIADB_USER: "${MARIAPERSIST_USER}"
+      MARIADB_PASSWORD: "${MARIAPERSIST_PASSWORD}"
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+      MARIADB_DATABASE: "${MARIAPERSIST_DATABASE}"
+      MARIADB_INITDB_SKIP_TZINFO: "1" # https://github.com/MariaDB/mariadb-docker/issues/262#issuecomment-672375238
+    image: "mariadb:10.9.3-jammy"
+    profiles: ["mariapersist"]
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "3s"
+    command: "--init-file /etc/mysql/conf.d/init.sql"
+    # entrypoint: mysqld_safe --skip-grant-tables --user=mysql
+    volumes:
+      - "../allthethings-mariapersist-data:/var/lib/mysql/"
+      - "./mariapersist-conf:/etc/mysql/conf.d"
+    ports:
+      - "${MARIAPERSIST_PORT_FORWARD:-127.0.0.1:3333}:3306"
 
   redis:
     deploy:
