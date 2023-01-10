@@ -263,9 +263,9 @@ def elastic_build_md5_dicts_job(canonical_md5s):
         raise err
 
 def elastic_build_md5_dicts_internal():
-    THREADS = 50
-    CHUNK_SIZE = 70
-    BATCH_SIZE = 50000
+    THREADS = 70
+    CHUNK_SIZE = 50
+    BATCH_SIZE = 100000
 
     first_md5 = ''
     # Uncomment to resume from a given md5, e.g. after a crash
