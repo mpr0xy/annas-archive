@@ -33,13 +33,29 @@
         hasScrolled = true;
       }
     }
+    function openSection(sectionClassName, buttonClassName) {
+      for (el of document.querySelectorAll('.js-section')) {
+        el.classList.add('hidden');
+      }
+      document.querySelector(sectionClassName).classList.remove('hidden');
+
+      const buttons = document.querySelectorAll('.js-main-button');
+      for (const el of buttons) {
+        el.style.backgroundColor = '';
+      }
+      if (buttonClassName) {
+        document.querySelector(buttonClassName).style.backgroundColor = '#0095ff'
+      }
+
+      scrollDown();
+    }
   </script>
 
   <div class="mb-4">
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-cc').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.cc') }}</button>
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-crypto').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.crypto') }}</button>
-    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-alipay').classList.remove('hidden'); scrollDown();">{{ gettext('page.donate.nav.alipay') }}</button>
-    <a href="#" class="mt-2 pl-2" onclick="for (el of document.querySelectorAll('.js-section')) { el.classList.add('hidden'); } document.querySelector('.js-q').classList.remove('hidden'); scrollDown(); return false">{{ gettext('page.donate.nav.faq') }}</a>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-cc" onclick="openSection('.js-cc', '.js-main-button-cc')">{{ gettext('page.donate.nav.cc') }}</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-crypto" onclick="openSection('.js-crypto', '.js-main-button-crypto')">{{ gettext('page.donate.nav.crypto') }}</button>
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-alipay" onclick="openSection('.js-alipay', '.js-main-button-alipay')">{{ gettext('page.donate.nav.alipay') }}</button>
+    <a href="#" class="mt-2 pl-2" onclick="openSection('.js-q', undefined); return false">{{ gettext('page.donate.nav.faq') }}</a>
   </div>
 
   <div class="hidden js-section js-cc">
@@ -94,10 +110,33 @@
       {{ gettext('page.donate.alipay.intro') }}
     </p>
 
-    <div class="js-alipay-img"></div>
+    <div class="mb-4">
+      <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(0)">1</button>
+      <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(1)">2</button>
+      <!-- <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(2)">3</button> -->
+    </div>
+
+    <div class="mb-4 relative">
+      <!-- <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay0.jpg"> -->
+      <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay1.jpg">
+      <img class="js-alipay-img max-w-[350px]" src="/images/alipay2.jpg">
+    </div>
 
     <script>
-      document.querySelector('.js-alipay-img').innerHTML = '<img src="/images/alipay' + Math.floor(3*Math.random()) + '.jpg" style="max-width: 350px">';
+      function setAlipayImage(index) {
+        const images = document.querySelectorAll('.js-alipay-img');
+        for (const el of images) {
+          el.style.visibility = 'hidden';
+        }
+        images[index].style.visibility = 'visible'
+
+        const buttons = document.querySelectorAll('.js-alipay-button');
+        for (const el of buttons) {
+          el.style.backgroundColor = '';
+        }
+        buttons[index].style.backgroundColor = '#0095ff'
+      }
+      setAlipayImage(Math.floor(document.querySelectorAll('.js-alipay-button').length*Math.random()));
     </script>
 
     <p class="mb-4 mt-4">
