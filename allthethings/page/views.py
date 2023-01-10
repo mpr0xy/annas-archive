@@ -47,6 +47,7 @@ search_filtered_bad_md5s = [
     "5457b152ef9a91ca3e2d8b3a2309a106",
     "02973f6d111c140510fcdf84b1d00c35",
     "d4c01f9370c5ac93eb5ee5c2037ac794",
+    "08499f336fbf8d31f8e7fadaaa517477",
 ]
 
 # Retrieved from https://openlibrary.org/config/edition.json on 2022-10-11
