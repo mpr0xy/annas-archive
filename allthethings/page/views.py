@@ -1705,6 +1705,15 @@ score += _score / 100.0;
 if (params.lang_code == $('file_unified_data.most_likely_language_code', '')) {
     score += 15.0;
 }
+if (params.lang_code == 'ca' && $('file_unified_data.most_likely_language_code', '') == 'es') {
+    score += 10.0;
+}
+if (params.lang_code == 'bg' && $('file_unified_data.most_likely_language_code', '') == 'ru') {
+    score += 10.0;
+}
+if ($('file_unified_data.most_likely_language_code', '') == 'en') {
+    score += 5.0;
+}
 
 return score;
 """
