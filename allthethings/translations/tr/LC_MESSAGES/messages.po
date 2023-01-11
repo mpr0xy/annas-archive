@@ -1,55 +1,71 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-13 05:13+0000\n"
+"PO-Revision-Date: 2023-01-13 05:13+0000\n"
+"Last-Translator: Yba <y.berkayaltin@gmail.com>\n"
+"Language-Team: Turkish <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr ""
+msgstr "Library Genesis Kurgu Olmayan \".rs-fork\"da görünür değil"
 
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr ""
+msgstr "Library Genesis Kurgusal \".rs-fork\"da görünür değil"
 
 #: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "Library Genesis \".li-fork\"da görünür değil"
 
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr ""
+msgstr "Library Genesis \".li-fork\"da bozuk olarak işaretlendi"
 
 #: allthethings/page/views.py:1595
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr ""
+msgstr "Kitap (bilinmeyen)"
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr ""
+msgstr "Kitap (kurgu olmayan)"
 
 #: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr ""
+msgstr "Kitap (kurgu)"
 
 #: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.journal_article"
-msgstr ""
+msgstr "Dergi makalesi"
 
 #: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Belge standartları"
 
 #: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.magazine"
-msgstr ""
+msgstr "Dergi"
 
 #: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.book_comic"
-msgstr ""
+msgstr "Çizgi roman"
 
 #: allthethings/page/views.py:1603
 msgid "common.md5_content_type_mapping.book_any"
-msgstr ""
+msgstr "Kitap (tümü)"
 
 #: allthethings/page/views.py:1647 allthethings/page/views.py:1648
 #: allthethings/page/views.py:1649
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "IPFS Ağ Geçidi #%(num)d"
 
 #: allthethings/page/views.py:1647
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -57,7 +73,7 @@ msgstr "(IPFS ile birden çok kez denemeniz gerekebilir)"
 
 #: allthethings/page/views.py:1652
 msgid "page.md5.box.download.lgrsnf"
-msgstr ""
+msgstr "Library Genesis \".rs-fork\" Kurgu Olmayan"
 
 #: allthethings/page/views.py:1652 allthethings/page/views.py:1655
 #: allthethings/page/views.py:1658
@@ -71,27 +87,27 @@ msgstr "(en üstteki “GET”i tıklayın)"
 
 #: allthethings/page/views.py:1655
 msgid "page.md5.box.download.lgrsfic"
-msgstr ""
+msgstr "Library Genesis \".rs-fork\" Kurgu"
 
 #: allthethings/page/views.py:1658
 msgid "page.md5.box.download.lgli"
-msgstr ""
+msgstr "Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1661
 msgid "page.md5.box.download.scihub"
-msgstr ""
+msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1665
 msgid "page.md5.box.download.zlib_anon"
-msgstr ""
+msgstr "Z-Library Anonim Mirror #%(num)d"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_tor"
-msgstr ""
+msgstr "Z-Library TOR"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_tor_extra"
-msgstr ""
+msgstr "(TOR browser gerekir)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
@@ -104,22 +120,50 @@ msgstr "Hakkında"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
+"Anna's Archive kâr amacı gütmeyen, açık kaynaklı bir <a href=\"https://en."
+"wikipedia.org/wiki/Shadow_library\">gölge kütüphane </a>arama motorudur. "
+"Aynı zamanda Z-Library gölge kütüphanesinin yedeği<a href=\"http://pilimi."
+"org\">Pirate Library Mirror</a>'un da arkasındaki kişi olan<a href=\"http"
+"://annas-blog.org\">Anna</a>tarafından yaratıldı. Anna kitaplar, makaleler, "
+"çizgi romanlar, dergiler ve diğer dökümanlar için merkezi bir arama noktası "
+"olması gerektiğini hissetti."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
+"Bilginin özgür akışına, bilgi ve kültürün korunmasına kuvvetle inanıyoruz. "
+"Bu arama motorunu devlerin omuzları üzerine inşa ediyoruz. Çeşitli gölge "
+"kütüphaneleri yaratan insanların sıkı çalışmalarına derinden saygı duyuyoruz "
+"ve bu arama motorunun erişimlerini artıracağını umuyoruz."
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
+"Kaydettiğimiz aşamalardan haberdar olmak için, Anna'yı <a href=\"https"
+"://twitter.com/AnnaArchivist\">Twitter</a>'da ya da <a href=\"https://www."
+"reddit.com/user/AnnaArchivist\">Reddit</a>'de takip edin. Sorular ve geri "
+"bildirimler için lütfen Anna ile %(email)s aracılığıyla iletişime geçin."
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
-msgstr ""
+msgstr "Nasıl yardım edilebilir"
 
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
+"<li>1. Bizi <a href=\"https://twitter.com/AnnaArchivist\">Twitter</a> ya da "
+"<a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>'te takip "
+"edin.</li><li>2. Twitter'da, Reddit'te, Tiktok'ta, Instagram'da, yerel kafe "
+"ya da kütüphanenizde veya canınız nerede isterse Anna's Archive hakkında "
+"birkaç kelime söyleyin! \"Bekçilik\" kavramına inanmıyoruz - eğer "
+"kapatılırsak tüm kodlarımızın ve verilerimizin açık kaynak olması sayesinde "
+"başka bir yerde ortaya çıkacağız.</li><li>3. Eğer imkanınız varsa, bağış <a "
+"href=\"/donate\">bağış </a>yapmayı gözden geçirin.</li><li>4. Sitemizi "
+"farklı dillere <a href=\"https://translate.annas-software.org/\""
+">çevirmemize</a> yardım edin.</li><li>5. Eğer yazılım mühendisiyseniz, <a "
+"href=\"https://annas-software.org/\">açık kaynak kodumuza</a> katkı yapmayı "
+"ya da<a href=\"http://pilimi.org\">torrent ve IPFS</a>'lerimizi seed etmeyi "
+"düşünün.</li>"
 
 #: allthethings/page/templates/page/about.html:26
 #: allthethings/page/templates/page/about.html:27
@@ -144,39 +188,45 @@ msgstr "Metin aşağıda İngilizce olarak devam etmektedir."
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
-msgstr ""
+msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
-msgstr ""
+msgstr "Veri Kümeleri ▶ DOI'ler ▶ DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:9
 msgid "page.doi.invalid.header"
-msgstr ""
+msgstr "Bulunamadı"
 
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
+"\"%(doi_input)s\" bir DOI gibi görünmüyor. \"10\" ile başlamalı ve eğik "
+"çizgi (slaş) içermeli."
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
 msgstr ""
+"Kanonik URL: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
+"%(doi_input)s</a>"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
 msgstr ""
+"Bu dosya <a href=\"https://sci-hub.se/%(doi_input)s\">Sci-Hub</a> sayfasında "
+"mevcut olabilir."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
-msgstr ""
+msgstr "Veri tabanımızda eşleşen dosyalar:"
 
 #: allthethings/page/templates/page/doi.html:47
 msgid "page.doi.results.none"
-msgstr ""
+msgstr "Veri tabanımızda eşleşen dosya bulunamadı."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
@@ -195,92 +245,110 @@ msgstr "Bağış yapmak"
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
 msgstr ""
+"Anna's Archive, tamamen gönüllüler tarafından yürütülen, kar amacı gütmeyen, "
+"açık kaynaklı bir projedir. Barındırma, alan adları, geliştirme ve diğer "
+"masrafları içeren maliyetlerimizi karşılamak için bağış alıyoruz."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
 msgstr ""
+"Katkılarınızla bu siteyi çalışır durumda tutabilir, özelliklerini "
+"geliştirebilir ve daha fazla koleksiyonu koruyabiliriz."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
 msgstr ""
+"Son bağışlar: %(donations)s. Cömertliğiniz için hepinize teşekkür ederiz. "
+"Bağışladığınız her türlü miktarla bize güvendiğiniz için gerçekten "
+"minnettarız."
 
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
 msgstr ""
+"Bağış yapmak için aşağıdan tercih ettiğiniz yöntemi seçin. Herhangi bir "
+"sorunla karşılaşırsanız, lütfen %(email)s adresinden bizimle iletişime geçin."
 
 #: allthethings/page/templates/page/donate.html:39
 msgid "page.donate.nav.cc"
-msgstr ""
+msgstr "Kredi/banka kartı"
 
 #: allthethings/page/templates/page/donate.html:40
 msgid "page.donate.nav.crypto"
-msgstr ""
+msgstr "Kripto"
 
 #: allthethings/page/templates/page/donate.html:41
 msgid "page.donate.nav.alipay"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:42
 msgid "page.donate.nav.faq"
-msgstr ""
+msgstr "Sorular"
 
 #: allthethings/page/templates/page/donate.html:46
 msgid "page.donate.cc.header"
-msgstr ""
+msgstr "Kredi/banka kartı"
 
 #: allthethings/page/templates/page/donate.html:49
 msgid "page.donate.cc.text1"
 msgstr ""
+"Doğrudan Bitcoin (BTC) cüzdanımıza para yatırmak için Sendwyre kullanıyoruz. "
+"Tamamlanması yaklaşık 5 dakika sürer."
 
 #: allthethings/page/templates/page/donate.html:53
 msgid "page.donate.cc.text2"
 msgstr ""
+"Bu yöntemin minimum işlem tutarı 30 ABD doları ve işlem ücreti yaklaşık 5 "
+"ABD dolarıdır."
 
 #: allthethings/page/templates/page/donate.html:57
 msgid "page.donate.cc.steps.header"
-msgstr ""
+msgstr "Adımlar:"
 
 #: allthethings/page/templates/page/donate.html:61
 msgid "page.donate.cc.steps.list1"
-msgstr ""
+msgstr "1. Bitcoin (BTC) cüzdan adresimizi kopyalayın: %(address)s"
 
 #: allthethings/page/templates/page/donate.html:62
 msgid "page.donate.cc.steps.list2"
 msgstr ""
+"2. %(link_open_tag)s bu sayfaya</a> gidin ve \"anında kripto satın al\"a "
+"tıklayın"
 
 #: allthethings/page/templates/page/donate.html:63
 msgid "page.donate.cc.steps.list3"
-msgstr ""
+msgstr "3. Cüzdan adresimizi yapıştırın ve talimatları izleyin"
 
 #: allthethings/page/templates/page/donate.html:67
 #: allthethings/page/templates/page/donate.html:86
 #: allthethings/page/templates/page/donate.html:104
 msgid "page.donate.text_thank_you"
 msgstr ""
+"Yardım ettiğiniz için çok teşekkür ederiz! Bu proje siz olmadan mümkün "
+"olmazdı."
 
 #: allthethings/page/templates/page/donate.html:72
 msgid "page.donate.crypto.header"
-msgstr ""
+msgstr "Kripto"
 
 #: allthethings/page/templates/page/donate.html:75
 msgid "page.donate.crypto.intro"
-msgstr ""
+msgstr "Zaten kripto paranız varsa adreslerimiz şunlardır:"
 
 #: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.crypto.btc_bch_note"
-msgstr ""
+msgstr "(BCH için de çalışır)"
 
 #: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.alipay.header"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:94
 msgid "page.donate.alipay.intro"
-msgstr ""
+msgstr "Lütfen bağışınızı göndermek için bu Alipay hesabını kullanın."
 
 #: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.faq.header"
-msgstr ""
+msgstr "Sıkça sorulan sorular"
 
 #: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.faq.text_other_payment1"
@@ -539,4 +607,3 @@ msgstr ""
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr ""
-
