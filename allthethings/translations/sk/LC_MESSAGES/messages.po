@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 06:13+0000\n"
 "PO-Revision-Date: 2023-01-11 06:13+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: Slada <slatinsky.adam@gmail.com>\n"
 "Language-Team: Slovak <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/sk/>\n"
 "Language: sk\n"
@@ -450,3 +450,60 @@ msgstr "Vyhľadajte podľa názvu, autora, jazyka, typu súboru, ISBN, MD5, …"
 #: allthethings/templates/layouts/index.html:157
 msgid "layout.index.footer.list2.blog"
 msgstr "Anna’s Blog"
+
+#: allthethings/templates/layouts/index.html:156
+msgid "layout.index.footer.list2.reddit"
+msgstr "Reddite"
+
+#: allthethings/page/templates/page/donate.html:6
+msgid "page.donate.header"
+msgstr "Podporiť"
+
+#: allthethings/page/templates/page/home.html:17
+#: allthethings/page/templates/page/search.html:47
+msgid "common.search.submit"
+msgstr "Vyhľadať"
+
+#: allthethings/page/templates/page/about.html:23
+msgid "page.about.help.text"
+msgstr ""
+"<li>1. Sledujte nás na <a href=\"https://twitter.com/AnnaArchivist\""
+">Twitteri</a> alebo <a href=\"https://www.reddit.com/user/AnnaArchivist\""
+">Reddite</a>.</li><li>2. Šírte informácie o Anna’s Archive na Twitteri, "
+"Reddite, Tiktoku, Instagrame, vo vašej miestnej kaviarni a knižnici alebo "
+"kdekoľvek inde! Neveríme v gatekeeping — ak nás zrušia, jednoducho sa "
+"objavíme inde, pretože všetok náš zdrojový kód a údaje sú plne otvorené.</"
+"li><li>3. Ak môžete, zvážte <a href=\"/donate\">finančnú podporu</a>.</"
+"li><li>4. Pomôžte <a href=\"https://translate.annas-software.org/\">s "
+"prekladom</a> našich webových stránok do iných jazykov.</li><li>5. Ak ste "
+"softvérový inžinier, zvážte príspevok do nášho <a href=\"https://annas-"
+"software.org/\">open source</a>, alebo seedujte naše <a href=\"http://pilimi."
+"org\">torrenty and IPFS</a>.</li>"
+
+#: allthethings/templates/layouts/index.html:119
+msgid "layout.index.header.progress_bar.text"
+msgstr "5%% písomného dedičstva ľudstva zachovaného navždy %(info_icon)s"
+
+#: allthethings/page/views.py:1597
+msgid "common.md5_content_type_mapping.book_fiction"
+msgstr "Kniha (beletria)"
+
+#: allthethings/templates/layouts/index.html:155
+msgid "layout.index.footer.list2.header"
+msgstr "Sledujte nás na"
+
+#: allthethings/templates/layouts/index.html:156
+msgid "layout.index.footer.list2.twitter"
+msgstr "Twitteri"
+
+#: allthethings/page/templates/page/donate.html:3
+msgid "page.donate.title"
+msgstr "Podporiť"
+
+#: allthethings/page/templates/page/donate.html:112
+msgid "page.donate.faq.text_other_payment1"
+msgstr ""
+"<div class=\"font-bold\">Podporujete iné spôsoby platby?</div> Momentálne "
+"nie. Mnoho ľudí si nepraje, aby archívy ako je tento existovali, takže "
+"musíme byť opatrní. Ak nám môžete pomôcť bezpečne nastaviť iné (pohodlnejšie)"
+" spôsoby platby, kontaktujte nás na %(email)s."
