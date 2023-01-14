@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 06:13+0000\n"
-"PO-Revision-Date: 2023-01-11 06:13+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-01-14 04:49+0000\n"
+"Last-Translator: Slada <slatinsky.adam@gmail.com>\n"
 "Language-Team: Slovak <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/sk/>\n"
 "Language: sk\n"
@@ -507,3 +507,39 @@ msgstr ""
 "nie. Mnoho ľudí si nepraje, aby archívy ako je tento existovali, takže "
 "musíme byť opatrní. Ak nám môžete pomôcť bezpečne nastaviť iné (pohodlnejšie)"
 " spôsoby platby, kontaktujte nás na %(email)s."
+
+#: allthethings/page/views.py:1589
+#, fuzzy
+msgid "common.md5_problem_type_mapping.lgli_broken"
+msgstr "Označené ako nefunčný odkaz v knižnici Library Genesis \".li-fork\""
+
+#: allthethings/page/views.py:1586
+#, fuzzy
+msgid "common.md5_problem_type_mapping.lgrsnf_visible"
+msgstr "Neviditeľné v Library Genesis \".rs-fork\" literatúre faktu"
+
+#: allthethings/page/views.py:1587
+#, fuzzy
+msgid "common.md5_problem_type_mapping.lgrsfic_visible"
+msgstr "Neviditeľné v Library Genesis \".rs-fork\" beletrii"
+
+#: allthethings/page/views.py:1588
+#, fuzzy
+msgid "common.md5_problem_type_mapping.lgli_visible"
+msgstr "Neviditeľné v Library Genesis \".li-fork\""
+
+#: allthethings/page/templates/page/search.html:10
+msgid "page.search.breadcrumbs.results_more"
+msgstr ""
+"Vyhľadávanie ▶ %(num)d+ výsledkov pre <span class=\"italic\""
+">%(search_input)s</span> (v metadátach tieňovej knižnice)"
+
+#: allthethings/page/templates/page/search.html:10
+msgid "page.search.breadcrumbs.results"
+msgstr ""
+"Vyhľadávanie ▶ %(num)d výsledkov pre <span class=\"italic\""
+">%(search_input)s</span> (v metadátach tieňovej knižnice)"
+
+#: allthethings/templates/layouts/index.html:156
+msgid "layout.index.footer.list2.subreddit"
+msgstr "Subreddite"
