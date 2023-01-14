@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 06:13+0000\n"
-"PO-Revision-Date: 2023-01-14 04:49+0000\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
 "Last-Translator: Slada <slatinsky.adam@gmail.com>\n"
 "Language-Team: Slovak <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/sk/>\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
-msgstr "Vyhľadajte v našom katalógu shadow knižníc."
+msgstr "Vyhľadajte v našom katalógu tieňových knižníc."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
@@ -66,7 +66,7 @@ msgstr "Domov"
 
 #: allthethings/page/views.py:1595
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr "Kniha (neznáme)"
+msgstr "Kniha (nezaradená)"
 
 #: allthethings/page/views.py:1652 allthethings/page/views.py:1655
 #: allthethings/page/views.py:1658
@@ -134,7 +134,7 @@ msgstr "Domov"
 
 #: allthethings/page/views.py:1647
 msgid "page.md5.box.download.ipfs_gateway_extra"
-msgstr "(možno budete musieť skúsiť viackrát s IPFS)"
+msgstr "(pre IPFS je niekedy potrebné vyskúšať stiahnutie viackrát)"
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
@@ -159,8 +159,8 @@ msgstr ""
 "cieľom je katalogizovať všetky existujúce knihy zhromaždením údajov z "
 "rôznych zdrojov. Nasledujeme pokrok ľudstva smerom k ľahkej dostupnosti "
 "všetkých kníh v digitálnej forme prostredníctvom „<a href=\"https://en."
-"wikipedia.org/wiki/Shadow_library\">shadow knižníc</a>“. Prečítajte si viac "
-"informácií na <a href=\"/about\">o nás.</a>"
+"wikipedia.org/wiki/Shadow_library\">tieňových knižníc</a>“. Prečítajte si "
+"viac informácií <a href=\"/about\">o nás.</a>"
 
 #: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.standards_document"
@@ -300,7 +300,7 @@ msgid "page.about.text2"
 msgstr ""
 "Pevne veríme vo voľný tok informácií a v zachovanie vedomostí a kultúry. S "
 "týmto vyhľadávačom staviame na pleciach gigantov. Hlboko rešpektujeme tvrdú "
-"prácu ľudí, ktorí vytvorili rôzne shadow knižnice, a dúfame, že tento "
+"prácu ľudí, ktorí vytvorili rôzne tieňové knižnice, a dúfame, že tento "
 "vyhľadávač rozšíri ich dosah."
 
 #: allthethings/page/templates/page/donate.html:13
@@ -321,15 +321,15 @@ msgstr ""
 #: allthethings/templates/layouts/index.html:105
 msgid "layout.index.header.tagline"
 msgstr ""
-"Vyhľadávač shadow knižníc: knihy, noviny, komiksy, časopisy. ⭐️ Z-Library, "
-"Library Genesis, Sci-Hub. ⚙️ Plne odolné vďaka otvoreného zdrojového kódu a "
-"dátam. ❤️ Povedzte aj ďalej o nás: každý je tu vítaný!"
+"Vyhľadávač tieňových knižníc: knihy, noviny, komiksy, časopisy. ⭐️ Z-"
+"Library, Library Genesis, Sci-Hub. ⚙️ Plne odolné vďaka otvoreného "
+"zdrojového kódu a dátam. ❤️ Povedzte aj ďalej o nás: každý je tu vítaný!"
 
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
-"Tieto knihy sú kombinácia populárnych kníh a kníh venujúcim sa svetu shadow "
-"knižníc a digitálneho zachovania."
+"Tieto knihy sú kombinácia populárnych kníh a kníh venujúcim sa svetu "
+"tieňových knižníc a digitálneho zachovania."
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
@@ -347,10 +347,10 @@ msgstr "%(num)d+ čiastočné matches"
 msgid "page.about.text1"
 msgstr ""
 "Anna’s Archive je nezisková organizácia, vyhľadávač s otvoreným zdrojovým "
-"kódom pre “<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">shadow "
+"kódom pre “<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">tieňové "
 "knižnice</a>”. Bola vytvorená <a href=\"http://annas-blog.org\">Annou</a>, "
 "človekom za projektom <a href=\"http://pilimi.org\">Pirate Library Mirror</"
-"a>, čo je záloha Z-Library shadow knižnice. Cíti, že je potreba "
+"a>, čo je záloha tieňovej knižnice Z-Library. Cíti, že je potreba "
 "centralizovaného miesta na vyhľadávanie medzi knihami, prácami, komiksami, "
 "magazínmi a ostatnými dokumentmi."
 
