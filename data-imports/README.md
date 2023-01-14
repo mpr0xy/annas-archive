@@ -57,7 +57,7 @@ docker-compose down
 # cd ..
 # docker-compose stop mariadb elasticsearch kibana
 # export NOW=$(date +"%Y_%m_%d_%H_%M")
-# mv ../allthethings-mysql-data ../all-thethings-mysql-data--backup-$NOW
+# mv ../allthethings-mysql-data ../allthethings-mysql-data--backup-$NOW
 # mv ../allthethings-elastic-data ../allthethings-elastic-data--backup-$NOW
 # mv ../aa-data-import--allthethings-mysql-data ../allthethings-mysql-data
 # mv ../aa-data-import--allthethings-elastic-data ../allthethings-elastic-data
@@ -68,7 +68,7 @@ docker-compose down
 # docker-compose stop mariadb elasticsearch kibana
 # mv ../allthethings-mysql-data ../aa-data-import--allthethings-mysql-data
 # mv ../allthethings-elastic-data ../aa-data-import--allthethings-elastic-data
-# mv ../all-thethings-mysql-data--backup-$NOW ../allthethings-mysql-data
+# mv ../allthethings-mysql-data--backup-$NOW ../allthethings-mysql-data
 # mv ../allthethings-elastic-data--backup-$NOW ../allthethings-elastic-data
 # docker-compose up -d --no-deps --build
 # docker-compose logs --tail 20 --follow
