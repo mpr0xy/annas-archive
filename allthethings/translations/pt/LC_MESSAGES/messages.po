@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-13 05:13+0000\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Portuguese <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Não visível na Library Genesis “.rs-fork” Não-Ficção"
@@ -633,7 +649,7 @@ msgstr "Reddit"
 
 #: allthethings/templates/layouts/index.html:156
 msgid "layout.index.footer.list2.subreddit"
-msgstr ""
+msgstr "Subreddit"
 
 #: allthethings/templates/layouts/index.html:157
 msgid "layout.index.footer.list2.blog"
@@ -642,4 +658,3 @@ msgstr "Blog da Anna (em inglês)"
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr "Código Fonte"
-

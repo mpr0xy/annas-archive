@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 06:13+0000\n"
-"PO-Revision-Date: 2023-01-11 06:13+0000\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Russian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ru/>\n"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1603
 msgid "common.md5_content_type_mapping.book_any"
-msgstr ""
+msgstr "Книга (любая)"
 
 #: allthethings/page/views.py:1647 allthethings/page/views.py:1648
 #: allthethings/page/views.py:1649

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-11 06:13+0000\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
 "Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Catalan <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ca/>\n"
@@ -47,8 +47,8 @@ msgstr "❌ Aquest fitxer pot tenir problemes."
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Cercador de llibreries a l'ombra: llibres, articles, còmics, revistes. ⭐️"
-" Z-Library, Library Genesis, Sci-Hub. ⚙️ Robust fent servir codi i dades "
+"🔍 Cercador de biblioteques a l'ombra: llibres, articles, còmics, revistes. "
+"⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Robust fent servir codi i dades "
 "oberts. ❤️ Difòn: tothom es benvingut aquí!"
 
 #: allthethings/page/templates/page/isbn.html:11
@@ -275,7 +275,7 @@ msgstr "Cerca"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
-msgstr "Cerca el nostre catàles de shadow libraries."
+msgstr "Cerca al nostre catàleg de llibreries a l'ombra."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:46
@@ -296,7 +296,7 @@ msgstr "Explora llibres"
 msgid "page.home.explore.intro"
 msgstr ""
 "Aquests son una combinació de llibres populars i altres llibres que tenen "
-"una especial significació pel món de les shadow libraries i de la "
+"una especial significació pel món de les biblioteques a l'ombra i de la "
 "preservació digital."
 
 #: allthethings/page/templates/page/isbn.html:3
@@ -488,12 +488,12 @@ msgstr "(potser hauries d'intentar-ho múltiples cops si fas servir IPFS)"
 msgid "page.about.text1"
 msgstr ""
 "L'arxiu l'Anna és un cercador de codi obert, sense ànim de lucre per “<a "
-"href=\"https://en.wikipedia.org/wiki/Shadow_library\">shadow libraries</a>”. "
-"Va se creat per <a href=\"http://annas-blog.org\">Anna</a>, la persona "
-"darrera de <a href=\"http://pilimi.org\">Pirate Library Mirror</a>, que es "
-"una copia de seguretat de la Z-Library shadow library. Ella sent que hi ha "
-"la necessitat d'un lloc centralitzat per cercar llibres, articles acadèmics, "
-"còmics, revistes i altres documents."
+"href=\"https://ca.wikipedia.org/wiki/Biblioteca_a_l%%27ombra\">biblioteques "
+"a l'ombra</a>”. Va ser creat per <a href=\"http://annas-blog.org\">Anna</a>, "
+"la persona darrera de <a href=\"http://pilimi.org\">Pirate Library Mirror</"
+"a>, que es una copia de seguretat de la Z-Library shadow library. Ella sent "
+"que hi ha la necessitat d'un lloc centralitzat per cercar llibres, articles "
+"acadèmics, còmics, revistes i altres documents."
 
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
@@ -516,7 +516,7 @@ msgstr ""
 "Creiem fermament en el flux lliure de la informació i en la preservació del "
 "coneixement i la cultura. Amb aquest motor de cerca, hem construït damunt "
 "les espatlles de gegants. Respectem profundament el treball dur de la gent "
-"que ha creat les diverses llibreries a l'ombra, i tenim l'esperança que "
+"que ha creat les diverses biblioteques a l'ombra, i tenim l'esperança que "
 "aquest motor de cerca eixampli la seva difusió."
 
 #: allthethings/page/views.py:1606
@@ -636,9 +636,13 @@ msgstr ""
 "té per objectiu catalogar tots els llibres existents agregant dades de "
 "diferents fonts. També seguim el progrés de la humanitat cap a fer "
 "disponibles de manera fàcil tots aquests llibres en format digital a través "
-"de “<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">les shadow "
-"libraries</a>”. Aprèn més a <a href=\"/about\">Quant a.</a>"
+"de “<a href=\"https://ca.wikipedia.org/wiki/Biblioteca_a_l%%27ombra\">les "
+"biblioteques a l'ombra</a>”. Aprèn més a <a href=\"/about\">Quant a.</a>"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
 msgstr "Sense fitxers coincidents a la nostra base de dades."
+
+#: allthethings/templates/layouts/index.html:156
+msgid "layout.index.footer.list2.subreddit"
+msgstr "Subreddit"
