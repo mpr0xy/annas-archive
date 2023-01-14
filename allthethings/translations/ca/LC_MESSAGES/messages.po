@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-01-14 04:49+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: yc <oriol.lopez@gmail.com>\n"
 "Language-Team: Catalan <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ca/>\n"
 "Language: ca\n"
@@ -516,7 +516,7 @@ msgstr ""
 "Creiem fermament en el flux lliure de la informació i en la preservació del "
 "coneixement i la cultura. Amb aquest motor de cerca, hem construït damunt "
 "les espatlles de gegants. Respectem profundament el treball dur de la gent "
-"que ha creat les diverses llibreries a l'ombra, i tenim l'esperança que "
+"que ha creat les diverses biblioteques a l'ombra, i tenim l'esperança que "
 "aquest motor de cerca eixampli la seva difusió."
 
 #: allthethings/page/views.py:1606
@@ -636,8 +636,8 @@ msgstr ""
 "té per objectiu catalogar tots els llibres existents agregant dades de "
 "diferents fonts. També seguim el progrés de la humanitat cap a fer "
 "disponibles de manera fàcil tots aquests llibres en format digital a través "
-"de “<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">les shadow "
-"libraries</a>”. Aprèn més a <a href=\"/about\">Quant a.</a>"
+"de “<a href=\"https://ca.wikipedia.org/wiki/Biblioteca_a_l%27ombra\">les "
+"biblioteques a l'ombra</a>”. Aprèn més a <a href=\"/about\">Quant a.</a>"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
