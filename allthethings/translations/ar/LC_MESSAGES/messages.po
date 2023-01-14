@@ -1,112 +1,95 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-14 22:33+0000\n"
-"PO-Revision-Date: 2023-01-14 22:33+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Arabic <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/ar/>\n"
-"Language: ar\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.15\n"
-
-#: allthethings/page/views.py:1586
+#: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr ""
 
-#: allthethings/page/views.py:1587
+#: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr ""
 
-#: allthethings/page/views.py:1588
+#: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr ""
 
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr ""
 
-#: allthethings/page/views.py:1595
+#: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr ""
 
-#: allthethings/page/views.py:1596
+#: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "كتاب (غير خيالي)"
 
-#: allthethings/page/views.py:1597
+#: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr ""
 
-#: allthethings/page/views.py:1598
+#: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr ""
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr ""
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.magazine"
 msgstr ""
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr ""
 
-#: allthethings/page/views.py:1603
+#: allthethings/page/views.py:1604
 msgid "common.md5_content_type_mapping.book_any"
 msgstr ""
 
-#: allthethings/page/views.py:1647 allthethings/page/views.py:1648
-#: allthethings/page/views.py:1649
+#: allthethings/page/views.py:1648 allthethings/page/views.py:1649
+#: allthethings/page/views.py:1650
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr ""
 
-#: allthethings/page/views.py:1647
+#: allthethings/page/views.py:1648
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(قد تحتاج إلى المحاولة عدة مرات مع IPFS)"
 
-#: allthethings/page/views.py:1652
+#: allthethings/page/views.py:1653
 msgid "page.md5.box.download.lgrsnf"
 msgstr ""
 
-#: allthethings/page/views.py:1652 allthethings/page/views.py:1655
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1653 allthethings/page/views.py:1656
+#: allthethings/page/views.py:1659
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(انقر أيضًا على\" GET \"في الأعلى)"
 
-#: allthethings/page/views.py:1652 allthethings/page/views.py:1655
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1653 allthethings/page/views.py:1656
+#: allthethings/page/views.py:1659
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(انقر فوق\" GET \"في الأعلى)"
 
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1656
 msgid "page.md5.box.download.lgrsfic"
 msgstr ""
 
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1659
 msgid "page.md5.box.download.lgli"
 msgstr ""
 
-#: allthethings/page/views.py:1661
+#: allthethings/page/views.py:1662
 msgid "page.md5.box.download.scihub"
 msgstr ""
 
-#: allthethings/page/views.py:1665
+#: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_anon"
 msgstr ""
 
-#: allthethings/page/views.py:1666
+#: allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_tor"
 msgstr ""
 
-#: allthethings/page/views.py:1666
+#: allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr ""
 
@@ -225,93 +208,97 @@ msgstr ""
 msgid "page.donate.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:39
+#: allthethings/page/templates/page/donate.html:55
 msgid "page.donate.nav.cc"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:40
+#: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.crypto"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:41
+#: allthethings/page/templates/page/donate.html:57
 msgid "page.donate.nav.alipay"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:42
+#: allthethings/page/templates/page/donate.html:58
 msgid "page.donate.nav.faq"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:46
+#: allthethings/page/templates/page/donate.html:62
 msgid "page.donate.cc.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:49
+#: allthethings/page/templates/page/donate.html:65
 msgid "page.donate.cc.text1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:53
+#: allthethings/page/templates/page/donate.html:69
 msgid "page.donate.cc.text2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:57
+#: allthethings/page/templates/page/donate.html:73
 msgid "page.donate.cc.steps.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:61
+#: allthethings/page/templates/page/donate.html:77
 msgid "page.donate.cc.steps.list1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:62
+#: allthethings/page/templates/page/donate.html:78
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:63
+#: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.cc.steps.list3"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:67
-#: allthethings/page/templates/page/donate.html:86
-#: allthethings/page/templates/page/donate.html:104
+#: allthethings/page/templates/page/donate.html:83
+#: allthethings/page/templates/page/donate.html:102
+#: allthethings/page/templates/page/donate.html:148
 msgid "page.donate.text_thank_you"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:72
+#: allthethings/page/templates/page/donate.html:88
 msgid "page.donate.crypto.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.crypto.intro"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:79
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.crypto.btc_bch_note"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:91
+#: allthethings/page/templates/page/donate.html:107
 msgid "page.donate.alipay.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:94
+#: allthethings/page/templates/page/donate.html:110
+msgid "page.donate.out_of_order"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:115
 msgid "page.donate.alipay.intro"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:109
+#: allthethings/page/templates/page/donate.html:154
 msgid "page.donate.faq.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:112
+#: allthethings/page/templates/page/donate.html:157
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:116
+#: allthethings/page/templates/page/donate.html:161
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:165
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:124
+#: allthethings/page/templates/page/donate.html:169
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 
@@ -555,3 +542,4 @@ msgstr ""
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr ""
+

@@ -107,41 +107,47 @@
     <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.alipay.header') }}</h3>
 
     <p class="mb-4">
-      {{ gettext('page.donate.alipay.intro') }}
+      {{ gettext('page.donate.out_of_order') }}
     </p>
 
-    <div class="mb-4">
-      <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(0)">1</button>
-      <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(1)">2</button>
-      <!-- <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(2)">3</button> -->
-    </div>
+    <div class="hidden">
+      <p class="mb-4">
+        {{ gettext('page.donate.alipay.intro') }}
+      </p>
 
-    <div class="mb-4 relative">
-      <!-- <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay0.jpg" loading="lazy" decoding="async"> -->
-      <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay1.jpg" loading="lazy" decoding="async">
-      <img class="js-alipay-img max-w-[350px]" src="/images/alipay2.jpg" loading="lazy" decoding="async">
-    </div>
+      <div class="mb-4">
+        <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(0)">1</button>
+        <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(1)">2</button>
+        <!-- <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(2)">3</button> -->
+      </div>
 
-    <script>
-      function setAlipayImage(index) {
-        const images = document.querySelectorAll('.js-alipay-img');
-        for (const el of images) {
-          el.style.visibility = 'hidden';
+      <div class="mb-4 relative">
+        <!-- <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay0.jpg" loading="lazy" decoding="async"> -->
+        <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay1.jpg" loading="lazy" decoding="async">
+        <img class="js-alipay-img max-w-[350px]" src="/images/alipay2.jpg" loading="lazy" decoding="async">
+      </div>
+
+      <script>
+        function setAlipayImage(index) {
+          const images = document.querySelectorAll('.js-alipay-img');
+          for (const el of images) {
+            el.style.visibility = 'hidden';
+          }
+          images[index].style.visibility = 'visible'
+
+          const buttons = document.querySelectorAll('.js-alipay-button');
+          for (const el of buttons) {
+            el.style.backgroundColor = '';
+          }
+          buttons[index].style.backgroundColor = '#0095ff'
         }
-        images[index].style.visibility = 'visible'
+        setAlipayImage(Math.floor(document.querySelectorAll('.js-alipay-button').length*Math.random()));
+      </script>
 
-        const buttons = document.querySelectorAll('.js-alipay-button');
-        for (const el of buttons) {
-          el.style.backgroundColor = '';
-        }
-        buttons[index].style.backgroundColor = '#0095ff'
-      }
-      setAlipayImage(Math.floor(document.querySelectorAll('.js-alipay-button').length*Math.random()));
-    </script>
-
-    <p class="mb-4 mt-4">
-      {{ gettext('page.donate.text_thank_you') }}
-    </p>
+      <p class="mb-4 mt-4">
+        {{ gettext('page.donate.text_thank_you') }}
+      </p>
+    </div>
   </div>
 
   <div class="hidden js-section js-q">
