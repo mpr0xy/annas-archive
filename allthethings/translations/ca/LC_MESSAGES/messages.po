@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-14 04:49+0000\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
 "Last-Translator: yc <oriol.lopez@gmail.com>\n"
 "Language-Team: Catalan <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ca/>\n"
@@ -47,8 +47,8 @@ msgstr "❌ Aquest fitxer pot tenir problemes."
 #: allthethings/templates/layouts/index.html:74
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Cercador de llibreries a l'ombra: llibres, articles, còmics, revistes. ⭐️"
-" Z-Library, Library Genesis, Sci-Hub. ⚙️ Robust fent servir codi i dades "
+"🔍 Cercador de biblioteques a l'ombra: llibres, articles, còmics, revistes. "
+"⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Robust fent servir codi i dades "
 "oberts. ❤️ Difòn: tothom es benvingut aquí!"
 
 #: allthethings/page/templates/page/isbn.html:11
@@ -275,7 +275,7 @@ msgstr "Cerca"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
-msgstr "Cerca el nostre catàles de shadow libraries."
+msgstr "Cerca al nostre catàleg de llibreries a l'ombra."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:46
@@ -296,7 +296,7 @@ msgstr "Explora llibres"
 msgid "page.home.explore.intro"
 msgstr ""
 "Aquests son una combinació de llibres populars i altres llibres que tenen "
-"una especial significació pel món de les shadow libraries i de la "
+"una especial significació pel món de les biblioteques a l'ombra i de la "
 "preservació digital."
 
 #: allthethings/page/templates/page/isbn.html:3
