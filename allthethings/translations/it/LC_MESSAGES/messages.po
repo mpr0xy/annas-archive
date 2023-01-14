@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-13 05:13+0000\n"
-"PO-Revision-Date: 2023-01-13 05:13+0000\n"
-"Last-Translator: animatronics <animatronicsu@gmail.com>\n"
+"PO-Revision-Date: 2023-01-14 22:33+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Italian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/it/>\n"
 "Language: it\n"
@@ -286,7 +286,7 @@ msgstr "Domande"
 
 #: allthethings/page/templates/page/donate.html:46
 msgid "page.donate.cc.header"
-msgstr "Carta di credito7debito"
+msgstr "Carta di credito/debito"
 
 #: allthethings/page/templates/page/donate.html:49
 msgid "page.donate.cc.text1"
@@ -484,15 +484,14 @@ msgstr "Scarica gratuitamente ebook/file %(extension)s da:"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
-msgstr "Specchio #%(num)d: %(link)s %(extra)s"
+msgstr "Mirror #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Tutti i mirror servono lo stesso file e dovrebbero essere sicuri da "
-"usare. Detto questo, fai sempre attenzione quando scarichi file da "
-"Internet. Ad esempio, assicurati di mantenere aggiornati i tuoi "
-"dispositivi."
+"Tutti i mirror possiedono lo stesso file e dovrebbero essere sicuri da "
+"usare. Detto questo, fai sempre attenzione quando scarichi file da Internet. "
+"Ad esempio, assicurati di mantenere aggiornati i tuoi dispositivi."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
