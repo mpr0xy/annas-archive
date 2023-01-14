@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-13 05:13+0000\n"
 "PO-Revision-Date: 2023-01-14 22:33+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: animatronics <animatronicsu@gmail.com>\n"
 "Language-Team: Italian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/it/>\n"
 "Language: it\n"
@@ -111,7 +111,7 @@ msgstr "(necessita di TOR browser)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
-msgstr "Di"
+msgstr "Chi siamo"
 
 #: allthethings/page/templates/page/about.html:6
 msgid "page.about.header"
@@ -236,11 +236,11 @@ msgstr "Dettagli tecnici (in inglese)"
 
 #: allthethings/page/templates/page/donate.html:3
 msgid "page.donate.title"
-msgstr "Donare"
+msgstr "Donazioni"
 
 #: allthethings/page/templates/page/donate.html:6
 msgid "page.donate.header"
-msgstr "Donare"
+msgstr "Donazioni"
 
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
@@ -601,7 +601,7 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:123
 msgid "layout.index.header.nav.home"
-msgstr "Casa"
+msgstr "Home"
 
 #: allthethings/templates/layouts/index.html:124
 msgid "layout.index.header.nav.about"
@@ -609,7 +609,7 @@ msgstr "Di"
 
 #: allthethings/templates/layouts/index.html:125
 msgid "layout.index.header.nav.donate"
-msgstr "Donare"
+msgstr "Donazioni"
 
 #: allthethings/templates/layouts/index.html:126
 msgid "layout.index.header.nav.search"
@@ -621,7 +621,7 @@ msgstr "Archivio di Anna"
 
 #: allthethings/templates/layouts/index.html:139
 msgid "layout.index.footer.list1.home"
-msgstr "Casa"
+msgstr "Home"
 
 #: allthethings/templates/layouts/index.html:140
 msgid "layout.index.footer.list1.about"
@@ -629,7 +629,7 @@ msgstr "Di"
 
 #: allthethings/templates/layouts/index.html:141
 msgid "layout.index.footer.list1.donate"
-msgstr "Donare"
+msgstr "Donazioni"
 
 #: allthethings/templates/layouts/index.html:142
 msgid "layout.index.footer.list1.datasets"
