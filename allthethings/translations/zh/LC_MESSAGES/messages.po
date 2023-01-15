@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
 "PO-Revision-Date: 2023-01-17 19:34+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: gumblex <abcdoyle888@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
 "projects/annas-archive/main-website/zh_Hans/>\n"
 "Language: zh\n"
@@ -586,7 +586,7 @@ msgstr "Reddit"
 
 #: allthethings/templates/layouts/index.html:156
 msgid "layout.index.footer.list2.subreddit"
-msgstr ""
+msgstr "Reddit 板块"
 
 #: allthethings/templates/layouts/index.html:157
 msgid "layout.index.footer.list2.blog"
