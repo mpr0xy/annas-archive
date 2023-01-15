@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
 "PO-Revision-Date: 2023-01-17 19:34+0000\n"
-"Last-Translator: Brooks Hatlen <selem@selem.im>\n"
+"Last-Translator: Ata Yiğit Telli <ytelli@gmail.com>\n"
 "Language-Team: Turkish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/tr/>\n"
 "Language: tr\n"
@@ -376,10 +376,16 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:165
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
+"<div class=\"font-bold\">Büyük miktarda bağış yapabilir miyim?</div> Bu çok "
+"iyi olur! Bin doların üstündeki bağışlarınız için lütfen bize, %(email)s "
+"adresinden direkt iletişim kurunuz."
 
 #: allthethings/page/templates/page/donate.html:169
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
+"<div class=\"font-bold\">Başka yollardan yardımcı olabilir miyim?</div> "
+"Evet! Lütfen <a href=\"/about\">hakkımızda sayfasında</a> \"Nasıl yardımcı "
+"olabilirim.\" kısmına bakınız."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
@@ -434,6 +440,12 @@ msgstr "Bulunamadı"
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
+"\"%(isbn_input)s\" geçerli bir ISBN numarası değil. ISBN'ler kesme işaretini "
+"veya kısa çizgileri saymazsanız 10 veya 13 karakterden oluşur. Son karakter "
+"hariç, bütün karakterler sayı olmalıdır, son karakter \"X\" olabilir. Son "
+"karakter kontrol sayısı olarak geçmektedir. Bu bir checksum üzerinden diğer "
+"sayıların kontrolünü yapılmasını sağlar. Ayrıca bu sayı Uluslararası ISBN "
+"Ajansının belirttiği uygun bir aralıkta olmalıdır."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
