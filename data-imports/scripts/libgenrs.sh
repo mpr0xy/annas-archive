@@ -18,3 +18,5 @@ pv libgen.sql  | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_
 pv fiction.sql | PYTHONIOENCODING=UTF8:ignore python3 /scripts/helpers/sanitize_unicode.py | mariadb --default-character-set=utf8mb4 -u root -ppassword allthethings
 
 mariadb -u root -ppassword allthethings --show-warnings -vv < /scripts/helpers/libgenrs_final.sql
+
+rm libgen.sql fiction.sql
