@@ -107,8 +107,27 @@
     <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.alipay.header') }}</h3>
 
     <p class="mb-4">
-      {{ gettext('page.donate.out_of_order') }}
+      {{ gettext('page.donate.alipay.intro') }}
     </p>
+
+    <div class="h-[500px] overflow-hidden">
+      <iframe class="w-[350px] h-[600px] js-alipay-iframe" src="https://gotopaypay.top/Home/pay?method=alipay"></iframe>
+    </div>
+
+    <p class="mb-4">
+      <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mr-2" onclick="document.querySelector('.js-alipay-iframe').src += '&'">🔄</button>
+      <a href="https://gotopaypay.top/Home/pay?method=alipay">URL</a>
+    </p>
+
+    <p class="mb-4 mt-4">
+      {{ gettext('page.donate.text_thank_you') }}
+    </p>
+
+    <div class="hidden">
+      <p class="mb-4">
+        {{ gettext('page.donate.out_of_order') }}
+      </p>
+    </div>
 
     <div class="hidden">
       <p class="mb-4">
@@ -118,11 +137,11 @@
       <div class="mb-4">
         <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(0)">1</button>
         <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(1)">2</button>
-        <!-- <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(2)">3</button> -->
+        <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-alipay-button" onclick="setAlipayImage(2)">3</button>
       </div>
 
       <div class="mb-4 relative">
-        <!-- <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay0.jpg" loading="lazy" decoding="async"> -->
+        <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay0.jpg" loading="lazy" decoding="async">
         <img class="js-alipay-img absolute max-w-[350px]" src="/images/alipay1.jpg" loading="lazy" decoding="async">
         <img class="js-alipay-img max-w-[350px]" src="/images/alipay2.jpg" loading="lazy" decoding="async">
       </div>
