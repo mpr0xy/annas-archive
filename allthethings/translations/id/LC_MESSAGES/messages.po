@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-17 19:34+0000\n"
+"PO-Revision-Date: 2023-01-19 12:34+0000\n"
 "Last-Translator: 李梓棋 <HRQ52173640@gmail.com>\n"
 "Language-Team: Indonesian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/id/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "Tidak terlihat di Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.lgli_broken"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr ""
+msgstr "buku（nonfiksi）"
 
 #: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
@@ -48,7 +48,7 @@ msgstr "Artikel jurnal"
 
 #: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "Dokumen standar"
 
 #: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.magazine"
@@ -73,7 +73,7 @@ msgstr "(Anda mungkin perlu mencoba berkali-kali dengan IPFS)"
 
 #: allthethings/page/views.py:1653
 msgid "page.md5.box.download.lgrsnf"
-msgstr ""
+msgstr "Library Genesis \".rs-fork\" Non-Fiksi"
 
 #: allthethings/page/views.py:1653 allthethings/page/views.py:1656
 #: allthethings/page/views.py:1659
@@ -87,11 +87,11 @@ msgstr "(klik “GET” di atas)"
 
 #: allthethings/page/views.py:1656
 msgid "page.md5.box.download.lgrsfic"
-msgstr ""
+msgstr "Perpustakaan Kejadian \".rs-fork\" Fiksi"
 
 #: allthethings/page/views.py:1659
 msgid "page.md5.box.download.lgli"
-msgstr ""
+msgstr "Perpustakaan Kejadian \".li-fork\""
 
 #: allthethings/page/views.py:1662
 msgid "page.md5.box.download.scihub"
@@ -99,15 +99,15 @@ msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1666
 msgid "page.md5.box.download.zlib_anon"
-msgstr ""
+msgstr "Cermin Anonim Perpustakaan-Z #%(num)d"
 
 #: allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_tor"
-msgstr ""
+msgstr "Z-Perpustakaan TOR"
 
 #: allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_tor_extra"
-msgstr ""
+msgstr "(membutuhkan browser TOR)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
