@@ -299,7 +299,8 @@ msgstr "3. Prekopírujte vašu adresu peňaženky a postupujte podľa inštrukci
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr ""
 "Ďakujeme vám veľmi pekne za vašu pomoc! Tento projekt by nebol možný bez "
@@ -322,18 +323,19 @@ msgid "page.donate.alipay.header"
 msgstr ""
 
 #: allthethings/page/templates/page/donate.html:110
-msgid "page.donate.out_of_order"
-msgstr ""
-
-#: allthethings/page/templates/page/donate.html:115
+#: allthethings/page/templates/page/donate.html:134
 msgid "page.donate.alipay.intro"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:128
+msgid "page.donate.out_of_order"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Často kladené otázky"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Podporujete iné spôsoby platby?</div> Momentálne"
@@ -341,7 +343,7 @@ msgstr ""
 "musíme byť opatrní. Ak nám môžete pomôcť bezpečne nastaviť iné "
 "(pohodlnejšie) spôsoby platby, kontaktujte nás na %(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Ak váš spôsob platby nie je v zozname, najjednoduchšie je si stiahnuť <a "
@@ -349,14 +351,14 @@ msgstr ""
 " si tam Bitcoin (BTC). Potom ho môžete poslať na našu adresu: "
 "%(address)s. Vo väčšine krajín by to malo trvať len niekoľko minút."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Môžem vám darovať väčšie množstvo peňaní?</div> "
 "To by bolo úžasné! Ak chcete darovať viac ako niekoľko tisíc dolárov, "
 "kontaktujte nás priamo na %(email)s."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Môžem prispieť iným spôsobom?</div> Áno! Pozrite"

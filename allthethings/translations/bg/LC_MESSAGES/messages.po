@@ -305,7 +305,8 @@ msgstr "3. Поставете адреса на нашия портфейл и �
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr "Благодарим ви много за помощта! Този проект не би бил възможен без вас."
 
@@ -326,18 +327,19 @@ msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
-msgid "page.donate.out_of_order"
-msgstr ""
-
-#: allthethings/page/templates/page/donate.html:115
+#: allthethings/page/templates/page/donate.html:134
 msgid "page.donate.alipay.intro"
 msgstr "Моля, използвайте този акаунт в Alipay, за да изпратите вашето дарение."
 
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:128
+msgid "page.donate.out_of_order"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Често задавани въпроси"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Имате ли други методи на плащане?</div> В "
@@ -346,7 +348,7 @@ msgstr ""
 "други (по-удобни) методи на плащане, моля, свържете се с нас на "
 "%(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Ако вашият метод на плащане не е в списъка, най-лесното нещо, което "
@@ -356,14 +358,14 @@ msgstr ""
 " адрес: %(address)s. В повечето страни настройката отнема само няколко "
 "минути."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Мога ли да направя голямо дарение?</div> Това би"
 " било невероятно! За дарения над няколко хиляди долара, моля, свържете се"
 " директно с нас на %(email)s."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Мога ли да допринеса по други начини?</div> Да! "

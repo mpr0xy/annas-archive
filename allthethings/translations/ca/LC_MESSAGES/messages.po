@@ -307,7 +307,8 @@ msgstr "3. Enganxa l'adreça del nostre moneder i segueix les instruccions"
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr "Gràcies pel teu ajut! Sense vosaltres aquest projecte no seria possible."
 
@@ -328,18 +329,19 @@ msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
-msgid "page.donate.out_of_order"
-msgstr ""
-
-#: allthethings/page/templates/page/donate.html:115
+#: allthethings/page/templates/page/donate.html:134
 msgid "page.donate.alipay.intro"
 msgstr "Si us plau utilitza aquest compte d'Alipay per enviar la teva donació."
 
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:128
+msgid "page.donate.out_of_order"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Preguntes freqüents"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Teniu altres mitjans de pagament?</div> "
@@ -348,7 +350,7 @@ msgstr ""
 "pagamenet segur (més pràctic), si us play contacta amb nosaltes a "
 "%(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Si el vostre mètode de pagament no es a la llista, el mes fàcil seria "
@@ -356,14 +358,14 @@ msgstr ""
 "mòbil, i comprar Bitcoin (BTC). Llavors podras enviar-lo a la nostra "
 "adreça: %(address)s. A molts paisos, només caldran uns minuts per fer-ho."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Puc fer una donació gran?</div> Això seria "
 "fantàstic! Per donacions d'uns quants milers de dòlars, contacteu-nos "
 "directament a %(email)s."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Puc contribuir d'altres formes?</div> Si! Mireu "

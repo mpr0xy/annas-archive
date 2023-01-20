@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-17 19:34+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: English <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/en/>\n"
-"Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Not visible in Library Genesis \".rs-fork\" Non-Fiction"
@@ -322,7 +306,8 @@ msgstr "3. Paste our wallet address, and follow the instructions"
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr ""
 "Thank you so much for helping out! This project would not be possible "
@@ -345,20 +330,21 @@ msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
+#: allthethings/page/templates/page/donate.html:134
+msgid "page.donate.alipay.intro"
+msgstr "Please use this Alipay account to send your donation."
+
+#: allthethings/page/templates/page/donate.html:128
 msgid "page.donate.out_of_order"
 msgstr ""
 "This donation option is currently out of order. Please check back later. "
 "Thanks for wanting to donate, we really appreciate it!"
 
-#: allthethings/page/templates/page/donate.html:115
-msgid "page.donate.alipay.intro"
-msgstr "Please use this Alipay account to send your donation."
-
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Frequently asked questions"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Do you have other payment methods?</div> "
@@ -366,7 +352,7 @@ msgstr ""
 " we have to be careful. If you can help us set up other (more convenient)"
 " payment methods safely, please get in touch at %(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "If your payment method is not in the list, the easiest thing to do would "
@@ -375,14 +361,14 @@ msgstr ""
 " address: %(address)s. In most countries, this should take only a few "
 "minutes to set up."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Can I make a large donation?</div> That would be"
 " amazing! For donations over a few thousand dollars, please contact us "
 "directly at %(email)s."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Can I contribute in other ways?</div> Yes! See "
@@ -660,3 +646,4 @@ msgstr "Anna’s Blog"
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
+

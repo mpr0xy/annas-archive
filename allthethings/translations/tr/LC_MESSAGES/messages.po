@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-21 20:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Turkish <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/tr/>\n"
-"Language: tr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Library Genesis'e ait Kurgu Olmayan yazı \".rs-fork\"unda görünür değil"
@@ -325,7 +309,8 @@ msgstr "3. Cüzdan adresimizi yapıştırın ve talimatları izleyin"
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr ""
 "Yardım ettiğiniz için çok teşekkür ederiz! Bu proje siz olmadan mümkün "
@@ -348,58 +333,60 @@ msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
+#: allthethings/page/templates/page/donate.html:134
+msgid "page.donate.alipay.intro"
+msgstr "Lütfen bağışınızı göndermek için bu Alipay hesabını kullanın."
+
+#: allthethings/page/templates/page/donate.html:128
 msgid "page.donate.out_of_order"
 msgstr ""
 "Bu bağış seçeneği şimdilik çalışmıyor. Lütfen daha sonra tekrar kontrol "
 "edin. Bağış yapmak istediğiniz için çok teşekkür ederiz!"
 
-#: allthethings/page/templates/page/donate.html:115
-msgid "page.donate.alipay.intro"
-msgstr "Lütfen bağışınızı göndermek için bu Alipay hesabını kullanın."
-
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Sıkça sorulan sorular"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
-"<div class=\"font-bold\">Başka ödeme yöntemleri mevcut mu?</div> Şimdilik "
-"hayır. Arşivlerimizin var olmasını istemeyen bir çok kişi olduğu için "
+"<div class=\"font-bold\">Başka ödeme yöntemleri mevcut mu?</div> Şimdilik"
+" hayır. Arşivlerimizin var olmasını istemeyen bir çok kişi olduğu için "
 "dikkatli davranmamız gerekiyor. Eğer daha iyi bir yöntemi biliyorsanız "
 "bizimle iletişime geçin: %(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Eğer ödeme metodunuz listede değil ise, yapabileceğiniz en basit aktarım "
-"şekli telefonunuza  <a href=\"https://www.coinbase.com/\">Coinbase</a> 'i "
-"indirip. Bir miktar Bitcoin(BTC) alıp daha sonra %(address)s hesabımıza "
+"şekli telefonunuza  <a href=\"https://www.coinbase.com/\">Coinbase</a> 'i"
+" indirip. Bir miktar Bitcoin(BTC) alıp daha sonra %(address)s hesabımıza "
 "iletebilirsiniz. Ülkelerin çoğunda bu şekilde para aktarımı dakikalar "
 "içerisinde gerçekleşir."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
-"<div class=\"font-bold\">Büyük miktarda bağış yapabilir miyim?</div> Bu çok "
-"iyi olur! Bin doların üstündeki bağışlarınız için lütfen bize, %(email)s "
-"adresinden direkt iletişim kurunuz."
+"<div class=\"font-bold\">Büyük miktarda bağış yapabilir miyim?</div> Bu "
+"çok iyi olur! Bin doların üstündeki bağışlarınız için lütfen bize, "
+"%(email)s adresinden direkt iletişim kurunuz."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Başka yollardan yardımcı olabilir miyim?</div> "
-"Evet! Lütfen <a href=\"/about\">hakkımızda sayfasında</a> \"Nasıl yardımcı "
-"olabilirim.\" kısmına bakınız."
+"Evet! Lütfen <a href=\"/about\">hakkımızda sayfasında</a> \"Nasıl "
+"yardımcı olabilirim.\" kısmına bakınız."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
 msgstr ""
 "<span class=\"italic font-bold\">Anna'nın Arşivi</span>, var olan tüm "
 "kitapları, çeşitli kaynaklardan toplayarak kataloglamayı hedefleyen bir "
-"projedir. Aynı zamanda tüm bu kitaplara dijital erişimi <a href=\"https://en."
-"wikipedia.org/wiki/Shadow_library\">saklı kütüphaneler </a> aracılığı ile "
-"gerçekleştirmek istiyoruz. <a href=\"/about\">Daha fazla bilgi için...</a>"
+"projedir. Aynı zamanda tüm bu kitaplara dijital erişimi <a "
+"href=\"https://en.wikipedia.org/wiki/Shadow_library\">saklı kütüphaneler "
+"</a> aracılığı ile gerçekleştirmek istiyoruz. <a href=\"/about\">Daha "
+"fazla bilgi için...</a>"
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
@@ -427,8 +414,8 @@ msgstr "Kitaplara göz atın"
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
-"Bu kitap seçkisi popüler kitaplar ile saklı kütüphane dünyasında büyük önem "
-"taşıyan ve dijital olarak korunması gereken kitaplardan oluşur."
+"Bu kitap seçkisi popüler kitaplar ile saklı kütüphane dünyasında büyük "
+"önem taşıyan ve dijital olarak korunması gereken kitaplardan oluşur."
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
@@ -445,12 +432,12 @@ msgstr "Bulunamadı"
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
-"\"%(isbn_input)s\" geçerli bir ISBN numarası değil. ISBN'ler kesme işaretini "
-"veya kısa çizgileri saymazsanız 10 veya 13 karakterden oluşur. Son karakter "
-"hariç, bütün karakterler sayı olmalıdır, son karakter \"X\" olabilir. Son "
-"karakter kontrol sayısı olarak geçmektedir. Bu bir checksum üzerinden diğer "
-"sayıların kontrolünü yapılmasını sağlar. Ayrıca bu sayı Uluslararası ISBN "
-"Ajansının belirttiği uygun bir aralıkta olmalıdır."
+"\"%(isbn_input)s\" geçerli bir ISBN numarası değil. ISBN'ler kesme "
+"işaretini veya kısa çizgileri saymazsanız 10 veya 13 karakterden oluşur. "
+"Son karakter hariç, bütün karakterler sayı olmalıdır, son karakter \"X\" "
+"olabilir. Son karakter kontrol sayısı olarak geçmektedir. Bu bir checksum"
+" üzerinden diğer sayıların kontrolünü yapılmasını sağlar. Ayrıca bu sayı "
+"Uluslararası ISBN Ajansının belirttiği uygun bir aralıkta olmalıdır."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
@@ -506,19 +493,18 @@ msgstr "Yeni Arama"
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
-"Arama ▶ <span class=\"italic\">%(search_input)s</span> için %(num)d+ sonuç "
-"bulundu"
+"Arama ▶ <span class=\"italic\">%(search_input)s</span> için %(num)d+ "
+"sonuç bulundu"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
-"Arama ▶ <span class=\"italic\">%(search_input)s</span> için %(num)d sonuç "
-"bulundu"
+"Arama ▶ <span class=\"italic\">%(search_input)s</span> için %(num)d sonuç"
+" bulundu"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
-msgstr ""
-"Arama ▶ <span class=\"italic\">%(search_input)s</span> için arama hatası"
+msgstr "Arama ▶ <span class=\"italic\">%(search_input)s</span> için arama hatası"
 
 #: allthethings/page/templates/page/search.html:15
 msgid "page.search.breadcrumbs.new"
@@ -559,8 +545,8 @@ msgstr ""
 #: allthethings/page/templates/page/search.html:58
 msgid "page.search.results.none"
 msgstr ""
-"<span class=\"font-bold\">Hiç kayıt bulunamadı.</span> Aradığınız kelimeleri "
-"veya filtreleri değiştirerek tekrar deneyin."
+"<span class=\"font-bold\">Hiç kayıt bulunamadı.</span> Aradığınız "
+"kelimeleri veya filtreleri değiştirerek tekrar deneyin."
 
 #: allthethings/page/templates/page/search.html:64
 msgid "page.search.results.partial_more"
@@ -653,3 +639,4 @@ msgstr "Anna'nın Blog'u"
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr "Anna'nın Yazılımı"
+

@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-21 20:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
-"projects/annas-archive/main-website/zh_Hans/>\n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "在 Library Genesis “.rs-fork” 的非虚构文学板块中不可见"
@@ -120,26 +104,22 @@ msgstr "关于"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
-"Anna’s Archive 是一个搜索“<a href=\"https://en.wikipedia.org/wiki/"
-"Shadow_library\">影子图书馆</a>”的非盈利开源搜索引擎，由 <a href=\"http"
-"://annas-blog.org\">Anna</a> 建立。她维护了 <a href=\"http://pilimi.org\""
-">Pirate Library Mirror</a>，这是影子图书馆 Z-Library 的一个备份站点。创始人认"
-"为需要有一个中心化的平台来搜索书籍、论文、漫画、杂志和其他文件。"
+"Anna’s Archive 是一个搜索“<a "
+"href=\"https://en.wikipedia.org/wiki/Shadow_library\">影子图书馆</a>”的非盈利开源搜索引擎，由"
+" <a href=\"http://annas-blog.org\">Anna</a> 建立。她维护了 <a "
+"href=\"http://pilimi.org\">Pirate Library Mirror</a>，这是影子图书馆 Z-Library "
+"的一个备份站点。创始人认为需要有一个中心化的平台来搜索书籍、论文、漫画、杂志和其他文件。"
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
-msgstr ""
-"我们坚信，信息能自由流通，知识和文化能得以保存。有了这个搜索引擎，我们就站在"
-"了巨人的肩膀上。我们敬重各种影子图书馆建立者的辛勤付出，并希望这个搜索引擎能"
-"扩大它们的影响力。"
+msgstr "我们坚信，信息能自由流通，知识和文化能得以保存。有了这个搜索引擎，我们就站在了巨人的肩膀上。我们敬重各种影子图书馆建立者的辛勤付出，并希望这个搜索引擎能扩大它们的影响力。"
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
-"请在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a href=\"https"
-"://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
-"上关注Anna，了解本项目最新进展。如有问题和反馈，请通过邮件 %(email)s 联系 "
-"Anna。"
+"请在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
+"上关注Anna，了解本项目最新进展。如有问题和反馈，请通过邮件 %(email)s 联系 Anna。"
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
@@ -148,16 +128,16 @@ msgstr "如何帮助我们？"
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
-"<li>1. 在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a href="
-"\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> 上面关注我们。</"
-"li><li>2. 在抖音(Tiktok)、推特、Reddit、Ins "
-"等网站上，在您当地的咖啡馆或图书馆里，随处都可以宣传 Anna’s Archive ！我们反"
-"对闭门造车——如果我们被查封了，我们会在其他地方重新出现，因为我们所有的代码和"
-"数据都是完全开源的。</li><li>3. 如果力所能及，请考虑<a href=\"/donate\""
-">捐款</a>。</li><li>4. 帮我们将网站<a href=\"https://translate.annas-software"
-".org/\">翻译</a>到多种语言。</li><li>5. 如果你是软件工程师， "
-"请考虑为我们的<a href=\"https://annas-software.org/\">开源代码</a>添砖加瓦，"
-"或者使用 <a href=\"http://pilimi.org\">BT 和 IPFS</a> 做种。</li>"
+"<li>1. 在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
+"上面关注我们。</li><li>2. 在抖音(Tiktok)、推特、Reddit、Ins 等网站上，在您当地的咖啡馆或图书馆里，随处都可以宣传 "
+"Anna’s Archive "
+"！我们反对闭门造车——如果我们被查封了，我们会在其他地方重新出现，因为我们所有的代码和数据都是完全开源的。</li><li>3. "
+"如果力所能及，请考虑<a href=\"/donate\">捐款</a>。</li><li>4. 帮我们将网站<a "
+"href=\"https://translate.annas-software.org/\">翻译</a>到多种语言。</li><li>5. "
+"如果你是软件工程师， 请考虑为我们的<a href=\"https://annas-"
+"software.org/\">开源代码</a>添砖加瓦，或者使用 <a href=\"http://pilimi.org\">BT 和 "
+"IPFS</a> 做种。</li>"
 
 #: allthethings/page/templates/page/about.html:26
 #: allthethings/page/templates/page/about.html:27
@@ -294,7 +274,8 @@ msgstr "3.粘贴我们的钱包地址，然后按照指示操作"
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr "非常感谢您的帮助！没有像您这样的人，这个项目就不可能成为现实。"
 
@@ -315,37 +296,38 @@ msgid "page.donate.alipay.header"
 msgstr "支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
-msgid "page.donate.out_of_order"
-msgstr "此捐赠选项目前不可用。 请稍后再回来查看。 感谢您愿意捐赠，我们真的很感激！"
-
-#: allthethings/page/templates/page/donate.html:115
+#: allthethings/page/templates/page/donate.html:134
 msgid "page.donate.alipay.intro"
 msgstr "请使用此支付宝账户发送您的捐款。"
 
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:128
+msgid "page.donate.out_of_order"
+msgstr "此捐赠选项目前不可用。 请稍后再回来查看。 感谢您愿意捐赠，我们真的很感激！"
+
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "常见问题"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-"
 "bold\">你们有其它支付方式吗？</div>目前还没有。许多人不希望这样的档案能够存在，所以我们必须保持谨慎。如果您可以帮助我们安全地建立别的（更便利的）支付方式，请通过%(email)s联系我们。"
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "如果您的付款方式不在列表中，最简单的方法是在您的手机上下载 <a "
 "href=\"https://www.coinbase.com/\">Coinbase</a>，然后购买一些比特币。 "
 "随后您可以将其发送到我们的地址：%(address)s。 在大多数国家/地区，这应该只需要几分钟即可完成设置。"
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-"
 "bold\">我可以进行大额的捐款吗？</div>这太酷了！对于数千美元及以上的捐款，请直接通过%(email)s联系我们。"
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">我可以通过其它方式做出贡献吗？</div>当然可以！请参见<a "
@@ -535,8 +517,8 @@ msgstr "安娜的档案"
 #: allthethings/templates/layouts/index.html:105
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis"
-"、Sci-Hub。 ⚙️ 通过开源代码和数据完全容灾。 ❤️ 广而告之：这里欢迎每一个人！"
+"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 ⚙️ "
+"通过开源代码和数据完全容灾。 ❤️ 广而告之：这里欢迎每一个人！"
 
 #: allthethings/templates/layouts/index.html:119
 msgid "layout.index.header.progress_bar.text"
@@ -601,3 +583,4 @@ msgstr "安娜的博客"
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr "安娜的软件"
+

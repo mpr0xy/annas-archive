@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-21 20:40+0000\n"
-"PO-Revision-Date: 2023-01-21 20:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Spanish <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/es/>\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "No visible en Librería Genesis \".rs-fork\" No Ficción"
@@ -140,10 +124,10 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
-"Para mantenerte informado de nuestra evolución, sigue a Anna en <a href="
-"\"https://twitter.com/AnnaArchivist\"> Twitter </a> o <a href=\"https://www."
-"reddit.com/user/AnnaArchivist\">Reddit</a> (paginas en inglés) . Para "
-"preguntas y feedback contacte con Anna en %(email)s."
+"Para mantenerte informado de nuestra evolución, sigue a Anna en <a "
+"href=\"https://twitter.com/AnnaArchivist\"> Twitter </a> o <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> (paginas en"
+" inglés) . Para preguntas y feedback contacte con Anna en %(email)s."
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
@@ -323,7 +307,8 @@ msgstr "3. Pega nuestra \"wallet address\", y sigue las instrucciones"
 
 #: allthethings/page/templates/page/donate.html:83
 #: allthethings/page/templates/page/donate.html:102
-#: allthethings/page/templates/page/donate.html:148
+#: allthethings/page/templates/page/donate.html:123
+#: allthethings/page/templates/page/donate.html:167
 msgid "page.donate.text_thank_you"
 msgstr "¡Muchas gracias por ayudar! Este proyecto no seria posible sin tu ayuda."
 
@@ -344,21 +329,22 @@ msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:110
-msgid "page.donate.out_of_order"
-msgstr ""
-"Esta opción de donación no esta actualmente disponible. Por favor, inténtelo "
-"mas tarde. Aun constante, ¡agradecemos mucho su interés por aportar una "
-"donación!"
-
-#: allthethings/page/templates/page/donate.html:115
+#: allthethings/page/templates/page/donate.html:134
 msgid "page.donate.alipay.intro"
 msgstr "Por favor utilice esta cuenta de Alipay para enviar su donación."
 
-#: allthethings/page/templates/page/donate.html:154
+#: allthethings/page/templates/page/donate.html:128
+msgid "page.donate.out_of_order"
+msgstr ""
+"Esta opción de donación no esta actualmente disponible. Por favor, "
+"inténtelo mas tarde. Aun constante, ¡agradecemos mucho su interés por "
+"aportar una donación!"
+
+#: allthethings/page/templates/page/donate.html:173
 msgid "page.donate.faq.header"
 msgstr "Preguntas frecuentes"
 
-#: allthethings/page/templates/page/donate.html:157
+#: allthethings/page/templates/page/donate.html:176
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">¿Disponen de otros métodos de pago?</div> "
@@ -367,7 +353,7 @@ msgstr ""
 "métodos de pago (más convenientes) de manera segura, contáctenos en "
 "%(email)s."
 
-#: allthethings/page/templates/page/donate.html:161
+#: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Si su método de pago no está en la lista, lo más fácil sería descargar <a"
@@ -376,14 +362,14 @@ msgstr ""
 "nuestra dirección: %(address)s. En la mayoría de los países, esto sólo "
 "debería llevar unos minutos."
 
-#: allthethings/page/templates/page/donate.html:165
+#: allthethings/page/templates/page/donate.html:184
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">¿Puedo hacer una donación importante?</div> "
 "¡Sería increíble!. Para donaciones superiores a unos pocos miles de "
 "dólares, póngase en contacto con nosotros directamente en %(email)s."
 
-#: allthethings/page/templates/page/donate.html:169
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">¿Puedo contribuir de otra manera?</div> ¡Sí! Ver"
@@ -671,3 +657,4 @@ msgstr "Anna’s Blog"
 #: allthethings/templates/layouts/index.html:158
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
+
