@@ -189,8 +189,8 @@ services:
     container_name: autossh
     image: jnovack/autossh:2.0.1
     environment:
-      SSH_REMOTE_USER: "${AUTOSSH_USER}"
-      SSH_REMOTE_HOST: "${AUTOSSH_HOST}"
+      SSH_REMOTE_USER: "${AUTOSSH_USER:-}"
+      SSH_REMOTE_HOST: "${AUTOSSH_HOST:-}"
       SSH_REMOTE_PORT: "22"
       SSH_BIND_IP: "0.0.0.0"
       SSH_TUNNEL_PORT: "3333"
@@ -200,7 +200,7 @@ services:
     restart: unless-stopped
     profiles: ["autossh"]
     volumes:
-      - "${AUTOSSH_ID_RSA}:/id_rsa"
+      - "${AUTOSSH_ID_RSA:-./id_rsa}:/id_rsa:ro"
 
 volumes:
   redis: {}
