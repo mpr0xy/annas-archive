@@ -18,6 +18,36 @@
   </head>
   <body>
     <div class="header">
+      <div class="bg-[#0195ff] hidden js-top-banner">
+        <div class="max-w-[850px] mx-auto px-4 py-2 text-[#fff] flex">
+          <div>
+            {{ gettext('layout.index.header.banner.new_donation_method', method_name=('<strong>Paypal</strong>' | safe), donate_link_open_tag=('<a href="/donate" class="custom-a text-[#fff] hover:text-[#ddd] underline">' | safe)) }}
+          </div>
+          <div>
+            <a href="#" class="custom-a text-[#fff] hover:text-[#ddd] js-top-banner-close">✕</a>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function() {
+          var latestTopBannerType = '1';
+          var topBannerMatch = document.cookie.match(/top_banner_hidden=([^$ ;}]+)/);
+          var topBannerType = '';
+          if (topBannerMatch) {
+            topBannerType = topBannerMatch[1];
+            // Refresh cookie.
+            document.cookie = 'top_banner_hidden=' + topBannerType + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
+          }
+          if (topBannerType !== latestTopBannerType) {
+            document.querySelector('.js-top-banner').style.display = 'block';
+            document.querySelector('.js-top-banner-close').addEventListener('click', function() {
+              document.querySelector('.js-top-banner').style.display = 'none';
+              document.cookie = 'top_banner_hidden=' + latestTopBannerType + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
+              return false;
+            });
+          }
+        })();
+      </script>
       <div class="header-inner">
         <div class="header-inner-top">
           <a href="/" class="custom-a text-[#000] hover:text-[#444]"><h1>{{ gettext('layout.index.header.title') }}</h1></a>
@@ -47,7 +77,7 @@
                 if (!langCodes.includes(langCode)) {
                   return;
                 }
-                document.cookie = 'selected_lang=' + langCode + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain
+                document.cookie = 'selected_lang=' + langCode + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=' + baseDomain;
               }
 
               function redirectLang(langCode) {

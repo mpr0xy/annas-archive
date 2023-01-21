@@ -422,7 +422,7 @@ msgstr "Αναζητήστε τον κατάλογό των πειρατικών
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:46
-#: allthethings/templates/layouts/index.html:129
+#: allthethings/templates/layouts/index.html:161
 msgid "common.search.placeholder"
 msgstr "Αναζήτηση τίτλου, συγγραφέα, γλώσσα, τύπο αρχείου, ISBN, MD5,…"
 
@@ -608,11 +608,15 @@ msgstr "❌ Αυτό το αρχείο ενδέχεται να έχει προβ
 msgid "layout.index.title"
 msgstr "Το αρχείο της Άννας (Anna’s Archive)"
 
-#: allthethings/templates/layouts/index.html:23
+#: allthethings/templates/layouts/index.html:24
+msgid "layout.index.header.banner.new_donation_method"
+msgstr ""
+
+#: allthethings/templates/layouts/index.html:55
 msgid "layout.index.header.title"
 msgstr "Το Αρχείο της Άννας (Anna’s Archive)"
 
-#: allthethings/templates/layouts/index.html:105
+#: allthethings/templates/layouts/index.html:137
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Μηχανή αναζήτησης πειρατικών βιβλιοθηκών: βιβλία, εφημερίδες, κόμικς, "
@@ -620,69 +624,69 @@ msgstr ""
 "μέσω ανοιχτού κώδικα και δεδομένων. ❤️ Διαδώστε τη λέξη: όλοι είναι "
 "ευπρόσδεκτοι εδώ!"
 
-#: allthethings/templates/layouts/index.html:119
+#: allthethings/templates/layouts/index.html:151
 msgid "layout.index.header.progress_bar.text"
 msgstr ""
 "Το 5%% της γραπτής κληρονομιάς της ανθρωπότητας διατηρείται για πάντα "
 "%(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:123
+#: allthethings/templates/layouts/index.html:155
 msgid "layout.index.header.nav.home"
 msgstr "Αρχική"
 
-#: allthethings/templates/layouts/index.html:124
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.nav.about"
 msgstr "Σχετικά με"
 
-#: allthethings/templates/layouts/index.html:125
+#: allthethings/templates/layouts/index.html:157
 msgid "layout.index.header.nav.donate"
 msgstr "Δωρεά"
 
-#: allthethings/templates/layouts/index.html:126
+#: allthethings/templates/layouts/index.html:158
 msgid "layout.index.header.nav.search"
 msgstr "Αναζήτηση"
 
-#: allthethings/templates/layouts/index.html:138
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.footer.list1.header"
 msgstr "Το Αρχείο της Άννας (Anna’s Archive)"
 
-#: allthethings/templates/layouts/index.html:139
+#: allthethings/templates/layouts/index.html:171
 msgid "layout.index.footer.list1.home"
 msgstr "Αρχική"
 
-#: allthethings/templates/layouts/index.html:140
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.footer.list1.about"
 msgstr "Σχετικά με"
 
-#: allthethings/templates/layouts/index.html:141
+#: allthethings/templates/layouts/index.html:173
 msgid "layout.index.footer.list1.donate"
 msgstr "Δωρεά"
 
-#: allthethings/templates/layouts/index.html:142
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.footer.list1.datasets"
 msgstr "Σύνολα δεδομένων"
 
-#: allthethings/templates/layouts/index.html:155
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.header"
 msgstr "Μείνετε σε επαφή μαζί μας"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list2.blog"
 msgstr "To blog της 'Αννας"
 
-#: allthethings/templates/layouts/index.html:158
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list2.software"
 msgstr "Το λογισμικό της Άννας"
 
