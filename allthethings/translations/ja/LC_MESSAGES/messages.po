@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-17 19:34+0000\n"
+"PO-Revision-Date: 2023-01-21 20:40+0000\n"
 "Last-Translator: Judy Chi <1468471427@qq.com>\n"
 "Language-Team: Japanese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ja/>\n"
@@ -499,7 +499,7 @@ msgstr "人類の文字遺産の 5%% が永久に保存される %(info_icon)s"
 
 #: allthethings/templates/layouts/index.html:123
 msgid "layout.index.header.nav.home"
-msgstr "家"
+msgstr "ホームページ"
 
 #: allthethings/templates/layouts/index.html:124
 msgid "layout.index.header.nav.about"
