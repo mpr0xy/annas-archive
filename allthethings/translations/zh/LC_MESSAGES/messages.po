@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
-"PO-Revision-Date: 2023-01-17 19:34+0000\n"
+"PO-Revision-Date: 2023-01-21 20:40+0000\n"
 "Last-Translator: gumblex <abcdoyle888@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
 "projects/annas-archive/main-website/zh_Hans/>\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr "在Library Genesis无法访问的\".rs-fork\"类型的非虚构文学"
+msgstr "在 Library Genesis “.rs-fork” 的非虚构文学板块中不可见"
 
 #: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr "在Library Genesis无法访问的\".rs-fork\"类型的小说"
+msgstr "在 Library Genesis “.rs-fork” 的小说板块中不可见"
 
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr "在Library Genesis无法访问的\"\".li-fork\"类作品"
+msgstr "在 Library Genesis “.li-fork” 中不可见"
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr "在Library Genesis标记为损坏的\".li-fork\"类作品"
+msgstr "在 Library Genesis “.li-fork” 中被标记为损坏"
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -87,11 +87,11 @@ msgstr "（点击顶部的“GET”）"
 
 #: allthethings/page/views.py:1656
 msgid "page.md5.box.download.lgrsfic"
-msgstr "Library Genesis的 \".rs-fork\" 类小说"
+msgstr "Library Genesis “.rs-fork” 的小说板块"
 
 #: allthethings/page/views.py:1659
 msgid "page.md5.box.download.lgli"
-msgstr "Library Genesis中的 \".li-fork\"类作品"
+msgstr "Library Genesis “.li-fork”"
 
 #: allthethings/page/views.py:1662
 msgid "page.md5.box.download.scihub"
@@ -120,22 +120,26 @@ msgstr "关于"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
-"Anna’s Archive是一个 “<a "
-"href=\"https://en.wikipedia.org/wiki/Shadow_library\">影子图书馆</a>”的非盈利开源搜索引擎."
-" 由 <a href=\"http://annas-blog.org\">Anna</a>, 也就是 <a "
-"href=\"http://pilimi.org\">Pirate Library Mirror</a>背后的创始人所建立的。Pirate "
-"Library Mirror是Z-Library的影子备份图书馆。 Anna认为需要有一个中心化的平台来搜索书籍、论文、漫画、杂志和其他文件。"
+"Anna’s Archive 是一个搜索“<a href=\"https://en.wikipedia.org/wiki/"
+"Shadow_library\">影子图书馆</a>”的非盈利开源搜索引擎，由 <a href=\"http"
+"://annas-blog.org\">Anna</a> 建立。她维护了 <a href=\"http://pilimi.org\""
+">Pirate Library Mirror</a>，这是影子图书馆 Z-Library 的一个备份站点。创始人认"
+"为需要有一个中心化的平台来搜索书籍、论文、漫画、杂志和其他文件。"
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
-msgstr "我们坚信信息的自由流通以及知识和文化的保存。有了这个搜索引擎，我们就站在了巨人的肩膀上。我们深深尊重那些创造了各种影子图书馆的人们的辛勤工作，我们希望这个搜索引擎能扩大他们的范围。"
+msgstr ""
+"我们坚信，信息能自由流通，知识和文化能得以保存。有了这个搜索引擎，我们就站在"
+"了巨人的肩膀上。我们敬重各种影子图书馆建立者的辛勤付出，并希望这个搜索引擎能"
+"扩大它们的影响力。"
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
-"了解最新进展, 在 <a href=\"https://twitter.com/AnnaArchivist\">推特</a> 或<a "
-"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>上关注Anna. "
-"如有问题和反馈，请邮件: %(email)s 联系Anna."
+"请在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a href=\"https"
+"://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
+"上关注Anna，了解本项目最新进展。如有问题和反馈，请通过邮件 %(email)s 联系 "
+"Anna。"
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
@@ -144,14 +148,16 @@ msgstr "如何帮助我们？"
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
-"<li>1. 在<a href=\"https://twitter.com/AnnaArchivist\">推特</a> 或<a "
-"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>上面关注我们</li><li>2."
-" 通过抖音(Tiktok)、推特、Reddit、Ins等，在您当地的咖啡馆或图书馆，或者任何地方向全世界传播 Anna’s Archive ! "
-"我们不相信言论审查 —如果我们倒下了我们会在其他地方重新出现！因为我们所有的代码都是完全开源的！</li><li>3. 如果可能的话，请考虑 <a"
-" href=\"/donate\">捐款</a>.</li><li>4. 帮助我们<a href=\"https://translate"
-".annas-software.org/\">翻译</a> 我们的网站到多种语言</li><li>5. 如果你是软件工程师， 请考虑为我们的 <a"
-" href=\"https://annas-software.org/\">开源代码</a>做点贡献, 或者给我们的<a "
-"href=\"http://pilimi.org\">torrents 和 IPFS</a>种子文件做种.</li>"
+"<li>1. 在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a href="
+"\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> 上面关注我们。</"
+"li><li>2. 在抖音(Tiktok)、推特、Reddit、Ins "
+"等网站上，在您当地的咖啡馆或图书馆里，随处都可以宣传 Anna’s Archive ！我们反"
+"对闭门造车——如果我们被查封了，我们会在其他地方重新出现，因为我们所有的代码和"
+"数据都是完全开源的。</li><li>3. 如果力所能及，请考虑<a href=\"/donate\""
+">捐款</a>。</li><li>4. 帮我们将网站<a href=\"https://translate.annas-software"
+".org/\">翻译</a>到多种语言。</li><li>5. 如果你是软件工程师， "
+"请考虑为我们的<a href=\"https://annas-software.org/\">开源代码</a>添砖加瓦，"
+"或者使用 <a href=\"http://pilimi.org\">BT 和 IPFS</a> 做种。</li>"
 
 #: allthethings/page/templates/page/about.html:26
 #: allthethings/page/templates/page/about.html:27
@@ -188,7 +194,7 @@ msgstr "未找到"
 
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
-msgstr "“%(doi_input)s”看起来不像 DOI。 它应该以“10”开头并包含一个正斜杠。"
+msgstr "“%(doi_input)s”看起来不像 DOI。 它应该以“10.”开头并包含一个正斜杠（/）。"
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
@@ -529,8 +535,8 @@ msgstr "安娜的档案"
 #: allthethings/templates/layouts/index.html:105
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 ⚙️ "
-"通过开源代码和数据完全恢复。 ❤️ 广而告之：这里欢迎大家！"
+"🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis"
+"、Sci-Hub。 ⚙️ 通过开源代码和数据完全容灾。 ❤️ 广而告之：这里欢迎每一个人！"
 
 #: allthethings/templates/layouts/index.html:119
 msgid "layout.index.header.progress_bar.text"
