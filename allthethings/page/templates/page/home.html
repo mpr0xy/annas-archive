@@ -11,7 +11,7 @@
     {{ gettext('page.home.search.intro') }}
   </p>
 
-  <form action="/search" method="get">
+  <form action="/search" method="get" role="search">
     <div class="flex mb-4">
       <input type="text" name="q" placeholder="{{ gettext('common.search.placeholder') }}" value="{{search_input}}" class="grow max-w-[400] bg-[#00000011] px-2 py-1 mr-2 rounded">
       <button class="text-[#777] hover:text-[#333]" type="submit">{{ gettext('common.search.submit') }}</button>
@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="relative top-[-1] pl-4 grow overflow-hidden">
-        <div class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</div>
+        <h3 class="text-xl font-bold">{{md5_dict.file_unified_data.title_best}}</h3>
         <div class="text-lg italic">{{md5_dict.file_unified_data.author_best}}</div>
       </div>
     </a>

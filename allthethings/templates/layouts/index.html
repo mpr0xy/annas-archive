@@ -17,7 +17,7 @@
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
-    <div class="header">
+    <div class="header" role="navigation">
       <div class="bg-[#0195ff] hidden js-top-banner">
         <div class="max-w-[850px] mx-auto px-4 py-2 text-[#fff] flex">
           <div>
@@ -155,14 +155,14 @@
             <a href="/donate" class="{{ 'header-link-active' if header_active == 'donate' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.donate') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.donate') }}</span></a>
             <a href="/search" class="{{ 'header-link-active' if header_active == 'search' }}"><span class="header-link-normal">{{ gettext('layout.index.header.nav.search') }}</span><span class="header-link-bold">{{ gettext('layout.index.header.nav.search') }}</span></a>
           </div>
-          <form class="header-search" action="/search" method="get">
+          <form class="header-search" action="/search" method="get" role="search">
             <input name="q" type="text" placeholder="{{ gettext('common.search.placeholder') }}" value="{{search_input}}">
           </form>
         </div>
       </div>
     </div>
-    <div class="main">{% block body %}{% endblock %}</div>
-    <div class="bg-[#0000000d]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
+    <main class="main">{% block body %}{% endblock %}</main>
+    <footer class="bg-[#0000000d]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
       <div class="max-w-[850px] mx-auto p-[12px] leading-relaxed flex">
         <p class=" mr-16" style="flex-grow: 1">
           <strong class="font-bold">{{ gettext('layout.index.footer.list1.header') }}</strong><br>
@@ -189,5 +189,5 @@
           <a class="custom-a text-[#777] hover:text-[#333]" href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a><br>
         </p>
       </div>
-    </div>
+    </footer>
   </body>
