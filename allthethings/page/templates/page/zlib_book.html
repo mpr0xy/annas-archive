@@ -122,7 +122,7 @@
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
           <div class="flex-none w-[150] px-2 py-1">Filesize</div>
-          <div class="px-2 py-1 grow break-words line-clamp-[8]">{{zlib_book_dict.filesize_reported | filesizeformat}} / {{zlib_book_dict.filesize_reported}} B{% if zlib_book_dict.in_libgen == 0 and zlib_book_dict.filesize_reported != zlib_book_dict.filesize %}<br><strong class="whitespace-normal">Note: different than the downloaded file (see below)</strong>{% endif %}</div>
+          <div class="px-2 py-1 grow break-words line-clamp-[8]">{{zlib_book_dict.filesize_reported | default(0, true) | filesizeformat}} / {{zlib_book_dict.filesize_reported}} B{% if zlib_book_dict.in_libgen == 0 and zlib_book_dict.filesize_reported != zlib_book_dict.filesize %}<br><strong class="whitespace-normal">Note: different than the downloaded file (see below)</strong>{% endif %}</div>
           <div></div>
         </div>
         <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
@@ -178,7 +178,7 @@
           </div>
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
             <div class="flex-none w-[150] px-2 py-1">Filesize</div>
-            <div class="px-2 py-1 grow break-words line-clamp-[8]">{{zlib_book_dict.filesize | filesizeformat}} / {{zlib_book_dict.filesize}} B{% if zlib_book_dict.filesize_reported != zlib_book_dict.filesize %}<br><strong class="whitespace-normal">Note: different than the metadata (see above)</strong>{% endif %}</div>
+            <div class="px-2 py-1 grow break-words line-clamp-[8]">{{zlib_book_dict.filesize | default(0, true) | filesizeformat}} / {{zlib_book_dict.filesize}} B{% if zlib_book_dict.filesize_reported != zlib_book_dict.filesize %}<br><strong class="whitespace-normal">Note: different than the metadata (see above)</strong>{% endif %}</div>
             <div></div>
           </div>
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">

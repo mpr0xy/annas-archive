@@ -1514,6 +1514,8 @@ def get_md5_dicts_mysql(session, canonical_md5s):
             md5_dict['file_unified_data']['problems'].append({ 'type': 'lgli_visible', 'descr': ((md5_dict['lgli_file'] or {}).get('visible') or '') })
         if ((md5_dict['lgli_file'] or {}).get('broken') or '') in [1, "1", "y", "Y"]:
             md5_dict['file_unified_data']['problems'].append({ 'type': 'lgli_broken', 'descr': ((md5_dict['lgli_file'] or {}).get('broken') or '') })
+        if (md5_dict['zlib_book'] and (md5_dict['zlib_book']['in_libgen'] or False) == False and (md5_dict['zlib_book']['pilimi_torrent'] or '') == ''):
+            md5_dict['file_unified_data']['problems'].append({ 'type': 'zlib_missing', 'descr': '' })
 
         md5_dict['file_unified_data']['content_type'] = 'book_unknown'
         if md5_dict['lgli_file'] != None:
@@ -1588,6 +1590,7 @@ def get_md5_problem_type_mapping():
         "lgrsfic_visible": gettext("common.md5_problem_type_mapping.lgrsfic_visible"),
         "lgli_visible":    gettext("common.md5_problem_type_mapping.lgli_visible"),
         "lgli_broken":     gettext("common.md5_problem_type_mapping.lgli_broken"),
+        "zlib_missing":    gettext("common.md5_problem_type_mapping.zlib_missing"),
     }
 
 def get_md5_content_type_mapping(display_lang):

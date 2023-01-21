@@ -30,7 +30,7 @@
           <div class="mt-4">{{ gettext('page.md5.box.issues.text1') }}</div>
           <ul class="list-inside">
             {% for problem in md5_dict.file_unified_data.problems %}
-            <li>- {{ md5_problem_type_mapping[problem.type] }} ("{{problem.descr}}")</li>
+            <li>- {{ md5_problem_type_mapping[problem.type] }}{% if problem.descr %} ("{{problem.descr}}"){% endif %}</li>
             {% endfor %}
           </ul>
 
@@ -296,7 +296,7 @@
           {% for problem in md5_dict.file_unified_data.problems %}
             <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
               <div class="flex-none w-[150] px-2 py-1">{{ 'File problems' if loop.index0 == 0 else ' ' }}&nbsp;</div>
-              <div class="px-2 py-1 grow break-words line-clamp-[8]">❌ {{ md5_problem_type_mapping[problem.type] }} ("{{problem.descr}}")</div>
+              <div class="px-2 py-1 grow break-words line-clamp-[8]">❌ {{ md5_problem_type_mapping[problem.type] }}{% if problem.descr %} ("{{problem.descr}}"){% endif %}</div>
               <div class="px-2 py-1 whitespace-nowrap text-right">
                 {% if problem.type=='lgrsnf_visible' and md5_dict.lgrsnf_book %}<a href="/lgrs/nf/{{md5_dict.lgrsnf_book.id}}" class="anna">anna</a>{% endif %}
                 {% if problem.type=='lgrsfic_visible' and md5_dict.lgrsfic_book %}<a href="/lgrs/fic/{{md5_dict.lgrsfic_book.id}}" class="anna">anna</a>{% endif %}
