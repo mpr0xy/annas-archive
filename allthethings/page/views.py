@@ -1804,6 +1804,10 @@ def search_page():
         custom_search_sorting = [{ "file_unified_data.year_best": "desc" }]
     if sort_value == "oldest":
         custom_search_sorting = [{ "file_unified_data.year_best": "asc" }]
+    if sort_value == "largest":
+        custom_search_sorting = [{ "file_unified_data.filesize_best": "desc" }]
+    if sort_value == "smallest":
+        custom_search_sorting = [{ "file_unified_data.filesize_best": "asc" }]
 
     search_query = {
         "bool": {

@@ -330,13 +330,13 @@ msgid "page.home.search.intro"
 msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
-#: allthethings/page/templates/page/search.html:46
-#: allthethings/templates/layouts/index.html:161
+#: allthethings/page/templates/page/search.html:48
+#: allthethings/templates/layouts/index.html:159
 msgid "common.search.placeholder"
 msgstr "タイトル、著者、言語、ファイルタイプ、ISBN、MD5などを検索"
 
 #: allthethings/page/templates/page/home.html:17
-#: allthethings/page/templates/page/search.html:47
+#: allthethings/page/templates/page/search.html:49
 msgid "common.search.submit"
 msgstr "検索"
 
@@ -454,27 +454,35 @@ msgstr "最新"
 msgid "page.search.filters.sorting.oldest"
 msgstr "最も古い"
 
-#: allthethings/page/templates/page/search.html:53
+#: allthethings/page/templates/page/search.html:42
+msgid "page.search.filters.sorting.largest"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:43
+msgid "page.search.filters.sorting.smallest"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
 msgstr "検索中にエラーが発生しました。"
 
-#: allthethings/page/templates/page/search.html:55
+#: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.text"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:58
+#: allthethings/page/templates/page/search.html:60
 msgid "page.search.results.none"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:64
+#: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial_more"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:64
+#: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:81
+#: allthethings/page/templates/page/search.html:83
 msgid "page.search.results.issues"
 msgstr ""
 
@@ -486,77 +494,77 @@ msgstr "アンナのアーカイブ"
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:55
+#: allthethings/templates/layouts/index.html:53
 msgid "layout.index.header.title"
 msgstr "アンナのアーカイブ"
 
-#: allthethings/templates/layouts/index.html:137
+#: allthethings/templates/layouts/index.html:135
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 影の図書館の検索エンジン: 本、新聞、コミック、雑誌。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 "
 "⚙️オープンソースのコードとデータによる完全な回復力。 ❤️ 言葉を広めましょう: どなたでも大歓迎です!"
 
-#: allthethings/templates/layouts/index.html:151
+#: allthethings/templates/layouts/index.html:149
 msgid "layout.index.header.progress_bar.text"
 msgstr "人類の文字遺産の 5%% が永久に保存される %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:155
+#: allthethings/templates/layouts/index.html:153
 msgid "layout.index.header.nav.home"
 msgstr "ホームページ"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.nav.about"
 msgstr "だいたい"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:155
 msgid "layout.index.header.nav.donate"
 msgstr "寄付"
 
-#: allthethings/templates/layouts/index.html:158
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.nav.search"
 msgstr "検索"
 
-#: allthethings/templates/layouts/index.html:170
+#: allthethings/templates/layouts/index.html:168
 msgid "layout.index.footer.list1.header"
 msgstr "アンナのアーカイブ"
 
-#: allthethings/templates/layouts/index.html:171
+#: allthethings/templates/layouts/index.html:169
 msgid "layout.index.footer.list1.home"
 msgstr "家"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.footer.list1.about"
 msgstr "だいたい"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:171
 msgid "layout.index.footer.list1.donate"
 msgstr "寄付"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.footer.list1.datasets"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:185
 msgid "layout.index.footer.list2.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.reddit"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.subreddit"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.blog"
 msgstr "アンナのブログ"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.software"
 msgstr "アンナのソフトウェア"
 

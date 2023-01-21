@@ -413,13 +413,13 @@ msgid "page.home.search.intro"
 msgstr "Recherchez notre catalogue de bibliothèques clandestines."
 
 #: allthethings/page/templates/page/home.html:16
-#: allthethings/page/templates/page/search.html:46
-#: allthethings/templates/layouts/index.html:161
+#: allthethings/page/templates/page/search.html:48
+#: allthethings/templates/layouts/index.html:159
 msgid "common.search.placeholder"
 msgstr "Recherche par titre, auteur, langue, type de fichier, ISBN, MD5, …"
 
 #: allthethings/page/templates/page/home.html:17
-#: allthethings/page/templates/page/search.html:47
+#: allthethings/page/templates/page/search.html:49
 msgid "common.search.submit"
 msgstr "Rechercher"
 
@@ -565,11 +565,19 @@ msgstr "Récent"
 msgid "page.search.filters.sorting.oldest"
 msgstr "Ancien"
 
-#: allthethings/page/templates/page/search.html:53
+#: allthethings/page/templates/page/search.html:42
+msgid "page.search.filters.sorting.largest"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:43
+msgid "page.search.filters.sorting.smallest"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
 msgstr "Erreur lors de la recherche."
 
-#: allthethings/page/templates/page/search.html:55
+#: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.text"
 msgstr ""
 "Essayez <a href=\"javascript:location.reload()\">rafraîchir la page</a>. "
@@ -577,21 +585,21 @@ msgstr ""
 "href=\"https://twitter.com/AnnaArchivist\">Twitter</a> ou <a "
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>."
 
-#: allthethings/page/templates/page/search.html:58
+#: allthethings/page/templates/page/search.html:60
 msgid "page.search.results.none"
 msgstr ""
 "<span class=\"font-bold\">Aucun fichiers trouvés</span> Essayez moins de "
 "termes ou différents filtres de recherche."
 
-#: allthethings/page/templates/page/search.html:64
+#: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ correspondances partielles"
 
-#: allthethings/page/templates/page/search.html:64
+#: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial"
 msgstr "%(num)d correspondances partielles"
 
-#: allthethings/page/templates/page/search.html:81
+#: allthethings/page/templates/page/search.html:83
 msgid "page.search.results.issues"
 msgstr "❌ Ce fichier semble problématique."
 
@@ -603,11 +611,11 @@ msgstr "Archives d'Anna"
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:55
+#: allthethings/templates/layouts/index.html:53
 msgid "layout.index.header.title"
 msgstr "Archives d'Anna"
 
-#: allthethings/templates/layouts/index.html:137
+#: allthethings/templates/layouts/index.html:135
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Moteur de recherche des bibliothèques clandestines : livres, journaux, "
@@ -615,67 +623,67 @@ msgstr ""
 "Entièrement résilient grâce au code source et aux données de logiciel "
 "libre. ❤️ Faites passer le mot : tout le monde est le bienvenu ici !"
 
-#: allthethings/templates/layouts/index.html:151
+#: allthethings/templates/layouts/index.html:149
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% du patrimoine écrit de l'humanité préservé à jamais %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:155
+#: allthethings/templates/layouts/index.html:153
 msgid "layout.index.header.nav.home"
 msgstr "Domicile"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.nav.about"
 msgstr "À propos"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:155
 msgid "layout.index.header.nav.donate"
 msgstr "Donner"
 
-#: allthethings/templates/layouts/index.html:158
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.nav.search"
 msgstr "Rechercher"
 
-#: allthethings/templates/layouts/index.html:170
+#: allthethings/templates/layouts/index.html:168
 msgid "layout.index.footer.list1.header"
 msgstr "Anna’s Archive"
 
-#: allthethings/templates/layouts/index.html:171
+#: allthethings/templates/layouts/index.html:169
 msgid "layout.index.footer.list1.home"
 msgstr "Domicile"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.footer.list1.about"
 msgstr "À propos"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:171
 msgid "layout.index.footer.list1.donate"
 msgstr "Donner"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.footer.list1.datasets"
 msgstr "Ensemble de données"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:185
 msgid "layout.index.footer.list2.header"
 msgstr "Restez en contact"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.blog"
 msgstr "Blog d'Anna"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.software"
 msgstr "Logiciels d'Anna"
 

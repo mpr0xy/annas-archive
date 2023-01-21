@@ -39,6 +39,8 @@
         <option value="">{{ gettext('page.search.filters.sorting.most_relevant') }}</option>
         <option value="newest" {% if search_dict.sort_value == 'newest' %}selected{% endif %}>{{ gettext('page.search.filters.sorting.newest') }}</option>
         <option value="oldest" {% if search_dict.sort_value == 'oldest' %}selected{% endif %}>{{ gettext('page.search.filters.sorting.oldest') }}</option>
+        <option value="largest" {% if search_dict.sort_value == 'largest' %}selected{% endif %}>{{ gettext('page.search.filters.sorting.largest') }}</option>
+        <option value="smallest" {% if search_dict.sort_value == 'smallest' %}selected{% endif %}>{{ gettext('page.search.filters.sorting.smallest') }}</option>
       </select>
     </div>
 
