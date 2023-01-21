@@ -14,7 +14,7 @@
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.donate.text3', donations='$148, $25, $11, $100, $2, $5, $20, $50, $69, $135, $5,000, $410, $1.37, $10,000, $0.50, $40, $20, $10,000') }}
+    {{ gettext('page.donate.text3', donations='$15, $2, $8, $111, $1, $5, $65, $10, $0.50, $14, $4, $140, $2, $35, $16, $148, $25, $11, $100, $2, $5, $20, $50, $69, $135, $5,000, $410, $1.37, $10,000, $0.50, $40, $20, $10,000') }}
   </p>
 
   <p class="mb-2">
@@ -52,10 +52,23 @@
   </script>
 
   <div class="mb-4">
+    <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-paypal" onclick="openSection('.js-paypal', '.js-main-button-paypal')">{{ gettext('page.donate.nav.paypal') }}</button>
     <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-cc" onclick="openSection('.js-cc', '.js-main-button-cc')">{{ gettext('page.donate.nav.cc') }}</button>
     <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-crypto" onclick="openSection('.js-crypto', '.js-main-button-crypto')">{{ gettext('page.donate.nav.crypto') }}</button>
     <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow js-main-button js-main-button-alipay" onclick="openSection('.js-alipay', '.js-main-button-alipay')">{{ gettext('page.donate.nav.alipay') }}</button>
     <a href="#" class="mt-2 pl-2" onclick="openSection('.js-q', undefined); return false">{{ gettext('page.donate.nav.faq') }}</a>
+  </div>
+
+  <div class="hidden js-section js-paypal">
+    <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.donate.paypal.header') }}</h3>
+
+    <p class="mb-4">
+      {{ gettext('page.donate.paypal.text', link_open_tag=('<a href="https://gotopaypay.top/Home/pay?method=paypal" class="font-bold" style="color: #0095ff" rel="noopener noreferrer" target="_blank">' | safe)) }}
+    </p>
+
+    <p class="mb-4">
+      {{ gettext('page.donate.text_thank_you') }}
+    </p>
   </div>
 
   <div class="hidden js-section js-cc">
