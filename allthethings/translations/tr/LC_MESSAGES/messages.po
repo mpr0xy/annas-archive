@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-17 19:34+0000\n"
 "PO-Revision-Date: 2023-01-21 20:41+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: Brooks Hatlen <selem@selem.im>\n"
 "Language-Team: Turkish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/tr/>\n"
 "Language: tr\n"
@@ -403,7 +403,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
-msgstr "Aramak"
+msgstr "Arama"
 
 #: allthethings/page/templates/page/home.html:11
 msgid "page.home.search.intro"
@@ -608,7 +608,7 @@ msgstr "Bağış yapmak"
 
 #: allthethings/templates/layouts/index.html:126
 msgid "layout.index.header.nav.search"
-msgstr "Aramak"
+msgstr "Arama"
 
 #: allthethings/templates/layouts/index.html:138
 msgid "layout.index.footer.list1.header"
