@@ -40,9 +40,10 @@
           }
           if (topBannerType !== latestTopBannerType) {
             document.querySelector('.js-top-banner').style.display = 'block';
-            document.querySelector('.js-top-banner-close').addEventListener('click', function() {
+            document.querySelector('.js-top-banner-close').addEventListener('click', function(event) {
               document.querySelector('.js-top-banner').style.display = 'none';
               document.cookie = 'top_banner_hidden=' + latestTopBannerType + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT';
+              event.preventDefault();
               return false;
             });
           }
