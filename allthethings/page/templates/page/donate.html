@@ -123,14 +123,14 @@
       {{ gettext('page.donate.alipay.intro') }}
     </p>
 
-    <div class="h-[500px] overflow-hidden">
-      <iframe class="w-[350px] h-[600px] js-alipay-iframe" src="https://gotopaypay.top/Home/pay?method=alipay"></iframe>
-    </div>
-
     <p class="mb-4">
       <button class="mt-2 bg-[#777] hover:bg-[#999] text-white font-bold py-2 px-4 rounded shadow mr-2" onclick="document.querySelector('.js-alipay-iframe').src += '&'">🔄</button>
       <a href="https://gotopaypay.top/Home/pay?method=alipay">URL</a>
     </p>
+
+    <div class="h-[500px] overflow-hidden">
+      <iframe class="w-[350px] h-[600px] js-alipay-iframe" src="https://gotopaypay.top/Home/pay?method=alipay"></iframe>
+    </div>
 
     <p class="mb-4 mt-4">
       {{ gettext('page.donate.text_thank_you') }}
