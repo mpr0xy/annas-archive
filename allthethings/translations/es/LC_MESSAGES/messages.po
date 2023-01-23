@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-23 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 00:37+0000\n"
+"PO-Revision-Date: 2023-01-23 00:39+0000\n"
 "Last-Translator: Jonatan Porras <jonatanporras8@gmail.com>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr "No visible en Librería Genesis \".rs-fork\" No Ficción"
+msgstr "No visible en la Librería Genesis \".rs-fork\" No Ficción"
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
