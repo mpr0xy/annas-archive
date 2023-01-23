@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-23 00:37+0000\n"
 "PO-Revision-Date: 2023-01-23 00:39+0000\n"
-"Last-Translator: Jonatan Porras <jonatanporras8@gmail.com>\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Spanish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/es/>\n"
 "Language: es\n"
@@ -44,7 +44,7 @@ msgstr "Libro (no ficción)"
 
 #: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr "Libro (de ficción)"
+msgstr "Libro (ficción)"
 
 #: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.journal_article"
