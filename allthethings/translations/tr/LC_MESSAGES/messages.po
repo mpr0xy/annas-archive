@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-23 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 00:37+0000\n"
+"PO-Revision-Date: 2023-01-23 00:39+0000\n"
 "Last-Translator: Brooks Hatlen <selem@selem.im>\n"
 "Language-Team: Turkish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/tr/>\n"
@@ -247,7 +247,7 @@ msgstr "Bağış yapın"
 
 #: allthethings/page/templates/page/donate.html:6
 msgid "page.donate.header"
-msgstr "Bağış yapmak"
+msgstr "Bağış yapın"
 
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
@@ -442,7 +442,7 @@ msgstr "Arama başlığı, yazar, dil, dosya türü, ISBN, MD5, …"
 #: allthethings/page/templates/page/home.html:17
 #: allthethings/page/templates/page/search.html:49
 msgid "common.search.submit"
-msgstr "Aramak"
+msgstr "Arama"
 
 #: allthethings/page/templates/page/home.html:21
 msgid "page.home.explore.header"
@@ -635,10 +635,9 @@ msgstr "Anna'nın Arşivi"
 #: allthethings/templates/layouts/index.html:135
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Gölge kitaplıkların arama motoru: kitaplar, gazeteler, çizgi romanlar, "
+"🔍 Saklı kitaplıkların arama motoru: kitaplar, gazeteler, çizgi romanlar, "
 "dergiler. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Açık kaynak kodu ve "
-"veriler sayesinde tamamen dirençli. ❤️ Duyuruyu yayın: Herkes buraya hoş "
-"geldiniz!"
+"veriler sayesinde tamamen dirençli. ❤️ Duyurun: Hepiniz hoşgeldiniz!"
 
 #: allthethings/templates/layouts/index.html:149
 msgid "layout.index.header.progress_bar.text"
@@ -646,7 +645,7 @@ msgstr "İnsanlığın yazılı mirasının %%5'i sonsuza dek korunuyor %(info_i
 
 #: allthethings/templates/layouts/index.html:153
 msgid "layout.index.header.nav.home"
-msgstr "Ev"
+msgstr "Anasayfa"
 
 #: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.nav.about"
@@ -654,7 +653,7 @@ msgstr "Hakkında"
 
 #: allthethings/templates/layouts/index.html:155
 msgid "layout.index.header.nav.donate"
-msgstr "Bağış yapmak"
+msgstr "Bağış yapın"
 
 #: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.nav.search"
@@ -674,7 +673,7 @@ msgstr "Hakkında"
 
 #: allthethings/templates/layouts/index.html:171
 msgid "layout.index.footer.list1.donate"
-msgstr "Bağış yapmak"
+msgstr "Bağış yapın"
 
 #: allthethings/templates/layouts/index.html:172
 msgid "layout.index.footer.list1.datasets"
