@@ -1,26 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-24 21:49+0000\n"
+"PO-Revision-Date: 2023-01-24 21:49+0000\n"
+"Last-Translator: Omar <omar_zaki91@hotmail.com>\n"
+"Language-Team: Arabic <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr ""
+msgstr "غير مرئي في مكتبة Library Genesis \".rs-fork\" Non-Fiction"
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
-msgstr ""
+msgstr "غير مرئي في مكتبة Library Genesis \".rs-fork\" Fiction"
 
 #: allthethings/page/views.py:1591
 msgid "common.md5_problem_type_mapping.lgli_visible"
-msgstr ""
+msgstr "غير مرئي في مكتبة Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1592
 msgid "common.md5_problem_type_mapping.lgli_broken"
-msgstr ""
+msgstr "تم تحديده كـ\"معطّل\" في مكتبة Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1593
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "مفقود من مكتبة Z-Library"
 
 #: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr ""
+msgstr "كتاب (غير معروف)"
 
 #: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.book_nonfiction"
@@ -28,7 +45,7 @@ msgstr "كتاب (غير خيالي)"
 
 #: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.book_fiction"
-msgstr ""
+msgstr "كتاب (خيالي)"
 
 #: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.journal_article"
@@ -36,24 +53,24 @@ msgstr ""
 
 #: allthethings/page/views.py:1603
 msgid "common.md5_content_type_mapping.standards_document"
-msgstr ""
+msgstr "وثيقة معايير"
 
 #: allthethings/page/views.py:1604
 msgid "common.md5_content_type_mapping.magazine"
-msgstr ""
+msgstr "مجلة"
 
 #: allthethings/page/views.py:1605
 msgid "common.md5_content_type_mapping.book_comic"
-msgstr ""
+msgstr "قصة مصورة"
 
 #: allthethings/page/views.py:1607
 msgid "common.md5_content_type_mapping.book_any"
-msgstr ""
+msgstr "كتاب (أي نوع)"
 
 #: allthethings/page/views.py:1651 allthethings/page/views.py:1652
 #: allthethings/page/views.py:1653
 msgid "page.md5.box.download.ipfs_gateway"
-msgstr ""
+msgstr "بوابة IPFS %(num)d"
 
 #: allthethings/page/views.py:1651
 msgid "page.md5.box.download.ipfs_gateway_extra"
@@ -61,7 +78,7 @@ msgstr "(قد تحتاج إلى المحاولة عدة مرات مع IPFS)"
 
 #: allthethings/page/views.py:1656
 msgid "page.md5.box.download.lgrsnf"
-msgstr ""
+msgstr "مكتبة Library Genesis \".rs-fork\" Non-Fiction"
 
 #: allthethings/page/views.py:1656 allthethings/page/views.py:1659
 #: allthethings/page/views.py:1662
@@ -75,11 +92,11 @@ msgstr "(انقر فوق\" GET \"في الأعلى)"
 
 #: allthethings/page/views.py:1659
 msgid "page.md5.box.download.lgrsfic"
-msgstr ""
+msgstr "مكتبة Library Genesis \".rs-fork\" Fiction"
 
 #: allthethings/page/views.py:1662
 msgid "page.md5.box.download.lgli"
-msgstr ""
+msgstr "مكتبة Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1665
 msgid "page.md5.box.download.scihub"
@@ -95,7 +112,7 @@ msgstr ""
 
 #: allthethings/page/views.py:1670
 msgid "page.md5.box.download.zlib_tor_extra"
-msgstr ""
+msgstr "(يحتاج إلى متصفح TOR)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
@@ -108,14 +125,26 @@ msgstr "حول"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
+"أرشيف آنا هو محرك غير ربحي مفتوح المصدر للبحث في مكتبات الظل. تم إنشائه من "
+"قبل <a href=\"http://annas-blog.org\">آنا</a> مؤسسة <a href=\"http://pilimi."
+"org\"> \"Pirate Library Mirror\" </a>النسخة الاحتياطية من مكتبة الظل Z-"
+"Library. شعرت آنا أن هناك حاجة لمكان مركزي واحد للبحث عن الكتب، الأوراق "
+"البحثية، القصص المصورة، المجلات، وغيرها من الوثائق."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
+"نحن نؤمن بقوة في حرية تدفق المعلومات والحفاظ على المعرفة والثقافة. في هذا "
+"المحرك نحن نبني فوق أكتاف العمالقة. نحترم بعمق العمل الدؤوب الذي قدمه مؤسسو "
+"مكتبات الظل المتنوعة ونأمل أن يتمكن هذا المحرك من توسيع نطاقهم."
 
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
+"لتبقى متطلعاً على تقدمنا قم بمتابعة آنا على <a href=\"https://twitter.com/"
+"AnnaArchivist\"> تويتر </a> أو على <a href=\"https://www.reddit.com/user/"
+"AnnaArchivist\"> ريديت </a>. للأسئلة والاقتراحات تواصل مع آنا عبر البريد "
+"الإلكتروني %(email)s."
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
@@ -124,6 +153,19 @@ msgstr "How to help"
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
 msgstr ""
+"<li> 1. تابعنا على <a href=\"https://twitter.com/AnnaArchivist\">تويتر</a> "
+"أو على <a href=\"https://www.reddit.com/user/AnnaArchivist\">ريديت</a></li>\n"
+"<li> 2. انشر عن أرشيف آنا على تويتر، ريديت، تيك توك، انستغرام أو في المقهى "
+"أو المكتبة المحليين، أو أينما تذهب! نحن لا نؤمن في التحفظ على المعلومات - إن "
+"قاموا بمنعنا سننهض مرة أخرى من مكان آخر بما أن جميع بياناتنا وبرامجنا مفتوحة "
+"المصدر بشكل كامل.</li>\n"
+"<li>3. لو كنت قادراً، فكر في <a href=\"/donate\">التبرع لنا. </a> </li>\n"
+"<li>4. ساعد في  <a href=\"https://translate.annas-software.org/\"> ترجمة </"
+"a> موقعنا إلى لغات مختلفة. </li>\n"
+"<li>5. لو كنت مهندس برمجيات فكر في المساهمة بـ  <a href=\"https://annas-"
+"software.org/\">مصدرنا المفتوح</a> أو في زراعة بذور لـ <a href=\"http"
+"://pilimi.org\">ملفات ال Torrent والـ IFPS. \n"
+"</a></li>"
 
 #: allthethings/page/templates/page/about.html:26
 #: allthethings/page/templates/page/about.html:27
@@ -573,4 +615,3 @@ msgstr ""
 #: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list2.software"
 msgstr ""
-
