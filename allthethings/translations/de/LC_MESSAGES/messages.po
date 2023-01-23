@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-24 21:49+0000\n"
+"PO-Revision-Date: 2023-01-24 21:49+0000\n"
+"Last-Translator: Henry <mail@henrygressmann.de>\n"
+"Language-Team: German <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/de/>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Non-Fiction"
@@ -16,7 +32,7 @@ msgstr "Als beschädigt markiert in Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1593
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "Fehlt in Z-Library"
 
 #: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -262,7 +278,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:55
 msgid "page.donate.nav.paypal"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.cc"
@@ -282,11 +298,16 @@ msgstr "Fragen"
 
 #: allthethings/page/templates/page/donate.html:63
 msgid "page.donate.paypal.header"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:66
 msgid "page.donate.paypal.text"
 msgstr ""
+"Gehe zu %(link_open_tag)sdieser Seite</a> und folge den Anweisungen, "
+"entweder durch Scannen des QR-Codes oder durch Klicken des \"paypal.me\" "
+"Links. Falls das nicht funktionieren sollten, versuche die Seite zu "
+"aktualisieren, da du dadurch möglicherweise ein anderes Konto angezeigt "
+"bekommst."
 
 #: allthethings/page/templates/page/donate.html:70
 #: allthethings/page/templates/page/donate.html:96
@@ -351,7 +372,10 @@ msgstr "Alipay"
 #: allthethings/page/templates/page/donate.html:123
 #: allthethings/page/templates/page/donate.html:147
 msgid "page.donate.alipay.intro"
-msgstr "Bitte verwende diesen Alipay Account um deine Spende zu senden."
+msgstr ""
+"Bitte verwende diesen Alipay Account, um deine Spende zu senden. Wenn das "
+"nicht funktioniert, versuche, die Seite zu aktualisieren, da du dann "
+"vielleicht ein anderes Konto bekommst."
 
 #: allthethings/page/templates/page/donate.html:141
 msgid "page.donate.out_of_order"
@@ -569,11 +593,11 @@ msgstr "Älteste"
 
 #: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "Größte"
 
 #: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "Kleinste"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
@@ -612,6 +636,10 @@ msgstr "Anna’s Archiv"
 #: allthethings/templates/layouts/index.html:24
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
+"Wir haben eine neue Spendenmethode zur Verfügung: %(method_name)s. Bitte "
+"erwägen zu %(donate_link_open_tag)sspenden</a> - der Betrieb dieser Website "
+"ist nicht billig, und deine Spende macht wirklich einen Unterschied. Vielen "
+"Dank dafür."
 
 #: allthethings/templates/layouts/index.html:54
 msgid "layout.index.header.title"
@@ -688,4 +716,3 @@ msgstr "Anna’s Blog"
 #: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
-
