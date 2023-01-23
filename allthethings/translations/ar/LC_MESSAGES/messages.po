@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-24 21:49+0000\n"
 "PO-Revision-Date: 2023-01-24 21:49+0000\n"
-"Last-Translator: Omar <omar_zaki91@hotmail.com>\n"
+"Last-Translator: Good Samaritan <goodsamaritan@disposeamail.com>\n"
 "Language-Team: Arabic <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ar/>\n"
 "Language: ar\n"
@@ -49,7 +49,7 @@ msgstr "كتاب (خيالي)"
 
 #: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.journal_article"
-msgstr ""
+msgstr "مقال أكاديمي"
 
 #: allthethings/page/views.py:1603
 msgid "common.md5_content_type_mapping.standards_document"
@@ -198,7 +198,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:9
 msgid "page.doi.invalid.header"
-msgstr ""
+msgstr "غير موجود"
 
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
@@ -218,11 +218,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
-msgstr ""
+msgstr "ملفات مطابقة في قاعدة بياناتنا:"
 
 #: allthethings/page/templates/page/doi.html:47
 msgid "page.doi.results.none"
-msgstr ""
+msgstr "لا توجد ملفات مطابقة في قاعدة البيانات الخاصة بنا."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
@@ -241,10 +241,15 @@ msgstr "يتبرع"
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
 msgstr ""
+"Anna’s Archive هو مشروع غير ربحي مفتوح المصدر، يديره متطوعون فقط. نأخذ "
+"التبرعات لتغطية تكاليفنا، والتي تشمل الاستضافة، وأسماء النطاق، والتطوير، "
+"وغيرها من النفقات."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
 msgstr ""
+"من خلال مساهماتكم يمكننا الحفاظ على خدمة هذا الموقع، وتحسين ميزاته، والحفاظ "
+"على المزيد من المجموعات."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
@@ -260,11 +265,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.cc"
-msgstr ""
+msgstr "بطاقة الائتمان/الخصم"
 
 #: allthethings/page/templates/page/donate.html:57
 msgid "page.donate.nav.crypto"
-msgstr ""
+msgstr "عملات تشفير"
 
 #: allthethings/page/templates/page/donate.html:58
 msgid "page.donate.nav.alipay"
@@ -272,7 +277,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.faq"
-msgstr ""
+msgstr "أسئلة"
 
 #: allthethings/page/templates/page/donate.html:63
 msgid "page.donate.paypal.header"
@@ -288,11 +293,11 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:136
 #: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.text_thank_you"
-msgstr ""
+msgstr "شكرا جزيلا للمساعدة! لن يكون هذا المشروع ممكنًا بدونكم."
 
 #: allthethings/page/templates/page/donate.html:75
 msgid "page.donate.cc.header"
-msgstr ""
+msgstr "بطاقة الائتمان/الخصم"
 
 #: allthethings/page/templates/page/donate.html:78
 msgid "page.donate.cc.text1"
@@ -301,10 +306,12 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:82
 msgid "page.donate.cc.text2"
 msgstr ""
+"هذه الطريقة تستلزم حد أدنى لمبلغ المعاملة يبلغ 30 دولارًا، ورسوم تبلغ حوالي "
+"5 دولارات."
 
 #: allthethings/page/templates/page/donate.html:86
 msgid "page.donate.cc.steps.header"
-msgstr ""
+msgstr "خطوات:"
 
 #: allthethings/page/templates/page/donate.html:90
 msgid "page.donate.cc.steps.list1"
@@ -328,7 +335,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:108
 msgid "page.donate.crypto.btc_bch_note"
-msgstr ""
+msgstr "(يعمل أيضًا بالنسبة إلى BCH)"
 
 #: allthethings/page/templates/page/donate.html:120
 msgid "page.donate.alipay.header"
@@ -342,6 +349,8 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:141
 msgid "page.donate.out_of_order"
 msgstr ""
+"خيار التبرع هذا خارج النظام حاليًا. يرجى التحقق مرة أخرى في وقت لاحق. شكرا "
+"على الرغبة في التبرع، نحن نقدر ذلك حقًا!"
 
 #: allthethings/page/templates/page/donate.html:186
 msgid "page.donate.faq.header"
@@ -388,7 +397,7 @@ msgstr "بحث"
 
 #: allthethings/page/templates/page/home.html:21
 msgid "page.home.explore.header"
-msgstr ""
+msgstr "استكشف الكتب"
 
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
@@ -404,7 +413,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:9
 msgid "page.isbn.invalid.header"
-msgstr ""
+msgstr "غير موجود"
 
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
