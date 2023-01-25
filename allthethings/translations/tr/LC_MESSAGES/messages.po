@@ -419,7 +419,7 @@ msgstr "Saklı kütüphane kataloglarımızda arama yapın."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:48
-#: allthethings/templates/layouts/index.html:160
+#: allthethings/templates/layouts/index.html:167
 msgid "common.search.placeholder"
 msgstr "Arama başlığı, yazar, dil, dosya türü, ISBN, MD5, …"
 
@@ -616,74 +616,74 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "Anna'nın Arşivi"
 
-#: allthethings/templates/layouts/index.html:136
+#: allthethings/templates/layouts/index.html:143
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Saklı kitaplıkların arama motoru: kitaplar, gazeteler, çizgi romanlar, "
 "dergiler. ⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ Açık kaynak kodu ve "
 "veriler sayesinde tamamen dirençli. ❤️ Duyurun: Hepiniz hoşgeldiniz!"
 
-#: allthethings/templates/layouts/index.html:150
+#: allthethings/templates/layouts/index.html:157
 msgid "layout.index.header.progress_bar.text"
 msgstr "İnsanlığın yazılı mirasının %%5'i sonsuza dek korunuyor %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:161
 msgid "layout.index.header.nav.home"
 msgstr "Anasayfa"
 
-#: allthethings/templates/layouts/index.html:155
+#: allthethings/templates/layouts/index.html:162
 msgid "layout.index.header.nav.about"
 msgstr "Hakkında"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:163
 msgid "layout.index.header.nav.donate"
 msgstr "Bağış yapın"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:164
 msgid "layout.index.header.nav.search"
 msgstr "Arama"
 
-#: allthethings/templates/layouts/index.html:169
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.footer.list1.header"
 msgstr "Anna'nın Arşivi"
 
-#: allthethings/templates/layouts/index.html:170
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.footer.list1.home"
 msgstr "Anasayfa"
 
-#: allthethings/templates/layouts/index.html:171
+#: allthethings/templates/layouts/index.html:178
 msgid "layout.index.footer.list1.about"
 msgstr "Hakkında"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:179
 msgid "layout.index.footer.list1.donate"
 msgstr "Bağış yapın"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:180
 msgid "layout.index.footer.list1.datasets"
 msgstr "Veri kümeleri"
 
-#: allthethings/templates/layouts/index.html:186
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list2.header"
 msgstr "İletişim"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:195
 msgid "layout.index.footer.list2.blog"
 msgstr "Anna'nın Blog'u"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:196
 msgid "layout.index.footer.list2.software"
 msgstr "Anna'nın Yazılımı"
 

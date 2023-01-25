@@ -420,7 +420,7 @@ msgstr "Busque en nuestro catálogo de bibliotecas paralelas."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:48
-#: allthethings/templates/layouts/index.html:160
+#: allthethings/templates/layouts/index.html:167
 msgid "common.search.placeholder"
 msgstr "Buscar título, autor, idioma, tipo de archivo, ISBN, MD5, …"
 
@@ -624,7 +624,7 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "Archivo de Anna"
 
-#: allthethings/templates/layouts/index.html:136
+#: allthethings/templates/layouts/index.html:143
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Motor de búsqueda de bibliotecas en la sombra: libros, artículos, "
@@ -632,69 +632,69 @@ msgstr ""
 "Totalmente resistente a través de código fuente abierto y datos. ❤️ Corre"
 " la voz: ¡todos son bienvenidos aquí!"
 
-#: allthethings/templates/layouts/index.html:150
+#: allthethings/templates/layouts/index.html:157
 msgid "layout.index.header.progress_bar.text"
 msgstr ""
 "5%% del patrimonio escrito de la humanidad preservado para siempre "
 "%(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:161
 msgid "layout.index.header.nav.home"
 msgstr "Inicio"
 
-#: allthethings/templates/layouts/index.html:155
+#: allthethings/templates/layouts/index.html:162
 msgid "layout.index.header.nav.about"
 msgstr "Acerca de"
 
-#: allthethings/templates/layouts/index.html:156
+#: allthethings/templates/layouts/index.html:163
 msgid "layout.index.header.nav.donate"
 msgstr "Donar"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:164
 msgid "layout.index.header.nav.search"
 msgstr "Búsqueda"
 
-#: allthethings/templates/layouts/index.html:169
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.footer.list1.header"
 msgstr "Archivo de Anna"
 
-#: allthethings/templates/layouts/index.html:170
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.footer.list1.home"
 msgstr "Inicio"
 
-#: allthethings/templates/layouts/index.html:171
+#: allthethings/templates/layouts/index.html:178
 msgid "layout.index.footer.list1.about"
 msgstr "Acerca de"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:179
 msgid "layout.index.footer.list1.donate"
 msgstr "Dona aquí"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:180
 msgid "layout.index.footer.list1.datasets"
 msgstr "Datasets"
 
-#: allthethings/templates/layouts/index.html:186
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list2.header"
 msgstr "Mantente en contacto"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:195
 msgid "layout.index.footer.list2.blog"
 msgstr "Anna’s Blog"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:196
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
 
