@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-24 21:49+0000\n"
+"PO-Revision-Date: 2023-01-25 22:34+0000\n"
 "Last-Translator: nameby <dzdobry@gmail.com>\n"
 "Language-Team: Belarusian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/be/>\n"
@@ -567,3 +567,22 @@ msgid "page.md5.box.issues.text2"
 msgstr ""
 "Калі вы ўсё яшчэ хочаце спампаваць гэты файл, абавязкова выкарыстоўвайце для "
 "яго адкрыцця толькі праверанае, абноўленае праграмнае забеспячэнне."
+
+#: allthethings/page/templates/page/donate.html:17
+msgid "page.donate.text3"
+msgstr ""
+"Нядаўнія ахвяраванні: %(donations)s. Мы вельмі ўдзячныя Вам за вашу "
+"шчодрасць і давер, у якой бы суме яна ні выяўлялася."
+
+#: allthethings/page/templates/page/donate.html:141
+msgid "page.donate.out_of_order"
+msgstr ""
+"Гэты варыянт ахвяраванні ў цяперашні час не працуе. Калі ласка, зайдзіце "
+"пазней. Дзякуй, што вырашалі ахвяраваць, мы сапраўды цэнім гэта!"
+
+#: allthethings/page/templates/page/md5.html:48
+msgid "page.md5.box.download.no_issues_notice"
+msgstr ""
+"Усе люстэркі ўтрымліваюць той жа файл і павінны быць бяспечнымі. Аднак "
+"будзьце асцярожныя пры загрузцы файлаў з інтэрнэту. Пераканайцеся што ваша "
+"прылада і дадатку абноўленыя да апошняй версіі для бяспекі вашых дадзеных."
