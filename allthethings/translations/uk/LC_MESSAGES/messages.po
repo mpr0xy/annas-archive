@@ -291,79 +291,84 @@ msgstr ""
 "спробуйте оновити сторінку – це може переключити вас на інший акаунт."
 
 #: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:96
-#: allthethings/page/templates/page/donate.html:115
-#: allthethings/page/templates/page/donate.html:136
-#: allthethings/page/templates/page/donate.html:180
+#: allthethings/page/templates/page/donate.html:131
+msgid "page.donate.strange_account"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:74
+#: allthethings/page/templates/page/donate.html:100
+#: allthethings/page/templates/page/donate.html:119
+#: allthethings/page/templates/page/donate.html:144
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.text_thank_you"
 msgstr "Дякуємо за вашу підтримку! Ваш вклад є дуже цінним для проєкту."
 
-#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.cc.header"
 msgstr "Банківська картка"
 
-#: allthethings/page/templates/page/donate.html:78
+#: allthethings/page/templates/page/donate.html:82
 msgid "page.donate.cc.text1"
 msgstr ""
 "Ми співпрацюємо із Sendwyre для конвертації вашого платежу у Bitcoin "
 "(BTC). Операція зачислення може зайняти до п'яти хвилин."
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:86
 msgid "page.donate.cc.text2"
 msgstr ""
 "Мінімальна сума транзакції цим методом складає $30 та матиме комісію у "
 "розмірі приблизно $5."
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:90
 msgid "page.donate.cc.steps.header"
 msgstr "Наступні кроки:"
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:94
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Скопіюйте нашу Bitcoin-адресу: %(address)s"
 
-#: allthethings/page/templates/page/donate.html:91
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 "2. Перейдіть за %(link_open_tag)sпосиланням</a> та натисніть на \"buy "
 "crypto instantly\""
 
-#: allthethings/page/templates/page/donate.html:92
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list3"
 msgstr "3. Вставте нашу Bitcoin-адресу та дотримуйтеся подальших інструкцій"
 
-#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:105
 msgid "page.donate.crypto.header"
 msgstr "Криптовалюти"
 
-#: allthethings/page/templates/page/donate.html:104
+#: allthethings/page/templates/page/donate.html:108
 msgid "page.donate.crypto.intro"
 msgstr "Наші гаманці у різних криптовалютах:"
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.crypto.btc_bch_note"
 msgstr "(також працює для BCH)"
 
-#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.alipay.header"
 msgstr "Alipay"
 
-#: allthethings/page/templates/page/donate.html:123
-#: allthethings/page/templates/page/donate.html:147
+#: allthethings/page/templates/page/donate.html:127
+#: allthethings/page/templates/page/donate.html:155
 msgid "page.donate.alipay.intro"
 msgstr ""
 "Надішліть гроші на акаунт нижче. Якщо щось не працює, спробуйте оновити "
 "сторінку – це може дати вам іншу адресу для оплати."
 
-#: allthethings/page/templates/page/donate.html:141
+#: allthethings/page/templates/page/donate.html:149
 msgid "page.donate.out_of_order"
 msgstr "Цей варіант платежу тимчасово не працює. Проте дякуємо за ваш інтерес!"
 
-#: allthethings/page/templates/page/donate.html:186
+#: allthethings/page/templates/page/donate.html:194
 msgid "page.donate.faq.header"
 msgstr "Часті питання"
 
-#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:197
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Чи підтримуєте ви інші методи оплати?</div> "
@@ -371,7 +376,7 @@ msgstr ""
 " безпеки та анонімності. Якщо у вас є ідеї щодо альтернативних безпечних "
 "та зручних методів оплати, пишіть нам на %(email)s."
 
-#: allthethings/page/templates/page/donate.html:193
+#: allthethings/page/templates/page/donate.html:201
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Якщо зручний для вас метод оплати не підтримується, ми рекомендуємо "
@@ -380,14 +385,14 @@ msgstr ""
 "(%(address)s). В більшості країн повний процес налаштування має зайняти "
 "не більше ніж декілька хвилин."
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:205
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Чи можу я надіслати велику суму?</div> Так, "
 "звичайно! Якщо ви збираєтеся надіслати декілька тисяч доларів чи більше, "
 "напишіть нам на %(email)s."
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:209
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Чи можу я вам ще якось допомогти?</div> Так! "

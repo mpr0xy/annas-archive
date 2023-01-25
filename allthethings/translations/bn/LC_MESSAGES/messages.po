@@ -241,83 +241,88 @@ msgid "page.donate.paypal.text"
 msgstr ""
 
 #: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:96
-#: allthethings/page/templates/page/donate.html:115
-#: allthethings/page/templates/page/donate.html:136
-#: allthethings/page/templates/page/donate.html:180
+#: allthethings/page/templates/page/donate.html:131
+msgid "page.donate.strange_account"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:74
+#: allthethings/page/templates/page/donate.html:100
+#: allthethings/page/templates/page/donate.html:119
+#: allthethings/page/templates/page/donate.html:144
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.text_thank_you"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.cc.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:78
+#: allthethings/page/templates/page/donate.html:82
 msgid "page.donate.cc.text1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:86
 msgid "page.donate.cc.text2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:90
 msgid "page.donate.cc.steps.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:94
 msgid "page.donate.cc.steps.list1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:91
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:92
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list3"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:105
 msgid "page.donate.crypto.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:104
+#: allthethings/page/templates/page/donate.html:108
 msgid "page.donate.crypto.intro"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.crypto.btc_bch_note"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.alipay.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:123
-#: allthethings/page/templates/page/donate.html:147
+#: allthethings/page/templates/page/donate.html:127
+#: allthethings/page/templates/page/donate.html:155
 msgid "page.donate.alipay.intro"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:141
+#: allthethings/page/templates/page/donate.html:149
 msgid "page.donate.out_of_order"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:186
+#: allthethings/page/templates/page/donate.html:194
 msgid "page.donate.faq.header"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:197
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:193
+#: allthethings/page/templates/page/donate.html:201
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:205
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:209
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 

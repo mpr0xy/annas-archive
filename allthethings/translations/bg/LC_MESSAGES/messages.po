@@ -288,75 +288,80 @@ msgid "page.donate.paypal.text"
 msgstr ""
 
 #: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:96
-#: allthethings/page/templates/page/donate.html:115
-#: allthethings/page/templates/page/donate.html:136
-#: allthethings/page/templates/page/donate.html:180
+#: allthethings/page/templates/page/donate.html:131
+msgid "page.donate.strange_account"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:74
+#: allthethings/page/templates/page/donate.html:100
+#: allthethings/page/templates/page/donate.html:119
+#: allthethings/page/templates/page/donate.html:144
+#: allthethings/page/templates/page/donate.html:188
 msgid "page.donate.text_thank_you"
 msgstr "Благодарим ви много за помощта! Този проект не би бил възможен без вас."
 
-#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:79
 msgid "page.donate.cc.header"
 msgstr "Кредитна/дебитна карта"
 
-#: allthethings/page/templates/page/donate.html:78
+#: allthethings/page/templates/page/donate.html:82
 msgid "page.donate.cc.text1"
 msgstr ""
 "Ние ползваме Sendwyre, за да внесем парите директно в нашия Bitcoin (BTC)"
 " портфейл. Това отнема около 5 минути."
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:86
 msgid "page.donate.cc.text2"
 msgstr "Този метод има минимална сума на транзакцията от $30 и такса от около $5."
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:90
 msgid "page.donate.cc.steps.header"
 msgstr "Стъпки:"
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:94
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Копирайте адреса на нашия Bitcoin (BTC) портфейл: %(address)s"
 
-#: allthethings/page/templates/page/donate.html:91
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 "2. Отидете на %(link_open_tag)sтази страница</a> и натиснете върху "
 "„купете криптовалута незабавно“"
 
-#: allthethings/page/templates/page/donate.html:92
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list3"
 msgstr "3. Поставете адреса на нашия портфейл и следвайте инструкциите"
 
-#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:105
 msgid "page.donate.crypto.header"
 msgstr "Крипто"
 
-#: allthethings/page/templates/page/donate.html:104
+#: allthethings/page/templates/page/donate.html:108
 msgid "page.donate.crypto.intro"
 msgstr "Ако вече имате крипто пари, това са нашите адреси:"
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.crypto.btc_bch_note"
 msgstr "(също работи за BCH)"
 
-#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
-#: allthethings/page/templates/page/donate.html:123
-#: allthethings/page/templates/page/donate.html:147
+#: allthethings/page/templates/page/donate.html:127
+#: allthethings/page/templates/page/donate.html:155
 msgid "page.donate.alipay.intro"
 msgstr "Моля, използвайте този акаунт в Alipay, за да изпратите вашето дарение."
 
-#: allthethings/page/templates/page/donate.html:141
+#: allthethings/page/templates/page/donate.html:149
 msgid "page.donate.out_of_order"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:186
+#: allthethings/page/templates/page/donate.html:194
 msgid "page.donate.faq.header"
 msgstr "Често задавани въпроси"
 
-#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:197
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Имате ли други методи на плащане?</div> В "
@@ -365,7 +370,7 @@ msgstr ""
 "други (по-удобни) методи на плащане, моля, свържете се с нас на "
 "%(email)s."
 
-#: allthethings/page/templates/page/donate.html:193
+#: allthethings/page/templates/page/donate.html:201
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Ако вашият метод на плащане не е в списъка, най-лесното нещо, което "
@@ -375,14 +380,14 @@ msgstr ""
 " адрес: %(address)s. В повечето страни настройката отнема само няколко "
 "минути."
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:205
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Мога ли да направя голямо дарение?</div> Това би"
 " било невероятно! За дарения над няколко хиляди долара, моля, свържете се"
 " директно с нас на %(email)s."
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:209
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Мога ли да допринеса по други начини?</div> Да! "
