@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-24 21:49+0000\n"
-"PO-Revision-Date: 2023-01-24 21:49+0000\n"
-"Last-Translator: Good Samaritan <goodsamaritan@disposeamail.com>\n"
+"PO-Revision-Date: 2023-01-26 01:58+0000\n"
+"Last-Translator: Omar <omar_zaki91@hotmail.com>\n"
 "Language-Team: Arabic <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ar/>\n"
 "Language: ar\n"
@@ -88,7 +88,7 @@ msgstr "(انقر أيضًا على\" GET \"في الأعلى)"
 #: allthethings/page/views.py:1656 allthethings/page/views.py:1659
 #: allthethings/page/views.py:1662
 msgid "page.md5.box.download.extra_click_get"
-msgstr "(انقر فوق\" GET \"في الأعلى)"
+msgstr "(انقر على \"GET\" في الأعلى)"
 
 #: allthethings/page/views.py:1659
 msgid "page.md5.box.download.lgrsfic"
@@ -116,11 +116,11 @@ msgstr "(يحتاج إلى متصفح TOR)"
 
 #: allthethings/page/templates/page/about.html:3
 msgid "page.about.title"
-msgstr "حول"
+msgstr "عن الموقع"
 
 #: allthethings/page/templates/page/about.html:6
 msgid "page.about.header"
-msgstr "حول"
+msgstr "عن الموقع"
 
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
@@ -148,7 +148,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/about.html:20
 msgid "page.about.help.header"
-msgstr "How to help"
+msgstr "طرق للمساعدة"
 
 #: allthethings/page/templates/page/about.html:23
 msgid "page.about.help.text"
@@ -186,7 +186,7 @@ msgstr ""
 #: allthethings/page/templates/page/zlib_book.html:8
 #: allthethings/page/templates/page/zlib_book.html:9
 msgid "common.english_only"
-msgstr "يستمر النص أدناه باللغة الإنجليزية."
+msgstr "يستمر النص أدناه باللغة الإنجليزية فقط."
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
@@ -587,31 +587,31 @@ msgstr "أرشيف آنا"
 
 #: allthethings/templates/layouts/index.html:170
 msgid "layout.index.footer.list1.home"
-msgstr "بيت"
+msgstr "الصفحة الرئيسية"
 
 #: allthethings/templates/layouts/index.html:171
 msgid "layout.index.footer.list1.about"
-msgstr "حول"
+msgstr "عن الموقع"
 
 #: allthethings/templates/layouts/index.html:172
 msgid "layout.index.footer.list1.donate"
-msgstr "يتبرع"
+msgstr "تبرع"
 
 #: allthethings/templates/layouts/index.html:173
 msgid "layout.index.footer.list1.datasets"
-msgstr ""
+msgstr "البيانات"
 
 #: allthethings/templates/layouts/index.html:186
 msgid "layout.index.footer.list2.header"
-msgstr ""
+msgstr "ابقوا على تواصل"
 
 #: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.twitter"
-msgstr ""
+msgstr "تويتر"
 
 #: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.reddit"
-msgstr ""
+msgstr "ريديت"
 
 #: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list2.subreddit"
@@ -619,8 +619,8 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list2.blog"
-msgstr ""
+msgstr "مقالات آنا"
 
 #: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list2.software"
-msgstr ""
+msgstr "برمجيات آنا"
