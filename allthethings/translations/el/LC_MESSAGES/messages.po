@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-26 01:58+0000\n"
+"PO-Revision-Date: 2023-01-26 01:58+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Greek <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/el/>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Δεν είναι ορατό στη βιβλιοθήκη Genesis \".rs-fork\" Μη μυθοπλασία"
@@ -358,7 +374,8 @@ msgstr "Alipay 支付宝"
 #: allthethings/page/templates/page/donate.html:123
 #: allthethings/page/templates/page/donate.html:147
 msgid "page.donate.alipay.intro"
-msgstr "Χρησιμοποιήστε αυτόν τον λογαριασμό Alipay για να στείλετε τη δωρεά σας."
+msgstr ""
+"Χρησιμοποιήστε αυτόν τον λογαριασμό Alipay για να στείλετε τη δωρεά σας."
 
 #: allthethings/page/templates/page/donate.html:141
 msgid "page.donate.out_of_order"
@@ -701,4 +718,3 @@ msgstr "To blog της 'Αννας"
 #: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list2.software"
 msgstr "Το λογισμικό της Άννας"
-
