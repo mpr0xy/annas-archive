@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-24 21:49+0000\n"
-"PO-Revision-Date: 2023-01-24 21:49+0000\n"
+"PO-Revision-Date: 2023-01-26 01:58+0000\n"
 "Last-Translator: Lauren Agbayani <laurenagb@gmail.com>\n"
 "Language-Team: French <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/fr/>\n"
@@ -316,8 +316,7 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:180
 msgid "page.donate.text_thank_you"
 msgstr ""
-"Merci infiniment de votre aide ! Sans vous ce projet ne serais pas "
-"possible."
+"Merci infiniment de votre aide ! Sans vous ce projet ne serait pas possible."
 
 #: allthethings/page/templates/page/donate.html:75
 msgid "page.donate.cc.header"
@@ -326,8 +325,8 @@ msgstr "Carte crédit/débit"
 #: allthethings/page/templates/page/donate.html:78
 msgid "page.donate.cc.text1"
 msgstr ""
-"Nous avons utilisé Sendwyre pour déposer l'argent directement dans notre "
-"porte monnaie Bitcoin (BTC). Cela prend environ 5 minutes à compléter."
+"Nous utilisons Sendwyre pour déposer l'argent directement dans notre porte "
+"monnaie Bitcoin (BTC). Cela prend environ 5 minutes à compléter."
 
 #: allthethings/page/templates/page/donate.html:82
 msgid "page.donate.cc.text2"
@@ -346,12 +345,12 @@ msgstr "1. Copiez notre adresse Bitcoin (BTC) : %(address)s"
 #: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.list2"
 msgstr ""
-"2.Aller à %(link_open_tag)sthis page</a> and click on \"acheter crypto "
+"2. Allez à %(link_open_tag)scette page</a> et cliquez sur \"acheter crypto "
 "instantané\""
 
 #: allthethings/page/templates/page/donate.html:92
 msgid "page.donate.cc.steps.list3"
-msgstr "3.Copiez l'adresse de notre portefeuille et suivez les instructions"
+msgstr "3. Copiez l'adresse de notre portefeuille et suivez les instructions"
 
 #: allthethings/page/templates/page/donate.html:101
 msgid "page.donate.crypto.header"
@@ -372,7 +371,9 @@ msgstr "Alipay 支付宝"
 #: allthethings/page/templates/page/donate.html:123
 #: allthethings/page/templates/page/donate.html:147
 msgid "page.donate.alipay.intro"
-msgstr "Prière d'utiliser ce compte Alipay pour vos dons."
+msgstr ""
+"Prière d'utiliser ce compte Alipay pour vos dons. Si cela ne fonctionne pas, "
+"essayez de rafraîchir la page, comme cela donnerait un autre compte."
 
 #: allthethings/page/templates/page/donate.html:141
 msgid "page.donate.out_of_order"
@@ -383,39 +384,38 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:186
 msgid "page.donate.faq.header"
-msgstr "Questions fréquemment demandées"
+msgstr "Questions fréquemment posées"
 
 #: allthethings/page/templates/page/donate.html:189
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Avez vous d'autres méthodes de paiement ?</div> "
-"Présentement non. Beaucoup de gens ne veulent pas d'archives comme celle-"
-"ci d'exister ; nous devons être attentif. Si vous voulez négocier une "
-"autre méthode (plus convenable) de paiement sécuritaire, laissez-le nous "
-"savoir au %(email)s."
+"Présentement non. Beaucoup de gens ne veulent pas que des archives comme "
+"celle-ci existent, c'est pourquoi nous devons être attentif. Si vous voulez "
+"négocier une autre méthode (plus convenable) de paiement sécuritaire, "
+"laissez-le nous savoir au %(email)s."
 
 #: allthethings/page/templates/page/donate.html:193
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
-"Si votre mode de paiement n'est pas dans la liste, la chose la plus "
-"simple serais de télécharger <a "
-"href=\"https://www.coinbase.com/\">Coinbase</a> sur votre cellulaire et "
-"acheter un peux de Bitcoin (BTC) là-bas. Vous pouvez ensuite l'envoyer a "
-"notre adresse : %(address)s. Dans la majorité des pays, ceci ne devrais "
-"prendre que quelques minutes à régler."
+"Si votre mode de paiement n'est pas dans la liste, la chose la plus simple "
+"serait de télécharger <a href=\"https://www.coinbase.com/\">Coinbase</a> sur "
+"votre téléphone portable et d'y acheter un peu de Bitcoin (BTC). Vous pouvez "
+"ensuite l'envoyer à notre adresse : %(address)s. Dans la majorité des pays, "
+"ceci ne devrait prendre que quelques minutes à régler."
 
 #: allthethings/page/templates/page/donate.html:197
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
-"<div class=\"font-bold\">Puis-je faire un large dons ?</div> Ce serais "
-"merveilleux ! Pour les dons de plusieurs milliers de dollars, veuillez "
-"nous contacter directement au %(email)s."
+"<div class=\"font-bold\">Puis-je faire un don large ?</div> Ce serait "
+"merveilleux ! Pour les dons de plusieurs milliers de dollars, veuillez nous "
+"contacter directement au %(email)s."
 
 #: allthethings/page/templates/page/donate.html:201
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
-"<div class=\"font-bold\">Puis-je contribuer autrement ?</div> Oui ! Voyez"
-" <a href=\"/about\">la page</a> sous \"Comment aider\"."
+"<div class=\"font-bold\">Puis-je contribuer autrement ?</div> Oui ! Regardez "
+"<a href=\"/about\">la page</a> sous \"Comment aider\"."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
