@@ -1,3 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-28 03:49+0000\n"
+"PO-Revision-Date: 2023-01-28 03:49+0000\n"
+"Last-Translator: nameby <dzdobry@gmail.com>\n"
+"Language-Team: Belarusian <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/be/>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Не адлюстроўваецца ў \".rs-fork\" акадэмічнага падзела Library Genesis"
@@ -296,6 +313,9 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:131
 msgid "page.donate.strange_account"
 msgstr ""
+"Звярніце ўвагу, што імя ўліковага запісу або малюнак можа выглядаць дзіўна. "
+"Няма неабходнасці турбавацца! Гэтымі ўліковымі запісамі кіруюць нашы "
+"партнёры па ахвяраваннях. Нашы акаўнты не былі ўзламаныя."
 
 #: allthethings/page/templates/page/donate.html:74
 #: allthethings/page/templates/page/donate.html:100
@@ -332,22 +352,24 @@ msgstr "1. Скапіруйце нашу Bitcoin-адрас: %(address)s"
 #: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list2"
 msgstr ""
+"2. Перайдзіце на %(link_open_tag)sгэтай старонкі</a> і націсніце на \"buy "
+"crypto instantly\""
 
 #: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list3"
-msgstr ""
+msgstr "3. Ўстаўце адрас свайго кашалька і выконвайце далейшыя інструкцыі"
 
 #: allthethings/page/templates/page/donate.html:105
 msgid "page.donate.crypto.header"
-msgstr ""
+msgstr "Crypto"
 
 #: allthethings/page/templates/page/donate.html:108
 msgid "page.donate.crypto.intro"
-msgstr ""
+msgstr "Калі ў вас ужо ёсць крыпта-грошы, вось нашы адрасы:"
 
 #: allthethings/page/templates/page/donate.html:112
 msgid "page.donate.crypto.btc_bch_note"
-msgstr ""
+msgstr "(таксама працуе для BCH)"
 
 #: allthethings/page/templates/page/donate.html:124
 msgid "page.donate.alipay.header"
@@ -357,6 +379,9 @@ msgstr "Alipay"
 #: allthethings/page/templates/page/donate.html:155
 msgid "page.donate.alipay.intro"
 msgstr ""
+"Калі ласка, выкарыстоўвайце гэты ўліковы запіс Alipay для адпраўкі вашага "
+"ахвяраванні. Калі гэта не спрацуе, паспрабуйце абнавіць старонку, так як "
+"гэта можа прывесці да стварэння іншы ўліковага запісу."
 
 #: allthethings/page/templates/page/donate.html:149
 msgid "page.donate.out_of_order"
@@ -371,22 +396,44 @@ msgstr "Частыя пытанні"
 #: allthethings/page/templates/page/donate.html:197
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
+"<div class=\"font-bold\">Ці ёсць у вас іншыя спосабы аплаты?</div> у "
+"цяперашні час няма. Многія людзі не хочуць, каб падобныя архівы існавалі, "
+"таму мы павінны быць асцярожныя. Калі вы можаце дапамагчы нам бяспечна "
+"наладзіць іншыя (больш зручныя) спосабы аплаты, калі ласка, звяжыцеся з намі "
+"па адрасе %(email)s."
 
 #: allthethings/page/templates/page/donate.html:201
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
+"Калі зручны для Вас метад аплаты не падтрымліваецца, мы рэкамендуем "
+"загрузіць <a href=\"https://www.coinbase.com/\">Coinbase</a> на ваш "
+"смартфон, купіць Bitcoin ў ім і адправіць на наш адрас %(address)s. У "
+"большасці краін поўны працэс налады павінен заняць не больш чым некалькі "
+"хвілін."
 
 #: allthethings/page/templates/page/donate.html:205
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
+"<div class=\"font-bold\">Ці магу я адправіць вялікую суму?</div> Так, "
+"вядома! Калі вы збіраецеся адправіць некалькі тысяч даляраў альбо больш, "
+"напішыце нам на %(email)s."
 
 #: allthethings/page/templates/page/donate.html:209
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
+"<div class=\"font-bold\">Ці магу я вам яшчэ як-небудзь дапамагчы?</div> Так! "
+"Паглядзіце нашу <a href=\"/about\">інфармацыйную старонку </a>, раздзел "
+"\"Дапамога праекту\"."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
 msgstr ""
+"<span class=\"italic font-bold\">Anna’s Archive</span> - гэта праект, мэтай "
+"якога з'яўляецца каталагізацыя ўсіх існуючых кніг шляхам аб'яднання дадзеных "
+"з розных крыніц. Мы таксама адсочваем прагрэс чалавецтва ў напрамку "
+"забеспячэння лёгкага доступу да ўсіх гэтых кніг у лічбавай форме праз “<a "
+"href=\"https://en.wikipedia.org/wiki/Shadow_library\">ценявыя бібліятэкі</a>"
+"\". Даведайцеся больш <a href=\"/about\">пра нас.</a>"
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
@@ -432,6 +479,12 @@ msgstr "Не знойдзена"
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
+"“%(isbn_input)s” - недапушчальны ISBN нумар. ISBN маюць даўжыню 10 або 13 "
+"знакаў, не лічачы неабавязковых працяжнік. Усе сімвалы павінны быць лікамі, "
+"за выключэннем апошняга сімвала, які таксама можа быць \"X\". Апошні сімвал-"
+"гэта \"кантрольная лічба\", якая павінна адпавядаць значэнню кантрольнай "
+"сумы, вылічаецца з іншых лікаў. Ён таксама павінен знаходзіцца ў "
+"дапушчальным дыяпазоне, вылучаным Міжнародным агенцтвам ISBN."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
@@ -456,6 +509,12 @@ msgstr "“%(md5_input)s” не знойдзена у нашай базе да�
 #: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
 msgstr ""
+"<span class=\"font-bold\">❌ у гэтага файла могуць быць праблемы і ён быў "
+"скрыты з бібліятэкі зыходнага кода.</span> Часам гэта адбываецца па запыце "
+"ўладальніка аўтарскіх правоў, часам таму што даступная лепшая альтэрнатыва, "
+"але часам гэта адбываецца з-за праблемы з самім файлам. Мы рэкамендуем "
+"пашукаць альтэрнатыўны файл, але вы можаце спампаваць гэты пры жаданні. "
+"Больш інфармацыі:"
 
 #: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
@@ -490,10 +549,14 @@ msgstr "Новы пошук"
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
+"Пошук ▶ %(num)d+ вынікі для <span class=\"italic\">%(search_input)s</span> "
+"знойдзена ў метададзеных ценявых бібліятэк"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
+"Пошук ▶ %(num)d вынікі для <span class=\"italic\">%(search_input)s</span> "
+"знойдзена ў метададзеных ценявых бібліятэк"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -572,6 +635,10 @@ msgstr "Anna’s Archive"
 #: allthethings/templates/layouts/index.html:24
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
+"У нас даступны новы метад ахвяраванні: %(method_name)s. Калі ласка, "
+"падумайце аб %(donate_link_open_tag)sахвяраванні </a> — запуск гэтага вэб-"
+"сайта абыходзіцца нятанна і ваша ахвяраванне сапраўды мае значэнне. Вялікі "
+"дзякуй."
 
 #: allthethings/templates/layouts/index.html:54
 msgid "layout.index.header.title"
@@ -648,4 +715,3 @@ msgstr "Блог Ганны"
 #: allthethings/templates/layouts/index.html:196
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
-
