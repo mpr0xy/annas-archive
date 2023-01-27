@@ -276,14 +276,18 @@ msgid "page.donate.nav.alipay"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
+msgid "page.donate.nav.pix"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
 msgstr "Preguntas"
 
-#: allthethings/page/templates/page/donate.html:63
+#: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
 msgstr "Paypal"
 
-#: allthethings/page/templates/page/donate.html:66
+#: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
 "Ve a %(link_open_tag)sesta página</a> y sigue las instrucciones, ya sea "
@@ -291,92 +295,110 @@ msgstr ""
 " funciona, intenta actualizar la página, ya que eso podría darle una "
 "cuenta diferente."
 
-#: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:131
+#: allthethings/page/templates/page/donate.html:71
+#: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
 "No te preocupes si el nombre o la imagen de la cuenta tiene un aspecto "
 "inesperado, estas cuentas pertenecen a socios que han aportado dinero al "
 "proyecto: no nos han hackeado."
 
-#: allthethings/page/templates/page/donate.html:74
-#: allthethings/page/templates/page/donate.html:100
-#: allthethings/page/templates/page/donate.html:119
-#: allthethings/page/templates/page/donate.html:144
-#: allthethings/page/templates/page/donate.html:188
+#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:145
+#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:206
 msgid "page.donate.text_thank_you"
 msgstr "¡Muchas gracias por ayudar! Este proyecto no seria posible sin tu ayuda."
 
-#: allthethings/page/templates/page/donate.html:79
+#: allthethings/page/templates/page/donate.html:80
 msgid "page.donate.cc.header"
 msgstr "Tarjeta de crédito/débito"
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:83
 msgid "page.donate.cc.text1"
 msgstr ""
 "Utilizamos Sendwyre para depositar dinero directamente en nuestro "
 "monedero Bitcoin (BTC). Tarda unos 5 minutos en completarse."
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:87
 msgid "page.donate.cc.text2"
 msgstr ""
 "Este método tiene una cantidad mínima por transacción de $30, y un costo "
 "de alrededor de $5."
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.header"
 msgstr "Pasos:"
 
-#: allthethings/page/templates/page/donate.html:94
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Copia nuestra \"Bitcoin (BTC) wallet address\" : %(address)s"
 
-#: allthethings/page/templates/page/donate.html:95
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 "2. Ve a %(link_open_tag)sthis page</a> y haz click en \"buy crypto "
 "instantly\""
 
-#: allthethings/page/templates/page/donate.html:96
+#: allthethings/page/templates/page/donate.html:97
 msgid "page.donate.cc.steps.list3"
 msgstr "3. Pega nuestra \"wallet address\", y sigue las instrucciones"
 
-#: allthethings/page/templates/page/donate.html:105
+#: allthethings/page/templates/page/donate.html:106
 msgid "page.donate.crypto.header"
 msgstr "Cripto"
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.crypto.intro"
 msgstr "Si ya tienes criptomonedas, estas son nuestras direcciones:"
 
-#: allthethings/page/templates/page/donate.html:112
+#: allthethings/page/templates/page/donate.html:113
 msgid "page.donate.crypto.btc_bch_note"
 msgstr "(también funciona para BCH)"
 
-#: allthethings/page/templates/page/donate.html:124
+#: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
-#: allthethings/page/templates/page/donate.html:127
-#: allthethings/page/templates/page/donate.html:155
+#: allthethings/page/templates/page/donate.html:128
+#: allthethings/page/templates/page/donate.html:156
 msgid "page.donate.alipay.intro"
 msgstr ""
 "Utilice esta cuenta de Alipay para enviar su donación. Si no funciona, "
 "intente actualizar la página, ya que eso podría generarle una cuenta "
 "diferente."
 
-#: allthethings/page/templates/page/donate.html:149
+#: allthethings/page/templates/page/donate.html:137
+msgid "page.donate.alipay.url"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:150
+#: allthethings/page/templates/page/donate.html:211
 msgid "page.donate.out_of_order"
 msgstr ""
 "Esta opción de donación no esta actualmente disponible. Por favor, "
 "inténtelo mas tarde. Aun constante, ¡agradecemos mucho su interés por "
 "aportar una donación!"
 
-#: allthethings/page/templates/page/donate.html:194
+#: allthethings/page/templates/page/donate.html:195
+msgid "page.donate.pix.header"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:198
+msgid "page.donate.pix.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:202
+msgid "page.donate.pix.page"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:217
 msgid "page.donate.faq.header"
 msgstr "Preguntas frecuentes"
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:220
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">¿Disponen de otros métodos de pago?</div> "
@@ -385,7 +407,7 @@ msgstr ""
 "métodos de pago (más convenientes) de manera segura, contáctenos en "
 "%(email)s."
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:224
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Si su método de pago no está en la lista, lo más fácil sería descargar <a"
@@ -394,14 +416,14 @@ msgstr ""
 "nuestra dirección: %(address)s. En la mayoría de los países, esto sólo "
 "debería llevar unos minutos."
 
-#: allthethings/page/templates/page/donate.html:205
+#: allthethings/page/templates/page/donate.html:228
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">¿Puedo hacer una donación importante?</div> "
 "¡Sería increíble!. Para donaciones superiores a unos pocos miles de "
 "dólares, póngase en contacto con nosotros directamente en %(email)s."
 
-#: allthethings/page/templates/page/donate.html:209
+#: allthethings/page/templates/page/donate.html:232
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">¿Puedo contribuir de otra manera?</div> ¡Sí! Ver"

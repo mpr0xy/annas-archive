@@ -278,102 +278,124 @@ msgid "page.donate.nav.alipay"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
+msgid "page.donate.nav.pix"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
 msgstr "Sorular"
 
-#: allthethings/page/templates/page/donate.html:63
+#: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
 msgstr "Paypal"
 
-#: allthethings/page/templates/page/donate.html:66
+#: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
 "%(link_open_tag)sBu sayfayı</a> ziyaret edin ve talimatları takip edin. "
 "Eğer hata alırsanız, sayfayı yenilemeyi deneyin."
 
-#: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:131
+#: allthethings/page/templates/page/donate.html:71
+#: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:74
-#: allthethings/page/templates/page/donate.html:100
-#: allthethings/page/templates/page/donate.html:119
-#: allthethings/page/templates/page/donate.html:144
-#: allthethings/page/templates/page/donate.html:188
+#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:145
+#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:206
 msgid "page.donate.text_thank_you"
 msgstr ""
 "Yardım ettiğiniz için çok teşekkür ederiz! Bu proje siz olmadan mümkün "
 "olmazdı."
 
-#: allthethings/page/templates/page/donate.html:79
+#: allthethings/page/templates/page/donate.html:80
 msgid "page.donate.cc.header"
 msgstr "Kredi/banka kartı"
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:83
 msgid "page.donate.cc.text1"
 msgstr ""
 "Doğrudan Bitcoin (BTC) cüzdanımıza para yatırmak için Sendwyre "
 "kullanıyoruz. Tamamlanması yaklaşık 5 dakika sürer."
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:87
 msgid "page.donate.cc.text2"
 msgstr ""
 "Bu yöntemin minimum işlem tutarı 30 ABD doları ve işlem ücreti yaklaşık 5"
 " ABD dolarıdır."
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.header"
 msgstr "Adımlar:"
 
-#: allthethings/page/templates/page/donate.html:94
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Bitcoin (BTC) cüzdan adresimizi kopyalayın: %(address)s"
 
-#: allthethings/page/templates/page/donate.html:95
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 "2. %(link_open_tag)s bu sayfaya</a> gidin ve \"anında kripto satın al\"a "
 "tıklayın"
 
-#: allthethings/page/templates/page/donate.html:96
+#: allthethings/page/templates/page/donate.html:97
 msgid "page.donate.cc.steps.list3"
 msgstr "3. Cüzdan adresimizi yapıştırın ve talimatları izleyin"
 
-#: allthethings/page/templates/page/donate.html:105
+#: allthethings/page/templates/page/donate.html:106
 msgid "page.donate.crypto.header"
 msgstr "Kripto"
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.crypto.intro"
 msgstr "Zaten kripto paranız varsa adreslerimiz şunlardır:"
 
-#: allthethings/page/templates/page/donate.html:112
+#: allthethings/page/templates/page/donate.html:113
 msgid "page.donate.crypto.btc_bch_note"
 msgstr "(BCH için de çalışır)"
 
-#: allthethings/page/templates/page/donate.html:124
+#: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
-#: allthethings/page/templates/page/donate.html:127
-#: allthethings/page/templates/page/donate.html:155
+#: allthethings/page/templates/page/donate.html:128
+#: allthethings/page/templates/page/donate.html:156
 msgid "page.donate.alipay.intro"
 msgstr ""
 "Lütfen bağışınızı göndermek için bu Alipay hesabını kullanın. Eğer "
 "çalışmıyorsa, sayfayı yenileyip tekrar deneyin."
 
-#: allthethings/page/templates/page/donate.html:149
+#: allthethings/page/templates/page/donate.html:137
+msgid "page.donate.alipay.url"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:150
+#: allthethings/page/templates/page/donate.html:211
 msgid "page.donate.out_of_order"
 msgstr ""
 "Bu bağış seçeneği şimdilik çalışmıyor. Lütfen daha sonra tekrar kontrol "
 "edin. Bağış yapmak istediğiniz için çok teşekkür ederiz!"
 
-#: allthethings/page/templates/page/donate.html:194
+#: allthethings/page/templates/page/donate.html:195
+msgid "page.donate.pix.header"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:198
+msgid "page.donate.pix.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:202
+msgid "page.donate.pix.page"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:217
 msgid "page.donate.faq.header"
 msgstr "Sıkça sorulan sorular"
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:220
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Başka ödeme yöntemleri mevcut mu?</div> Şimdilik"
@@ -381,7 +403,7 @@ msgstr ""
 "dikkatli davranmamız gerekiyor. Eğer daha iyi bir yöntemi biliyorsanız "
 "bizimle iletişime geçin: %(email)s."
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:224
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Eğer ödeme metodunuz listede değil ise, yapabileceğiniz en basit aktarım "
@@ -390,14 +412,14 @@ msgstr ""
 "iletebilirsiniz. Ülkelerin çoğunda bu şekilde para aktarımı dakikalar "
 "içerisinde gerçekleşir."
 
-#: allthethings/page/templates/page/donate.html:205
+#: allthethings/page/templates/page/donate.html:228
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Büyük miktarda bağış yapabilir miyim?</div> Bu "
 "çok iyi olur! Bin doların üstündeki bağışlarınız için lütfen bize, "
 "%(email)s adresinden direkt iletişim kurunuz."
 
-#: allthethings/page/templates/page/donate.html:209
+#: allthethings/page/templates/page/donate.html:232
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Başka yollardan yardımcı olabilir miyim?</div> "

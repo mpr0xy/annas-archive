@@ -278,14 +278,18 @@ msgid "page.donate.nav.alipay"
 msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
+msgid "page.donate.nav.pix"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
 msgstr "Questions"
 
-#: allthethings/page/templates/page/donate.html:63
+#: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
 msgstr "Paypal"
 
-#: allthethings/page/templates/page/donate.html:66
+#: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
 "Allez à %(link_open_tag)scette page</a> et suivez les instructions, soit "
@@ -293,90 +297,108 @@ msgstr ""
 "fonctionne pas, essayez de rafraîchir la page, ceci peut vous donner un "
 "autre compte."
 
-#: allthethings/page/templates/page/donate.html:70
-#: allthethings/page/templates/page/donate.html:131
+#: allthethings/page/templates/page/donate.html:71
+#: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
 
-#: allthethings/page/templates/page/donate.html:74
-#: allthethings/page/templates/page/donate.html:100
-#: allthethings/page/templates/page/donate.html:119
-#: allthethings/page/templates/page/donate.html:144
-#: allthethings/page/templates/page/donate.html:188
+#: allthethings/page/templates/page/donate.html:75
+#: allthethings/page/templates/page/donate.html:101
+#: allthethings/page/templates/page/donate.html:120
+#: allthethings/page/templates/page/donate.html:145
+#: allthethings/page/templates/page/donate.html:189
+#: allthethings/page/templates/page/donate.html:206
 msgid "page.donate.text_thank_you"
 msgstr ""
 "Merci infiniment de votre aide ! Sans vous ce projet ne serait pas "
 "possible."
 
-#: allthethings/page/templates/page/donate.html:79
+#: allthethings/page/templates/page/donate.html:80
 msgid "page.donate.cc.header"
 msgstr "Carte crédit/débit"
 
-#: allthethings/page/templates/page/donate.html:82
+#: allthethings/page/templates/page/donate.html:83
 msgid "page.donate.cc.text1"
 msgstr ""
 "Nous utilisons Sendwyre pour déposer l'argent directement dans notre "
 "porte monnaie Bitcoin (BTC). Cela prend environ 5 minutes à compléter."
 
-#: allthethings/page/templates/page/donate.html:86
+#: allthethings/page/templates/page/donate.html:87
 msgid "page.donate.cc.text2"
 msgstr ""
 "Cette méthode contient un minimum de transactions de 30$ et de frais "
 "d'environ 5$."
 
-#: allthethings/page/templates/page/donate.html:90
+#: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.header"
 msgstr "Étapes :"
 
-#: allthethings/page/templates/page/donate.html:94
+#: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list1"
 msgstr "1. Copiez notre adresse Bitcoin (BTC) : %(address)s"
 
-#: allthethings/page/templates/page/donate.html:95
+#: allthethings/page/templates/page/donate.html:96
 msgid "page.donate.cc.steps.list2"
 msgstr ""
 "2. Allez à %(link_open_tag)scette page</a> et cliquez sur \"acheter "
 "crypto instantané\""
 
-#: allthethings/page/templates/page/donate.html:96
+#: allthethings/page/templates/page/donate.html:97
 msgid "page.donate.cc.steps.list3"
 msgstr "3. Copiez l'adresse de notre portefeuille et suivez les instructions"
 
-#: allthethings/page/templates/page/donate.html:105
+#: allthethings/page/templates/page/donate.html:106
 msgid "page.donate.crypto.header"
 msgstr "Crypto"
 
-#: allthethings/page/templates/page/donate.html:108
+#: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.crypto.intro"
 msgstr "Si vous avez un portefeuille crypto, voici nos adresses :"
 
-#: allthethings/page/templates/page/donate.html:112
+#: allthethings/page/templates/page/donate.html:113
 msgid "page.donate.crypto.btc_bch_note"
 msgstr "(Fonctionne aussi pour BCH)"
 
-#: allthethings/page/templates/page/donate.html:124
+#: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
 msgstr "Alipay 支付宝"
 
-#: allthethings/page/templates/page/donate.html:127
-#: allthethings/page/templates/page/donate.html:155
+#: allthethings/page/templates/page/donate.html:128
+#: allthethings/page/templates/page/donate.html:156
 msgid "page.donate.alipay.intro"
 msgstr ""
 "Prière d'utiliser ce compte Alipay pour vos dons. Si cela ne fonctionne "
 "pas, essayez de rafraîchir la page, comme cela donnerait un autre compte."
 
-#: allthethings/page/templates/page/donate.html:149
+#: allthethings/page/templates/page/donate.html:137
+msgid "page.donate.alipay.url"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:150
+#: allthethings/page/templates/page/donate.html:211
 msgid "page.donate.out_of_order"
 msgstr ""
 "Cette option de don est actuellement en rupture de stock. Veuillez "
 "vérifier plus tard. Merci de vouloir nous faire un don, nous apprécions "
 "vraiment !"
 
-#: allthethings/page/templates/page/donate.html:194
+#: allthethings/page/templates/page/donate.html:195
+msgid "page.donate.pix.header"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:198
+msgid "page.donate.pix.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:202
+msgid "page.donate.pix.page"
+msgstr ""
+
+#: allthethings/page/templates/page/donate.html:217
 msgid "page.donate.faq.header"
 msgstr "Questions fréquemment posées"
 
-#: allthethings/page/templates/page/donate.html:197
+#: allthethings/page/templates/page/donate.html:220
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
 "<div class=\"font-bold\">Avez vous d'autres méthodes de paiement ?</div> "
@@ -385,7 +407,7 @@ msgstr ""
 "voulez négocier une autre méthode (plus convenable) de paiement "
 "sécuritaire, laissez-le nous savoir au %(email)s."
 
-#: allthethings/page/templates/page/donate.html:201
+#: allthethings/page/templates/page/donate.html:224
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
 "Si votre mode de paiement n'est pas dans la liste, la chose la plus "
@@ -395,14 +417,14 @@ msgstr ""
 "l'envoyer à notre adresse : %(address)s. Dans la majorité des pays, ceci "
 "ne devrait prendre que quelques minutes à régler."
 
-#: allthethings/page/templates/page/donate.html:205
+#: allthethings/page/templates/page/donate.html:228
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
 "<div class=\"font-bold\">Puis-je faire un don large ?</div> Ce serait "
 "merveilleux ! Pour les dons de plusieurs milliers de dollars, veuillez "
 "nous contacter directement au %(email)s."
 
-#: allthethings/page/templates/page/donate.html:209
+#: allthethings/page/templates/page/donate.html:232
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Puis-je contribuer autrement ?</div> Oui ! "
