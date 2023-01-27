@@ -6,6 +6,7 @@ from flask import Flask
 from werkzeug.security import safe_join
 from werkzeug.debug import DebuggedApplication
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_babel import get_locale
 
 from allthethings.page.views import page
 from allthethings.up.views import up
@@ -85,6 +86,7 @@ def extensions(app):
     # https://stackoverflow.com/a/57950565
     app.jinja_env.trim_blocks = True
     app.jinja_env.lstrip_blocks = True
+    app.jinja_env.globals['get_locale'] = get_locale
 
     # https://stackoverflow.com/a/18095320
     hash_cache = {}
