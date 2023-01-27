@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-28 03:49+0000\n"
-"PO-Revision-Date: 2023-01-28 18:11+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
-"projects/annas-archive/main-website/zh_Hans/>\n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "在 Library Genesis “.rs-fork” 的非虚构文学板块中不可见"
@@ -274,15 +258,12 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:66
 msgid "page.donate.paypal.text"
-msgstr ""
-"前往%(link_open_tag)s这个页面并且按照页面所示步骤执行，也可通过扫描二维码或点"
-"击“paypal.me”链接，如果以上内容不起作用，尝试刷新页面"
+msgstr "前往%(link_open_tag)s这个页面并且按照页面所示步骤执行，也可通过扫描二维码或点击“paypal.me”链接，如果以上内容不起作用，尝试刷新页面"
 
 #: allthethings/page/templates/page/donate.html:70
 #: allthethings/page/templates/page/donate.html:131
 msgid "page.donate.strange_account"
-msgstr "账户名或图像可能会有点奇怪不必担心！这个账户由我们的捐赠伙伴管理，我们的账户"
-"没有被黑。"
+msgstr "账户名或图像可能会有点奇怪不必担心！这个账户由我们的捐赠伙伴管理，我们的账户没有被黑。"
 
 #: allthethings/page/templates/page/donate.html:74
 #: allthethings/page/templates/page/donate.html:100
@@ -562,9 +543,8 @@ msgstr "安娜的档案"
 #: allthethings/templates/layouts/index.html:24
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
-"我们现在有了一种新的捐款途径： %(method_name)s.恳请考虑 "
-"%(donate_link_open_tag)s 向我们捐款 </a> — 运营这个网站花费了很大的心血和资金"
-"，而大家的每一点捐款都可以发挥很大的作用。非常感谢！"
+"我们现在有了一种新的捐款途径： %(method_name)s.恳请考虑 %(donate_link_open_tag)s 向我们捐款 </a> "
+"— 运营这个网站花费了很大的心血和资金，而大家的每一点捐款都可以发挥很大的作用。非常感谢！"
 
 #: allthethings/templates/layouts/index.html:54
 msgid "layout.index.header.title"
@@ -639,3 +619,4 @@ msgstr "安娜的博客"
 #: allthethings/templates/layouts/index.html:196
 msgid "layout.index.footer.list2.software"
 msgstr "安娜的软件"
+
