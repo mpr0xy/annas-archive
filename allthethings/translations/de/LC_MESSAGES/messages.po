@@ -132,11 +132,15 @@ msgstr ""
 "oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. "
 "Für Fragen und Rückmeldungen wende dich bitte via %(email)s an Anna."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "Wie kann ich helfen?"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. Folgt uns auf <a "
@@ -155,8 +159,8 @@ msgstr ""
 "Software</a> beizutragen oder unsere <a href=\"http://pilimi.org "
 "\">Torrents und IPFS</a> zu teilen.</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -167,8 +171,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -220,7 +224,7 @@ msgstr "Keine passenden Dateien in unserer Datenbank gefunden."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Zeige technische Details (auf Englisch)"
 
@@ -545,6 +549,10 @@ msgstr ""
 "bitte trotzdem immer vorsichtig, wenn du Dateien aus dem Internet "
 "downloadest. Achte auch darauf, dass deine Geräte und Software auf dem "
 "neusten Stand sind."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

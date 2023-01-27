@@ -134,11 +134,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. For "
 "questions and feedback please contact Anna at %(email)s."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr "If you have a valid DMCA complaint, see the bottom of this page, or contact us at %(email)s."
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "How to help"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. Follow us on <a "
@@ -155,8 +159,8 @@ msgstr ""
 "software.org/\">open source</a>, or seeding our <a "
 "href=\"http://pilimi.org\">torrents and IPFS</a>.</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -167,8 +171,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -220,7 +224,7 @@ msgstr "No matching files found in our database."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Show technical details"
 
@@ -537,6 +541,10 @@ msgstr ""
 "All mirrors serve the same file, and should be safe to use. That said, "
 "always be cautious when downloading files from the internet. For example,"
 " be sure to keep your devices updated."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr "Note that Anna’s Archive does not host any of the content on here. We merely link to other people’s websites. If you do think you have a valid DMCA complaint, please see the %(about_link)sabout page</a>."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

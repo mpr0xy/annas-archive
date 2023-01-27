@@ -134,11 +134,15 @@ msgstr ""
 "edin. Sorular ve geri bildirimler için lütfen Anna ile %(email)s "
 "aracılığıyla iletişime geçin."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "Nasıl yardım edilebilir"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. Bizi <a href=\"https://twitter.com/AnnaArchivist\">Twitter</a> ya "
@@ -156,8 +160,8 @@ msgstr ""
 "href=\"http://pilimi.org\">torrent ve IPFS</a>'lerimizi seed etmeyi "
 "düşünün.</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -168,8 +172,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -221,7 +225,7 @@ msgstr "Veri tabanımızda eşleşen dosya bulunamadı."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Teknik ayrıntılar (İngilizce)"
 
@@ -533,6 +537,10 @@ msgstr ""
 "Tüm aynalar aynı dosyaya hizmet eder ve kullanımları güvenli olmalıdır. "
 "Bununla birlikte, internetten dosya indirirken her zaman dikkatli olun. "
 "Örneğin, cihazlarınızı güncel tuttuğunuzdan emin olun."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

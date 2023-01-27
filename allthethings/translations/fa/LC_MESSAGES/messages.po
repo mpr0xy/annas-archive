@@ -117,16 +117,20 @@ msgstr ""
 msgid "page.about.text3"
 msgstr ""
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr ""
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -137,8 +141,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -184,7 +188,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr ""
 
@@ -429,6 +433,10 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
+msgstr ""
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
 msgstr ""
 
 #: allthethings/page/templates/page/search.html:4

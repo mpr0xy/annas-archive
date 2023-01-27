@@ -47,6 +47,8 @@
         {% if (md5_dict.file_unified_data.problems | length) == 0 %}
           <div class="mt-4">{{ gettext('page.md5.box.download.no_issues_notice') }}</div>
         {% endif %}
+
+        <div class="mt-4">{{ gettext('page.md5.box.download.no_hosting', about_link=('<a href="/about">' | safe)) }}</div>
       {% endif %}
     </div>
 

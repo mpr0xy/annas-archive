@@ -136,11 +136,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. Pour vos "
 "questions ou commentaires, veuillez contacter Anna au %(email)s."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "Comment aider"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. Suivez nous sur <a href=\"https://twitter.com/AnnaArchivist\"> "
@@ -157,8 +161,8 @@ msgstr ""
 "notre <a href=\"https://annas-software.org/\"> logiciel libre </a>, ou "
 "seedez nos <a href=\"http://pilimi.org\">torrents et IPFS</a>.</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -169,8 +173,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -222,7 +226,7 @@ msgstr "Aucun fichiers correspondants dans notre base de données."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Détails techniques (en anglais)"
 
@@ -541,6 +545,10 @@ msgstr ""
 " Cela dit, soyez toujours prudent lorsque vous téléchargez des fichiers "
 "depuis Internet. Par exemple, assurez-vous de garder vos appareils à "
 "jour."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

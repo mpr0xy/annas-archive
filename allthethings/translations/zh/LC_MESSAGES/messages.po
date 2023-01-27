@@ -125,11 +125,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
 "上关注Anna，了解本项目最新进展。如有问题和反馈，请通过邮件 %(email)s 联系 Anna。"
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "如何帮助我们？"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. 在<a href=\"https://twitter.com/AnnaArchivist\">推特</a>或 <a "
@@ -143,8 +147,8 @@ msgstr ""
 "software.org/\">开源代码</a>添砖加瓦，或者使用 <a href=\"http://pilimi.org\">BT 和 "
 "IPFS</a> 做种。</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -155,8 +159,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -204,7 +208,7 @@ msgstr "没有在数据库中找到匹配的文件。"
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "显示技术细节（仅英文）"
 
@@ -468,6 +472,10 @@ msgstr "镜像 #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

@@ -133,11 +133,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\">रेड्डिट</a> पर फॉलो "
 "करे। सवालो तथा प्रतिक्रियाओं के लिए एना से %(email)s संपर्क करे।"
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "आप हमारी सहायतें कैसे कर सकते हैं"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1.हमें <a href=\"https://twitter.com/AnnaArchivist\">ट्विटर</a> या <a"
@@ -155,8 +159,8 @@ msgstr ""
 "href=\"http://pilimi.org\">तोर्रेंट्स और IPFS</a> की सीडिंग में योगदान "
 "देने के बारे में विचार करे।</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -167,8 +171,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -220,7 +224,7 @@ msgstr "हमारे डेटाबेस में कोई मिलत�
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "तकनीकी विवरण (अंग्रेजी में)"
 
@@ -521,6 +525,10 @@ msgstr ""
 "सभी दर्पण एक ही फ़ाइल का उपयोग करते हैं, और उपयोग करने के लिए सुरक्षित "
 "होने चाहिए। उस ने कहा, इंटरनेट से फ़ाइलें डाउनलोड करते समय हमेशा सतर्क "
 "रहें। उदाहरण के लिए, अपने उपकरणों को अपडेट रखना सुनिश्चित करें।"
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

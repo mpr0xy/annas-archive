@@ -130,11 +130,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\"> ريديت </a>. للأسئلة "
 "والاقتراحات تواصل مع آنا عبر البريد الإلكتروني %(email)s."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "طرق للمساعدة"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li> 1. تابعنا على <a "
@@ -152,8 +156,8 @@ msgstr ""
 "href=\"http://pilimi.org\">ملفات ال Torrent والـ IFPS. \n"
 "</a></li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -164,8 +168,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -211,7 +215,7 @@ msgstr "لا توجد ملفات مطابقة في قاعدة البيانات �
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "التفاصيل الفنية (باللغة الإنجليزية)"
 
@@ -469,6 +473,10 @@ msgstr ""
 "تخدم جميع المرايا نفس الملف ، ويجب أن تكون آمنة للاستخدام. ومع ذلك ، كن "
 "حذرًا دائمًا عند تنزيل الملفات من الإنترنت. على سبيل المثال ، تأكد من "
 "تحديث أجهزتك باستمرار."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"

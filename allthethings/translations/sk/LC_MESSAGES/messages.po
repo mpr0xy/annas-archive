@@ -138,11 +138,15 @@ msgstr ""
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddite</a>. V prípade"
 " otázok alebo zanechania spätnej väzby, kontaktujte Annu na %(email)s."
 
-#: allthethings/page/templates/page/about.html:20
+#: allthethings/page/templates/page/about.html:21
+msgid "page.about.text4"
+msgstr ""
+
+#: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
 msgstr "Ako pomôcť"
 
-#: allthethings/page/templates/page/about.html:23
+#: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
 "<li>1. Sledujte nás na <a "
@@ -159,8 +163,8 @@ msgstr ""
 "software.org/\">open source</a>, alebo seedujte naše <a "
 "href=\"http://pilimi.org\">torrenty and IPFS</a>.</li>"
 
-#: allthethings/page/templates/page/about.html:26
-#: allthethings/page/templates/page/about.html:27
+#: allthethings/page/templates/page/about.html:30
+#: allthethings/page/templates/page/about.html:31
 #: allthethings/page/templates/page/datasets.html:6
 #: allthethings/page/templates/page/datasets.html:7
 #: allthethings/page/templates/page/doi.html:54
@@ -171,8 +175,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:56
-#: allthethings/page/templates/page/md5.html:57
+#: allthethings/page/templates/page/md5.html:58
+#: allthethings/page/templates/page/md5.html:59
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -218,7 +222,7 @@ msgstr "V našej databáze sa nenašli žiadne zodpovedajúce súbory."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:53
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Zobraziť technické podrobnosti v angličtine"
 
@@ -515,6 +519,10 @@ msgstr ""
 "malo byť bezpečné. Napriek tomu buďte vždy opatrný pri sťahovaní súborov "
 "z internetu. Napríklad nezabudnite aktualizovať softvér na vašich "
 "zariadeniach."
+
+#: allthethings/page/templates/page/md5.html:51
+msgid "page.md5.box.download.no_hosting"
+msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
