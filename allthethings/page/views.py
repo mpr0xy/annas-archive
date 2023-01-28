@@ -50,6 +50,8 @@ search_filtered_bad_md5s = [
     "08499f336fbf8d31f8e7fadaaa517477",
 ]
 
+ES_TIMEOUT = "5s"
+
 # Retrieved from https://openlibrary.org/config/edition.json on 2022-10-11
 ol_edition_json = json.load(open(os.path.dirname(os.path.realpath(__file__)) + '/ol_edition.json'))
 ol_classifications = {}
@@ -1131,6 +1133,7 @@ def isbn_page(isbn_input):
             size=100,
             query={ "term": { "file_unified_data.sanitized_isbns": canonical_isbn13 } },
             sort={ "search_only_fields.score_base": "desc" },
+            timeout=ES_TIMEOUT,
         )
         search_md5_dicts = [add_additional_to_md5_dict({'md5': md5_dict['_id'], **md5_dict['_source']}) for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
         isbn_dict['search_md5_dicts'] = search_md5_dicts
@@ -1155,6 +1158,7 @@ def doi_page(doi_input):
         size=100,
         query={ "term": { "file_unified_data.doi_multiple": doi_input } },
         sort={ "search_only_fields.score_base": "desc" },
+        timeout=ES_TIMEOUT,
     )
     search_md5_dicts = [add_additional_to_md5_dict({'md5': md5_dict['_id'], **md5_dict['_source']}) for md5_dict in search_results_raw['hits']['hits'] if md5_dict['_id'] not in search_filtered_bad_md5s]
 
@@ -1735,7 +1739,7 @@ search_query_aggs = {
 
 @functools.cache
 def all_search_aggs(display_lang):
-    search_results_raw = es.search(index="md5_dicts", size=0, aggs=search_query_aggs)
+    search_results_raw = es.search(index="md5_dicts", size=0, aggs=search_query_aggs, timeout=ES_TIMEOUT)
 
     all_aggregations = {}
     # Unfortunately we have to special case the "unknown language", which is currently represented with an empty string `bucket['key'] != ''`, otherwise this gives too much trouble in the UI.
@@ -1846,6 +1850,7 @@ def search_page():
             post_filter={ "bool": { "filter": post_filter } },
             sort=custom_search_sorting+['_score'],
             track_total_hits=False,
+            timeout=ES_TIMEOUT,
         )
 
         all_aggregations = all_search_aggs(get_locale().language)
@@ -1910,6 +1915,7 @@ def search_page():
                 query=search_query,
                 sort=custom_search_sorting+['_score'],
                 track_total_hits=False,
+                timeout=ES_TIMEOUT,
             )
             if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                 max_additional_search_md5_dicts_reached = True
@@ -1925,6 +1931,7 @@ def search_page():
                     query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } }, "filter": post_filter } },
                     sort=custom_search_sorting+['_score'],
                     track_total_hits=False,
+                    timeout=ES_TIMEOUT,
                 )
                 if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                     max_additional_search_md5_dicts_reached = True
@@ -1940,6 +1947,7 @@ def search_page():
                         query={"bool": { "must": { "match": { "search_only_fields.search_text": { "query": search_input } } } } },
                         sort=custom_search_sorting+['_score'],
                         track_total_hits=False,
+                        timeout=ES_TIMEOUT,
                     )
                     if len(seen_md5s)+len(search_results_raw['hits']['hits']) >= max_additional_display_results:
                         max_additional_search_md5_dicts_reached = True
