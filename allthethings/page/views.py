@@ -1112,6 +1112,8 @@ def isbn_page(isbn_input):
 
         for isbndb_book in isbndb_books.values():
             isbndb_book['json'] = orjson.loads(isbndb_book['json'])
+            isbndb_book['json']['subjects'] = isbndb_book['json'].get('subjects', None) or []
+
         # There seem to be a bunch of ISBNdb books with only a language, which is not very useful.
         isbn_dict['isbndb'] = [isbndb_book for isbndb_book in isbndb_books.values() if len(isbndb_book['json'].get('title') or '') > 0 or len(isbndb_book['json'].get('title_long') or '') > 0 or len(isbndb_book['json'].get('authors') or []) > 0 or len(isbndb_book['json'].get('synopsis') or '') > 0 or len(isbndb_book['json'].get('overview') or '') > 0]
 
