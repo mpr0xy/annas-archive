@@ -37,12 +37,10 @@ docker exec -it aa-data-import--mariadb /scripts/pilimi_zlib.sh
 # If you ever want to see what is going on in MySQL as these scripts run:
 # docker exec -it aa-data-import--mariadb mariadb -u root -ppassword allthethings --show-warnings -vv -e 'SHOW PROCESSLIST;'
 
-# Sanity check to make sure the tables are filled. We expect to see:
-# - isbndb_*
-# - libgenli_*
-# - libgenrs_*
-# - ol_*
-# - zlib_*
+# First sanity check to make sure the right tables exist.
+docker exec -it aa-data-import--mariadb /scripts/check_after_imports.sh
+
+# Sanity check to make sure the tables are filled.
 docker exec -it aa-data-import--mariadb mariadb -u root -ppassword allthethings --show-warnings -vv -e 'SELECT table_name, ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)" FROM information_schema.TABLES WHERE table_schema = "allthethings" ORDER BY table_name;'
 
 # Calculate derived data:
