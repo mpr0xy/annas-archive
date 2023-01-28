@@ -6,7 +6,6 @@
   {% if md5_dict %}
     <meta name="description" content="{{md5_dict.additional.top_box.meta_information[1:4] | join('\n\n')}}" />
   {% endif %}
-  <meta name="robots" content="nofollow">
 {% endblock %}
 
 {% block body %}
@@ -42,7 +41,7 @@
       
         <ul>
           {% for label, url, extra in md5_dict.additional.download_urls %}
-            <li>- {{ gettext('page.md5.box.download.mirror', num=loop.index, link=(('<a href="' + url + '" rel="noopener noreferrer">' + label + '</a>') | safe), extra=extra) }}</li>
+            <li>- {{ gettext('page.md5.box.download.mirror', num=loop.index, link=(('<a href="' + url + '" rel="noopener noreferrer nofollow">' + label + '</a>') | safe), extra=extra) }}</li>
           {% endfor %}
         </ul>
         {% if (md5_dict.file_unified_data.problems | length) == 0 %}
@@ -356,7 +355,7 @@
             <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
               <div class="flex-none w-[150] px-2 py-1">{{ 'IPFS CID' if loop.index0 == 0 else ' ' }}&nbsp;</div>
               <div class="px-2 py-1 grow break-words line-clamp-[8]">{{ipfs_info.ipfs_cid}}</div>
-              <div class="px-2 py-1 whitespace-nowrap text-right"><a href="ipfs://{{ipfs_info.ipfs_cid}}">url</a> <a href="https://cloudflare-ipfs.com/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer" target="_blank">cf</a> <a href="https://ipfs.io/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer" target="_blank">io</a> <a href="https://gateway.pinata.cloud/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer" target="_blank">pin</a></div>
+              <div class="px-2 py-1 whitespace-nowrap text-right"><a href="ipfs://{{ipfs_info.ipfs_cid}}">url</a> <a href="https://cloudflare-ipfs.com/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer nofollow" target="_blank">cf</a> <a href="https://ipfs.io/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer nofollow" target="_blank">io</a> <a href="https://gateway.pinata.cloud/ipfs/{{ipfs_info.ipfs_cid}}?filename={{ipfs_info.filename}}" rel="noopener noreferrer nofollow" target="_blank">pin</a></div>
             </div>
           {% endfor %}
           <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
