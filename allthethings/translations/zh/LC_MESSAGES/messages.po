@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-28 03:49+0000\n"
-"PO-Revision-Date: 2023-01-28 03:49+0000\n"
-"Last-Translator: Echo Noch <enoch@laysense.com>\n"
+"PO-Revision-Date: 2023-01-28 18:10+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
 "projects/annas-archive/main-website/zh_Hans/>\n"
 "Language: zh\n"
@@ -32,7 +32,7 @@ msgstr "在 Library Genesis “.li-fork” 中被标记为损坏"
 
 #: allthethings/page/views.py:1593
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "在Zlibrary中被标记为丢失"
 
 #: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -40,7 +40,7 @@ msgstr "未知类型的图书"
 
 #: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.book_nonfiction"
-msgstr "非虚构图书"
+msgstr "非小说类图书"
 
 #: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.book_fiction"
@@ -275,11 +275,14 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:66
 msgid "page.donate.paypal.text"
 msgstr ""
+"前往%(link_open_tag)s这个页面并且按照页面所示步骤执行，也可通过扫描二维码或点"
+"击“paypal.me”链接，如果以上内容不起作用，尝试刷新页面"
 
 #: allthethings/page/templates/page/donate.html:70
 #: allthethings/page/templates/page/donate.html:131
 msgid "page.donate.strange_account"
-msgstr ""
+msgstr "账户名或图像可能会有点奇怪不必担心！这个账户由我们的捐赠伙伴管理，我们的账户"
+"没有被黑。"
 
 #: allthethings/page/templates/page/donate.html:74
 #: allthethings/page/templates/page/donate.html:100
@@ -519,11 +522,11 @@ msgstr "最旧"
 
 #: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "最大"
 
 #: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "最小"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
