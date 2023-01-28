@@ -56,10 +56,15 @@ justify-content: space-between;
 .header-links {
 flex-shrink: 0;
 white-space: nowrap;
+display: flex;
+flex-wrap: wrap;
+max-width: 100%;
+margin-bottom: -12px;
 }
 .header-links > a {
 margin-right: 1em;
 padding-bottom: 3px;
+margin-bottom: 8px;
 position: relative;
 }
 .header-link-normal {
@@ -86,11 +91,6 @@ display: flex;
 overflow: hidden;
 flex-grow: 1;
 max-width: 400px;
-}
-@media (max-width: 400px) {
-.header-search {
-display: none;
-}
 }
 .header-search > select {
 border: none;

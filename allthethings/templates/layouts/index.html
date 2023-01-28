@@ -171,8 +171,8 @@
     </div>
     <main class="main">{% block body %}{% endblock %}</main>
     <footer class="bg-[#0000000d]" style="box-shadow: 0px 0px 7px rgb(0 0 0 / 30%)">
-      <div class="max-w-[850px] mx-auto p-[12px] leading-relaxed flex">
-        <p class=" mr-16" style="flex-grow: 1">
+      <div class="max-w-[850px] mx-auto p-[12px] leading-relaxed flex flex-wrap">
+        <p class="mr-4 mb-4" style="flex-grow: 1">
           <strong class="font-bold">{{ gettext('layout.index.footer.list1.header') }}</strong><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="/">{{ gettext('layout.index.footer.list1.home') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="/about">{{ gettext('layout.index.footer.list1.about') }}</a><br>
@@ -189,13 +189,33 @@
             {% endfor %}
           </select>
         </p>
-        <p style="flex-grow: 2">
+        <p class="mr-4 mb-4" style="flex-grow: 1">
           <strong class="font-bold">{{ gettext('layout.index.footer.list2.header') }}</strong><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="https://twitter.com/AnnaArchivist">{{ gettext('layout.index.footer.list2.twitter') }}</a> / <a class="custom-a text-[#777] hover:text-[#333]" href="https://www.reddit.com/user/AnnaArchivist">{{ gettext('layout.index.footer.list2.reddit') }}</a> / <a class="custom-a text-[#777] hover:text-[#333]" href="https://www.reddit.com/r/Annas_Archive">{{ gettext('layout.index.footer.list2.subreddit') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-blog.org">{{ gettext('layout.index.footer.list2.blog') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="https://annas-software.org">{{ gettext('layout.index.footer.list2.software') }}</a><br>
           <a class="custom-a text-[#777] hover:text-[#333]" href="mailto:AnnaArchivist@proton.me">AnnaArchivist@&#8203;proton.&#8203;me</a><br>
           DMCA: <a class="custom-a text-[#777] hover:text-[#333]" href="mailto:AnnaDMCA@proton.me">AnnaDMCA@&#8203;proton.&#8203;me</a><br>
+        </p>
+
+        <p style="flex-grow: 2">
+          <strong class="font-bold">Mirrors</strong><br>
+          <a class="custom-a text-[#777] hover:text-[#333] js-annas-archive-org" href="https://annas-archive.org">annas-archive.org</a></a><br>
+          <a class="custom-a text-[#777] hover:text-[#333] js-annas-archive-gs" href="https://annas-archive.gs">annas-archive.gs</a><br>
+          <script>
+            (function() {
+              const domains = ["annas-archive.org", "annas-archive.gs", "localtest.me:8000", "localtest.me"];
+              const loc = "" + window.location;
+
+              for (const domain of domains) {
+                if (loc.includes(domain)) {
+                  document.querySelector(".js-annas-archive-org").href = loc.replace(domain, "annas-archive.org");
+                  document.querySelector(".js-annas-archive-gs").href = loc.replace(domain, "annas-archive.gs");
+                  break;
+                }
+              }
+            })();
+          </script>
         </p>
       </div>
     </footer>
