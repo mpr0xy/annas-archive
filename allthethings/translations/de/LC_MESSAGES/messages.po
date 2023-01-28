@@ -1,99 +1,100 @@
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Non-Fiction"
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Fiction"
 
-#: allthethings/page/views.py:1591
+#: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Nicht sichtbar in Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1592
+#: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Als beschädigt markiert in Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1593
+#: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Fehlt in Z-Library"
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Buch (unbekannt)"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Buch (Sachbuch)"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Buch (Belletristik)"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Journal-Artikel"
 
-#: allthethings/page/views.py:1603
+#: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Normendokument"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Zeitschrift"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Comicbuch"
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1604
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Buch (alle)"
 
-#: allthethings/page/views.py:1651 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1653
-msgid "page.md5.box.download.ipfs_gateway"
-msgstr "IPFS-Gateway #%(num)d"
-
-#: allthethings/page/views.py:1651
-msgid "page.md5.box.download.ipfs_gateway_extra"
-msgstr "(Du musst es möglicherweise mehrmals mit IPFS versuchen)"
-
-#: allthethings/page/views.py:1656
+#: allthethings/page/views.py:1649
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis \".rs-fork\" Sachbücher"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(drücke \"GET\" oben)"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(drücke \"GET\" oben)"
 
-#: allthethings/page/views.py:1659
+#: allthethings/page/views.py:1652
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis \".rs-fork\" Fiktion"
 
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1665
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
+#: allthethings/page/views.py:1662
+msgid "page.md5.box.download.ipfs_gateway"
+msgstr "IPFS-Gateway #%(num)d"
+
+#: allthethings/page/views.py:1660
+msgid "page.md5.box.download.ipfs_gateway_extra"
+msgstr "(Du musst es möglicherweise mehrmals mit IPFS versuchen)"
+
+#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
+#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Anonymer Z-Library Mirror #%(num)d"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(benötigt TOR-Browser)"
 
@@ -171,8 +172,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -224,7 +225,7 @@ msgstr "Keine passenden Dateien in unserer Datenbank gefunden."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:56
 msgid "common.tech_details"
 msgstr "Zeige technische Details (auf Englisch)"
 
@@ -506,19 +507,19 @@ msgstr "Passende Dateien in unserer Datenbank:"
 msgid "page.isbn.results.none"
 msgstr "Keine passenden Dateien in unserer Datenbank gefunden."
 
-#: allthethings/page/templates/page/md5.html:12
+#: allthethings/page/templates/page/md5.html:13
 msgid "page.md5.breadcrumbs"
 msgstr "Datasets ▶ Dateien ▶ MD5 %(md5_input)s"
 
-#: allthethings/page/templates/page/md5.html:15
+#: allthethings/page/templates/page/md5.html:16
 msgid "page.md5.invalid.header"
 msgstr "Nicht gefunden"
 
-#: allthethings/page/templates/page/md5.html:17
+#: allthethings/page/templates/page/md5.html:18
 msgid "page.md5.invalid.text"
 msgstr "“%(md5_input)s” wurde nicht in unserer Datenbank gefunden."
 
-#: allthethings/page/templates/page/md5.html:30
+#: allthethings/page/templates/page/md5.html:31
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ Diese Datei hat womöglich Probleme und wurde "
@@ -528,21 +529,21 @@ msgstr ""
 "der Datei selbst. Es kann sein, dass der Download trotzdem ok ist, wir "
 "empfehlen aber nach einer Alternative zu suchen. Mehr Infos:"
 
-#: allthethings/page/templates/page/md5.html:37
+#: allthethings/page/templates/page/md5.html:38
 msgid "page.md5.box.issues.text2"
 msgstr ""
 "Falls du die Datei dennoch downloaden möchtest, öffne die Datei bitte nur"
 " mit aktueller und vertrauenswürdiger Software."
 
-#: allthethings/page/templates/page/md5.html:39
+#: allthethings/page/templates/page/md5.html:40
 msgid "page.md5.box.download.text"
 msgstr "Downloade gratis ebook/Datei %(extension)s von:"
 
-#: allthethings/page/templates/page/md5.html:44
+#: allthethings/page/templates/page/md5.html:45
 msgid "page.md5.box.download.mirror"
 msgstr "Mirror #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:48
+#: allthethings/page/templates/page/md5.html:49
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Alle Mirrors verwenden dieselbe Datei und sollten daher sicher sein. Sei "
@@ -550,7 +551,7 @@ msgstr ""
 "downloadest. Achte auch darauf, dass deine Geräte und Software auf dem "
 "neusten Stand sind."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:52
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 

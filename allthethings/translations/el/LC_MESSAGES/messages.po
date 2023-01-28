@@ -1,99 +1,100 @@
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Δεν είναι ορατό στη βιβλιοθήκη Genesis \".rs-fork\" Μη μυθοπλασία"
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Δεν είναι ορατό στη Βιβλιοθήκη Genesis \".rs-fork\" Μυθοπλασία"
 
-#: allthethings/page/views.py:1591
+#: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Δεν είναι ορατό στο Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1592
+#: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Σημειώθηκε σπασμένο στη Βιβλιοθήκη Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1593
+#: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr ""
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Βιβλίο (Άγνωστο)"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Βιβλίο (μη μυθοπλασίας)"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Βιβλίο (Μυθοπλασίας)"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Δημοσιογραφικό Άρθρο"
 
-#: allthethings/page/views.py:1603
+#: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Πρότυπα Εγγράφων"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Περιοδικό"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Βιβλίο Κόμικ"
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1604
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "βιβλίο (οποιοδήποτε)"
 
-#: allthethings/page/views.py:1651 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1653
-msgid "page.md5.box.download.ipfs_gateway"
-msgstr "Πύλη IPFS #%(num)d"
-
-#: allthethings/page/views.py:1651
-msgid "page.md5.box.download.ipfs_gateway_extra"
-msgstr "(ίσως χρειαστεί να δοκιμάσετε πολλές φορές με το IPFS)"
-
-#: allthethings/page/views.py:1656
+#: allthethings/page/views.py:1649
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Βιβλιοθήκη Genesis \".rs-fork\" (Μη μυθοπλασία)"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(Επίσης κάντε κλικ στο \"GET\" στο επάνω μέρος)"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(κάντε κλικ στο \"GET\" στο επάνω μέρος)"
 
-#: allthethings/page/views.py:1659
+#: allthethings/page/views.py:1652
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Βιβλιοθήκη Genesis \".rs-fork\" Επιστημονική Φαντασία"
 
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.lgli"
 msgstr "Βιβλιοθήκη Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1665
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
+#: allthethings/page/views.py:1662
+msgid "page.md5.box.download.ipfs_gateway"
+msgstr "Πύλη IPFS #%(num)d"
+
+#: allthethings/page/views.py:1660
+msgid "page.md5.box.download.ipfs_gateway_extra"
+msgstr "(ίσως χρειαστεί να δοκιμάσετε πολλές φορές με το IPFS)"
+
+#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
+#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library Ανώνυμο Mirror #%(num)d"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(απαιτείται το πρόγραμμα περιήγησης TOR)"
 
@@ -174,8 +175,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -227,7 +228,7 @@ msgstr "Δεν βρέθηκαν αρχεία που να ταιριάζουν μ
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:56
 msgid "common.tech_details"
 msgstr "Εμφάνιση τεχνικών στοιχείων (στα Αγγλικά)"
 
@@ -505,19 +506,19 @@ msgstr "Αντιστοίχιση αρχείων στη βάση δεδομένω
 msgid "page.isbn.results.none"
 msgstr "Δεν βρέθηκαν αρχεία που να αντιστοιχούν στη βάση δεδομένων μας."
 
-#: allthethings/page/templates/page/md5.html:12
+#: allthethings/page/templates/page/md5.html:13
 msgid "page.md5.breadcrumbs"
 msgstr "Σύνολα δεδομένων ▶ Αρχεία ▶ MD5 %(md5_input)s"
 
-#: allthethings/page/templates/page/md5.html:15
+#: allthethings/page/templates/page/md5.html:16
 msgid "page.md5.invalid.header"
 msgstr "Δεν βρέθηκε"
 
-#: allthethings/page/templates/page/md5.html:17
+#: allthethings/page/templates/page/md5.html:18
 msgid "page.md5.invalid.text"
 msgstr "%(md5_input)s” δεν βρέθηκε στη βάση δεδομένων μας."
 
-#: allthethings/page/templates/page/md5.html:30
+#: allthethings/page/templates/page/md5.html:31
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ Αυτό το αρχείο ενδέχεται να έχει προβλήματα "
@@ -528,22 +529,22 @@ msgstr ""
 "εντάξει η λήψη, αλλά συνιστούμε πρώτα να αναζητήσετε ένα εναλλακτικό "
 "αρχείο. Περισσότερες λεπτομέρειες:"
 
-#: allthethings/page/templates/page/md5.html:37
+#: allthethings/page/templates/page/md5.html:38
 msgid "page.md5.box.issues.text2"
 msgstr ""
 "Εάν εξακολουθείτε να θέλετε να κάνετε λήψη αυτού του αρχείου, φροντίστε "
 "να χρησιμοποιείτε μόνο αξιόπιστο, ενημερωμένο λογισμικό για να το "
 "ανοίξετε."
 
-#: allthethings/page/templates/page/md5.html:39
+#: allthethings/page/templates/page/md5.html:40
 msgid "page.md5.box.download.text"
 msgstr "Κατεβάστε δωρεάν ebook/αρχείο %(extension)s από:"
 
-#: allthethings/page/templates/page/md5.html:44
+#: allthethings/page/templates/page/md5.html:45
 msgid "page.md5.box.download.mirror"
 msgstr "Mirror #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:48
+#: allthethings/page/templates/page/md5.html:49
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Όλοι τα mirrors εξυπηρετούν το ίδιο αρχείο και θα πρέπει είναι ασφαλείς "
@@ -551,7 +552,7 @@ msgstr ""
 " Διαδίκτυο. Για παράδειγμα, φροντίστε να διατηρείτε τις συσκευές σας "
 "ενημερωμένες."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:52
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 

@@ -1,101 +1,102 @@
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Не адлюстроўваецца ў \".rs-fork\" акадэмічнага падзела Library Genesis"
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Не адлюстроўваецца ў \".rs-fork\" мастацкага падзелу Library Genesis"
 
-#: allthethings/page/views.py:1591
+#: allthethings/page/views.py:1588
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Не адлюстроўваецца в \".li-версіі\" Library Genesis"
 
-#: allthethings/page/views.py:1592
+#: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr ""
 "Пазначана як \"зламаны файл\" у \".li-версіі\" акадэмічнага раздзела "
 "Library Genesis"
 
-#: allthethings/page/views.py:1593
+#: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Адсутнічае ў Z-Library"
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Кніга (невядомая)"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Кніга (акадэмічная літаратура)"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1598
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Кніга (мастацкая літаратура)"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1599
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Артыкул у часопісе"
 
-#: allthethings/page/views.py:1603
+#: allthethings/page/views.py:1600
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Дакумент са стандартамі"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1601
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Часопіс"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1602
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Комікс"
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1604
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Кніга (любая)"
 
-#: allthethings/page/views.py:1651 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1653
-msgid "page.md5.box.download.ipfs_gateway"
-msgstr "IPFS-партал #%(num)d"
-
-#: allthethings/page/views.py:1651
-msgid "page.md5.box.download.ipfs_gateway_extra"
-msgstr "(магчыма, вам прыйдзецца паспрабаваць некалькі разоў з IPFS)"
-
-#: allthethings/page/views.py:1656
+#: allthethings/page/views.py:1649
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis \".rs-версія\" - акадэмічны раздзел"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(таксама націсніце \"Атрымаць\" уверсе)"
 
-#: allthethings/page/views.py:1656 allthethings/page/views.py:1659
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(націсніце \"Атрымаць\" уверсе)"
 
-#: allthethings/page/views.py:1659
+#: allthethings/page/views.py:1652
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis \".rs-версія\" - мастацкая літаратура"
 
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1655
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis \".li-версія\""
 
-#: allthethings/page/views.py:1665
+#: allthethings/page/views.py:1658
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
+#: allthethings/page/views.py:1662
+msgid "page.md5.box.download.ipfs_gateway"
+msgstr "IPFS-партал #%(num)d"
+
+#: allthethings/page/views.py:1660
+msgid "page.md5.box.download.ipfs_gateway_extra"
+msgstr "(магчыма, вам прыйдзецца паспрабаваць некалькі разоў з IPFS)"
+
+#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
+#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library Ананімнае люстэрка #%(num)d"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(патрабуецца ўваход праз браўзэр ТОР)"
 
@@ -173,8 +174,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -226,7 +227,7 @@ msgstr "У нашай базе дадзеных не знойдзена адпа
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:56
 msgid "common.tech_details"
 msgstr "Тэхнічныя дэталі (на англійскай мове)"
 
@@ -500,19 +501,19 @@ msgstr "Адпаведныя файлы ў нашай базе дадзеных:
 msgid "page.isbn.results.none"
 msgstr "Файлаў з дадзенай назвай не знойдзена."
 
-#: allthethings/page/templates/page/md5.html:12
+#: allthethings/page/templates/page/md5.html:13
 msgid "page.md5.breadcrumbs"
 msgstr "Наборы дадзеных ▶ Files ▶ MD5 %(md5_input)s"
 
-#: allthethings/page/templates/page/md5.html:15
+#: allthethings/page/templates/page/md5.html:16
 msgid "page.md5.invalid.header"
 msgstr "Не знойдзена"
 
-#: allthethings/page/templates/page/md5.html:17
+#: allthethings/page/templates/page/md5.html:18
 msgid "page.md5.invalid.text"
 msgstr "“%(md5_input)s” не знойдзена у нашай базе дадзеных."
 
-#: allthethings/page/templates/page/md5.html:30
+#: allthethings/page/templates/page/md5.html:31
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ у гэтага файла могуць быць праблемы і ён быў "
@@ -522,21 +523,21 @@ msgstr ""
 "рэкамендуем пашукаць альтэрнатыўны файл, але вы можаце спампаваць гэты "
 "пры жаданні. Больш інфармацыі:"
 
-#: allthethings/page/templates/page/md5.html:37
+#: allthethings/page/templates/page/md5.html:38
 msgid "page.md5.box.issues.text2"
 msgstr ""
 "Калі вы ўсё яшчэ хочаце спампаваць гэты файл, абавязкова выкарыстоўвайце "
 "для яго адкрыцця толькі праверанае, абноўленае праграмнае забеспячэнне."
 
-#: allthethings/page/templates/page/md5.html:39
+#: allthethings/page/templates/page/md5.html:40
 msgid "page.md5.box.download.text"
 msgstr "Спампаваць бясплатна электронную кнігу/файл %(extension)s з:"
 
-#: allthethings/page/templates/page/md5.html:44
+#: allthethings/page/templates/page/md5.html:45
 msgid "page.md5.box.download.mirror"
 msgstr "Люстэрка #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:48
+#: allthethings/page/templates/page/md5.html:49
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Усе люстэркі ўтрымліваюць той жа файл і павінны быць бяспечнымі. Аднак "
@@ -544,7 +545,7 @@ msgstr ""
 "ваша прылада і дадатку абноўленыя да апошняй версіі для бяспекі вашых "
 "дадзеных."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:52
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 
