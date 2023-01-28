@@ -163,11 +163,11 @@ def looks_like_doi(string):
     return string.startswith('10.') and ('/' in string) and (' ' not in string)
 
 # Example: http://193.218.118.109/zlib2/pilimi-zlib2-0-14679999-extra/11078831.pdf
-def make_temp_anon_zlib_link(zlibrary_id, pilimi_torrent, extension):
+def make_temp_anon_zlib_link(domain, zlibrary_id, pilimi_torrent, extension):
     prefix = "zlib1"
     if "-zlib2-" in pilimi_torrent:
         prefix = "zlib2"
-    return f"http://193.218.118.109/{prefix}/{pilimi_torrent.replace('.torrent', '')}/{zlibrary_id}.{extension}"
+    return f"{domain}/{prefix}/{pilimi_torrent.replace('.torrent', '')}/{zlibrary_id}.{extension}"
 
 def make_normalized_filename(slug_info, extension, collection, id):
     slug = slugify.slugify(slug_info, allow_unicode=True, max_length=50, word_boundary=True)
@@ -352,9 +352,6 @@ def get_zlib_book_dicts(session, key, values):
         if len(zlib_book.ipfs) > 0:
             zlib_book_dict['ipfs_cid'] = zlib_book.ipfs[0].ipfs_cid
         zlib_book_dict['normalized_filename'] = make_normalized_filename(f"{zlib_book_dict['title']} {zlib_book_dict['author']} {zlib_book_dict['edition_varia_normalized']}", zlib_book_dict['extension'], "zlib", zlib_book_dict['zlibrary_id'])
-        zlib_book_dict['zlib_anon_url'] = ''
-        if len(zlib_book_dict['pilimi_torrent'] or '') > 0:
-            zlib_book_dict['zlib_anon_url'] = make_temp_anon_zlib_link(zlib_book_dict['zlibrary_id'], zlib_book_dict['pilimi_torrent'], zlib_book_dict['extension'])
         zlib_book_dicts.append(zlib_book_dict)
 
     return zlib_book_dicts
@@ -1660,7 +1657,10 @@ def add_additional_to_md5_dict(md5_dict):
     for doi in md5_dict['file_unified_data']['doi_multiple']:
         additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.se/{doi}", ""))
     if md5_dict['zlib_book'] != None and len(md5_dict['zlib_book']['pilimi_torrent'] or '') > 0:
-        additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=1), make_temp_anon_zlib_link(md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=1), make_temp_anon_zlib_link("https://ktxr.rs", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=2), make_temp_anon_zlib_link("https://nrzr.li", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=3), make_temp_anon_zlib_link("http://193.218.118.109", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=4), make_temp_anon_zlib_link("http://193.218.118.54", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
     if len(md5_dict['ipfs_infos']) > 0:
         additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
         additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=2), f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
