@@ -705,6 +705,10 @@ msgstr "एना'स ब्लॉग"
 msgid "layout.index.footer.list2.software"
 msgstr "एना'स सॉफ्टवेयर"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 

@@ -724,3 +724,7 @@ msgstr "Blog da Anna (em inglês)"
 msgid "layout.index.footer.list2.software"
 msgstr "Código Fonte"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+

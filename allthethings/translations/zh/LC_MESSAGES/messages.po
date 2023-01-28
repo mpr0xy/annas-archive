@@ -647,6 +647,10 @@ msgstr "安娜的博客"
 msgid "layout.index.footer.list2.software"
 msgstr "安娜的软件"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 

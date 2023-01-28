@@ -739,6 +739,10 @@ msgstr "Blog d'Anna"
 msgid "layout.index.footer.list2.software"
 msgstr "Logiciels d'Anna"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 

@@ -734,6 +734,10 @@ msgstr "To blog της 'Αννας"
 msgid "layout.index.footer.list2.software"
 msgstr "Το λογισμικό της Άννας"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 

@@ -604,6 +604,10 @@ msgstr "アンナのブログ"
 msgid "layout.index.footer.list2.software"
 msgstr "アンナのソフトウェア"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 

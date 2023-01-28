@@ -715,6 +715,10 @@ msgstr "Блогът на Анна"
 msgid "layout.index.footer.list2.software"
 msgstr "Софтуерът на Анна"
 
+#: allthethings/templates/layouts/index.html:202
+msgid "layout.index.footer.list3.header"
+msgstr ""
+
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
 
