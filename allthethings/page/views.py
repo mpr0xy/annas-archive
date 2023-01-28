@@ -394,11 +394,23 @@ def ol_book_page(ol_book_id):
                 ol_book_dict['work'] = dict(ol_work)
                 ol_book_dict['work']['json'] = orjson.loads(ol_book_dict['work']['json'])
 
-        ol_authors = []
+        unredirected_ol_authors = []
         if 'authors' in ol_book_dict['json'] and len(ol_book_dict['json']['authors']) > 0:
-            ol_authors = conn.execute(select(OlBase).where(OlBase.ol_key.in_([author['key'] for author in ol_book_dict['json']['authors']])).limit(10)).all()
+            unredirected_ol_authors = conn.execute(select(OlBase).where(OlBase.ol_key.in_([author['key'] for author in ol_book_dict['json']['authors']])).limit(10)).all()
         elif ol_book_dict['work'] and 'authors' in ol_book_dict['work']['json'] and len(ol_book_dict['work']['json']['authors']) > 0:
-            ol_authors = conn.execute(select(OlBase).where(OlBase.ol_key.in_([author['author']['key'] for author in ol_book_dict['work']['json']['authors']])).limit(10)).all()
+            unredirected_ol_authors = conn.execute(select(OlBase).where(OlBase.ol_key.in_([author['author']['key'] for author in ol_book_dict['work']['json']['authors']])).limit(10)).all()
+        ol_authors = []
+        # TODO: Batch them up.
+        for unredirected_ol_author in unredirected_ol_authors:
+            if unredirected_ol_author.type == '/type/redirect':
+                json = orjson.loads(unredirected_ol_author.json)
+                if 'location' not in json:
+                    continue
+                ol_author = conn.execute(select(OlBase).where(OlBase.ol_key == json['location']).limit(1)).first()
+                ol_authors.append(ol_author)
+            else:
+                ol_authors.append(unredirected_ol_author)
+
         ol_book_dict['authors'] = []
         for author in ol_authors:
             author_dict = dict(author)
@@ -471,7 +483,7 @@ def ol_book_page(ol_book_id):
             if ol_book_top['authors'][-1] == '.':
                 ol_book_top['authors'] = ol_book_top['authors'][0:-1]
         if len(ol_book_top['authors'].strip()) == 0:
-            ol_book_top['authors'] = ",".join([author['json']['name'] for author in ol_book_dict['authors']])
+            ol_book_top['authors'] = ",".join([author['json']['name'] for author in ol_book_dict['authors'] if 'name' in author['json']])
         if len(ol_book_top['authors'].strip()) == 0:
             ol_book_top['authors'] = '(no authors)'
 
