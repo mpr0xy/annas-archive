@@ -1656,15 +1656,15 @@ def add_additional_to_md5_dict(md5_dict):
         shown_click_get = True
     for doi in md5_dict['file_unified_data']['doi_multiple']:
         additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.se/{doi}", ""))
+    if len(md5_dict['ipfs_infos']) > 0:
+        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
+        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=2), f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=3), f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
     if md5_dict['zlib_book'] != None and len(md5_dict['zlib_book']['pilimi_torrent'] or '') > 0:
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=1), make_temp_anon_zlib_link("https://ktxr.rs", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=2), make_temp_anon_zlib_link("https://nrzr.li", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=3), make_temp_anon_zlib_link("http://193.218.118.109", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_anon', num=4), make_temp_anon_zlib_link("http://193.218.118.54", md5_dict['zlib_book']['zlibrary_id'], md5_dict['zlib_book']['pilimi_torrent'], md5_dict['file_unified_data']['extension_best']), ""))
-    if len(md5_dict['ipfs_infos']) > 0:
-        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
-        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=2), f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
-        additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=3), f"https://gateway.pinata.cloud/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
     if md5_dict['zlib_book'] != None:
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/md5/{md5_dict['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
     return { **md5_dict, 'additional': additional }
