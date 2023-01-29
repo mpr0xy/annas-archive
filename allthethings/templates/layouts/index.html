@@ -262,6 +262,9 @@
                 const fetchOptions = { mode: "cors", method: "GET", credentials: "omit", cache: "no-cache", redirect: "error" };
                 for (const domain of domainsToNavigateTo) {
                   if (currentDomainToReplace !== domain) {
+                    if (foundOtherDomain) {
+                      break;
+                    }
                     fetch('//' + domain + '/up/?' + getRandomString(), fetchOptions).then(function(response) {
                       if (foundOtherDomain) {
                         return;
@@ -270,6 +273,8 @@
                         foundOtherDomain = true;
                         useOtherDomain(domain);
                       }
+                    }).catch(function() {
+                      // Ignore.
                     });
                   }
                 }
@@ -283,6 +288,8 @@
                   if (response.status >= 500 && response.status <= 599) {
                     checkOtherDomains()
                   }
+                }).catch(function() {
+                  // Ignore; see above.
                 }).finally(function() {
                   setTimeout(checkCurrentDomain, intervalBetweenChecksMs);
                 });
