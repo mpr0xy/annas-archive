@@ -98,28 +98,39 @@
                 redirectLang(langCode);
               };
 
-              var cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
-              if (cookieLangMatch) {
-                // Refresh cookie with a new expiry, in case the browser has
-                // restricted it.
-                var explicitlyRequestedLangCode = cookieLangMatch[1];
-                setLangCookie(explicitlyRequestedLangCode);
-
-                // If a cookie is set, that means the user at some point explicitly 
-                // selected a language, so redirect to that language.
-                if (explicitlyRequestedLangCode != subDomainLangCode) {
-                  redirectLang(explicitlyRequestedLangCode);
-                }
-              } else {
-                // Otherwise, see if the user's browser language is one that we support directly.
-                for (const langCode of navigator.languages) {
-                  // Take the first language that we support, and if we're already there
-                  // be sure to bail out so we don't redirect to a suboptimal language.
-                  if (langCodes.includes(langCode)) {
-                    if (langCode != subDomainLangCode) {
-                      redirectLang(langCode);
+              {
+                const cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
+                // If there's no cookie yet, let's try to set one.
+                if (!cookieLangMatch) {
+                  if (document.referrer.includes("://" + subDomainLangCode + ".")) {
+                    // If our referrer was (likely) a different domain of our website (with the same lang code),
+                    // then behave as if that lang code was set as a cookie all along.
+                    setLangCookie(subDomainLangCode);
+                  } else {
+                    // Otherwise, see if the user's browser language is one that we support directly.
+                    for (const langCode of navigator.languages) {
+                      // Take the first language that we support.
+                      if (langCodes.includes(langCode)) {
+                        setLangCookie(langCode);
+                        // Bail out so we don't redirect to a suboptimal language.
+                        break;
+                      }
                     }
-                    break;
+                  }
+                }
+              }
+
+              {
+                const cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
+                if (cookieLangMatch) {
+                  // Refresh cookie with a new expiry, in case the browser has
+                  // restricted it.
+                  var explicitlyRequestedLangCode = cookieLangMatch[1];
+                  setLangCookie(explicitlyRequestedLangCode);
+
+                  // If a cookie is set, that we want to go to the language, so let's redirect.
+                  if (explicitlyRequestedLangCode != subDomainLangCode) {
+                    redirectLang(explicitlyRequestedLangCode);
                   }
                 }
               }
@@ -204,16 +215,79 @@
           <a class="custom-a text-[#777] hover:text-[#333] js-annas-archive-gs" href="https://annas-archive.gs">annas-archive.gs</a><br>
           <script>
             (function() {
-              const domains = ["annas-archive.org", "annas-archive.gs", "localtest.me:8000", "localtest.me"];
-              const loc = "" + window.location;
+              // Possible domains we can encounter:
+              const domainsToReplace = ["annas-archive.org", "annas-archive.gs", "localtest.me:8000", "localtest.me"];
+              // For checking and redirecting if our current host is down (but if Cloudflare still responds).
+              const initialCheckMs = 2000;
+              const intervalBetweenChecksMs = 10000;
+              const domainsToNavigateTo = ["annas-archive.org", "annas-archive.gs"];
+              // For testing:
+              // const domainsToNavigateTo = ["localtest.me:8000", "testing_redirects.localtest.me:8000"];
 
-              for (const domain of domains) {
+              // First, set the mirror links at the bottom of the page.
+              const loc = "" + window.location;
+              let currentDomainToReplace = "localtest.me";
+              for (const domain of domainsToReplace) {
                 if (loc.includes(domain)) {
-                  document.querySelector(".js-annas-archive-org").href = loc.replace(domain, "annas-archive.org");
-                  document.querySelector(".js-annas-archive-gs").href = loc.replace(domain, "annas-archive.gs");
+                  currentDomainToReplace = domain;
                   break;
                 }
               }
+              document.querySelector(".js-annas-archive-org").href = loc.replace(currentDomainToReplace, "annas-archive.org");
+              document.querySelector(".js-annas-archive-gs").href = loc.replace(currentDomainToReplace, "annas-archive.gs");
+
+              // Use the new domain in all links and forms.
+              let areUsingOtherDomain = false;
+              function useOtherDomain(domain) {
+                if (areUsingOtherDomain) {
+                  return;
+                }
+                areUsingOtherDomain = true;
+                const newOrigin = window.location.origin.replace(currentDomainToReplace, domain);
+                for (const el of document.querySelectorAll("a")) {
+                  el.href = el.href.replace(currentDomainToReplace, domain);
+                }
+                for (const el of document.querySelectorAll("form")) {
+                  el.action = el.action.replace(currentDomainToReplace, domain);
+                }
+              }
+
+              function getRandomString() {
+                return Math.random() + "." + Math.random() + "." + Math.random();
+              }
+
+              // Check if there are other domains that are still up. Use the first one that responds.
+              function checkOtherDomains() {
+                let foundOtherDomain = false;
+                const fetchOptions = { mode: "cors", method: "GET", credentials: "omit", cache: "no-cache", redirect: "error" };
+                for (const domain of domainsToNavigateTo) {
+                  if (currentDomainToReplace !== domain) {
+                    fetch('//' + domain + '/up/?' + getRandomString(), fetchOptions).then(function(response) {
+                      if (foundOtherDomain) {
+                        return;
+                      }
+                      if (!(response.status >= 500 && response.status <= 599)) {
+                        foundOtherDomain = true;
+                        useOtherDomain(domain);
+                      }
+                    });
+                  }
+                }
+              }
+
+              // Keep checking the current domain to see if it's still up.
+              function checkCurrentDomain() {
+                const fetchOptions = { method: "GET", credentials: "omit", cache: "no-cache", redirect: "error" };
+                fetch('/up/?' + getRandomString(), fetchOptions).then(function(response) {
+                  // Only do something in the case of an actual error code from Cloudflare, not if the users network is bad.
+                  if (response.status >= 500 && response.status <= 599) {
+                    checkOtherDomains()
+                  }
+                }).finally(function() {
+                  setTimeout(checkCurrentDomain, intervalBetweenChecksMs);
+                });
+              }
+              setTimeout(checkCurrentDomain, initialCheckMs);
             })();
           </script>
         </p>
