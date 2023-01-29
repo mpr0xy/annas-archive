@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
 "PO-Revision-Date: 2023-01-30 09:05+0000\n"
-"Last-Translator: Dan <daanisy.ahmad@gmail.com>\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Indonesian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/id/>\n"
 "Language: id\n"
@@ -173,7 +173,7 @@ msgstr "Teks berlanjut di bawah dalam bahasa Inggris."
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
-msgstr ""
+msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
@@ -191,7 +191,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
@@ -250,7 +250,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:55
 msgid "page.donate.nav.paypal"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.cc"
@@ -262,11 +262,11 @@ msgstr "Uang kripto"
 
 #: allthethings/page/templates/page/donate.html:58
 msgid "page.donate.nav.alipay"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.pix"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
@@ -274,7 +274,7 @@ msgstr "Pertanyaan Umum"
 
 #: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
@@ -337,7 +337,7 @@ msgstr "(juga bisa digunakan untuk BCH)"
 
 #: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:128
 #: allthethings/page/templates/page/donate.html:156
@@ -357,7 +357,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
-msgstr ""
+msgstr "ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:6
 msgid "page.isbn.breadcrumbs"
@@ -643,15 +643,15 @@ msgstr "Hubungi kami"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.reddit"
-msgstr ""
+msgstr "Reddit"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.subreddit"
-msgstr ""
+msgstr "Subreddit"
 
 #: allthethings/templates/layouts/index.html:195
 msgid "layout.index.footer.list2.blog"
