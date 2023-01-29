@@ -1,3 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-29 07:45+0000\n"
+"PO-Revision-Date: 2023-01-29 07:45+0000\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
+"Language-Team: Arabic <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1589
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "غير مرئي في مكتبة Library Genesis \".rs-fork\" Non-Fiction"
@@ -83,15 +100,15 @@ msgstr "مكتبة Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1665
 msgid "page.md5.box.download.scihub"
-msgstr ""
+msgstr "Sci-Hub: %(doi)s"
 
 #: allthethings/page/views.py:1669
 msgid "page.md5.box.download.zlib_anon"
-msgstr ""
+msgstr "مرآة Z-Library مجهول رقم %(num)d"
 
 #: allthethings/page/views.py:1670
 msgid "page.md5.box.download.zlib_tor"
-msgstr ""
+msgstr "Z-Library TOR"
 
 #: allthethings/page/views.py:1670
 msgid "page.md5.box.download.zlib_tor_extra"
@@ -133,6 +150,7 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
 msgstr ""
+"إذا كان لديك شكوى DMCA مقبولة انظر الي اسفل الصفحة او رسلنا علي %(email)s."
 
 #: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
@@ -179,11 +197,11 @@ msgstr "يستمر النص أدناه باللغة الإنجليزية فقط.
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
-msgstr ""
+msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
-msgstr ""
+msgstr "مجموعات البيانات ▶ DOIs ▶ DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:9
 msgid "page.doi.invalid.header"
@@ -192,18 +210,23 @@ msgstr "غير موجود"
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
+"%(doi_input)s لا يبدو مثل DOI. يجب أن تبدأ ب\"10.\" و يجب أن يكون فيه \"/\"."
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
 msgstr ""
+"الرابط القانوني: <a href=\"https://doi.org/%(doi_input)s\">https://doi.org/"
+"%(doi_input)s</a>"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
 msgstr ""
+"هذا الملف قد يكون في <a href=\"https://sci-hub.se/%(doi_input)s\">Sci-"
+"Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
@@ -243,14 +266,18 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
 msgstr ""
+"تبرعات حديثة: %(donations)s شكرا للجميع من أجل كرمك. نحن حقا نقدر وضع ثقتكم "
+"فينا مهما كان المبلغ الذي تعطي."
 
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
 msgstr ""
+"للتبرع اختار الطريقة المفضلة لديك. إذا كان لديك أي مشكلة اتصل بنا علي "
+"%(email)s."
 
 #: allthethings/page/templates/page/donate.html:55
 msgid "page.donate.nav.paypal"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.cc"
@@ -262,11 +289,11 @@ msgstr "عملات تشفير"
 
 #: allthethings/page/templates/page/donate.html:58
 msgid "page.donate.nav.alipay"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.pix"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
@@ -274,16 +301,22 @@ msgstr "أسئلة"
 
 #: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
+"اذهب إلى %(link_open_tag)sهذه الصفحة</a> اتبع التعليمات إما عن طريق المسح "
+"\"QR code\" أو النقر فوق الرابط “paypal.me”. إذا لم ينجح الأمر قم بتحمل "
+"الصفحة مرة أخرى."
 
 #: allthethings/page/templates/page/donate.html:71
 #: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
+"لاحظ أن الاسم الحساب أو الصورة قد تبدو غريبة. لا داعي للقلق! هذه الحسابات "
+"تتم إدارتها من قبل شركاء التبرع.\n"
+"حساباتنا لم يتم اختراقها."
 
 #: allthethings/page/templates/page/donate.html:75
 #: allthethings/page/templates/page/donate.html:101
@@ -338,7 +371,7 @@ msgstr "(يعمل أيضًا بالنسبة إلى BCH)"
 
 #: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:128
 #: allthethings/page/templates/page/donate.html:156
@@ -347,7 +380,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "الرابط"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -358,7 +391,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
@@ -366,7 +399,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
-msgstr ""
+msgstr "الأسئلة الشائعة"
 
 #: allthethings/page/templates/page/donate.html:216
 msgid "page.donate.faq.text_other_payment1"
@@ -417,7 +450,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
-msgstr ""
+msgstr "ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:6
 msgid "page.isbn.breadcrumbs"
@@ -445,11 +478,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
-msgstr ""
+msgstr "لم يتم العثور على"
 
 #: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
-msgstr ""
+msgstr "لم يتم العثور على %(md5_input)s في قاعدة بياناتنا."
 
 #: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
@@ -480,11 +513,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
-msgstr ""
+msgstr "%(search_input)s - بحث"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.new"
-msgstr ""
+msgstr "بحث جديد"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
@@ -528,11 +561,11 @@ msgstr "الأقدم"
 
 #: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "الأكبر"
 
 #: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "الأصغر"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
@@ -541,6 +574,10 @@ msgstr "خطأ أثناء البحث."
 #: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.text"
 msgstr ""
+"حاول <a href=\"javascript:location.reload()\">تحمل الصفحة مرة أخرى</a>. إذا "
+"استمرت المشكلة الرجاء دعونا نعرف <a href=\"https://twitter.com/"
+"AnnaArchivist\">Twitter</a> or <a href=\"https://www.reddit.com/user/"
+"AnnaArchivist\">Reddit</a>."
 
 #: allthethings/page/templates/page/search.html:60
 msgid "page.search.results.none"
@@ -583,7 +620,7 @@ msgstr "5٪ من التراث المكتوب للإنسانية محفوظ إل�
 
 #: allthethings/templates/layouts/index.html:161
 msgid "layout.index.header.nav.home"
-msgstr "بيت"
+msgstr "الصفحة الرئيسية"
 
 #: allthethings/templates/layouts/index.html:162
 msgid "layout.index.header.nav.about"
@@ -591,7 +628,7 @@ msgstr "حول"
 
 #: allthethings/templates/layouts/index.html:163
 msgid "layout.index.header.nav.donate"
-msgstr "يتبرع"
+msgstr "تبرع"
 
 #: allthethings/templates/layouts/index.html:164
 msgid "layout.index.header.nav.search"
@@ -643,4 +680,3 @@ msgstr "برمجيات آنا"
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
-
