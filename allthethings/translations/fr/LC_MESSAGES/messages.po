@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 09:05+0000\n"
+"PO-Revision-Date: 2023-01-30 09:05+0000\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
+"Language-Team: French <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Non visible dans Librairie Genesis \".rs-fork\" Non-Fiction"
@@ -284,7 +300,7 @@ msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.pix"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
@@ -392,7 +408,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
@@ -745,4 +761,3 @@ msgstr ""
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
-
