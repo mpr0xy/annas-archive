@@ -207,15 +207,11 @@ msgstr "DOI-код:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
-msgstr ""
-"Посилання на DOI: <a "
-"href=\"https://doi.org/%(doi_input)s\">https://doi.org/%(doi_input)s</a>"
+msgstr "Посилання на DOI: %(link)s"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr ""
-"Потенційна локація файлу: <a href=\"https://sci-hub.se/%(doi_input)s"
-"\">Sci-Hub</a>."
+msgstr "Потенційна локація файлу: %(link_open_tag)sSci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"

@@ -191,13 +191,11 @@ msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
-msgstr ""
-"规范的网址：<a "
-"href=\"https://doi.org/%(doi_input)s\">https://doi.org/%(doi_input)s</a>"
+msgstr "规范的网址：%(link)s"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr "该文件可能在<a href=\"https://sci-hub.se/%(doi_input)s\">Sci-Hub</a>中。"
+msgstr "该文件可能在%(link_open_tag)sSci-Hub</a>中。"
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"

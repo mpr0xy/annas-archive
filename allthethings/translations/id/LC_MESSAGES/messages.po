@@ -183,9 +183,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr ""
-"Berkas ini mungkin terdapat di <a href=\"https://sci-hub.se/%(doi_input)s"
-"\">Sci-Hub</a>."
+msgstr "Berkas ini mungkin terdapat di %(link_open_tag)sSci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"

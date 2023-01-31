@@ -207,15 +207,11 @@ msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
-msgstr ""
-"Kanonische URL: <a "
-"href=\"https://doi.org/%(doi_input)s\">https://doi.org/%(doi_input)s</a>"
+msgstr "Kanonische URL: %(link)s"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr ""
-"Diese Datei befindet sich möglicherweise auf <a href=\"https://sci-"
-"hub.se/%(doi_input)s\">Sci-Hub</a>."
+msgstr "Diese Datei befindet sich möglicherweise auf %(link_open_tag)sSci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"

@@ -231,7 +231,7 @@
             <div class="flex odd:bg-[#0000000d] hover:bg-[#0000001a]">
               <div class="flex-none w-[150] px-2 py-1">{{ 'DOI' if loop.index0 == 0 else ' ' }}&nbsp;</div>
               <div class="px-2 py-1 grow break-words line-clamp-[8]">{{id}}</div>
-              <div class="px-2 py-1 whitespace-nowrap text-right"><a href="/doi/{{id}}" class="anna">anna</a> <a itemprop="sameAs" content="https://doi.org/{{id}}" href="https://doi.org/{{id}}">url</a> <a href="https://sci-hub.se/{{id}}">scihub</a></div>
+              <div class="px-2 py-1 whitespace-nowrap text-right"><a href="/doi/{{id}}" class="anna">anna</a> <a itemprop="sameAs" content="https://doi.org/{{id}}" href="https://doi.org/{{id}}">url</a> <a href="https://sci-hub.ru/{{id}}">scihub</a></div>
             </div>
           {% endfor %}
           {% if md5_dict.file_unified_data.googlebookid_multiple | length == 0 %}

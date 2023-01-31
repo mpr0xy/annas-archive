@@ -15,11 +15,11 @@
       <div class="text-xl font-bold mb-4">{{ gettext('page.doi.box.header', doi_input=doi_input) }}</div>
 
       <div class="mb-4">
-        {{ gettext('page.doi.box.canonical_url', doi_input=doi_input) }}
+        {{ gettext('page.doi.box.canonical_url', link=(('<a href="https://doi.org/' + doi_input + '">' + doi_input + '</a>') | safe)) }}
       </div>
 
       <div class="mb-4">
-        {{ gettext('page.doi.box.scihub', doi_input=doi_input) }}
+        {{ gettext('page.doi.box.scihub', link_open_tag=(('<a href="https://sci-hub.ru/' + doi_input + '">') | safe)) }}
       </div>
 
       {% if doi_dict.search_md5_dicts | length > 0 %}

@@ -206,15 +206,11 @@ msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
-msgstr ""
-"Каноничен URL: <a "
-"href=\"https://doi.org/%(doi_input)s\">https://doi.org/%(doi_input)s</a>"
+msgstr "Каноничен URL: %(link)s"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr ""
-"Този файл може де е в <a href=\"https://sci-hub.se/%(doi_input)s\">Sci-"
-"Hub</a>."
+msgstr "Този файл може де е в %(link_open_tag)sSci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"

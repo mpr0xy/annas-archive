@@ -1673,7 +1673,7 @@ def add_additional_to_md5_dict(md5_dict):
         additional['download_urls'].append((gettext('page.md5.box.download.lgli'), f"http://libgen.li/ads.php?md5={md5_dict['lgli_file']['md5'].lower()}", gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')))
         shown_click_get = True
     for doi in md5_dict['file_unified_data']['doi_multiple']:
-        additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.se/{doi}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.ru/{doi}", ""))
     if len(md5_dict['ipfs_infos']) > 0:
         additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://cloudflare-ipfs.com/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
         additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=2), f"https://ipfs.io/ipfs/{md5_dict['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={md5_dict['ipfs_infos'][0]['filename']}", ""))
