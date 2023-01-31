@@ -709,6 +709,3 @@ msgstr "एना'स सॉफ्टवेयर"
 msgid "layout.index.footer.list3.header"
 msgstr "आईने"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

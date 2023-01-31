@@ -748,6 +748,3 @@ msgstr "Logiciels d'Anna"
 msgid "layout.index.footer.list3.header"
 msgstr "Miroirs"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

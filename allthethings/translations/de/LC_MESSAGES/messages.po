@@ -748,6 +748,3 @@ msgstr "Anna’s Software"
 msgid "layout.index.footer.list3.header"
 msgstr "Spiegeln"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

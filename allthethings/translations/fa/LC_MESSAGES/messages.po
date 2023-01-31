@@ -604,6 +604,3 @@ msgstr "نرم افزار آنا"
 msgid "layout.index.footer.list3.header"
 msgstr "آینه ها"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

@@ -653,6 +653,3 @@ msgstr "安娜的软件"
 msgid "layout.index.footer.list3.header"
 msgstr "镜子"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

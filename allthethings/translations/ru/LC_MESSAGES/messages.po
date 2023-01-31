@@ -613,6 +613,3 @@ msgstr ""
 msgid "layout.index.footer.list3.header"
 msgstr ""
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-

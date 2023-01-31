@@ -742,6 +742,3 @@ msgstr "Anna’s Software"
 msgid "layout.index.footer.list3.header"
 msgstr "Espejos"
 
-#~ msgid "page.donate.pix.page"
-#~ msgstr ""
-
