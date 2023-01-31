@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0000\n"
-"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
+"PO-Revision-Date: 2023-02-01 02:16+0000\n"
+"Last-Translator: gio cascafico <cascafico@gmail.com>\n"
 "Language-Team: Italian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/it/>\n"
 "Language: it\n"
@@ -32,7 +32,7 @@ msgstr "Contrassegnato non valido in Library Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "Mancante da Z-Library"
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -153,6 +153,8 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
 msgstr ""
+"Se detieni un reclamo DMCA valido, vai a fondo pagina o contattaci a "
+"%(email)s."
 
 #: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
@@ -310,11 +312,18 @@ msgstr "Paypal"
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
+"Vai a %(link_open_tag)squesta pagina</a> e segui le istruzioni, "
+"alternativamente leggendo il QR code oppure cliccando il link “paypal.me”. "
+"Se non dovessero funzionare prova ad aggiornare la pagina, poichè potrebbe "
+"darti un account diverso."
 
 #: allthethings/page/templates/page/donate.html:71
 #: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
+"Nota che il nome o l'immagine dell'account potrebbero sembrare strani. Non "
+"c'è da preoccuparsi! Questi account sono gestiti dai nostri donatori. I "
+"nostri conti non sono stati violati."
 
 #: allthethings/page/templates/page/donate.html:75
 #: allthethings/page/templates/page/donate.html:101
@@ -384,7 +393,7 @@ msgstr "Utilizza questo account Alipay per inviare la tua donazione."
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "URL"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -401,6 +410,9 @@ msgstr "Pix"
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
 msgstr ""
+"Per favore, usa %(link_open_tag)squesta pagina Pix</a> per mandare la tua "
+"donazione. Se non funziona, prova aggiornando la pagina, potrebbe darti un "
+"account differente."
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -556,6 +568,9 @@ msgstr ""
 #: allthethings/page/templates/page/md5.html:52
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
+"Nora che qui Anna’s Archive non ospita nessuno dei contenuti. Semplicemente "
+"colleghiamo a siti web di altri. Se pensi di detenere un reclamo DMCA "
+"valido, per favore vedi %(about_link)s la pagina about."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -613,11 +628,11 @@ msgstr "Più vecchio"
 
 #: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "Il più grande"
 
 #: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "Il più piccolo"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
