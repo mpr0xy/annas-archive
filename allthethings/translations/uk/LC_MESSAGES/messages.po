@@ -1,102 +1,102 @@
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Не відображається у .rs-версії академічного розділу Library Genesis"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1615
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Не відображається у .rs-версії художнього розділу Library Genesis"
 
-#: allthethings/page/views.py:1606
+#: allthethings/page/views.py:1616
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Не відображається у .li-версії Library Genesis"
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1617
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr ""
 "Помічено як \"зламаний файл\" у .li-версії академічного розділу Library "
 "Genesis"
 
-#: allthethings/page/views.py:1608
+#: allthethings/page/views.py:1618
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Файл відсутній у Z-Library"
 
-#: allthethings/page/views.py:1614
+#: allthethings/page/views.py:1624
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Книга (деталі невідомі)"
 
-#: allthethings/page/views.py:1615
+#: allthethings/page/views.py:1625
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Книга (академічна література)"
 
-#: allthethings/page/views.py:1616
+#: allthethings/page/views.py:1626
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Книга (художня література)"
 
-#: allthethings/page/views.py:1617
+#: allthethings/page/views.py:1627
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Стаття з журналу"
 
-#: allthethings/page/views.py:1618
+#: allthethings/page/views.py:1628
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Документ із описом стандартів"
 
-#: allthethings/page/views.py:1619
+#: allthethings/page/views.py:1629
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Журнал"
 
-#: allthethings/page/views.py:1620
+#: allthethings/page/views.py:1630
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Комікс"
 
-#: allthethings/page/views.py:1622
+#: allthethings/page/views.py:1632
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Книга (категорію не визначено)"
 
-#: allthethings/page/views.py:1667
+#: allthethings/page/views.py:1677
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis (.rs-версія) - академічний розділ"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(також натисніть \"GET\" зверху)"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(натисніть \"GET\" зверху)"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis (.rs-версія) - художня література"
 
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis (.li-версія)"
 
-#: allthethings/page/views.py:1676
+#: allthethings/page/views.py:1686
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
-#: allthethings/page/views.py:1680
+#: allthethings/page/views.py:1688 allthethings/page/views.py:1689
+#: allthethings/page/views.py:1690
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "IPFS-портал №%(num)d"
 
-#: allthethings/page/views.py:1678
+#: allthethings/page/views.py:1688
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(спробуйте ще раз, якщо завантаження через IPFS не почалося)"
 
-#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
-#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
+#: allthethings/page/views.py:1692 allthethings/page/views.py:1693
+#: allthethings/page/views.py:1694 allthethings/page/views.py:1695
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library - анонімне дзеркало №%(num)d"
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library (TOR-версія)"
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(потребує входу через TOR Browser)"
 
@@ -437,13 +437,13 @@ msgid "page.home.search.intro"
 msgstr "Пошук у нашому каталозі тіньових бібліотек."
 
 #: allthethings/page/templates/page/home.html:16
-#: allthethings/page/templates/page/search.html:48
+#: allthethings/page/templates/page/search.html:50
 #: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "Пошук по назві, мові, типу файлу, ISBN-коду, MD5-сумі, …"
 
 #: allthethings/page/templates/page/home.html:17
-#: allthethings/page/templates/page/search.html:49
+#: allthethings/page/templates/page/search.html:51
 msgid "common.search.submit"
 msgstr "Пошук"
 
@@ -569,43 +569,47 @@ msgstr "Пошук ▶ Помилка по запиту <span class=\"italic\">%
 msgid "page.search.breadcrumbs.new"
 msgstr "Пошук ▶ Шукати нові книги"
 
-#: allthethings/page/templates/page/search.html:21
+#: allthethings/page/templates/page/search.html:18
+msgid "page.search.header.update_info"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:23
 msgid "page.search.filters.language.header"
 msgstr "Мова"
 
-#: allthethings/page/templates/page/search.html:27
+#: allthethings/page/templates/page/search.html:29
 msgid "page.search.filters.content.header"
 msgstr "Зміст"
 
-#: allthethings/page/templates/page/search.html:33
+#: allthethings/page/templates/page/search.html:35
 msgid "page.search.filters.filetype.header"
 msgstr "Тип файлу"
 
-#: allthethings/page/templates/page/search.html:39
+#: allthethings/page/templates/page/search.html:41
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Найбільш релевантні"
 
-#: allthethings/page/templates/page/search.html:40
+#: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.newest"
 msgstr "Найновіші"
 
-#: allthethings/page/templates/page/search.html:41
+#: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.oldest"
 msgstr "Найстаріші"
 
-#: allthethings/page/templates/page/search.html:42
+#: allthethings/page/templates/page/search.html:44
 msgid "page.search.filters.sorting.largest"
 msgstr "Найбільші"
 
-#: allthethings/page/templates/page/search.html:43
+#: allthethings/page/templates/page/search.html:45
 msgid "page.search.filters.sorting.smallest"
 msgstr "Найменші"
 
-#: allthethings/page/templates/page/search.html:55
+#: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.header"
 msgstr "Помилка під час пошуку."
 
-#: allthethings/page/templates/page/search.html:57
+#: allthethings/page/templates/page/search.html:59
 msgid "page.search.results.error.text"
 msgstr ""
 "Спробуйте <a href=\"javascript:location.reload()\">перезавантажити</a> "
@@ -613,21 +617,21 @@ msgstr ""
 "href=\"https://twitter.com/AnnaArchivist\">Twitter</a> чи <a "
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>."
 
-#: allthethings/page/templates/page/search.html:60
+#: allthethings/page/templates/page/search.html:62
 msgid "page.search.results.none"
 msgstr ""
 "<span class=\"font-bold\">Нічого не знайдено.</span> Спробуйте скоротити "
 "запит чи використайте інші ключові слова чи фільтри."
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ часткових збігів"
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial"
 msgstr "%(num)d часткових збігів"
 
-#: allthethings/page/templates/page/search.html:83
+#: allthethings/page/templates/page/search.html:85
 msgid "page.search.results.issues"
 msgstr "❌ Цей файл може бути проблемним."
 

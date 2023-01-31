@@ -1,100 +1,100 @@
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1615
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Brak w Library Genesis \".rs-fork\" (fikcja)"
 
-#: allthethings/page/views.py:1606
+#: allthethings/page/views.py:1616
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Brak w Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1617
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Oznaczone jako uszkodzone w Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1608
+#: allthethings/page/views.py:1618
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr ""
 
-#: allthethings/page/views.py:1614
+#: allthethings/page/views.py:1624
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Książka (nieznana)"
 
-#: allthethings/page/views.py:1615
+#: allthethings/page/views.py:1625
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Książka (literatura faktu)"
 
-#: allthethings/page/views.py:1616
+#: allthethings/page/views.py:1626
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Książka (fikcja)"
 
-#: allthethings/page/views.py:1617
+#: allthethings/page/views.py:1627
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Artykuł z czasopisma fachowego"
 
-#: allthethings/page/views.py:1618
+#: allthethings/page/views.py:1628
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Dokument standardu"
 
-#: allthethings/page/views.py:1619
+#: allthethings/page/views.py:1629
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Magazyn"
 
-#: allthethings/page/views.py:1620
+#: allthethings/page/views.py:1630
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Komiks"
 
-#: allthethings/page/views.py:1622
+#: allthethings/page/views.py:1632
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Książka (Dowolna)"
 
-#: allthethings/page/views.py:1667
+#: allthethings/page/views.py:1677
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(kliknij również „GET” u góry)"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(kliknij \"GET\" u góry)"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.lgrsfic"
 msgstr ""
 
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.lgli"
 msgstr ""
 
-#: allthethings/page/views.py:1676
+#: allthethings/page/views.py:1686
 msgid "page.md5.box.download.scihub"
 msgstr ""
 
-#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
-#: allthethings/page/views.py:1680
+#: allthethings/page/views.py:1688 allthethings/page/views.py:1689
+#: allthethings/page/views.py:1690
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "Brama IPFS #%(num)d"
 
-#: allthethings/page/views.py:1678
+#: allthethings/page/views.py:1688
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(być może będziesz musiał spróbować kilka razy z IPFS)"
 
-#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
-#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
+#: allthethings/page/views.py:1692 allthethings/page/views.py:1693
+#: allthethings/page/views.py:1694 allthethings/page/views.py:1695
 msgid "page.md5.box.download.zlib_anon"
 msgstr ""
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor"
 msgstr ""
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr ""
 
@@ -362,13 +362,13 @@ msgid "page.home.search.intro"
 msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
-#: allthethings/page/templates/page/search.html:48
+#: allthethings/page/templates/page/search.html:50
 #: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "Wyszukaj tytuł, autora, język, typ pliku, ISBN, MD5, …"
 
 #: allthethings/page/templates/page/home.html:17
-#: allthethings/page/templates/page/search.html:49
+#: allthethings/page/templates/page/search.html:51
 msgid "common.search.submit"
 msgstr "Szukaj"
 
@@ -472,59 +472,63 @@ msgstr ""
 msgid "page.search.breadcrumbs.new"
 msgstr "Szukaj ▶ Nowe wyszukiwanie"
 
-#: allthethings/page/templates/page/search.html:21
+#: allthethings/page/templates/page/search.html:18
+msgid "page.search.header.update_info"
+msgstr ""
+
+#: allthethings/page/templates/page/search.html:23
 msgid "page.search.filters.language.header"
 msgstr "Język"
 
-#: allthethings/page/templates/page/search.html:27
+#: allthethings/page/templates/page/search.html:29
 msgid "page.search.filters.content.header"
 msgstr "Treść"
 
-#: allthethings/page/templates/page/search.html:33
+#: allthethings/page/templates/page/search.html:35
 msgid "page.search.filters.filetype.header"
 msgstr "Typ pliku"
 
-#: allthethings/page/templates/page/search.html:39
+#: allthethings/page/templates/page/search.html:41
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Najbardziej istotne"
 
-#: allthethings/page/templates/page/search.html:40
+#: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.newest"
 msgstr "Najnowszy"
 
-#: allthethings/page/templates/page/search.html:41
+#: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.oldest"
 msgstr "Najstarszy"
 
-#: allthethings/page/templates/page/search.html:42
+#: allthethings/page/templates/page/search.html:44
 msgid "page.search.filters.sorting.largest"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:43
+#: allthethings/page/templates/page/search.html:45
 msgid "page.search.filters.sorting.smallest"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:55
+#: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.header"
 msgstr "Błąd podczas wyszukiwania."
 
-#: allthethings/page/templates/page/search.html:57
+#: allthethings/page/templates/page/search.html:59
 msgid "page.search.results.error.text"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:60
+#: allthethings/page/templates/page/search.html:62
 msgid "page.search.results.none"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial_more"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial"
 msgstr ""
 
-#: allthethings/page/templates/page/search.html:83
+#: allthethings/page/templates/page/search.html:85
 msgid "page.search.results.issues"
 msgstr ""
 

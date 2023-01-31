@@ -1,100 +1,100 @@
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Not visible in Library Genesis \".rs-fork\" Non-Fiction"
 
-#: allthethings/page/views.py:1605
+#: allthethings/page/views.py:1615
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Not visible in Library Genesis \".rs-fork\" Fiction"
 
-#: allthethings/page/views.py:1606
+#: allthethings/page/views.py:1616
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Not visible in Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1607
+#: allthethings/page/views.py:1617
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Marked broken in Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1608
+#: allthethings/page/views.py:1618
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Missing from Z-Library"
 
-#: allthethings/page/views.py:1614
+#: allthethings/page/views.py:1624
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Book (unknown)"
 
-#: allthethings/page/views.py:1615
+#: allthethings/page/views.py:1625
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Book (non-fiction)"
 
-#: allthethings/page/views.py:1616
+#: allthethings/page/views.py:1626
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Book (fiction)"
 
-#: allthethings/page/views.py:1617
+#: allthethings/page/views.py:1627
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Journal article"
 
-#: allthethings/page/views.py:1618
+#: allthethings/page/views.py:1628
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Standards document"
 
-#: allthethings/page/views.py:1619
+#: allthethings/page/views.py:1629
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Magazine"
 
-#: allthethings/page/views.py:1620
+#: allthethings/page/views.py:1630
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Comic book"
 
-#: allthethings/page/views.py:1622
+#: allthethings/page/views.py:1632
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Book (any)"
 
-#: allthethings/page/views.py:1667
+#: allthethings/page/views.py:1677
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis \".rs-fork\" Non-Fiction"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(also click “GET” at the top)"
 
-#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1677 allthethings/page/views.py:1680
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(click “GET” at the top)"
 
-#: allthethings/page/views.py:1670
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis \".rs-fork\" Fiction"
 
-#: allthethings/page/views.py:1673
+#: allthethings/page/views.py:1683
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1676
+#: allthethings/page/views.py:1686
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
-#: allthethings/page/views.py:1680
+#: allthethings/page/views.py:1688 allthethings/page/views.py:1689
+#: allthethings/page/views.py:1690
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "IPFS Gateway #%(num)d"
 
-#: allthethings/page/views.py:1678
+#: allthethings/page/views.py:1688
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(you might need to try multiple times with IPFS)"
 
-#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
-#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
+#: allthethings/page/views.py:1692 allthethings/page/views.py:1693
+#: allthethings/page/views.py:1694 allthethings/page/views.py:1695
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library Anonymous Mirror #%(num)d"
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1687
+#: allthethings/page/views.py:1697
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(requires TOR browser)"
 
@@ -448,13 +448,13 @@ msgid "page.home.search.intro"
 msgstr "Search our catalog of shadow libraries."
 
 #: allthethings/page/templates/page/home.html:16
-#: allthethings/page/templates/page/search.html:48
+#: allthethings/page/templates/page/search.html:50
 #: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "Search title, author, language, filetype, ISBN, MD5, …"
 
 #: allthethings/page/templates/page/home.html:17
-#: allthethings/page/templates/page/search.html:49
+#: allthethings/page/templates/page/search.html:51
 msgid "common.search.submit"
 msgstr "Search"
 
@@ -582,43 +582,50 @@ msgstr "Search ▶ Search error for <span class=\"italic\">%(search_input)s</spa
 msgid "page.search.breadcrumbs.new"
 msgstr "Search ▶ New search"
 
-#: allthethings/page/templates/page/search.html:21
+#: allthethings/page/templates/page/search.html:18
+msgid "page.search.header.update_info"
+msgstr ""
+"The search index is updated monthly. It currently includes entries up to "
+"%(last_data_refresh_date)s. For more technical information, see the "
+"%(link_open_tag)sdatasets page</a>."
+
+#: allthethings/page/templates/page/search.html:23
 msgid "page.search.filters.language.header"
 msgstr "Language"
 
-#: allthethings/page/templates/page/search.html:27
+#: allthethings/page/templates/page/search.html:29
 msgid "page.search.filters.content.header"
 msgstr "Content"
 
-#: allthethings/page/templates/page/search.html:33
+#: allthethings/page/templates/page/search.html:35
 msgid "page.search.filters.filetype.header"
 msgstr "Filetype"
 
-#: allthethings/page/templates/page/search.html:39
+#: allthethings/page/templates/page/search.html:41
 msgid "page.search.filters.sorting.most_relevant"
 msgstr "Most relevant"
 
-#: allthethings/page/templates/page/search.html:40
+#: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.newest"
 msgstr "Newest"
 
-#: allthethings/page/templates/page/search.html:41
+#: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.oldest"
 msgstr "Oldest"
 
-#: allthethings/page/templates/page/search.html:42
+#: allthethings/page/templates/page/search.html:44
 msgid "page.search.filters.sorting.largest"
 msgstr "Largest"
 
-#: allthethings/page/templates/page/search.html:43
+#: allthethings/page/templates/page/search.html:45
 msgid "page.search.filters.sorting.smallest"
 msgstr "Smallest"
 
-#: allthethings/page/templates/page/search.html:55
+#: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.header"
 msgstr "Error during search."
 
-#: allthethings/page/templates/page/search.html:57
+#: allthethings/page/templates/page/search.html:59
 msgid "page.search.results.error.text"
 msgstr ""
 "Try <a href=\"javascript:location.reload()\">reloading the page</a>. If "
@@ -626,21 +633,21 @@ msgstr ""
 "href=\"https://twitter.com/AnnaArchivist\">Twitter</a> or <a "
 "href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>."
 
-#: allthethings/page/templates/page/search.html:60
+#: allthethings/page/templates/page/search.html:62
 msgid "page.search.results.none"
 msgstr ""
 "<span class=\"font-bold\">No files found.</span> Try fewer or different "
 "search terms and filters."
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial_more"
 msgstr "%(num)d+ partial matches"
 
-#: allthethings/page/templates/page/search.html:66
+#: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial"
 msgstr "%(num)d partial matches"
 
-#: allthethings/page/templates/page/search.html:83
+#: allthethings/page/templates/page/search.html:85
 msgid "page.search.results.issues"
 msgstr "❌ This file might have issues."
 

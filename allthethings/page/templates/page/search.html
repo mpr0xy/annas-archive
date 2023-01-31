@@ -15,6 +15,8 @@
     <div class="mb-4">{{ gettext('page.search.breadcrumbs.new') }}</div>
   {% endif %}
 
+  <div class="mb-4" style="font-size: 90%; color: #555">{{ gettext('page.search.header.update_info', last_data_refresh_date=(g.last_data_refresh_date | dateformat('long')), link_open_tag=('<a href="/datasets">' | safe)) }}</div>
+
   <form action="/search" method="get" role="search">
     <div class="flex mb-4 max-w-[600px]" style="font-size: 87%">
       <select class="grow w-[25%] bg-[#00000011] px-2 py-1 mr-2 rounded" name="lang">

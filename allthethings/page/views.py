@@ -253,6 +253,14 @@ def localeselector():
         return potential_locale
     return 'en'
 
+@functools.cache
+def last_data_refresh_date():
+    with db.engine.connect() as conn:
+        libgenrs_time = conn.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
+        libgenli_time = conn.execute(select(LibgenliFiles.time_last_modified).order_by(LibgenliFiles.f_id.desc()).limit(1)).scalars().first()
+        latest_time = max([libgenrs_time, libgenli_time])
+        return latest_time.date()
+
 translations_with_english_fallback = set()
 @page.before_request
 def before_req():
@@ -267,6 +275,8 @@ def before_req():
 
     g.languages = [(locale.language, locale.get_display_name()) for locale in babel.list_translations()]
     g.languages.sort()
+
+    g.last_data_refresh_date = last_data_refresh_date()
 
 
 @page.get("/")
