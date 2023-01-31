@@ -1,116 +1,100 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-02-01 04:04+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
-"projects/annas-archive/main-website/zh_Hans/>\n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
-
-#: allthethings/page/views.py:1586
+#: allthethings/page/views.py:1604
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "在 图书分类 “.rs-fork” 的非虚构文学板块中不可见"
 
-#: allthethings/page/views.py:1587
+#: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "在 Library Genesis “.rs-fork” 的小说板块中不可见"
 
-#: allthethings/page/views.py:1588
+#: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "在 Library Genesis “.li-fork” 中不可见"
 
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "在 Library Genesis “.li-fork” 中被标记为损坏"
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "在Zlibrary中被标记为丢失"
 
-#: allthethings/page/views.py:1596
+#: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "未知类型的图书"
 
-#: allthethings/page/views.py:1597
+#: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "非小说类图书"
 
-#: allthethings/page/views.py:1598
+#: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "小说类"
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "期刊文章"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "标准文档"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "杂志"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "漫画"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "任何类型的图书"
 
-#: allthethings/page/views.py:1649
+#: allthethings/page/views.py:1667
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis中的 \".rs-fork\"类型的非虚构文学"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "（也可以点击顶部的“GET”）"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_click_get"
 msgstr "（点击顶部的“GET”）"
 
-#: allthethings/page/views.py:1652
+#: allthethings/page/views.py:1670
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis “.rs-fork” 的小说板块"
 
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis “.li-fork”"
 
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1676
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "IPFS 网关 #%(num)d"
 
-#: allthethings/page/views.py:1660
+#: allthethings/page/views.py:1678
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "（您可能需要使用 IPFS 多次尝试）"
 
-#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
-#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
+#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
+#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library匿名镜像 #%(num)d"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "（需要TOR浏览器）"
 
@@ -176,8 +160,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
+#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
-#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -225,7 +209,7 @@ msgstr "没有在数据库中找到匹配的文件。"
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:56
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "显示技术细节（仅英文）"
 
@@ -363,8 +347,7 @@ msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
-msgstr "请使用%(link_open_tag)s此页面</a>发送您的捐款。如果不能用，请刷新本页，即有可"
-"能切换到另外一个捐款账号。"
+msgstr "请使用%(link_open_tag)s此页面</a>发送您的捐款。如果不能用，请刷新本页，即有可能切换到另外一个捐款账号。"
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -413,7 +396,7 @@ msgstr "搜索我们的影子图书馆目录。"
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:48
-#: allthethings/templates/layouts/index.html:167
+#: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "搜索标题、作者、语言、文件类型、ISBN、MD5、……"
 
@@ -457,45 +440,45 @@ msgstr "我们数据库中的匹配文件："
 msgid "page.isbn.results.none"
 msgstr "我们的数据库中没有匹配的文件。"
 
-#: allthethings/page/templates/page/md5.html:13
+#: allthethings/page/templates/page/md5.html:12
 msgid "page.md5.breadcrumbs"
 msgstr "数据集 ▶ 文件 ▶ MD5 %(md5_input)s"
 
-#: allthethings/page/templates/page/md5.html:16
+#: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
 msgstr "未找到"
 
-#: allthethings/page/templates/page/md5.html:18
+#: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
 msgstr "未在我们的数据库中找到与“%(md5_input)s”匹配的文件。"
 
-#: allthethings/page/templates/page/md5.html:31
+#: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ 此文件可能有问题，已从源库中隐藏。</span> "
 "有时这是应版权所有者的要求，有时是因为有更好的选择， 但有时是因为文件本身有问题。 下载可能仍然没问题，但我们建议先搜索替代文件。 更多细节："
 
-#: allthethings/page/templates/page/md5.html:38
+#: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr "如果您仍想下载此文件，请确保仅使用受信任的最新软件打开它。"
 
-#: allthethings/page/templates/page/md5.html:40
+#: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
 msgstr "从以下位置下载免费电子书/文件 %(extension)s："
 
-#: allthethings/page/templates/page/md5.html:45
+#: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
 msgstr "镜像 #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:49
+#: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
 
-#: allthethings/page/templates/page/md5.html:52
+#: allthethings/page/templates/page/md5.html:51
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
-"注意，Anna’s Archive 本身并不保存任何书籍正文。我们只是链接到了其他人的网站。"
-"如果你觉得你确实有正当的 DMCA 投诉，请参阅%(about_link)s“关于”页面</a>。"
+"注意，Anna’s Archive 本身并不保存任何书籍正文。我们只是链接到了其他人的网站。如果你觉得你确实有正当的 DMCA "
+"投诉，请参阅%(about_link)s“关于”页面</a>。"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -596,79 +579,80 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "安娜的档案"
 
-#: allthethings/templates/layouts/index.html:143
+#: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 ⚙️ "
 "通过开源代码和数据完全容灾。 ❤️ 广而告之：这里欢迎每一个人！"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:168
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% 的人类书面遗产得到永久保存 %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:161
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.header.nav.home"
 msgstr "主页"
 
-#: allthethings/templates/layouts/index.html:162
+#: allthethings/templates/layouts/index.html:173
 msgid "layout.index.header.nav.about"
 msgstr "关于"
 
-#: allthethings/templates/layouts/index.html:163
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.donate"
 msgstr "捐赠"
 
-#: allthethings/templates/layouts/index.html:164
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.search"
 msgstr "搜索"
 
-#: allthethings/templates/layouts/index.html:176
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list1.header"
 msgstr "安娜的档案"
 
-#: allthethings/templates/layouts/index.html:177
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list1.home"
 msgstr "首页"
 
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.about"
 msgstr "关于"
 
-#: allthethings/templates/layouts/index.html:179
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.donate"
 msgstr "捐赠"
 
-#: allthethings/templates/layouts/index.html:180
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.datasets"
 msgstr "数据集"
 
-#: allthethings/templates/layouts/index.html:193
+#: allthethings/templates/layouts/index.html:204
 msgid "layout.index.footer.list2.header"
 msgstr "保持联系"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.twitter"
 msgstr "推特"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Reddit 板块"
 
-#: allthethings/templates/layouts/index.html:195
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.blog"
 msgstr "安娜的博客"
 
-#: allthethings/templates/layouts/index.html:196
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.software"
 msgstr "安娜的软件"
 
-#: allthethings/templates/layouts/index.html:202
+#: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr "镜子"
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
+

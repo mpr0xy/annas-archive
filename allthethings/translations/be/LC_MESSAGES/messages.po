@@ -1,119 +1,102 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-02-01 04:04+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Belarusian <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/be/>\n"
-"Language: be\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15\n"
-
-#: allthethings/page/views.py:1586
+#: allthethings/page/views.py:1604
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Не адлюстроўваецца ў \".rs-fork\" акадэмічнага падзела Library Genesis"
 
-#: allthethings/page/views.py:1587
+#: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Не адлюстроўваецца ў \".rs-fork\" мастацкага падзелу Library Genesis"
 
-#: allthethings/page/views.py:1588
+#: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Не адлюстроўваецца в \".li-версіі\" Library Genesis"
 
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr ""
 "Пазначана як \"зламаны файл\" у \".li-версіі\" акадэмічнага раздзела "
 "Library Genesis"
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Адсутнічае ў Z-Library"
 
-#: allthethings/page/views.py:1596
+#: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Кніга (невядомая)"
 
-#: allthethings/page/views.py:1597
+#: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Кніга (акадэмічная літаратура)"
 
-#: allthethings/page/views.py:1598
+#: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Кніга (мастацкая літаратура)"
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Артыкул у часопісе"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Дакумент са стандартамі"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Часопіс"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Комікс"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Кніга (любая)"
 
-#: allthethings/page/views.py:1649
+#: allthethings/page/views.py:1667
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Library Genesis \".rs-версія\" - акадэмічны раздзел"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(таксама націсніце \"Атрымаць\" уверсе)"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(націсніце \"Атрымаць\" уверсе)"
 
-#: allthethings/page/views.py:1652
+#: allthethings/page/views.py:1670
 msgid "page.md5.box.download.lgrsfic"
 msgstr "Library Genesis \".rs-версія\" - мастацкая літаратура"
 
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.lgli"
 msgstr "Library Genesis \".li-версія\""
 
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1676
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
-#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "IPFS-партал #%(num)d"
 
-#: allthethings/page/views.py:1660
+#: allthethings/page/views.py:1678
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(магчыма, вам прыйдзецца паспрабаваць некалькі разоў з IPFS)"
 
-#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
-#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
+#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
+#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_anon"
 msgstr "Z-Library Ананімнае люстэрка #%(num)d"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor"
 msgstr "Z-Library TOR"
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr "(патрабуецца ўваход праз браўзэр ТОР)"
 
@@ -128,14 +111,15 @@ msgstr "Пра праект"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
-"Anna's Archive - гэта бясплатная пошукавая сістэма з адкрытым зыходным кодам "
-"для “<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">ценявых "
-"бібліятэк</a>”. Яна была створана <a href=\"http://annas-blog.org\">Ганнай</"
-"a>, распрацоўшчыкам <a href=\"http://pilimi.org\">Pirate Library Mirror </a> "
-"– люстэркам ценявы бібліятэкі Z-Library. Ганне не хапала цэнтралізаванага "
-"партала для пошуку кніг, даследаванняў, коміксаў, часопісаў і іншай "
-"літаратуры, і яна рэалізавала свой намер, стварыўшы сайт на якім вы "
-"знаходзіцеся."
+"Anna's Archive - гэта бясплатная пошукавая сістэма з адкрытым зыходным "
+"кодам для “<a "
+"href=\"https://en.wikipedia.org/wiki/Shadow_library\">ценявых "
+"бібліятэк</a>”. Яна была створана <a href=\"http://annas-"
+"blog.org\">Ганнай</a>, распрацоўшчыкам <a "
+"href=\"http://pilimi.org\">Pirate Library Mirror </a> – люстэркам ценявы "
+"бібліятэкі Z-Library. Ганне не хапала цэнтралізаванага партала для пошуку"
+" кніг, даследаванняў, коміксаў, часопісаў і іншай літаратуры, і яна "
+"рэалізавала свой намер, стварыўшы сайт на якім вы знаходзіцеся."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
@@ -193,8 +177,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
+#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
-#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -246,7 +230,7 @@ msgstr "У нашай базе дадзеных не знойдзена адпа
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:56
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Тэхнічныя дэталі (на англійскай мове)"
 
@@ -413,9 +397,10 @@ msgstr "Pix"
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
 msgstr ""
-"Калі ласка, выкарыстоўвайце %(link_open_tag)sна гэтай старонцы Pix</a>, каб "
-"адправіць сваё ахвяраванне. Калі гэта не спрацуе, паспрабуйце абнавіць "
-"старонку, так як гэта можа прывесці да стварэння іншы ўліковага запісу."
+"Калі ласка, выкарыстоўвайце %(link_open_tag)sна гэтай старонцы Pix</a>, "
+"каб адправіць сваё ахвяраванне. Калі гэта не спрацуе, паспрабуйце "
+"абнавіць старонку, так як гэта можа прывесці да стварэння іншы ўліковага "
+"запісу."
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -473,7 +458,7 @@ msgstr "Пошук у нашым каталогу ценявых бібліят�
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:48
-#: allthethings/templates/layouts/index.html:167
+#: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "Пошук па назве, аўтару, мове, тыпу файла, ISBN, MD5, …"
 
@@ -523,19 +508,19 @@ msgstr "Адпаведныя файлы ў нашай базе дадзеных:
 msgid "page.isbn.results.none"
 msgstr "Файлаў з дадзенай назвай не знойдзена."
 
-#: allthethings/page/templates/page/md5.html:13
+#: allthethings/page/templates/page/md5.html:12
 msgid "page.md5.breadcrumbs"
 msgstr "Наборы дадзеных ▶ Files ▶ MD5 %(md5_input)s"
 
-#: allthethings/page/templates/page/md5.html:16
+#: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
 msgstr "Не знойдзена"
 
-#: allthethings/page/templates/page/md5.html:18
+#: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
 msgstr "“%(md5_input)s” не знойдзена у нашай базе дадзеных."
 
-#: allthethings/page/templates/page/md5.html:31
+#: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ у гэтага файла могуць быць праблемы і ён быў "
@@ -545,21 +530,21 @@ msgstr ""
 "рэкамендуем пашукаць альтэрнатыўны файл, але вы можаце спампаваць гэты "
 "пры жаданні. Больш інфармацыі:"
 
-#: allthethings/page/templates/page/md5.html:38
+#: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr ""
 "Калі вы ўсё яшчэ хочаце спампаваць гэты файл, абавязкова выкарыстоўвайце "
 "для яго адкрыцця толькі праверанае, абноўленае праграмнае забеспячэнне."
 
-#: allthethings/page/templates/page/md5.html:40
+#: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
 msgstr "Спампаваць бясплатна электронную кнігу/файл %(extension)s з:"
 
-#: allthethings/page/templates/page/md5.html:45
+#: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
 msgstr "Люстэрка #%(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:49
+#: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Усе люстэркі ўтрымліваюць той жа файл і павінны быць бяспечнымі. Аднак "
@@ -567,13 +552,13 @@ msgstr ""
 "ваша прылада і дадатку абноўленыя да апошняй версіі для бяспекі вашых "
 "дадзеных."
 
-#: allthethings/page/templates/page/md5.html:52
+#: allthethings/page/templates/page/md5.html:51
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 "У Anna’s Archive няма нічога з таго, што тут прадстаўлена. Мы проста "
-"спасылаемся на сайты іншых людзей. Калі вы сапраўды лічыце, што ў вас ёсць "
-"абгрунтаваная скарга DMCA, Калі ласка, азнаёмцеся са старонкай %(about_link)"
-"sПра нас</a>."
+"спасылаемся на сайты іншых людзей. Калі вы сапраўды лічыце, што ў вас "
+"ёсць абгрунтаваная скарга DMCA, Калі ласка, азнаёмцеся са старонкай "
+"%(about_link)sПра нас</a>."
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -682,80 +667,81 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "Anna’s Archive"
 
-#: allthethings/templates/layouts/index.html:143
+#: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Пошук у ценявых бібліятэках: кнігі, газеты, коміксы, часопісы. ⭐️ "
 "Z-Library, Library Genesis, Sci-Hub. Цалкам адкрыты код і дадзеныя. ❤️ "
 "Дзяліцеся з іншымі: чым больш людзей ведаюць аб сайце, тым лепш!"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:168
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% пісьмовай спадчыны чалавецтва, захавана назаўжды %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:161
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.header.nav.home"
 msgstr "Галоўная"
 
-#: allthethings/templates/layouts/index.html:162
+#: allthethings/templates/layouts/index.html:173
 msgid "layout.index.header.nav.about"
 msgstr "Пра нас"
 
-#: allthethings/templates/layouts/index.html:163
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.donate"
 msgstr "Ахвяраваць"
 
-#: allthethings/templates/layouts/index.html:164
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.search"
 msgstr "Пошук"
 
-#: allthethings/templates/layouts/index.html:176
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list1.header"
 msgstr "Anna’s Archive"
 
-#: allthethings/templates/layouts/index.html:177
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list1.home"
 msgstr "Галоўная"
 
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.about"
 msgstr "Пра нас"
 
-#: allthethings/templates/layouts/index.html:179
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.donate"
 msgstr "Ахвяраваць"
 
-#: allthethings/templates/layouts/index.html:180
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.datasets"
 msgstr "Наборы дадзеных"
 
-#: allthethings/templates/layouts/index.html:193
+#: allthethings/templates/layouts/index.html:204
 msgid "layout.index.footer.list2.header"
 msgstr "Заставацца на сувязі"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.twitter"
 msgstr "Твітэр"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Сабрэддіт"
 
-#: allthethings/templates/layouts/index.html:195
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.blog"
 msgstr "Блог Ганны"
 
-#: allthethings/templates/layouts/index.html:196
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
 
-#: allthethings/templates/layouts/index.html:202
+#: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr "Люстэркі"
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
+

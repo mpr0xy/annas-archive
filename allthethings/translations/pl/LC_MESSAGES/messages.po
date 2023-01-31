@@ -1,100 +1,100 @@
-#: allthethings/page/views.py:1586
+#: allthethings/page/views.py:1604
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
-#: allthethings/page/views.py:1587
+#: allthethings/page/views.py:1605
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
 msgstr "Brak w Library Genesis \".rs-fork\" (fikcja)"
 
-#: allthethings/page/views.py:1588
+#: allthethings/page/views.py:1606
 msgid "common.md5_problem_type_mapping.lgli_visible"
 msgstr "Brak w Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1589
+#: allthethings/page/views.py:1607
 msgid "common.md5_problem_type_mapping.lgli_broken"
 msgstr "Oznaczone jako uszkodzone w Library Genesis \".li-fork\""
 
-#: allthethings/page/views.py:1590
+#: allthethings/page/views.py:1608
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr ""
 
-#: allthethings/page/views.py:1596
+#: allthethings/page/views.py:1614
 msgid "common.md5_content_type_mapping.book_unknown"
 msgstr "Książka (nieznana)"
 
-#: allthethings/page/views.py:1597
+#: allthethings/page/views.py:1615
 msgid "common.md5_content_type_mapping.book_nonfiction"
 msgstr "Książka (literatura faktu)"
 
-#: allthethings/page/views.py:1598
+#: allthethings/page/views.py:1616
 msgid "common.md5_content_type_mapping.book_fiction"
 msgstr "Książka (fikcja)"
 
-#: allthethings/page/views.py:1599
+#: allthethings/page/views.py:1617
 msgid "common.md5_content_type_mapping.journal_article"
 msgstr "Artykuł z czasopisma fachowego"
 
-#: allthethings/page/views.py:1600
+#: allthethings/page/views.py:1618
 msgid "common.md5_content_type_mapping.standards_document"
 msgstr "Dokument standardu"
 
-#: allthethings/page/views.py:1601
+#: allthethings/page/views.py:1619
 msgid "common.md5_content_type_mapping.magazine"
 msgstr "Magazyn"
 
-#: allthethings/page/views.py:1602
+#: allthethings/page/views.py:1620
 msgid "common.md5_content_type_mapping.book_comic"
 msgstr "Komiks"
 
-#: allthethings/page/views.py:1604
+#: allthethings/page/views.py:1622
 msgid "common.md5_content_type_mapping.book_any"
 msgstr "Książka (Dowolna)"
 
-#: allthethings/page/views.py:1649
+#: allthethings/page/views.py:1667
 msgid "page.md5.box.download.lgrsnf"
 msgstr "Brak w Library Genesis \".rs.fork\" (niefikcyjne)"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_also_click_get"
 msgstr "(kliknij również „GET” u góry)"
 
-#: allthethings/page/views.py:1649 allthethings/page/views.py:1652
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1667 allthethings/page/views.py:1670
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.extra_click_get"
 msgstr "(kliknij \"GET\" u góry)"
 
-#: allthethings/page/views.py:1652
+#: allthethings/page/views.py:1670
 msgid "page.md5.box.download.lgrsfic"
 msgstr ""
 
-#: allthethings/page/views.py:1655
+#: allthethings/page/views.py:1673
 msgid "page.md5.box.download.lgli"
 msgstr ""
 
-#: allthethings/page/views.py:1658
+#: allthethings/page/views.py:1676
 msgid "page.md5.box.download.scihub"
 msgstr ""
 
-#: allthethings/page/views.py:1660 allthethings/page/views.py:1661
-#: allthethings/page/views.py:1662
+#: allthethings/page/views.py:1678 allthethings/page/views.py:1679
+#: allthethings/page/views.py:1680
 msgid "page.md5.box.download.ipfs_gateway"
 msgstr "Brama IPFS #%(num)d"
 
-#: allthethings/page/views.py:1660
+#: allthethings/page/views.py:1678
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(być może będziesz musiał spróbować kilka razy z IPFS)"
 
-#: allthethings/page/views.py:1664 allthethings/page/views.py:1665
-#: allthethings/page/views.py:1666 allthethings/page/views.py:1667
+#: allthethings/page/views.py:1682 allthethings/page/views.py:1683
+#: allthethings/page/views.py:1684 allthethings/page/views.py:1685
 msgid "page.md5.box.download.zlib_anon"
 msgstr ""
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor"
 msgstr ""
 
-#: allthethings/page/views.py:1669
+#: allthethings/page/views.py:1687
 msgid "page.md5.box.download.zlib_tor_extra"
 msgstr ""
 
@@ -142,8 +142,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
+#: allthethings/page/templates/page/md5.html:58
 #: allthethings/page/templates/page/md5.html:59
-#: allthethings/page/templates/page/md5.html:60
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -189,7 +189,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:56
+#: allthethings/page/templates/page/md5.html:55
 msgid "common.tech_details"
 msgstr "Szczegóły techniczne (w języku angielskim)"
 
@@ -363,7 +363,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:48
-#: allthethings/templates/layouts/index.html:167
+#: allthethings/templates/layouts/index.html:178
 msgid "common.search.placeholder"
 msgstr "Wyszukaj tytuł, autora, język, typ pliku, ISBN, MD5, …"
 
@@ -404,35 +404,35 @@ msgstr ""
 msgid "page.isbn.results.none"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:13
+#: allthethings/page/templates/page/md5.html:12
 msgid "page.md5.breadcrumbs"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:16
+#: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:18
+#: allthethings/page/templates/page/md5.html:17
 msgid "page.md5.invalid.text"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:31
+#: allthethings/page/templates/page/md5.html:30
 msgid "page.md5.box.issues.text1"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:38
+#: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr ""
 
-#: allthethings/page/templates/page/md5.html:40
+#: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
 msgstr "Pobierz darmowy ebook/plik %(extension)s z:"
 
-#: allthethings/page/templates/page/md5.html:45
+#: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.mirror"
 msgstr "Lustro nr %(num)d: %(link)s %(extra)s"
 
-#: allthethings/page/templates/page/md5.html:49
+#: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Wszystkie serwery lustrzane obsługują ten sam plik i powinny być "
@@ -440,7 +440,7 @@ msgstr ""
 " pobierania plików z Internetu. Na przykład pamiętaj, aby aktualizować "
 "swoje urządzenia."
 
-#: allthethings/page/templates/page/md5.html:52
+#: allthethings/page/templates/page/md5.html:51
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 
@@ -536,78 +536,78 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "Archiwum Anny"
 
-#: allthethings/templates/layouts/index.html:143
+#: allthethings/templates/layouts/index.html:154
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Wyszukiwarka bibliotek cieni: książek, gazet, komiksów, czasopism. ⭐️ "
 "Z-Library, Library Genesis, Sci-Hub. ⚙️ W pełni odporny dzięki otwartemu "
 "kodowi źródłowemu i danym. ❤️ Przekaż dalej: wszyscy są tu mile widziani!"
 
-#: allthethings/templates/layouts/index.html:157
+#: allthethings/templates/layouts/index.html:168
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% pisanego dziedzictwa ludzkości zachowane na zawsze %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:161
+#: allthethings/templates/layouts/index.html:172
 msgid "layout.index.header.nav.home"
 msgstr "Dom"
 
-#: allthethings/templates/layouts/index.html:162
+#: allthethings/templates/layouts/index.html:173
 msgid "layout.index.header.nav.about"
 msgstr "O"
 
-#: allthethings/templates/layouts/index.html:163
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.donate"
 msgstr "Podarować"
 
-#: allthethings/templates/layouts/index.html:164
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.search"
 msgstr "Szukaj"
 
-#: allthethings/templates/layouts/index.html:176
+#: allthethings/templates/layouts/index.html:187
 msgid "layout.index.footer.list1.header"
 msgstr "Archiwum Anny"
 
-#: allthethings/templates/layouts/index.html:177
+#: allthethings/templates/layouts/index.html:188
 msgid "layout.index.footer.list1.home"
 msgstr "Dom"
 
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.about"
 msgstr "O"
 
-#: allthethings/templates/layouts/index.html:179
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.donate"
 msgstr "Podarować"
 
-#: allthethings/templates/layouts/index.html:180
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.datasets"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:193
+#: allthethings/templates/layouts/index.html:204
 msgid "layout.index.footer.list2.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.twitter"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.reddit"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:194
+#: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.subreddit"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:195
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.blog"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:196
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.software"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:202
+#: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr ""
 
