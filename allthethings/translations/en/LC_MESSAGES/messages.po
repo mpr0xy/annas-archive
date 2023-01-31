@@ -174,8 +174,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
-#: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
+#: allthethings/page/templates/page/md5.html:61
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -223,7 +223,7 @@ msgstr "No matching files found in our database."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:57
 msgid "common.tech_details"
 msgstr "Show technical details"
 
@@ -531,17 +531,23 @@ msgid "page.md5.box.download.text"
 msgstr "Download free ebook/file %(extension)s from:"
 
 #: allthethings/page/templates/page/md5.html:44
-msgid "page.md5.box.download.mirror"
-msgstr "Mirror #%(num)d: %(link)s %(extra)s"
+msgid "page.md5.box.download.option"
+msgstr "Option #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
+msgid "page.md5.box.download.no_issues_download_options_explanation"
+msgstr ""
+"We have multiple download options in case one of them is out of order. "
+"They all have the exact same file."
+
+#: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"All mirrors serve the same file, and should be safe to use. That said, "
-"always be cautious when downloading files from the internet. For example,"
-" be sure to keep your devices updated."
+"All download options should be safe to use. That said, always be cautious"
+" when downloading files from the internet. For example, be sure to keep "
+"your devices updated."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 "Note that Anna’s Archive does not host any of the content on here. We "
@@ -726,5 +732,8 @@ msgstr "Anna’s Software"
 
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
-msgstr "Mirrors"
+msgstr "Alternatives"
+
+#~ msgid "page.md5.box.download.mirror"
+#~ msgstr "Mirror #%(num)d: %(link)s %(extra)s"
 

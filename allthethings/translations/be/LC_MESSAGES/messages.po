@@ -177,8 +177,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
-#: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
+#: allthethings/page/templates/page/md5.html:61
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -226,7 +226,7 @@ msgstr "У нашай базе дадзеных не знойдзена адпа
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:57
 msgid "common.tech_details"
 msgstr "Тэхнічныя дэталі (на англійскай мове)"
 
@@ -537,10 +537,14 @@ msgid "page.md5.box.download.text"
 msgstr "Спампаваць бясплатна электронную кнігу/файл %(extension)s з:"
 
 #: allthethings/page/templates/page/md5.html:44
-msgid "page.md5.box.download.mirror"
-msgstr "Люстэрка #%(num)d: %(link)s %(extra)s"
+msgid "page.md5.box.download.option"
+msgstr ""
 
 #: allthethings/page/templates/page/md5.html:48
+msgid "page.md5.box.download.no_issues_download_options_explanation"
+msgstr ""
+
+#: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Усе люстэркі ўтрымліваюць той жа файл і павінны быць бяспечнымі. Аднак "
@@ -548,7 +552,7 @@ msgstr ""
 "ваша прылада і дадатку абноўленыя да апошняй версіі для бяспекі вашых "
 "дадзеных."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 "У Anna’s Archive няма нічога з таго, што тут прадстаўлена. Мы проста "
@@ -737,4 +741,7 @@ msgstr "Anna’s Software"
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr "Люстэркі"
+
+#~ msgid "page.md5.box.download.mirror"
+#~ msgstr "Люстэрка #%(num)d: %(link)s %(extra)s"
 

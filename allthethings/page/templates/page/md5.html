@@ -41,10 +41,12 @@
       
         <ul>
           {% for label, url, extra in md5_dict.additional.download_urls %}
-            <li>- {{ gettext('page.md5.box.download.mirror', num=loop.index, link=(('<a href="' + url + '" rel="noopener noreferrer nofollow">' + label + '</a>') | safe), extra=extra) }}</li>
+            <li>- {{ gettext('page.md5.box.download.option', num=loop.index, link=(('<a href="' + url + '" rel="noopener noreferrer nofollow">' + label + '</a>') | safe), extra=extra) }}</li>
           {% endfor %}
         </ul>
         {% if (md5_dict.file_unified_data.problems | length) == 0 %}
+          <div class="mt-4">{{ gettext('page.md5.box.download.no_issues_download_options_explanation') }}</div>
+
           <div class="mt-4">{{ gettext('page.md5.box.download.no_issues_notice') }}</div>
         {% endif %}
 

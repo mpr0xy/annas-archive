@@ -146,8 +146,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
-#: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
+#: allthethings/page/templates/page/md5.html:61
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -195,7 +195,7 @@ msgstr "Tidak ada berkas yang sesuai di basis data kami."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:57
 msgid "common.tech_details"
 msgstr "Detail teknis (dalam bahasa Inggris)"
 
@@ -460,17 +460,21 @@ msgid "page.md5.box.download.text"
 msgstr "Unduh ebook/file %(extension)s gratis dari:"
 
 #: allthethings/page/templates/page/md5.html:44
-msgid "page.md5.box.download.mirror"
-msgstr "Cermin #%(num)d: %(link)s %(extra)s"
+msgid "page.md5.box.download.option"
+msgstr ""
 
 #: allthethings/page/templates/page/md5.html:48
+msgid "page.md5.box.download.no_issues_download_options_explanation"
+msgstr ""
+
+#: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Semua mirror melayani file yang sama, dan harus aman untuk digunakan. "
 "Karena itu, selalu berhati-hatilah saat mengunduh file dari internet. "
 "Misalnya, pastikan untuk selalu memperbarui perangkat Anda."
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 
@@ -649,4 +653,7 @@ msgstr "Peranti Lunak Anna"
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr ""
+
+#~ msgid "page.md5.box.download.mirror"
+#~ msgstr "Cermin #%(num)d: %(link)s %(extra)s"
 

@@ -160,8 +160,8 @@ msgstr ""
 #: allthethings/page/templates/page/lgli_file.html:11
 #: allthethings/page/templates/page/lgrs_book.html:12
 #: allthethings/page/templates/page/lgrs_book.html:13
-#: allthethings/page/templates/page/md5.html:58
-#: allthethings/page/templates/page/md5.html:59
+#: allthethings/page/templates/page/md5.html:60
+#: allthethings/page/templates/page/md5.html:61
 #: allthethings/page/templates/page/ol_book.html:8
 #: allthethings/page/templates/page/ol_book.html:9
 #: allthethings/page/templates/page/zlib_book.html:8
@@ -207,7 +207,7 @@ msgstr "没有在数据库中找到匹配的文件。"
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
-#: allthethings/page/templates/page/md5.html:55
+#: allthethings/page/templates/page/md5.html:57
 msgid "common.tech_details"
 msgstr "显示技术细节（仅英文）"
 
@@ -465,14 +465,18 @@ msgid "page.md5.box.download.text"
 msgstr "从以下位置下载免费电子书/文件 %(extension)s："
 
 #: allthethings/page/templates/page/md5.html:44
-msgid "page.md5.box.download.mirror"
-msgstr "镜像 #%(num)d: %(link)s %(extra)s"
+msgid "page.md5.box.download.option"
+msgstr ""
 
 #: allthethings/page/templates/page/md5.html:48
+msgid "page.md5.box.download.no_issues_download_options_explanation"
+msgstr ""
+
+#: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
 
-#: allthethings/page/templates/page/md5.html:51
+#: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
 "注意，Anna’s Archive 本身并不保存任何书籍正文。我们只是链接到了其他人的网站。如果你觉得你确实有正当的 DMCA "
@@ -650,4 +654,7 @@ msgstr "安娜的软件"
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
 msgstr "镜子"
+
+#~ msgid "page.md5.box.download.mirror"
+#~ msgstr "镜像 #%(num)d: %(link)s %(extra)s"
 
