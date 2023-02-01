@@ -1,6 +1,22 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 09:05+0000\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
+"projects/annas-archive/main-website/zh_Hans/>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
-msgstr "在 Library Genesis “.rs-fork” 的非虚构文学板块中不可见"
+msgstr "在 图书分类 “.rs-fork” 的非虚构文学板块中不可见"
 
 #: allthethings/page/views.py:1587
 msgid "common.md5_problem_type_mapping.lgrsfic_visible"
@@ -128,7 +144,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
-msgstr ""
+msgstr "如果你有正当的 DMCA 投诉请求，请参阅页面底部，或通过 %(email)s 联系我们。"
 
 #: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
@@ -255,7 +271,7 @@ msgstr "支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.pix"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
@@ -263,7 +279,7 @@ msgstr "问题"
 
 #: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
@@ -334,7 +350,7 @@ msgstr "请使用此支付宝账户发送您的捐款。"
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "网址"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -343,11 +359,12 @@ msgstr "此捐赠选项目前不可用。 请稍后再回来查看。 感谢您�
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
-msgstr ""
+msgstr "请使用%(link_open_tag)s此页面</a>发送您的捐款。如果不能用，请刷新本页，即有可"
+"能切换到另外一个捐款账号。"
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -477,6 +494,8 @@ msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。
 #: allthethings/page/templates/page/md5.html:52
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
+"注意，Anna’s Archive 本身并不保存任何书籍正文。我们只是链接到了其他人的网站。"
+"如果你觉得你确实有正当的 DMCA 投诉，请参阅%(about_link)s“关于”页面</a>。"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -649,8 +668,7 @@ msgstr "安娜的软件"
 
 #: allthethings/templates/layouts/index.html:202
 msgid "layout.index.footer.list3.header"
-msgstr ""
+msgstr "镜子"
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
-

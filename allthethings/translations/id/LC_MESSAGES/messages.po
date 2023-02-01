@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 09:05+0000\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Indonesian <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1586
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Tidak terlihat di Library Genesis \".rs-fork\" Non-Fiksi"
@@ -16,11 +32,11 @@ msgstr ""
 
 #: allthethings/page/views.py:1590
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "Hilang dari Z-Library"
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr "buku（nonfiksi）"
+msgstr "Buku (tak terkategori)"
 
 #: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
@@ -117,6 +133,10 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:17
 msgid "page.about.text3"
 msgstr ""
+"Ikuti perkembangan terbaru kami dengan mengikuti Anna di <a href=\"https"
+"://twitter.com/AnnaArchivist\">Twitter</a> atau <a href=\"https://www.reddit."
+"com/user/AnnaArchivist\">Reddit</a>. Untuk pertanyaan dan umpan balik, "
+"silakan hubungi Anna di %(email)s."
 
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
@@ -124,7 +144,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
-msgstr ""
+msgstr "Cara Membantu"
 
 #: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
@@ -153,7 +173,7 @@ msgstr "Teks berlanjut di bawah dalam bahasa Inggris."
 
 #: allthethings/page/templates/page/doi.html:3
 msgid "page.doi.title"
-msgstr ""
+msgstr "DOI %(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:6
 msgid "page.doi.breadcrumbs"
@@ -161,15 +181,17 @@ msgstr ""
 
 #: allthethings/page/templates/page/doi.html:9
 msgid "page.doi.invalid.header"
-msgstr ""
+msgstr "Nihil"
 
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
+"\"%(doi_input)s\" tidak tampak seperti kode DOI. Kode DOI seharusnya dimulai "
+"dengan angka \"10.\" dan terdapat garis miring di dalamnya."
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
-msgstr ""
+msgstr "doi:%(doi_input)s"
 
 #: allthethings/page/templates/page/doi.html:18
 msgid "page.doi.box.canonical_url"
@@ -178,14 +200,16 @@ msgstr ""
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
 msgstr ""
+"Berkas ini mungkin terdapat di <a href=\"https://sci-hub.se/%(doi_input)s\""
+">Sci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
-msgstr ""
+msgstr "Berkas-berkas yang sesuai di basis data kami:"
 
 #: allthethings/page/templates/page/doi.html:47
 msgid "page.doi.results.none"
-msgstr ""
+msgstr "Tidak ada berkas yang sesuai di basis data kami."
 
 #: allthethings/page/templates/page/doi.html:51
 #: allthethings/page/templates/page/isbn.html:58
@@ -204,10 +228,15 @@ msgstr "Menyumbangkan"
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
 msgstr ""
+"Arsip Anna adalah sebuah proyek open-source nirlaba yang digerakkan penuh "
+"oleh sukarelawan. Kami menerima donasi untuk memenuhi kebutuhan biaya, "
+"termasuk hosting, nama domain, pengembangan, dan biaya-biaya lain."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
 msgstr ""
+"Dengan kontribusi Anda, kami dapat terus menjalankan situs ini, "
+"mengembangkan fitur-fiturnya, dan mempreservasikan lebih banyak koleksi."
 
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
@@ -216,34 +245,36 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
 msgstr ""
+"Untuk berdonasi, silakan pilih metode donasi yang Anda inginkan. Jika "
+"terjadi masalah, silakan hubungi kami di %(email)s."
 
 #: allthethings/page/templates/page/donate.html:55
 msgid "page.donate.nav.paypal"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:56
 msgid "page.donate.nav.cc"
-msgstr ""
+msgstr "Kartu debit / kredit"
 
 #: allthethings/page/templates/page/donate.html:57
 msgid "page.donate.nav.crypto"
-msgstr ""
+msgstr "Uang kripto"
 
 #: allthethings/page/templates/page/donate.html:58
 msgid "page.donate.nav.alipay"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:59
 msgid "page.donate.nav.pix"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:60
 msgid "page.donate.nav.faq"
-msgstr ""
+msgstr "Pertanyaan Umum"
 
 #: allthethings/page/templates/page/donate.html:64
 msgid "page.donate.paypal.header"
-msgstr ""
+msgstr "Paypal"
 
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
@@ -262,10 +293,11 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:202
 msgid "page.donate.text_thank_you"
 msgstr ""
+"Terima kasih banyak! Proyek ini tidak akan terwujud tanpa bantuan dari Anda."
 
 #: allthethings/page/templates/page/donate.html:80
 msgid "page.donate.cc.header"
-msgstr ""
+msgstr "Kartu debit / kredit"
 
 #: allthethings/page/templates/page/donate.html:83
 msgid "page.donate.cc.text1"
@@ -277,7 +309,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.header"
-msgstr ""
+msgstr "Cara:"
 
 #: allthethings/page/templates/page/donate.html:95
 msgid "page.donate.cc.steps.list1"
@@ -293,19 +325,19 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:106
 msgid "page.donate.crypto.header"
-msgstr ""
+msgstr "Uang kripto"
 
 #: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.crypto.intro"
-msgstr ""
+msgstr "Jika Anda sudah memiliki uang kripto, berikut alamat kami:"
 
 #: allthethings/page/templates/page/donate.html:113
 msgid "page.donate.crypto.btc_bch_note"
-msgstr ""
+msgstr "(juga bisa digunakan untuk BCH)"
 
 #: allthethings/page/templates/page/donate.html:125
 msgid "page.donate.alipay.header"
-msgstr ""
+msgstr "Alipay 支付宝"
 
 #: allthethings/page/templates/page/donate.html:128
 #: allthethings/page/templates/page/donate.html:156
@@ -314,16 +346,18 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "Pranala"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
 msgid "page.donate.out_of_order"
 msgstr ""
+"Metode donasi ini sedang tidak berfungsi untuk sementara waktu. Mohon coba "
+"lagi nanti. Terima kasih sudah ingin berdonasi, kami sangat menghargainya!"
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
-msgstr ""
+msgstr "Pix"
 
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
@@ -331,7 +365,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
-msgstr ""
+msgstr "Pertanyaan Umum"
 
 #: allthethings/page/templates/page/donate.html:216
 msgid "page.donate.faq.text_other_payment1"
@@ -348,6 +382,9 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:228
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
+"<div class=\"font-bold\">Apakah saya bisa berkontribusi dengan cara lain?</"
+"div> Ya! Lihat laman <a href=\"/about\">tentang kami</a> pada bagian “Cara "
+"Membantu”."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
@@ -374,15 +411,17 @@ msgstr "Mencari"
 
 #: allthethings/page/templates/page/home.html:21
 msgid "page.home.explore.header"
-msgstr ""
+msgstr "Jelajahi buku"
 
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
+"Buku-buku ini adalah kombinasi dari buku-buku populer serta buku-buku yang "
+"penting di dunia perpustakaan bayangan dan preservasi digital."
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
-msgstr ""
+msgstr "ISBN %(isbn_input)s"
 
 #: allthethings/page/templates/page/isbn.html:6
 msgid "page.isbn.breadcrumbs"
@@ -390,7 +429,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:9
 msgid "page.isbn.invalid.header"
-msgstr ""
+msgstr "Nihil"
 
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
@@ -398,11 +437,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
-msgstr ""
+msgstr "Berkas-berkas yang sesuai di basis data kami:"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
-msgstr ""
+msgstr "Tidak ada berkas yang sesuai di basis data kami."
 
 #: allthethings/page/templates/page/md5.html:13
 msgid "page.md5.breadcrumbs"
@@ -410,19 +449,26 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:16
 msgid "page.md5.invalid.header"
-msgstr ""
+msgstr "Nihil"
 
 #: allthethings/page/templates/page/md5.html:18
 msgid "page.md5.invalid.text"
-msgstr ""
+msgstr "“%(md5_input)s” tidak ditemukan di basis data kami."
 
 #: allthethings/page/templates/page/md5.html:31
 msgid "page.md5.box.issues.text1"
 msgstr ""
+"<span class=\"font-bold\">❌ Berkas ini bermasalah dan disembunyikan dari "
+"perpustakaan sumber.</span> Terkadang karena ada permintaan pemegang hak "
+"cipta, terkadang karena terdapat berkas lain yang lebih baik, namun umumnya "
+"karena terdapat masalah pada berkasnya sendiri. Berkas ini mungkin masih "
+"laik unduh, namun kami sarankan mencari berkas alternatif. Lebih lanjut:"
 
 #: allthethings/page/templates/page/md5.html:38
 msgid "page.md5.box.issues.text2"
 msgstr ""
+"Jika Anda tetap ingin mengunduh berkas ini, pastikan Anda membukanya dengan "
+"menggunakan peranti lunak yang terpercaya dan termutakhir."
 
 #: allthethings/page/templates/page/md5.html:40
 msgid "page.md5.box.download.text"
@@ -445,11 +491,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
-msgstr ""
+msgstr "%(search_input)s - Cari"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.new"
-msgstr ""
+msgstr "Pencarian baru"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
@@ -493,11 +539,11 @@ msgstr "Tertua"
 
 #: allthethings/page/templates/page/search.html:42
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "Terbesar"
 
 #: allthethings/page/templates/page/search.html:43
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "Terkecil"
 
 #: allthethings/page/templates/page/search.html:55
 msgid "page.search.results.error.header"
@@ -506,10 +552,16 @@ msgstr "Kesalahan selama pencarian."
 #: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.text"
 msgstr ""
+"Cobalah <a href=\"javascript:location.reload()\">memuat ulang laman ini</a>. "
+"Jika masih tetap bermasalah, silakan hubungi kami melalui <a href=\"https"
+"://twitter.com/AnnaArchivist\">Twitter</a> atau <a href=\"https://www.reddit."
+"com/user/AnnaArchivist\">Reddit</a>."
 
 #: allthethings/page/templates/page/search.html:60
 msgid "page.search.results.none"
 msgstr ""
+"<span class=\"font-bold\">Nihil.</span> Sila gunakan kata kunci lain atau "
+"filter pencarian Anda."
 
 #: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial_more"
@@ -517,11 +569,11 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:66
 msgid "page.search.results.partial"
-msgstr ""
+msgstr "%(num)d cocok sebagian"
 
 #: allthethings/page/templates/page/search.html:83
 msgid "page.search.results.issues"
-msgstr ""
+msgstr "❌ Berkas ini bermasalah."
 
 #: allthethings/templates/layouts/index.html:4
 msgid "layout.index.title"
@@ -587,27 +639,27 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list2.header"
-msgstr ""
+msgstr "Hubungi kami"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.reddit"
-msgstr ""
+msgstr "Reddit"
 
 #: allthethings/templates/layouts/index.html:194
 msgid "layout.index.footer.list2.subreddit"
-msgstr ""
+msgstr "Subreddit"
 
 #: allthethings/templates/layouts/index.html:195
 msgid "layout.index.footer.list2.blog"
-msgstr ""
+msgstr "Blog Anna"
 
 #: allthethings/templates/layouts/index.html:196
 msgid "layout.index.footer.list2.software"
-msgstr ""
+msgstr "Peranti Lunak Anna"
 
 #: allthethings/templates/layouts/index.html:202
 msgid "layout.index.footer.list3.header"
@@ -615,4 +667,3 @@ msgstr ""
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
-
