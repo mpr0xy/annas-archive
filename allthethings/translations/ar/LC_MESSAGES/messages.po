@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0000\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
 "Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Arabic <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ar/>\n"
@@ -656,7 +656,7 @@ msgstr "تبرع"
 
 #: allthethings/templates/layouts/index.html:180
 msgid "layout.index.footer.list1.datasets"
-msgstr "البيانات"
+msgstr "مجموعات البيانات"
 
 #: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list2.header"
