@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0000\n"
-"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
+"Last-Translator: Dan <daanisy.ahmad@gmail.com>\n"
 "Language-Team: Indonesian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/id/>\n"
 "Language: id\n"
@@ -36,7 +36,7 @@ msgstr "Hilang dari Z-Library"
 
 #: allthethings/page/views.py:1596
 msgid "common.md5_content_type_mapping.book_unknown"
-msgstr "buku（nonfiksi）"
+msgstr "Buku (tak terkategori)"
 
 #: allthethings/page/views.py:1597
 msgid "common.md5_content_type_mapping.book_nonfiction"
