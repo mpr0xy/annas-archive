@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0000\n"
-"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
 "Language-Team: French <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/fr/>\n"
 "Language: fr\n"
@@ -156,6 +156,8 @@ msgstr ""
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
 msgstr ""
+"Si vous avez une plainte DMCA valide, voyez le bas de page, ou contactez-"
+"nous à %(email)s."
 
 #: allthethings/page/templates/page/about.html:24
 msgid "page.about.help.header"
@@ -413,6 +415,9 @@ msgstr "Pix"
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
 msgstr ""
+"Merci d'utiliser %(link_open_tag)scette page Pix</a> pour envoyer votre don. "
+"Si cela ne fonctionne pas, essayez d'actualiser la page, cela pourrait vous "
+"donner un compte différent."
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -757,7 +762,7 @@ msgstr "Logiciels d'Anna"
 
 #: allthethings/templates/layouts/index.html:202
 msgid "layout.index.footer.list3.header"
-msgstr ""
+msgstr "Miroirs"
 
 #~ msgid "page.donate.pix.page"
 #~ msgstr ""
