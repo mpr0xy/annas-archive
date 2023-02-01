@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 00:31+0000\n"
 "PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Turkish <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/tr/>\n"
 "Language: tr\n"
@@ -387,7 +387,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "URL"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -542,7 +542,7 @@ msgstr "Şuradan ücretsiz e-kitap/dosya %(extension)s'u indirin:"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.option"
-msgstr ""
+msgstr "Opsiyon #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
@@ -741,7 +741,7 @@ msgstr "Anna'nın Yazılımı"
 
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
-msgstr ""
+msgstr "Alternatifler"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Ayna #%(num)d: %(link)s %(extra)s"
