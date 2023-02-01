@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 00:31+0000\n"
 "PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Arabic <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/ar/>\n"
 "Language: ar\n"
@@ -356,7 +356,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:97
 msgid "page.donate.cc.steps.list3"
-msgstr ""
+msgstr "3. الصق العنوان المحفظتنا و اتبع الحطوات"
 
 #: allthethings/page/templates/page/donate.html:106
 msgid "page.donate.crypto.header"
@@ -378,6 +378,8 @@ msgstr "Alipay 支付宝"
 #: allthethings/page/templates/page/donate.html:156
 msgid "page.donate.alipay.intro"
 msgstr ""
+"الرجاء استخدام هذا الحساب ال\"Alipay\" لإرسال تبرعك. اذا لم يعمل قم بتحمل "
+"الصفحة مرة آخرى منذ قد يطتيك حساب آخر."
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
@@ -397,6 +399,8 @@ msgstr "Pix"
 #: allthethings/page/templates/page/donate.html:198
 msgid "page.donate.pix.text"
 msgstr ""
+"الرجاء استخدام %(link_open_tag)s ال\"Pix\" هذا صفحة</a> لإرسال تبرعك. اذا لم "
+"يعمل قم بتحمل الصفحة مرة آخرى منذ قد يطتيك حساب آخر."
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -405,6 +409,10 @@ msgstr "الأسئلة الشائعة"
 #: allthethings/page/templates/page/donate.html:216
 msgid "page.donate.faq.text_other_payment1"
 msgstr ""
+"<div class=\"font-bold\"> هل لديك أساليب آخر للدفع؟ </div> حاليا لا. الكثير "
+"من الناس لا يريدون أرشيفات مثل هذا أن تكون موجود لذلك يجيب نكون حذرين. إذا "
+"استطعت ساعدنا اقامة أساليب آخر للدفع (أكثر ملائمة) بأمان الرجاء اتواصل علي "
+"%(email)s."
 
 #: allthethings/page/templates/page/donate.html:220
 msgid "page.donate.faq.text_other_payment2"
@@ -467,15 +475,15 @@ msgstr ""
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
-msgstr ""
+msgstr "الملفات مطابقه في قاعدة البيانات الخاصة بنا:"
 
 #: allthethings/page/templates/page/isbn.html:52
 msgid "page.isbn.results.none"
-msgstr ""
+msgstr "لم يتم العثور على الملفات مطابقه في قاعدة البيانات الخاصة بنا."
 
 #: allthethings/page/templates/page/md5.html:12
 msgid "page.md5.breadcrumbs"
-msgstr ""
+msgstr "مجموعات البيانات ▶ الملفات ▶ MD5 %(md5_input)s"
 
 #: allthethings/page/templates/page/md5.html:15
 msgid "page.md5.invalid.header"
@@ -499,7 +507,7 @@ msgstr "تنزيل كتاب إلكتروني مجاني / ملف %(extension)s �
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.option"
-msgstr ""
+msgstr "خيار #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
@@ -534,7 +542,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
-msgstr ""
+msgstr "بحث ▶‎‏ حطأ البحث ل <span class=\"italic\">%(search_input)s</span>"
 
 #: allthethings/page/templates/page/search.html:15
 msgid "page.search.breadcrumbs.new"
@@ -594,15 +602,15 @@ msgstr ""
 
 #: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial_more"
-msgstr ""
+msgstr "مطابقات جزئي %(num)d+"
 
 #: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial"
-msgstr ""
+msgstr "مطابقات جزئي %(num)d"
 
 #: allthethings/page/templates/page/search.html:85
 msgid "page.search.results.issues"
-msgstr ""
+msgstr "❌ هذا الملف قد يكون فيه مشاكل."
 
 #: allthethings/templates/layouts/index.html:4
 msgid "layout.index.title"
@@ -677,7 +685,7 @@ msgstr "ريديت"
 
 #: allthethings/templates/layouts/index.html:205
 msgid "layout.index.footer.list2.subreddit"
-msgstr ""
+msgstr "Subreddit"
 
 #: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.blog"
@@ -689,7 +697,7 @@ msgstr "برمجيات آنا"
 
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
-msgstr ""
+msgstr "البدائل"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "%(extra)s %(link)s :المرآة رقم %(num)d"
