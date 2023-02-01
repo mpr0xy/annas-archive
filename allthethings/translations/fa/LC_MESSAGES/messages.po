@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 09:05+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0000\n"
+"PO-Revision-Date: 2023-02-01 04:04+0000\n"
 "Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Persian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/fa/>\n"
@@ -558,7 +558,7 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:161
 msgid "layout.index.header.nav.home"
-msgstr "خانه"
+msgstr "صفحه اصلی"
 
 #: allthethings/templates/layouts/index.html:162
 msgid "layout.index.header.nav.about"
@@ -578,7 +578,7 @@ msgstr ""
 
 #: allthethings/templates/layouts/index.html:177
 msgid "layout.index.footer.list1.home"
-msgstr "خانه"
+msgstr "صفحه اصلی"
 
 #: allthethings/templates/layouts/index.html:178
 msgid "layout.index.footer.list1.about"
