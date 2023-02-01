@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 00:31+0000\n"
 "PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Last-Translator: tshurdsfed <furtinaspi@gufum.com>\n"
 "Language-Team: Ukrainian <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/uk/>\n"
 "Language: uk\n"
@@ -385,7 +385,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "URL"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -740,7 +740,7 @@ msgstr "Anna's Software"
 
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
-msgstr ""
+msgstr "Альтернативи"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Дзеркало №%(num)d: %(link)s %(extra)s"
