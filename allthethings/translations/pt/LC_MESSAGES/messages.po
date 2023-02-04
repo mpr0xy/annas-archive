@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-03 00:31+0000\n"
-"PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"PO-Revision-Date: 2023-02-05 22:05+0000\n"
+"Last-Translator: Rond <rondnelly@autistici.org>\n"
 "Language-Team: Portuguese <https://translate.annas-software.org/projects/"
 "annas-archive/main-website/pt/>\n"
 "Language: pt\n"
@@ -544,18 +544,20 @@ msgstr "Baixe o ebook/arquivo %(extension)s grátis de:"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.option"
-msgstr ""
+msgstr "Opção #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
 msgstr ""
+"Temos várias opções para download para o caso de alguma delas não funcionar. "
+"Elas todas têm exatamente o mesmo arquivo."
 
 #: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"Todos os espelhos atendem ao mesmo arquivo e devem ser seguros de usar. "
-"Dito isso, seja sempre cauteloso ao baixar arquivos da internet. Por "
-"exemplo, certifique-se de manter seus dispositivos atualizados."
+"Todas as opções de download têm o mesmo arquivo e são seguras. Dito isso, "
+"seja sempre cauteloso ao baixar arquivos da internet. Por exemplo, "
+"certifique-se de manter seus dispositivos atualizados."
 
 #: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
@@ -598,6 +600,9 @@ msgstr "Pesquisar ▶ Nova pesquisa"
 #: allthethings/page/templates/page/search.html:18
 msgid "page.search.header.update_info"
 msgstr ""
+"O índice de busca é atualizado mensalmente. Atualmente, ele possui arquivos "
+"até %(last_data_refresh_date)s. Para informações mais técnicas, veja a "
+"página do %(link_open_tag)sdatasets</a>."
 
 #: allthethings/page/templates/page/search.html:23
 msgid "page.search.filters.language.header"
@@ -752,7 +757,7 @@ msgstr "Código Fonte"
 
 #: allthethings/templates/layouts/index.html:213
 msgid "layout.index.footer.list3.header"
-msgstr "Espelhos"
+msgstr "Alternativas"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Espelho #%(num)d: %(link)s %(extra)s"
