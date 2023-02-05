@@ -99,22 +99,24 @@
               };
 
               {
+                // If our referrer was (likely) a different domain of our website (with the same lang code),
+                // then behave as if that lang code was set as a cookie all along.
+                if (document.referrer.includes("://" + subDomainLangCode + ".")) {
+                  setLangCookie(subDomainLangCode);
+                }
+              }
+
+              {
                 const cookieLangMatch = document.cookie.match(/selected_lang=([^$ ;}]+)/);
                 // If there's no cookie yet, let's try to set one.
                 if (!cookieLangMatch) {
-                  if (document.referrer.includes("://" + subDomainLangCode + ".")) {
-                    // If our referrer was (likely) a different domain of our website (with the same lang code),
-                    // then behave as if that lang code was set as a cookie all along.
-                    setLangCookie(subDomainLangCode);
-                  } else {
-                    // Otherwise, see if the user's browser language is one that we support directly.
-                    for (const langCode of navigator.languages) {
-                      // Take the first language that we support.
-                      if (langCodes.includes(langCode)) {
-                        setLangCookie(langCode);
-                        // Bail out so we don't redirect to a suboptimal language.
-                        break;
-                      }
+                  // See if the user's browser language is one that we support directly.
+                  for (const langCode of navigator.languages) {
+                    // Take the first language that we support.
+                    if (langCodes.includes(langCode)) {
+                      setLangCookie(langCode);
+                      // Bail out so we don't redirect to a suboptimal language.
+                      break;
                     }
                   }
                 }
