@@ -1,4 +1,3 @@
-alembic==1.8.1
 amqp==5.1.1
 anyio==3.6.2
 async-timeout==4.0.2
@@ -44,13 +43,12 @@ kombu==5.2.4
 langcodes==3.3.0
 langdetect==1.0.9
 language-data==1.1
-Mako==1.2.4
 marisa-trie==0.7.8
 MarkupSafe==2.1.2
 mccabe==0.7.0
-mypy-extensions==0.4.3
+mypy-extensions==1.0.0
 mysqlclient==2.1.1
-numpy==1.24.1
+numpy==1.24.2
 orjson==3.8.1
 packaging==23.0
 pathspec==0.11.0
@@ -75,7 +73,6 @@ rfc3986==1.5.0
 six==1.16.0
 sniffio==1.3.0
 SQLAlchemy==1.4.41
-SQLAlchemy-Utils==0.38.3
 text-unidecode==1.3
 tomli==2.0.1
 tqdm==4.64.1
