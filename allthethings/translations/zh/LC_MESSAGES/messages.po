@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 22:11+0000\n"
-"PO-Revision-Date: 2023-02-05 22:11+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
-"projects/annas-archive/main-website/zh_Hans/>\n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "在 图书分类 “.rs-fork” 的非虚构文学板块中不可见"
@@ -490,8 +474,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
-msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 "
-"也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
+msgstr "所有镜像都提供相同的文件，使用起来应该是安全的。 也就是说，下载文件时始终要小心。 例如，确保您的设备保持更新。"
 
 #: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
@@ -678,3 +661,4 @@ msgstr "镜子"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "镜像 #%(num)d: %(link)s %(extra)s"
+

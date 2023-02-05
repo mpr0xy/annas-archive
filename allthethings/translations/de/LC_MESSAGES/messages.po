@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-05 22:11+0000\n"
-"PO-Revision-Date: 2023-02-05 22:11+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: German <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/de/>\n"
-"Language: de\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Nicht sichtbar in Library Genesis \".rs-fork\" Non-Fiction"
@@ -125,20 +109,20 @@ msgstr "Über uns"
 #: allthethings/page/templates/page/about.html:9
 msgid "page.about.text1"
 msgstr ""
-"Annas Archiv ist eine gemeinnützige Open-Source-Suchmaschine für „<a href="
-"\"https://en.wikipedia.org/wiki/Shadow_library\">Schattenbibliotheken</a>“. "
-"Es wurde von <a href=\"http://annas-blog.org\">Anna</a> erstellt, der Person "
-"hinter dem <a href=\"http://pilimi.org\">Pirate Library Mirror</a >, welches "
-"ein Backup der Z-Library-Schattenbibliothek ist. Sie war der Meinung, dass "
-"ein zentraler Ort für die Suche nach Büchern, Journal-Artikel, Comics, "
-"Zeitschriften und anderen Dokumenten benötigt wird."
+"Annas Archiv ist eine gemeinnützige Open-Source-Suchmaschine für „<a "
+"href=\"https://en.wikipedia.org/wiki/Shadow_library\">Schattenbibliotheken</a>“."
+" Es wurde von <a href=\"http://annas-blog.org\">Anna</a> erstellt, der "
+"Person hinter dem <a href=\"http://pilimi.org\">Pirate Library Mirror</a "
+">, welches ein Backup der Z-Library-Schattenbibliothek ist. Sie war der "
+"Meinung, dass ein zentraler Ort für die Suche nach Büchern, Journal-"
+"Artikel, Comics, Zeitschriften und anderen Dokumenten benötigt wird."
 
 #: allthethings/page/templates/page/about.html:13
 msgid "page.about.text2"
 msgstr ""
-"Wir glauben fest an Informationsfreiheit und die Bewahrung von Wissen und "
-"Kultur. Mit dieser Suchmaschine bauen wir auf den Schultern von Riesen auf. "
-"Wir respektieren zutiefst die harte Arbeit der Menschen, welche die "
+"Wir glauben fest an Informationsfreiheit und die Bewahrung von Wissen und"
+" Kultur. Mit dieser Suchmaschine bauen wir auf den Schultern von Riesen "
+"auf. Wir respektieren zutiefst die harte Arbeit der Menschen, welche die "
 "verschiedenen Schattenbibliotheken erstellt haben, und wir hoffen, dass "
 "diese Suchmaschine ihre Reichweite ausweiten wird."
 
@@ -146,8 +130,8 @@ msgstr ""
 msgid "page.about.text3"
 msgstr ""
 "Folge Anna auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</a> "
-"oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. Für "
-"Fragen und Rückmeldungen wende dich bitte via %(email)s an Anna."
+"oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a>. "
+"Für Fragen und Rückmeldungen wende dich bitte via %(email)s an Anna."
 
 #: allthethings/page/templates/page/about.html:21
 msgid "page.about.text4"
@@ -162,19 +146,21 @@ msgstr "Wie kann ich helfen?"
 #: allthethings/page/templates/page/about.html:27
 msgid "page.about.help.text"
 msgstr ""
-"<li>1. Folgt uns auf <a href=\"https://twitter.com/AnnaArchivist\">Twitter</"
-"a> oder <a href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> .</"
-"li><li>2. Verbreitet die Nachricht von Annas Archiv auf Twitter, Reddit, "
-"Tiktok, Instagram, in eurem örtlichen Café, Bibliothek oder wohin ihr auch "
-"geht! Wir glauben nicht an Gatekeeping – wenn wir abgeschaltet werden, "
-"tauchen wir einfach woanders wieder auf, da unser gesamter Code und unsere "
-"Daten vollständig Open Source sind.</li><li>3. Wenn ihr dazu in der Lage "
-"seid, zieht eine <a href=\"/donate\">Spende</a> in Betracht.</li><li>4. "
-"Helft mit, <a href=\"https://translate.annas-software.org/\">unsere Website "
-"in verschiedene Sprachen zu übersetzen</a>.</li><li>5. Wenn ihr ein "
-"Softwareentwickler seid, erwägt, zu unserer <a href=\"https://annas-software."
-"org/\">Open Source Software</a> beizutragen oder unsere <a href=\"http://"
-"pilimi.org \">Torrents und IPFS</a> zu teilen.</li>"
+"<li>1. Folgt uns auf <a "
+"href=\"https://twitter.com/AnnaArchivist\">Twitter</a> oder <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> "
+".</li><li>2. Verbreitet die Nachricht von Annas Archiv auf Twitter, "
+"Reddit, Tiktok, Instagram, in eurem örtlichen Café, Bibliothek oder wohin"
+" ihr auch geht! Wir glauben nicht an Gatekeeping – wenn wir abgeschaltet "
+"werden, tauchen wir einfach woanders wieder auf, da unser gesamter Code "
+"und unsere Daten vollständig Open Source sind.</li><li>3. Wenn ihr dazu "
+"in der Lage seid, zieht eine <a href=\"/donate\">Spende</a> in "
+"Betracht.</li><li>4. Helft mit, <a href=\"https://translate.annas-"
+"software.org/\">unsere Website in verschiedene Sprachen zu "
+"übersetzen</a>.</li><li>5. Wenn ihr ein Softwareentwickler seid, erwägt, "
+"zu unserer <a href=\"https://annas-software.org/\">Open Source "
+"Software</a> beizutragen oder unsere <a href=\"http://pilimi.org "
+"\">Torrents und IPFS</a> zu teilen.</li>"
 
 #: allthethings/page/templates/page/about.html:30
 #: allthethings/page/templates/page/about.html:31
@@ -212,8 +198,8 @@ msgstr "Nicht gefunden"
 #: allthethings/page/templates/page/doi.html:11
 msgid "page.doi.invalid.text"
 msgstr ""
-"\"%(doi_input)s\" sieht nicht wie ein DOI aus. Es sollte mit einer \"10.\" "
-"starten und einen Schrägstrich beinhalten."
+"\"%(doi_input)s\" sieht nicht wie ein DOI aus. Es sollte mit einer "
+"\"10.\" starten und einen Schrägstrich beinhalten."
 
 #: allthethings/page/templates/page/doi.html:15
 msgid "page.doi.box.header"
@@ -225,8 +211,7 @@ msgstr "Kanonische URL: %(link)s"
 
 #: allthethings/page/templates/page/doi.html:22
 msgid "page.doi.box.scihub"
-msgstr ""
-"Diese Datei befindet sich möglicherweise auf %(link_open_tag)sSci-Hub</a>."
+msgstr "Diese Datei befindet sich möglicherweise auf %(link_open_tag)sSci-Hub</a>."
 
 #: allthethings/page/templates/page/doi.html:27
 msgid "page.doi.results.text"
@@ -253,10 +238,10 @@ msgstr "Spenden"
 #: allthethings/page/templates/page/donate.html:9
 msgid "page.donate.text1"
 msgstr ""
-"Anna’s Archive ist ein gemeinnütziges Open-Source-Projekt, das vollständig "
-"von Freiwilligen betrieben wird. Wir nehmen Spenden entgegen, um unsere "
-"Kosten zu decken, die Hosting, Domainnamen, Entwicklung und andere Ausgaben "
-"umfassen."
+"Anna’s Archive ist ein gemeinnütziges Open-Source-Projekt, das "
+"vollständig von Freiwilligen betrieben wird. Wir nehmen Spenden entgegen,"
+" um unsere Kosten zu decken, die Hosting, Domainnamen, Entwicklung und "
+"andere Ausgaben umfassen."
 
 #: allthethings/page/templates/page/donate.html:13
 msgid "page.donate.text2"
@@ -267,8 +252,9 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:17
 msgid "page.donate.text3"
 msgstr ""
-"Kürzliche Spenden: %(donations)s. Danke für eure Großzügigkeit. Wir schätzen "
-"es sehr, dass du uns vertraust - egal welchem Betrag du übrig hast."
+"Kürzliche Spenden: %(donations)s. Danke für eure Großzügigkeit. Wir "
+"schätzen es sehr, dass du uns vertraust - egal welchem Betrag du übrig "
+"hast."
 
 #: allthethings/page/templates/page/donate.html:21
 msgid "page.donate.text4"
@@ -317,9 +303,9 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
-"Beachte, dass der Account Name oder das Bild eigenartig aussehen kann! Kein "
-"Grund zur Sorge! Diese Accounts werden von unseren Spenden Partnern betreut. "
-"Unsere Accounts wurden nicht gehackt."
+"Beachte, dass der Account Name oder das Bild eigenartig aussehen kann! "
+"Kein Grund zur Sorge! Diese Accounts werden von unseren Spenden Partnern "
+"betreut. Unsere Accounts wurden nicht gehackt."
 
 #: allthethings/page/templates/page/donate.html:75
 #: allthethings/page/templates/page/donate.html:101
@@ -345,8 +331,8 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:87
 msgid "page.donate.cc.text2"
 msgstr ""
-"Diese Methode hat einen Mindesttransaktionsbetrag von 30$ und eine Gebühr "
-"von 5$."
+"Diese Methode hat einen Mindesttransaktionsbetrag von 30$ und eine Gebühr"
+" von 5$."
 
 #: allthethings/page/templates/page/donate.html:91
 msgid "page.donate.cc.steps.header"
@@ -372,8 +358,7 @@ msgstr "Crypto"
 
 #: allthethings/page/templates/page/donate.html:109
 msgid "page.donate.crypto.intro"
-msgstr ""
-"Falls du schon Crypto Währungen besitzt, sind hier sind unsere Adressen:"
+msgstr "Falls du schon Crypto Währungen besitzt, sind hier sind unsere Adressen:"
 
 #: allthethings/page/templates/page/donate.html:113
 msgid "page.donate.crypto.btc_bch_note"
@@ -387,8 +372,8 @@ msgstr "Alipay"
 #: allthethings/page/templates/page/donate.html:156
 msgid "page.donate.alipay.intro"
 msgstr ""
-"Bitte verwende diesen Alipay Account, um deine Spende zu senden. Wenn das "
-"nicht funktioniert, versuche, die Seite zu aktualisieren, da du dann "
+"Bitte verwende diesen Alipay Account, um deine Spende zu senden. Wenn das"
+" nicht funktioniert, versuche, die Seite zu aktualisieren, da du dann "
 "vielleicht ein anderes Konto bekommst."
 
 #: allthethings/page/templates/page/donate.html:137
@@ -399,9 +384,9 @@ msgstr "URL"
 #: allthethings/page/templates/page/donate.html:207
 msgid "page.donate.out_of_order"
 msgstr ""
-"Diese Möglichkeit zum Spenden ist im Moment nicht möglich. Bitte versuchen "
-"Sie es später noch einmal. Vielen Dank, dass du spenden möchtest, wir wissen "
-"das wirklich zu schätzen!"
+"Diese Möglichkeit zum Spenden ist im Moment nicht möglich. Bitte "
+"versuchen Sie es später noch einmal. Vielen Dank, dass du spenden "
+"möchtest, wir wissen das wirklich zu schätzen!"
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
@@ -411,8 +396,8 @@ msgstr "Pix"
 msgid "page.donate.pix.text"
 msgstr ""
 "Bitte benutze %(link_open_tag)sdiese Pix-Seite</a>, um deine Spende zu "
-"senden. Wenn das nicht funktioniert, versuche die Seite zu aktualisieren, da "
-"dir dadurch möglicherweise ein anderes Konto angezeigt wird."
+"senden. Wenn das nicht funktioniert, versuche die Seite zu aktualisieren,"
+" da dir dadurch möglicherweise ein anderes Konto angezeigt wird."
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -430,25 +415,25 @@ msgstr ""
 #: allthethings/page/templates/page/donate.html:220
 msgid "page.donate.faq.text_other_payment2"
 msgstr ""
-"Falls deine Zahlungsmethode nicht in der Liste ist, wäre das einfachste <a "
-"href=\"https://www.coinbase.com/\">Coinbase</a> auf deinem Handy zu "
-"installieren und dort Bitcoin (BTC) zu kaufen. Danach kannst du es an unsere "
-"Adressen senden: %(address)s. In den meisten Ländern sollte das nur ein paar "
-"Minuten dauern."
+"Falls deine Zahlungsmethode nicht in der Liste ist, wäre das einfachste "
+"<a href=\"https://www.coinbase.com/\">Coinbase</a> auf deinem Handy zu "
+"installieren und dort Bitcoin (BTC) zu kaufen. Danach kannst du es an "
+"unsere Adressen senden: %(address)s. In den meisten Ländern sollte das "
+"nur ein paar Minuten dauern."
 
 #: allthethings/page/templates/page/donate.html:224
 msgid "page.donate.faq.text_large_donation"
 msgstr ""
-"<div class=\"font-bold\">Kann ich große Spenden spenden?</div> Natürlich, "
-"und wir würden uns sehr darüber freuen! Für Spenden über ein paar Tausend "
-"Dollar, melde dich bitte direkt bei uns unter %(email)s."
+"<div class=\"font-bold\">Kann ich große Spenden spenden?</div> Natürlich,"
+" und wir würden uns sehr darüber freuen! Für Spenden über ein paar "
+"Tausend Dollar, melde dich bitte direkt bei uns unter %(email)s."
 
 #: allthethings/page/templates/page/donate.html:228
 msgid "page.donate.faq.text_other_contribs"
 msgstr ""
 "<div class=\"font-bold\">Kann ich mich anders beteiligen?</div> Ja! Du "
-"findest mehr dazu unter <a href=\"/about\">\"über uns\"</a> unter dem Punkt "
-"\"Wie kann ich helfen?\"."
+"findest mehr dazu unter <a href=\"/about\">\"über uns\"</a> unter dem "
+"Punkt \"Wie kann ich helfen?\"."
 
 #: allthethings/page/templates/page/home.html:5
 msgid "page.home.intro"
@@ -456,10 +441,11 @@ msgstr ""
 "<span class=\"italic font-bold\">Anna’s Archive</span> ist ein Projekt, "
 "welches sich als Ziel setzt alle Bücher in Existenz, mithilfe von "
 "Datenaggregation aus unterschiedlichen Quellen, zu katalogisieren. Wir "
-"verfolgen außerdem den Fortschritt der Menschheit all diese Bücher einfach "
-"und in digitaler Form, durch “<a href=\"https://de.wikipedia.org/wiki/"
-"Schattenbibliothek\"> Schattenbibliotheken</a>” verfügbar zu machen. Erfahre "
-"mehr unter <a href=\"/about\">Über uns.</a>"
+"verfolgen außerdem den Fortschritt der Menschheit all diese Bücher "
+"einfach und in digitaler Form, durch “<a "
+"href=\"https://de.wikipedia.org/wiki/Schattenbibliothek\"> "
+"Schattenbibliotheken</a>” verfügbar zu machen. Erfahre mehr unter <a "
+"href=\"/about\">Über uns.</a>"
 
 #: allthethings/page/templates/page/home.html:8
 msgid "page.home.search.header"
@@ -487,8 +473,9 @@ msgstr "Entdecke Bücher"
 #: allthethings/page/templates/page/home.html:24
 msgid "page.home.explore.intro"
 msgstr ""
-"Hier ist eine Kombination von beliebten Büchern, und Büchern, die eine große "
-"Rolle in der Welt von Schattenbibliotheken und digitaler Erhaltung spielen."
+"Hier ist eine Kombination von beliebten Büchern, und Büchern, die eine "
+"große Rolle in der Welt von Schattenbibliotheken und digitaler Erhaltung "
+"spielen."
 
 #: allthethings/page/templates/page/isbn.html:3
 msgid "page.isbn.title"
@@ -505,13 +492,13 @@ msgstr "Nicht gefunden"
 #: allthethings/page/templates/page/isbn.html:11
 msgid "page.isbn.invalid.text"
 msgstr ""
-"“%(isbn_input)s” ist keine valide ISBN Nummer. ISBNs sind 10 bis 13 Zeichen "
-"lang, ohne die optionalen Querstriche. Alle Zeichen müssen Nummern sein, "
-"außer dem letzten, dieses kann auch ein \"X\" sein. Das letzte Zeichen ist "
-"die \"check Nummer\", diese muss dem Checksummen Wert entsprechen, der durch "
-"die anderen Nummern berechnet wird. Außerdem muss die Nummer in einem "
-"validen Bereich liegen, der von der internationalen ISBN Agentur zugewiesen "
-"wird."
+"“%(isbn_input)s” ist keine valide ISBN Nummer. ISBNs sind 10 bis 13 "
+"Zeichen lang, ohne die optionalen Querstriche. Alle Zeichen müssen "
+"Nummern sein, außer dem letzten, dieses kann auch ein \"X\" sein. Das "
+"letzte Zeichen ist die \"check Nummer\", diese muss dem Checksummen Wert "
+"entsprechen, der durch die anderen Nummern berechnet wird. Außerdem muss "
+"die Nummer in einem validen Bereich liegen, der von der internationalen "
+"ISBN Agentur zugewiesen wird."
 
 #: allthethings/page/templates/page/isbn.html:29
 msgid "page.isbn.results.text"
@@ -537,17 +524,17 @@ msgstr "“%(md5_input)s” wurde nicht in unserer Datenbank gefunden."
 msgid "page.md5.box.issues.text1"
 msgstr ""
 "<span class=\"font-bold\">❌ Diese Datei hat womöglich Probleme und wurde "
-"daher in unserer Quellbibliothek versteckt.</span> Manchmal passiert das, "
-"weil der Inhaber der Rechte darum bittet, manchmal, weil wir eine bessere "
-"Alternative gefunden haben und manchmal wegen eines Problems mit der Datei "
-"selbst. Es kann sein, dass der Download trotzdem ok ist, wir empfehlen aber "
-"nach einer Alternative zu suchen. Mehr Infos:"
+"daher in unserer Quellbibliothek versteckt.</span> Manchmal passiert das,"
+" weil der Inhaber der Rechte darum bittet, manchmal, weil wir eine "
+"bessere Alternative gefunden haben und manchmal wegen eines Problems mit "
+"der Datei selbst. Es kann sein, dass der Download trotzdem ok ist, wir "
+"empfehlen aber nach einer Alternative zu suchen. Mehr Infos:"
 
 #: allthethings/page/templates/page/md5.html:37
 msgid "page.md5.box.issues.text2"
 msgstr ""
-"Falls du die Datei dennoch downloaden möchtest, öffne die Datei bitte nur "
-"mit aktueller und vertrauenswürdiger Software."
+"Falls du die Datei dennoch downloaden möchtest, öffne die Datei bitte nur"
+" mit aktueller und vertrauenswürdiger Software."
 
 #: allthethings/page/templates/page/md5.html:39
 msgid "page.md5.box.download.text"
@@ -588,14 +575,16 @@ msgstr "Neue Suche"
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results_more"
 msgstr ""
-"Suche ▶ %(num)d+ Ergebnisse für <span class=\"italic\">%(search_input)s</"
-"span> (in Schattenbibliothek Metadaten)"
+"Suche ▶ %(num)d+ Ergebnisse für <span "
+"class=\"italic\">%(search_input)s</span> (in Schattenbibliothek "
+"Metadaten)"
 
 #: allthethings/page/templates/page/search.html:10
 msgid "page.search.breadcrumbs.results"
 msgstr ""
-"Suche ▶ %(num)d Ergebnisse für<span class=\"italic\">%(search_input)s</span> "
-"(in Schattenbibliothek Metadaten)"
+"Suche ▶ %(num)d Ergebnisse für<span "
+"class=\"italic\">%(search_input)s</span> (in Schattenbibliothek "
+"Metadaten)"
 
 #: allthethings/page/templates/page/search.html:12
 msgid "page.search.breadcrumbs.error"
@@ -648,16 +637,16 @@ msgstr "Fehler während der Suche."
 #: allthethings/page/templates/page/search.html:59
 msgid "page.search.results.error.text"
 msgstr ""
-"Versuche <a href=\"javascript:location.reload()\">die Seite neu zu laden</"
-"a>. Falls das Problem weiterhin auftritt, bitte lass es uns auf <a href="
-"\"https://twitter.com/AnnaArchivist\">Twitter</a> oder <a href=\"https://www."
-"reddit.com/user/AnnaArchivist\">Reddit</a> wissen."
+"Versuche <a href=\"javascript:location.reload()\">die Seite neu zu "
+"laden</a>. Falls das Problem weiterhin auftritt, bitte lass es uns auf <a"
+" href=\"https://twitter.com/AnnaArchivist\">Twitter</a> oder <a "
+"href=\"https://www.reddit.com/user/AnnaArchivist\">Reddit</a> wissen."
 
 #: allthethings/page/templates/page/search.html:62
 msgid "page.search.results.none"
 msgstr ""
-"<span class=\"font-bold\">Keine Dateien gefunden.</span> Versuche weniger "
-"oder andere Suchbegriffe und Filter."
+"<span class=\"font-bold\">Keine Dateien gefunden.</span> Versuche weniger"
+" oder andere Suchbegriffe und Filter."
 
 #: allthethings/page/templates/page/search.html:68
 msgid "page.search.results.partial_more"
@@ -679,9 +668,9 @@ msgstr "Anna’s Archiv"
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
 "Wir haben eine neue Spendenmethode zur Verfügung: %(method_name)s. Bitte "
-"erwägen zu %(donate_link_open_tag)sspenden</a> - der Betrieb dieser Website "
-"ist nicht billig, und deine Spende macht wirklich einen Unterschied. Vielen "
-"Dank dafür."
+"erwägen zu %(donate_link_open_tag)sspenden</a> - der Betrieb dieser "
+"Website ist nicht billig, und deine Spende macht wirklich einen "
+"Unterschied. Vielen Dank dafür."
 
 #: allthethings/templates/layouts/index.html:54
 msgid "layout.index.header.title"
@@ -692,13 +681,12 @@ msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Suchmaschine für Schattenbibliotheken: Bücher, wissenschaftliche "
 "Arbeiten, Comics, Magazine.⭐️ Z-Library, Library Genesis, Sci-Hub. ⚙️ "
-"Stabil und robust durch Open Source Code und Daten. ❤️ Spread the word: Hier "
-"ist jede*r willkommen!"
+"Stabil und robust durch Open Source Code und Daten. ❤️ Spread the word: "
+"Hier ist jede*r willkommen!"
 
 #: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
-msgstr ""
-"5%% des schriftlichen Erbes der Menschheit für immer bewahrt %(info_icon)s"
+msgstr "5%% des schriftlichen Erbes der Menschheit für immer bewahrt %(info_icon)s"
 
 #: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.home"
@@ -766,3 +754,4 @@ msgstr "Alternativen"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Mirror #%(num)d: %(link)s %(extra)s"
+
