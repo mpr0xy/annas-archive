@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-03 00:31+0000\n"
+"PO-Revision-Date: 2023-02-03 00:31+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Catalan <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/ca/>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "No visible a la Llibreria Genesis \".rs-fork\" No-Ficció"
@@ -16,7 +32,7 @@ msgstr "Marcat com a trencat a la Llibreria Genesis \".li-fork\""
 
 #: allthethings/page/views.py:1618
 msgid "common.md5_problem_type_mapping.zlib_missing"
-msgstr ""
+msgstr "Falta al Z-Library"
 
 #: allthethings/page/views.py:1624
 msgid "common.md5_content_type_mapping.book_unknown"
@@ -363,7 +379,7 @@ msgstr "Si us plau utilitza aquest compte d'Alipay per enviar la teva donació."
 
 #: allthethings/page/templates/page/donate.html:137
 msgid "page.donate.alipay.url"
-msgstr ""
+msgstr "URL"
 
 #: allthethings/page/templates/page/donate.html:150
 #: allthethings/page/templates/page/donate.html:207
@@ -517,7 +533,7 @@ msgstr "Descarrega el llibre electrònic/fitxer %(extension)s de:"
 
 #: allthethings/page/templates/page/md5.html:44
 msgid "page.md5.box.download.option"
-msgstr ""
+msgstr "Opció #%(num)d: %(link)s %(extra)s"
 
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
@@ -594,11 +610,11 @@ msgstr "El més antic"
 
 #: allthethings/page/templates/page/search.html:44
 msgid "page.search.filters.sorting.largest"
-msgstr ""
+msgstr "El més gran"
 
 #: allthethings/page/templates/page/search.html:45
 msgid "page.search.filters.sorting.smallest"
-msgstr ""
+msgstr "El més petit"
 
 #: allthethings/page/templates/page/search.html:57
 msgid "page.search.results.error.header"
@@ -719,4 +735,3 @@ msgstr ""
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Mirall #%(num)d: %(link)s %(extra)s"
-
