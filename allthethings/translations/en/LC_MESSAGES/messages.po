@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-03 00:31+0000\n"
-"PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: English <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/en/>\n"
-"Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Not visible in Library Genesis \".rs-fork\" Non-Fiction"
@@ -465,7 +449,7 @@ msgstr "Search our catalog of shadow libraries."
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:50
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:180
 msgid "common.search.placeholder"
 msgstr "Search title, author, language, filetype, ISBN, MD5, …"
 
@@ -553,15 +537,15 @@ msgstr "Option #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
 msgstr ""
-"We have multiple download options in case one of them is out of order. They "
-"all have the exact same file."
+"We have multiple download options in case one of them is out of order. "
+"They all have the exact same file."
 
 #: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
-"All download options should be safe to use. That said, always be cautious "
-"when downloading files from the internet. For example, be sure to keep your "
-"devices updated."
+"All download options should be safe to use. That said, always be cautious"
+" when downloading files from the internet. For example, be sure to keep "
+"your devices updated."
 
 #: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
@@ -682,80 +666,81 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "Anna’s Archive"
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 Search engine of shadow libraries: books, papers, comics, magazines. ⭐️"
 " Z-Library, Library Genesis, Sci-Hub. ⚙️ Fully resilient through open "
 "source code and data. ❤️ Spread the word: everyone is welcome here!"
 
-#: allthethings/templates/layouts/index.html:168
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% of humanity’s written heritage preserved forever %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.home"
 msgstr "Home"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.about"
 msgstr "About"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.header.nav.donate"
 msgstr "Donate"
 
-#: allthethings/templates/layouts/index.html:175
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.header.nav.search"
 msgstr "Search"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.header"
 msgstr "Anna’s Archive"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.home"
 msgstr "Home"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.about"
 msgstr "About"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:192
 msgid "layout.index.footer.list1.donate"
 msgstr "Donate"
 
-#: allthethings/templates/layouts/index.html:191
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list1.datasets"
 msgstr "Datasets"
 
-#: allthethings/templates/layouts/index.html:204
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.header"
 msgstr "Stay in touch"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:206
+#: allthethings/templates/layouts/index.html:208
 msgid "layout.index.footer.list2.blog"
 msgstr "Anna’s Blog"
 
-#: allthethings/templates/layouts/index.html:207
+#: allthethings/templates/layouts/index.html:209
 msgid "layout.index.footer.list2.software"
 msgstr "Anna’s Software"
 
-#: allthethings/templates/layouts/index.html:213
+#: allthethings/templates/layouts/index.html:215
 msgid "layout.index.footer.list3.header"
 msgstr "Alternatives"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Mirror #%(num)d: %(link)s %(extra)s"
+

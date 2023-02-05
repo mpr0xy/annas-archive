@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-03 00:31+0000\n"
-"PO-Revision-Date: 2023-02-03 00:31+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Chinese (Simplified) <https://translate.annas-software.org/"
-"projects/annas-archive/main-website/zh_Hans/>\n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "在 图书分类 “.rs-fork” 的非虚构文学板块中不可见"
@@ -410,7 +394,7 @@ msgstr "搜索我们的影子图书馆目录。"
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:50
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:180
 msgid "common.search.placeholder"
 msgstr "搜索标题、作者、语言、文件类型、ISBN、MD5、……"
 
@@ -601,79 +585,80 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "安娜的档案"
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍影子图书馆搜索引擎：书籍、论文、漫画、杂志。 ⭐️ Z-Library、Library Genesis、Sci-Hub。 ⚙️ "
 "通过开源代码和数据完全容灾。 ❤️ 广而告之：这里欢迎每一个人！"
 
-#: allthethings/templates/layouts/index.html:168
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
 msgstr "5%% 的人类书面遗产得到永久保存 %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.home"
 msgstr "主页"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.about"
 msgstr "关于"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.header.nav.donate"
 msgstr "捐赠"
 
-#: allthethings/templates/layouts/index.html:175
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.header.nav.search"
 msgstr "搜索"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.header"
 msgstr "安娜的档案"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.home"
 msgstr "首页"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.about"
 msgstr "关于"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:192
 msgid "layout.index.footer.list1.donate"
 msgstr "捐赠"
 
-#: allthethings/templates/layouts/index.html:191
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list1.datasets"
 msgstr "数据集"
 
-#: allthethings/templates/layouts/index.html:204
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.header"
 msgstr "保持联系"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.twitter"
 msgstr "推特"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Reddit 板块"
 
-#: allthethings/templates/layouts/index.html:206
+#: allthethings/templates/layouts/index.html:208
 msgid "layout.index.footer.list2.blog"
 msgstr "安娜的博客"
 
-#: allthethings/templates/layouts/index.html:207
+#: allthethings/templates/layouts/index.html:209
 msgid "layout.index.footer.list2.software"
 msgstr "安娜的软件"
 
-#: allthethings/templates/layouts/index.html:213
+#: allthethings/templates/layouts/index.html:215
 msgid "layout.index.footer.list3.header"
 msgstr "镜子"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "镜像 #%(num)d: %(link)s %(extra)s"
+

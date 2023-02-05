@@ -363,7 +363,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:50
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:180
 msgid "common.search.placeholder"
 msgstr ""
 
@@ -540,75 +540,75 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.tagline"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:168
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.home"
 msgstr "صفحه اصلی"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.about"
 msgstr "درباره ما"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.header.nav.donate"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:175
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.header.nav.search"
 msgstr "جستجو"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.home"
 msgstr "صفحه اصلی"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.about"
 msgstr "درباره ما"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:192
 msgid "layout.index.footer.list1.donate"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:191
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list1.datasets"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:204
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:206
+#: allthethings/templates/layouts/index.html:208
 msgid "layout.index.footer.list2.blog"
 msgstr "وبلاگ آنا"
 
-#: allthethings/templates/layouts/index.html:207
+#: allthethings/templates/layouts/index.html:209
 msgid "layout.index.footer.list2.software"
 msgstr "نرم افزار آنا"
 
-#: allthethings/templates/layouts/index.html:213
+#: allthethings/templates/layouts/index.html:215
 msgid "layout.index.footer.list3.header"
 msgstr "آینه ها"
 

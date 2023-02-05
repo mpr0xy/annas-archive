@@ -363,7 +363,7 @@ msgstr ""
 
 #: allthethings/page/templates/page/home.html:16
 #: allthethings/page/templates/page/search.html:50
-#: allthethings/templates/layouts/index.html:178
+#: allthethings/templates/layouts/index.html:180
 msgid "common.search.placeholder"
 msgstr "অনুসন্ধান শিরোনাম, লেখক, ভাষা, ফাইলের ধরন, ISBN, MD5, …"
 
@@ -543,7 +543,7 @@ msgstr ""
 msgid "layout.index.header.title"
 msgstr "আনার আর্কাইভ"
 
-#: allthethings/templates/layouts/index.html:154
+#: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 ছায়া লাইব্রেরির সার্চ ইঞ্জিন: বই, পেপার, কমিকস, ম্যাগাজিন। ⭐️ "
@@ -551,71 +551,71 @@ msgstr ""
 "মাধ্যমে সম্পূর্ণ স্থিতিস্থাপক। ❤️ শব্দটি ছড়িয়ে দিন: এখানে সবাইকে "
 "স্বাগতম!"
 
-#: allthethings/templates/layouts/index.html:168
+#: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
 msgstr "মানবতার লিখিত ঐতিহ্যের 5%% চিরকালের জন্য সংরক্ষিত %(info_icon)s"
 
-#: allthethings/templates/layouts/index.html:172
+#: allthethings/templates/layouts/index.html:174
 msgid "layout.index.header.nav.home"
 msgstr "বাড়ি"
 
-#: allthethings/templates/layouts/index.html:173
+#: allthethings/templates/layouts/index.html:175
 msgid "layout.index.header.nav.about"
 msgstr "সম্পর্কিত"
 
-#: allthethings/templates/layouts/index.html:174
+#: allthethings/templates/layouts/index.html:176
 msgid "layout.index.header.nav.donate"
 msgstr "দান করুন"
 
-#: allthethings/templates/layouts/index.html:175
+#: allthethings/templates/layouts/index.html:177
 msgid "layout.index.header.nav.search"
 msgstr "অনুসন্ধান করুন"
 
-#: allthethings/templates/layouts/index.html:187
+#: allthethings/templates/layouts/index.html:189
 msgid "layout.index.footer.list1.header"
 msgstr "আনার আর্কাইভ"
 
-#: allthethings/templates/layouts/index.html:188
+#: allthethings/templates/layouts/index.html:190
 msgid "layout.index.footer.list1.home"
 msgstr "বাড়ি"
 
-#: allthethings/templates/layouts/index.html:189
+#: allthethings/templates/layouts/index.html:191
 msgid "layout.index.footer.list1.about"
 msgstr "সম্পর্কিত"
 
-#: allthethings/templates/layouts/index.html:190
+#: allthethings/templates/layouts/index.html:192
 msgid "layout.index.footer.list1.donate"
 msgstr "দান করুন"
 
-#: allthethings/templates/layouts/index.html:191
+#: allthethings/templates/layouts/index.html:193
 msgid "layout.index.footer.list1.datasets"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:204
+#: allthethings/templates/layouts/index.html:206
 msgid "layout.index.footer.list2.header"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.twitter"
 msgstr "Twitter"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.reddit"
 msgstr "Reddit"
 
-#: allthethings/templates/layouts/index.html:205
+#: allthethings/templates/layouts/index.html:207
 msgid "layout.index.footer.list2.subreddit"
 msgstr "Subreddit"
 
-#: allthethings/templates/layouts/index.html:206
+#: allthethings/templates/layouts/index.html:208
 msgid "layout.index.footer.list2.blog"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:207
+#: allthethings/templates/layouts/index.html:209
 msgid "layout.index.footer.list2.software"
 msgstr ""
 
-#: allthethings/templates/layouts/index.html:213
+#: allthethings/templates/layouts/index.html:215
 msgid "layout.index.footer.list3.header"
 msgstr ""
 
