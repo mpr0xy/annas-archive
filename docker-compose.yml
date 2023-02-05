@@ -53,7 +53,7 @@ services:
       MARIADB_RANDOM_ROOT_PASSWORD: "1"
       MARIADB_DATABASE: "${MARIADB_DATABASE}"
       MARIADB_INITDB_SKIP_TZINFO: "1" # https://github.com/MariaDB/mariadb-docker/issues/262#issuecomment-672375238
-    image: "mariadb:10.9.3-jammy"
+    image: "mariadb:10.10.2"
     profiles: ["mariadb"]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
@@ -64,6 +64,14 @@ services:
       - "./mariadb-conf:/etc/mysql/conf.d"
     ports:
       - "${MARIADB_PORT_FORWARD:-127.0.0.1:3306}:3306"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
 
   mariapersist:
     container_name: mariapersist
@@ -78,7 +86,7 @@ services:
       MARIADB_RANDOM_ROOT_PASSWORD: "1"
       MARIADB_DATABASE: "${MARIAPERSIST_DATABASE}"
       MARIADB_INITDB_SKIP_TZINFO: "1" # https://github.com/MariaDB/mariadb-docker/issues/262#issuecomment-672375238
-    image: "mariadb:10.9.3-jammy"
+    image: "mariadb:10.10.2"
     profiles: ["mariapersist"]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
@@ -89,6 +97,14 @@ services:
       - "./mariapersist-conf:/etc/mysql/conf.d"
     ports:
       - "${MARIAPERSIST_PORT_FORWARD:-127.0.0.1:3333}:3306"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
 
   redis:
     container_name: redis
