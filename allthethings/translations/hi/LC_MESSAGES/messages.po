@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-06 04:35+0000\n"
-"PO-Revision-Date: 2023-02-06 04:36+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Hindi <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/hi/>\n"
-"Language: hi\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "लाइब्रेरी जेनेसिस \".rs-fork\" नॉन-फिक्शन में दिखाई नहीं देता।"
@@ -307,17 +291,18 @@ msgstr "Paypal"
 #: allthethings/page/templates/page/donate.html:67
 msgid "page.donate.paypal.text"
 msgstr ""
-"%(link_open_tag)sthis page</a> पर जाएं और निर्देशों का पालन करें, QR कोड स्कै"
-"न करके या “paypal.me” लिंक पर क्लिक करके। यदि यह काम नहीं करता है, तो पृष्ठ "
-"को ताज़ा करने का प्रयास करें, क्योंकि इससे आपको एक अलग खाता मिल सकता है।"
+"%(link_open_tag)sthis page</a> पर जाएं और निर्देशों का पालन करें, QR कोड "
+"स्कैन करके या “paypal.me” लिंक पर क्लिक करके। यदि यह काम नहीं करता है, तो"
+" पृष्ठ को ताज़ा करने का प्रयास करें, क्योंकि इससे आपको एक अलग खाता मिल "
+"सकता है।"
 
 #: allthethings/page/templates/page/donate.html:71
 #: allthethings/page/templates/page/donate.html:132
 msgid "page.donate.strange_account"
 msgstr ""
-"ध्यान दें कि खाते का नाम या चित्र अजीब लग सकता है। चिंता की कोई बात नहीं है! "
-"ये खाते हमारे दान भागीदारों द्वारा प्रबंधित किए जाते हैं। हमारे खातों का "
-"उल्लंघन नहीं हुआ है।"
+"ध्यान दें कि खाते का नाम या चित्र अजीब लग सकता है। चिंता की कोई बात नहीं "
+"है! ये खाते हमारे दान भागीदारों द्वारा प्रबंधित किए जाते हैं। हमारे खातों"
+" का उल्लंघन नहीं हुआ है।"
 
 #: allthethings/page/templates/page/donate.html:75
 #: allthethings/page/templates/page/donate.html:101
@@ -391,8 +376,8 @@ msgstr "URL"
 #: allthethings/page/templates/page/donate.html:207
 msgid "page.donate.out_of_order"
 msgstr ""
-"यह दान विकल्प वर्तमान में काम नहीं कर रहा है। कृपया पुनः प्रयास करें। दान "
-"करने की इच्छा के लिए धन्यवाद, हम वास्तव में इसकी सराहना करते हैं!"
+"यह दान विकल्प वर्तमान में काम नहीं कर रहा है। कृपया पुनः प्रयास करें। दान"
+" करने की इच्छा के लिए धन्यवाद, हम वास्तव में इसकी सराहना करते हैं!"
 
 #: allthethings/page/templates/page/donate.html:195
 msgid "page.donate.pix.header"
@@ -402,8 +387,8 @@ msgstr "Pix"
 msgid "page.donate.pix.text"
 msgstr ""
 "अपना दान भेजने के लिए कृपया %(link_open_tag)s this Pix page</a> का उपयोग "
-"करें। यदि यह काम नहीं करता है, तो पृष्ठ को रिलोड करने का प्रयास करें, क्योंकि"
-" इससे आपको एक अलग खाता मिल सकता है।"
+"करें। यदि यह काम नहीं करता है, तो पृष्ठ को रिलोड करने का प्रयास करें, "
+"क्योंकि इससे आपको एक अलग खाता मिल सकता है।"
 
 #: allthethings/page/templates/page/donate.html:213
 msgid "page.donate.faq.header"
@@ -548,22 +533,23 @@ msgstr "Option #%(num)d: %(link)s %(extra)s"
 #: allthethings/page/templates/page/md5.html:48
 msgid "page.md5.box.download.no_issues_download_options_explanation"
 msgstr ""
-"उनमें से एक के खराब होने की स्थिति में हमारे पास कई डाउनलोड विकल्प हैं। उन "
-"सभी के पास एक ही फाइल है।"
+"उनमें से एक के खराब होने की स्थिति में हमारे पास कई डाउनलोड विकल्प हैं। "
+"उन सभी के पास एक ही फाइल है।"
 
 #: allthethings/page/templates/page/md5.html:50
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "सभी डाउनलोड विकल्प एक ही फ़ाइल का उपयोग करते हैं, और उपयोग करने के लिए "
-"सुरक्षित होने चाहिए। उस ने कहा, इंटरनेट से फ़ाइलें डाउनलोड करते समय हमेशा "
-"सतर्क रहें। उदाहरण के लिए, अपने उपकरणों को अपडेट रखना सुनिश्चित करें।"
+"सुरक्षित होने चाहिए। उस ने कहा, इंटरनेट से फ़ाइलें डाउनलोड करते समय हमेशा"
+" सतर्क रहें। उदाहरण के लिए, अपने उपकरणों को अपडेट रखना सुनिश्चित करें।"
 
 #: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
 msgstr ""
-"ध्यान दें कि अन्ना का संग्रह यहां किसी भी सामग्री को होस्ट नहीं करता है। हम "
-"केवल अन्य लोगों की वेबसाइटों से लिंक करते हैं। यदि आपको लगता है कि आपके पास "
-"वैध DMCA शिकायत है, तो कृपया %(about_link)sabout पृष्ठ</a> देखें।"
+"ध्यान दें कि अन्ना का संग्रह यहां किसी भी सामग्री को होस्ट नहीं करता है। "
+"हम केवल अन्य लोगों की वेबसाइटों से लिंक करते हैं। यदि आपको लगता है कि "
+"आपके पास वैध DMCA शिकायत है, तो कृपया %(about_link)sabout पृष्ठ</a> "
+"देखें।"
 
 #: allthethings/page/templates/page/search.html:4
 msgid "page.search.title.results"
@@ -597,8 +583,8 @@ msgstr "खोजें ▶ नई खोज"
 msgid "page.search.header.update_info"
 msgstr ""
 "खोज अनुक्रमणिका मासिक रूप से अद्यतन की जाती है। इसमें वर्तमान में "
-"%(last_data_refresh_date)s तक प्रविष्टियां शामिल हैं। अधिक तकनीकी जानकारी के "
-"लिए, %(link_open_tag)sडेटासेट पेज</a> देखें।"
+"%(last_data_refresh_date)s तक प्रविष्टियां शामिल हैं। अधिक तकनीकी जानकारी"
+" के लिए, %(link_open_tag)sडेटासेट पेज</a> देखें।"
 
 #: allthethings/page/templates/page/search.html:23
 msgid "page.search.filters.language.header"
@@ -671,8 +657,9 @@ msgstr "अन्ना का पुरालेख"
 msgid "layout.index.header.banner.new_donation_method"
 msgstr ""
 "हमारे पास एक नई दान पद्धति उपलब्ध है: %(method_name)s. कृपया "
-"%(donate_link_open_tag)sदान करने पर विचार करें</a> — यह वेबसाइट चलाना सस्ता "
-"नहीं है, और आपके दान से वास्तव में फर्क पड़ता है। आपका बहुत-बहुत धन्यवाद।"
+"%(donate_link_open_tag)sदान करने पर विचार करें</a> — यह वेबसाइट चलाना "
+"सस्ता नहीं है, और आपके दान से वास्तव में फर्क पड़ता है। आपका बहुत-बहुत "
+"धन्यवाद।"
 
 #: allthethings/templates/layouts/index.html:54
 msgid "layout.index.header.title"
@@ -755,3 +742,4 @@ msgstr "वैकल्पिक"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "मिरर # %(num)d: %(link)s %(extra)s"
+

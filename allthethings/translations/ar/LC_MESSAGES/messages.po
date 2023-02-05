@@ -1,20 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-06 04:35+0000\n"
-"PO-Revision-Date: 2023-02-06 04:36+0000\n"
-"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
-"Language-Team: Arabic <https://translate.annas-software.org/projects/"
-"annas-archive/main-website/ar/>\n"
-"Language: ar\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.15\n"
-
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "غير مرئي في مكتبة Library Genesis \".rs-fork\" Non-Fiction"
@@ -628,8 +611,8 @@ msgstr "أرشيف آنا"
 msgid "layout.index.header.tagline"
 msgstr ""
 "🔍 محرك بحث في مكتبات الظل: كتب، أوراق، كاريكاتير، مجلات. ⭐️ Z-Library، "
-"Library Genesis، Sci-Hub. ⚙️ مرنة بالكامل من خلال التعليمات البرمجية مفتوحة "
-"المصدر والبيانات. ❤️ انشر الكلمة: نرحب بالجميع هنا!"
+"Library Genesis، Sci-Hub. ⚙️ مرنة بالكامل من خلال التعليمات البرمجية "
+"مفتوحة المصدر والبيانات. ❤️ انشر الكلمة: نرحب بالجميع هنا!"
 
 #: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
@@ -701,3 +684,4 @@ msgstr "البدائل"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "%(extra)s %(link)s :المرآة رقم %(num)d"
+
