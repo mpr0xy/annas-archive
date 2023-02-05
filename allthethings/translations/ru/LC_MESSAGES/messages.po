@@ -1,3 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-05 22:11+0000\n"
+"PO-Revision-Date: 2023-02-05 22:11+0000\n"
+"Last-Translator: AnnaArchivist <AnnasArchive@proton.me>\n"
+"Language-Team: Russian <https://translate.annas-software.org/projects/"
+"annas-archive/main-website/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15\n"
+
 #: allthethings/page/views.py:1614
 msgid "common.md5_problem_type_mapping.lgrsnf_visible"
 msgstr "Не видимый в Library Genesis \".rs-fork\" не-Вымысел"
@@ -84,8 +101,8 @@ msgstr ""
 #: allthethings/page/views.py:1688
 msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr ""
-"(вам может потребоваться несколько попыток для загрузки, используя "
-"протокол IPFS)"
+"(вам может потребоваться несколько попыток для загрузки, используя протокол "
+"IPFS)"
 
 #: allthethings/page/views.py:1692 allthethings/page/views.py:1693
 #: allthethings/page/views.py:1694 allthethings/page/views.py:1695
@@ -442,8 +459,8 @@ msgstr ""
 msgid "page.md5.box.download.no_issues_notice"
 msgstr ""
 "Все зеркала обслуживают один и тот же файл и должны быть безопасными в "
-"использовании. Тем не менее, всегда будьте осторожны при загрузке файлов "
-"из Интернета. Например, обязательно обновляйте свои устройства."
+"использовании. Тем не менее, всегда будьте осторожны при загрузке файлов из "
+"Интернета. Например, обязательно обновляйте свои устройства."
 
 #: allthethings/page/templates/page/md5.html:53
 msgid "page.md5.box.download.no_hosting"
@@ -548,10 +565,10 @@ msgstr "Архив Анны"
 #: allthethings/templates/layouts/index.html:156
 msgid "layout.index.header.tagline"
 msgstr ""
-"🔍 Поисковик теневых библиотек: книги, газеты, комиксы, журналы. ⭐️ "
-"Z-библиотека, библиотека Genesis, Sci-Hub. ⚙️ Полностью отказоустойчив "
-"благодаря открытому исходному коду и данным. ❤️ Распространяйте "
-"информацию: здесь рады всем!"
+"🔍 Поисковик теневых библиотек: книги, газеты, комиксы, журналы. ⭐️ Z-"
+"библиотека, библиотека Genesis, Sci-Hub. ⚙️ Полностью отказоустойчив "
+"благодаря открытому исходному коду и данным. ❤️ Распространяйте информацию: "
+"здесь рады всем!"
 
 #: allthethings/templates/layouts/index.html:170
 msgid "layout.index.header.progress_bar.text"
@@ -623,4 +640,3 @@ msgstr "Альтернативы"
 
 #~ msgid "page.md5.box.download.mirror"
 #~ msgstr "Зеркало №%(num)d: %(link)s %(extra)s"
-
