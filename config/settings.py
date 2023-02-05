@@ -19,11 +19,11 @@ SQLALCHEMY_POOL_SIZE = 100
 SQLALCHEMY_MAX_OVERFLOW = -1
 SQLALCHEMY_ENGINE_OPTIONS = { 'isolation_level': 'AUTOCOMMIT' }
 
-mariapersist_user = os.getenv("MARIADB_USER", "allthethings")
-mariapersist_password = os.getenv("MARIADB_PASSWORD", "password")
-mariapersist_host = os.getenv("MARIADB_HOST", "mariapersist")
-mariapersist_port = os.getenv("MARIADB_PORT", "3333")
-mariapersist_db = os.getenv("MARIADB_DATABASE", mariapersist_user)
+mariapersist_user = os.getenv("MARIAPERSIST_USER", "allthethings")
+mariapersist_password = os.getenv("MARIAPERSIST_PASSWORD", "password")
+mariapersist_host = os.getenv("MARIAPERSIST_HOST", "mariapersist")
+mariapersist_port = os.getenv("MARIAPERSIST_PORT", "3333")
+mariapersist_db = os.getenv("MARIAPERSIST_DATABASE", mariapersist_user)
 mariapersist_url = f"mysql+pymysql://{mariapersist_user}:{mariapersist_password}@{mariapersist_host}:{mariapersist_port}/{mariapersist_db}"
 
 SQLALCHEMY_BINDS = {

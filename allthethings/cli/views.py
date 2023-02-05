@@ -355,7 +355,6 @@ def mariapersist_reset_internal():
     # Per https://stackoverflow.com/a/4060259
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-    print(settings.SQLALCHEMY_BINDS['mariapersist'])
     engine = create_engine(settings.SQLALCHEMY_BINDS['mariapersist'], connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})
     cursor = engine.raw_connection().cursor()
 

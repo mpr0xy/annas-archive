@@ -19,6 +19,7 @@ def index():
 
 @up.get("/databases")
 def databases():
-    redis.ping()
-    db.engine.execute("SELECT 1")
+    # redis.ping()
+    db.engine.execute("SELECT 1 FROM zlib_book LIMIT 1")
+    db.engines['mariapersist'].execute("SELECT 1 FROM mariapersist_downloads_total_by_md5 LIMIT 1")
     return ""

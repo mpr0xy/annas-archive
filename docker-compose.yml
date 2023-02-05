@@ -96,7 +96,7 @@ services:
       - "../allthethings-mariapersist-data:/var/lib/mysql/"
       - "./mariapersist-conf:/etc/mysql/conf.d"
     ports:
-      - "${MARIAPERSIST_PORT_FORWARD:-127.0.0.1:3333}:3306"
+      - "${MARIAPERSIST_PORT_FORWARD:-127.0.0.1:3333}:3333"
     ulimits:
       memlock:
         soft: -1
